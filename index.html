@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AniPix — HD Anime Wallpapers</title>
+<meta name="description" content="Premium HD anime wallpapers. 2000+ wallpapers across anime, gaming, gods, space and more. Free download.">
+<meta property="og:title" content="AniPix — HD Anime Wallpapers">
+<meta property="og:description" content="2000+ premium HD wallpapers. Free download.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+--bg:#0a0a0f;--bg2:#12121a;--card:#1a1a26;--border:#2a2a3a;
+--text:#eaeaf0;--muted:#8a8a9a;--accent:#8b5cf6;--accent2:#6d28d9;
+--radius:14px;--shadow:0 8px 32px rgba(0,0,0,.5);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans',sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* Header */
+.header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-size:24px;font-weight:800;background:linear-gradient(135deg,#8b5cf6,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.5px;flex-shrink:0}
+.search-wrap{flex:1;min-width:200px;max-width:500px;position:relative}
+.search{width:100%;padding:11px 16px 11px 42px;background:var(--bg2);border:1px solid var(--border);border-radius:24px;color:var(--text);font-size:14px;outline:none;transition:border-color .2s}
+.search:focus{border-color:var(--accent)}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--muted)}
+.app-btn{padding:10px 20px;background:linear-gradient(135deg,#8b5cf6,#7c3aed);border-radius:24px;font-size:13px;font-weight:600;color:#fff;white-space:nowrap;transition:transform .2s,box-shadow .2s;flex-shrink:0}
+.app-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(139,92,246,.4)}
+
+/* Category pills */
+.cats{display:flex;gap:8px;padding:14px 16px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.cats::-webkit-scrollbar{display:none}
+.cat{padding:8px 18px;background:var(--bg2);border:1px solid var(--border);border-radius:20px;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all .2s;user-select:none}
+.cat:hover{color:var(--text);border-color:var(--accent)}
+.cat.active{background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#fff;border-color:transparent;box-shadow:0 4px 16px rgba(139,92,246,.35)}
+
+/* Stats bar */
+.stats{text-align:center;padding:8px 16px;font-size:13px;color:var(--muted)}
+.stats b{color:var(--accent);font-weight:600}
+
+/* Masonry grid - Pinterest style */
+.grid{column-count:2;column-gap:10px;padding:8px 12px 80px;max-width:1400px;margin:0 auto}
+@media(min-width:600px){.grid{column-count:3}}
+@media(min-width:900px){.grid{column-count:4}}
+@media(min-width:1200px){.grid{column-count:5}}
+.pin{break-inside:avoid;margin-bottom:10px;border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;background:var(--card);transition:transform .2s ease,box-shadow .2s ease}
+.pin:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.pin img{width:100%;display:block;background:var(--bg2);min-height:80px}
+.pin-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 40%);opacity:0;transition:opacity .2s;display:flex;align-items:flex-end;padding:12px}
+.pin:hover .pin-overlay{opacity:1}
+.pin-badge{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.65);color:#fff;font-size:9px;font-weight:700;padding:3px 8px;border-radius:6px;letter-spacing:.5px;text-transform:uppercase}
+.pin-badge.live{background:linear-gradient(135deg,#ec4899,#f43f5e)}
+.pin-dl{margin-left:auto;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;transition:background .2s}
+.pin-dl:hover{background:var(--accent)}
+
+/* Skeleton loading */
+.skeleton{break-inside:avoid;margin-bottom:10px;border-radius:var(--radius);background:linear-gradient(110deg,var(--bg2) 8%,var(--card) 18%,var(--bg2) 33%);background-size:200% 100%;animation:shimmer 1.5s linear infinite;height:200px}
+@keyframes shimmer{to{background-position-x:-200%}}
+
+/* Load more */
+.load-more{display:flex;justify-content:center;padding:20px}
+.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Modal / Viewer */
+.modal{position:fixed;inset:0;z-index:200;background:rgba(5,5,10,.92);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:16px;overflow-y:auto}
+.modal.show{display:flex}
+.modal-content{background:var(--bg2);border-radius:20px;max-width:520px;width:100%;max-height:92vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);animation:modalIn .25s ease}
+@keyframes modalIn{from{opacity:0;transform:scale(.92) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-img-wrap{position:relative;background:#000;border-radius:20px 20px 0 0;overflow:hidden}
+.modal-img-wrap img{width:100%;max-height:60vh;object-fit:contain;display:block}
+.modal-close{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);border:none;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5}
+.modal-info{padding:16px 20px 20px}
+.modal-title{font-size:16px;font-weight:600;margin-bottom:4px}
+.modal-tags{font-size:11px;color:var(--muted);margin-bottom:16px;line-height:1.6}
+.modal-actions{display:flex;gap:10px}
+.btn{flex:1;padding:12px;border-radius:12px;border:none;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px}
+.btn-primary{background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#fff}
+.btn-primary:hover{box-shadow:0 6px 20px rgba(139,92,246,.4)}
+.btn-ghost{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.btn-ghost:hover{border-color:var(--accent)}
+
+/* Hero section */
+.hero{text-align:center;padding:40px 20px 20px;background:radial-gradient(ellipse at 50% -20%,rgba(139,92,246,.15),transparent 60%)}
+.hero h1{font-size:clamp(28px,6vw,48px);font-weight:800;background:linear-gradient(135deg,#eaeaf0,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-1px}
+.hero p{color:var(--muted);font-size:14px;margin-top:8px;max-width:500px;margin-left:auto;margin-right:auto}
+
+/* Footer */
+.footer{border-top:1px solid var(--border);padding:24px 20px 32px;text-align:center;color:var(--muted);font-size:12px}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:12px;flex-wrap:wrap}
+.footer-links a{color:var(--muted);transition:color .2s}
+.footer-links a:hover{color:var(--accent)}
+
+/* Toast */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--card);border:1px solid var(--border);color:var(--text);padding:12px 24px;border-radius:12px;font-size:13px;z-index:300;transition:transform .3s ease;box-shadow:var(--shadow)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* Empty state */
+.empty{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty-icon{font-size:48px;margin-bottom:12px}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+<div class="logo">AniPix</div>
+<div class="search-wrap">
+<svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+<input class="search" id="searchInput" type="text" placeholder="Search wallpapers... (e.g. sukuna, gojo, krishna)">
+</div>
+<a class="app-btn" href="https://anipix.itch.io/anipix" target="_blank">📱 Download App</a>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+<h1>Premium HD Wallpapers</h1>
+<p>2000+ high-quality anime wallpapers. Free to download. New wallpapers added daily.</p>
+</div>
+
+<!-- Categories -->
+<div class="cats" id="cats"></div>
+
+<!-- Stats -->
+<div class="stats" id="stats"></div>
+
+<!-- Masonry Grid -->
+<div class="grid" id="grid"></div>
+
+<!-- Load more -->
+<div class="load-more" id="loadMore" style="display:none"><div class="spinner"></div></div>
+
+<!-- Empty state -->
+<div class="empty" id="emptyState" style="display:none">
+<div class="empty-icon">🔍</div>
+<div>No wallpapers found. Try a different search.</div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<div class="modal-img-wrap">
+<button class="modal-close" onclick="closeModal()">✕</button>
+<img id="modalImg" src="" alt="Wallpaper">
+</div>
+<div class="modal-info">
+<div class="modal-title" id="modalTitle">HD Wallpaper</div>
+<div class="modal-tags" id="modalTags"></div>
+<div class="modal-actions">
+<button class="btn btn-primary" id="dlBtn" onclick="downloadWall()">⬇ Download HD</button>
+<button class="btn btn-ghost" id="shareBtn" onclick="shareWall()">↗ Share</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">Wallpaper downloaded!</div>
+
+<!-- Footer -->
+<div class="footer">
+<div class="footer-links">
+<a href="https://anipix.itch.io/anipix" target="_blank">📱 Get the App</a>
+<a href="https://www.instagram.com/lovelyanime_2025" target="_blank">📸 Instagram</a>
+<a href="https://Telegram.me/Lovelyanime_admin" target="_blank">💬 Telegram</a>
+</div>
+<div>Made with ❤️ by AniPix • Wallpapers update automatically</div>
+</div>
+
+<script>
+// ==================== CONFIG ====================
+var WALLS_URL='https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/wallpapers.json';
+var PAGE_SIZE=30;
+var CACHE_KEY='anipix_web_cache';
+var CACHE_TIME=3600000; // 1 hour
+
+// ==================== STATE ====================
+var allWalls=[];
+var currentWalls=[];
+var filteredWalls=[];
+var currentCat='all';
+var currentSearch='';
+var page=0;
+var isLoading=false;
+var currentModalWall=null;
+
+var CATS=[
+{id:'all',label:'All'},
+{id:'anime',label:'Anime'},
+{id:'anime2',label:'Anime 2.0'},
+{id:'ai3d',label:'AI 3D'},
+{id:'game',label:'Game'},
+{id:'god',label:'God'},
+{id:'nature',label:'Nature'},
+{id:'space',label:'Space'},
+{id:'live',label:'Live'}
+];
+
+// ==================== INIT ====================
+document.addEventListener('DOMContentLoaded',function(){
+renderCats();
+fetchWallpapers();
+initInfiniteScroll();
+});
+
+function renderCats(){
+var el=document.getElementById('cats');
+CATS.forEach(function(c){
+var pill=document.createElement('div');
+pill.className='cat'+(c.id==='all'?' active':'');
+pill.textContent=c.label;
+pill.onclick=function(){
+currentCat=c.id;page=0;
+document.querySelectorAll('.cat').forEach(function(p){p.classList.remove('active')});
+pill.classList.add('active');
+applyFilters();
+};
+el.appendChild(pill);
+});
+}
+
+function fetchWallpapers(){
+// Check cache
+try{
+var cached=localStorage.getItem(CACHE_KEY);
+if(cached){
+var data=JSON.parse(cached);
+if(data&&data.time&&(Date.now()-data.time)<CACHE_TIME){
+processData(data.walls);
+return;
+}
+}
+}catch(e){}
+
+// Show skeletons
+showSkeletons();
+
+fetch(WALLS_URL)
+.then(function(r){return r.json()})
+.then(function(data){
+var walls=data.categories||data.walls;
+try{localStorage.setItem(CACHE_KEY,JSON.stringify({walls:walls,time:Date.now()}))}catch(e){}
+processData(walls);
+})
+.catch(function(e){
+console.log('Fetch error:',e);
+// Try cache even if old
+try{
+var cached=localStorage.getItem(CACHE_KEY);
+if(cached){
+var data=JSON.parse(cached);
+if(data&&data.walls)processData(data.walls);
+}
+}catch(e2){}
+});
+}
+
+function processData(walls){
+allWalls=[];
+Object.keys(walls).forEach(function(cat){
+walls[cat].forEach(function(w){
+allWalls.push({
+id:w.id,
+cat:cat,
+thumb:w.thumb,
+full:w.full||w.thumb,
+alt:w.alt||'',
+tags:(w.tags||'').split(',').map(function(t){return t.trim()}).filter(Boolean),
+isLive:w.isLive||false,
+video:w.video||false
+});
+});
+});
+// Update stats
+var total=allWalls.length;
+document.getElementById('stats').innerHTML='<b>'+total+'</b> wallpapers • <b>'+CATS.length-1+'</b> categories • Updated daily';
+applyFilters();
+}
+
+function applyFilters(){
+filteredWalls=[];
+var searchLower=currentSearch.toLowerCase();
+
+allWalls.forEach(function(w){
+// Category filter
+if(currentCat!=='all'&&w.cat!==currentCat)return;
+// Search filter
+if(searchLower){
+var match=false;
+var searchText=(w.id+' '+w.tags.join(' ')+' '+w.cat).toLowerCase();
+if(searchText.indexOf(searchLower)>-1)match=true;
+// Also check tag map for partial matches
+if(!match&&w.tags.length>0){
+w.tags.forEach(function(t){
+if(t.toLowerCase().indexOf(searchLower)>-1)match=true;
+});
+}
+if(!match)return;
+}
+filteredWalls.push(w);
+});
+
+// Shuffle for variety
+filteredWalls.sort(function(){return Math.random()-0.5});
+
+page=0;
+document.getElementById('grid').innerHTML='';
+renderPage();
+}
+
+function renderPage(){
+if(page===0&&filteredWalls.length===0){
+document.getElementById('emptyState').style.display='block';
+document.getElementById('stats').innerHTML='No results for "'+currentSearch+'"';
+return;
+}
+document.getElementById('emptyState').style.display='none';
+
+var grid=document.getElementById('grid');
+var start=page*PAGE_SIZE;
+var end=Math.min(start+PAGE_SIZE,filteredWalls.length);
+var walls=filteredWalls.slice(start,end);
+
+walls.forEach(function(w,i){
+var pin=document.createElement('div');
+pin.className='pin';
+
+var isVideo=w.isLive&&(w.video||w.thumb.endsWith('.mp4'));
+
+var img=document.createElement('img');
+img.referrerPolicy='no-referrer';
+img.loading='lazy';
+img.alt='HD Wallpaper';
+img.style.minHeight=(120+Math.random()*100)+'px';
+
+if(isVideo){
+// For live wallpapers, show a placeholder with play icon
+img.src=w.thumb.replace('.mp4','_thumb.jpg');
+img.onerror=function(){
+// If no thumbnail, show a colored div
+this.style.display='none';
+pin.style.background='linear-gradient(135deg,#8b5cf6,#ec4899)';
+pin.style.minHeight='200px';
+pin.style.display='flex';
+pin.style.alignItems='center';
+pin.style.justifyContent='center';
+var playIcon=document.createElement('div');
+playIcon.style.fontSize='40px';
+playIcon.textContent='▶';
+pin.appendChild(playIcon);
+};
+}else{
+img.src=w.thumb;
+img.onerror=function(){this.style.opacity='0.3';this.src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="16"><rect width="10" height="16" fill="%231a1a26"/></svg>'};
+}
+
+pin.appendChild(img);
+
+// Badge
+var badge=document.createElement('div');
+badge.className='pin-badge'+(w.isLive?' live':'');
+badge.textContent=w.isLive?'LIVE':'HD';
+pin.appendChild(badge);
+
+// Hover overlay with download
+var overlay=document.createElement('div');
+overlay.className='pin-overlay';
+var dl=document.createElement('div');
+dl.className='pin-dl';
+dl.textContent='⬇';
+dl.onclick=function(e){
+e.stopPropagation();
+downloadDirect(w);
+};
+overlay.appendChild(dl);
+pin.appendChild(overlay);
+
+// Click to open modal
+pin.onclick=function(){openModal(w)};
+
+grid.appendChild(pin);
+});
+
+// Update stats
+if(page===0){
+var catLabel=currentCat==='all'?'All':CATS.find(function(c){return c.id===currentCat}).label;
+document.getElementById('stats').innerHTML='Showing <b>'+filteredWalls.length+'</b> wallpapers'+(currentSearch?' for "'+currentSearch+'"':'');
+}
+
+// Show/hide load more
+document.getElementById('loadMore').style.display=end<filteredWalls.length?'flex':'none';
+page++;
+}
+
+function showSkeletons(){
+var grid=document.getElementById('grid');
+grid.innerHTML='';
+for(var i=0;i<12;i++){
+var s=document.createElement('div');
+s.className='skeleton';
+s.style.height=(160+Math.random()*120)+'px';
+grid.appendChild(s);
+}
+}
+
+// ==================== INFINITE SCROLL ====================
+function initInfiniteScroll(){
+window.addEventListener('scroll',function(){
+if(isLoading)return;
+var sp=window.innerHeight+window.scrollY;
+var bh=document.body.offsetHeight;
+if(sp>=bh-600){
+var start=page*PAGE_SIZE;
+if(start<filteredWalls.length){
+isLoading=true;
+document.getElementById('loadMore').style.display='flex';
+setTimeout(function(){
+renderPage();
+isLoading=false;
+},300);
+}
+}
+},{passive:true});
+}
+
+// ==================== SEARCH ====================
+document.getElementById('searchInput').addEventListener('input',function(e){
+var v=e.target.value.trim();
+if(v.length>=2){
+currentSearch=v;
+applyFilters();
+}else if(v.length===0&&currentSearch!==''){
+currentSearch='';
+applyFilters();
+}
+});
+
+// ==================== MODAL ====================
+function openModal(w){
+currentModalWall=w;
+var modal=document.getElementById('modal');
+var img=document.getElementById('modalImg');
+var isVideo=w.isLive&&(w.video||(w.full&&w.full.endsWith('.mp4')));
+
+if(isVideo){
+img.src=w.full.replace('.mp4','_thumb.jpg');
+img.onerror=function(){
+this.style.display='none';
+};
+}else{
+img.style.display='';
+img.referrerPolicy='no-referrer';
+img.src=w.full;
+img.onerror=function(){
+if(w.thumb&&this.src!==w.thumb)this.src=w.thumb;
+};
+}
+
+document.getElementById('modalTitle').textContent=w.isLive?'Live Wallpaper — HD':'HD Wallpaper — 1080×1920';
+document.getElementById('modalTags').textContent=w.tags.length>0?'Tags: '+w.tags.join(', '):'Category: '+w.cat;
+modal.classList.add('show');
+document.body.style.overflow='hidden';
+}
+
+function closeModal(){
+document.getElementById('modal').classList.remove('show');
+document.getElementById('modalImg').src='';
+document.body.style.overflow='';
+currentModalWall=null;
+}
+
+document.getElementById('modal').addEventListener('click',function(e){
+if(e.target===this)closeModal();
+});
+
+document.addEventListener('keydown',function(e){
+if(e.key==='Escape')closeModal();
+});
+
+// ==================== DOWNLOAD ====================
+function downloadDirect(w){
+if(!w)return;
+var url=w.full;
+var a=document.createElement('a');
+a.href=url;
+a.download=w.id+'.jpg';
+a.target='_blank';
+a.rel='noopener';
+document.body.appendChild(a);
+a.click();
+a.remove();
+showToast('Opening wallpaper...');
+}
+
+function downloadWall(){
+if(!currentModalWall)return;
+var w=currentModalWall;
+var url=w.full;
+var a=document.createElement('a');
+a.href=url;
+a.download=w.id+'.jpg';
+a.target='_blank';
+a.rel='noopener';
+document.body.appendChild(a);
+a.click();
+a.remove();
+showToast('Wallpaper downloading...');
+}
+
+function shareWall(){
+if(!currentModalWall)return;
+var url=currentModalWall.full;
+if(navigator.share){
+navigator.share({title:'AniPix Wallpaper',url:url}).catch(function(){});
+}else{
+navigator.clipboard.writeText(url).then(function(){
+showToast('Link copied!');
+}).catch(function(){
+showToast('Copy: '+url.substring(0,50)+'...');
+});
+}
+}
+
+function showToast(msg){
+var toast=document.getElementById('toast');
+toast.textContent=msg;
+toast.classList.add('show');
+setTimeout(function(){toast.classList.remove('show')},2000);
+}
+</script>
+</body>
+</html>
