@@ -480,33 +480,42 @@ if(e.key==='Escape')closeModal();
 });
 
 // ==================== DOWNLOAD ====================
-function downloadDirect(w){
+function doDownload(w){
 if(!w)return;
 var url=w.full;
+var fname=(w.id||'wallpaper')+(w.isLive?'.mp4':'.jpg');
+showToast('Downloading...');
+// Method 1: fetch as blob (works for CORS-enabled URLs like raw.githubusercontent.com)
+fetch(url,{mode:'cors'})
+.then(function(r){
+if(!r.ok)throw new Error('fetch failed');
+return r.blob();
+})
+.then(function(blob){
+var blobUrl=URL.createObjectURL(blob);
 var a=document.createElement('a');
-a.href=url;
-a.download=w.id+'.jpg';
-a.target='_blank';
-a.rel='noopener';
+a.href=blobUrl;
+a.download=fname;
 document.body.appendChild(a);
 a.click();
 a.remove();
-showToast('Opening wallpaper...');
+setTimeout(function(){URL.revokeObjectURL(blobUrl)},5000);
+showToast('Downloaded! Check your files.');
+})
+.catch(function(e){
+// Method 2: fallback - open in new tab, user can long-press save
+showToast('Long-press image to save');
+window.open(url,'_blank');
+});
+}
+
+function downloadDirect(w){
+doDownload(w);
 }
 
 function downloadWall(){
 if(!currentModalWall)return;
-var w=currentModalWall;
-var url=w.full;
-var a=document.createElement('a');
-a.href=url;
-a.download=w.id+'.jpg';
-a.target='_blank';
-a.rel='noopener';
-document.body.appendChild(a);
-a.click();
-a.remove();
-showToast('Wallpaper downloading...');
+doDownload(currentModalWall);
 }
 
 function shareWall(){
