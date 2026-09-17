@@ -8889,58 +8889,16 @@
     ],
     "game": [
       {
-        "id": "game_ff1",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff1_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff1.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff1.jpg"
-      },
-      {
-        "id": "game_ff2",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff2_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff2.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff2.jpg"
-      },
-      {
-        "id": "game_ff3",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff3_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff3.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff3.jpg"
-      },
-      {
-        "id": "game_ff4",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff4_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff4.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff4.jpg"
-      },
-      {
         "id": "game_ff5",
         "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff5_thumb.jpg",
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff5.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff5.jpg"
       },
       {
-        "id": "game_ff6",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff6_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff6.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff6.jpg"
-      },
-      {
-        "id": "game_ff7",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff7_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff7.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff7.jpg"
-      },
-      {
         "id": "game_ff8",
         "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff8_thumb.jpg",
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff8.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff8.jpg"
-      },
-      {
-        "id": "game_ff9",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff9_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff9.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ff9.jpg"
       },
       {
         "id": "game_ff10",
@@ -8965,12 +8923,6 @@
         "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ww3_thumb.jpg",
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ww3.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ww3.jpg"
-      },
-      {
-        "id": "game_ww4",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ww4_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ww4.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ww4.jpg"
       },
       {
         "id": "game_ww5",
@@ -9027,52 +8979,16 @@
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ww13.jpg"
       },
       {
-        "id": "game_ww14",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ww14_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ww14.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_ww14.jpg"
-      },
-      {
-        "id": "gm001",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm001_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm001.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm001.jpg"
-      },
-      {
         "id": "gm002",
         "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm002_thumb.jpg",
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm002.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm002.jpg"
       },
       {
-        "id": "gm003",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm003_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm003.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm003.jpg"
-      },
-      {
-        "id": "gm004",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm004_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm004.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm004.jpg"
-      },
-      {
         "id": "gm005",
         "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm005_thumb.jpg",
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm005.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm005.jpg"
-      },
-      {
-        "id": "gm006",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm006_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm006.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm006.jpg"
-      },
-      {
-        "id": "gm007",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm007_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm007.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm007.jpg"
       },
       {
         "id": "gm008",
@@ -9093,71 +9009,16 @@
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm010.jpg"
       },
       {
-        "id": "gm011",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm011_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm011.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm011.jpg"
-      },
-      {
         "id": "gm012",
         "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm012_thumb.jpg",
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm012.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm012.jpg"
       },
       {
-        "id": "ffgm001",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/ffgm001_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/ffgm001.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/ffgm001.jpg",
-        "tags": "Free Fire,game"
-      },
-      {
-        "id": "ffgm002",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/ffgm002_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/ffgm002.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/ffgm002.jpg",
-        "tags": "Free Fire,game"
-      },
-      {
-        "id": "ffgm003",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/ffgm003_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/ffgm003.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/ffgm003.jpg",
-        "tags": "Free Fire,game"
-      },
-      {
-        "id": "pubg001",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pubg001_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pubg001.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pubg001.jpg",
-        "tags": "PUBG New State,pubg,game"
-      },
-      {
-        "id": "pubg002",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pubg002_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pubg002.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pubg002.jpg",
-        "tags": "PUBG New State,pubg,game"
-      },
-      {
         "id": "pubg003",
         "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pubg003_thumb.jpg",
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pubg003.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pubg003.jpg",
-        "tags": "PUBG New State,pubg,game"
-      },
-      {
-        "id": "pubg004",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pubg004_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pubg004.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pubg004.jpg",
-        "tags": "PUBG New State,pubg,game"
-      },
-      {
-        "id": "pubg005",
-        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pubg005_thumb.jpg",
-        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pubg005.jpg",
-        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pubg005.jpg",
         "tags": "PUBG New State,pubg,game"
       },
       {
