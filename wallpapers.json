@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-09-17",
+  "last_updated": "2026-09-18",
   "categories": {
     "ai3d": [
       {
@@ -7531,6 +7531,62 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/awx008.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/awx008.jpg",
         "tags": "hololive,vtuber,anime"
+      },
+      {
+        "id": "apx001",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx001_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx001.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx001.jpg",
+        "tags": "dark magician girl,yugioh,anime"
+      },
+      {
+        "id": "apx002",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx002_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx002.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx002.jpg",
+        "tags": "frieren,beyond journey's end,anime"
+      },
+      {
+        "id": "apx003",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx003_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx003.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx003.jpg",
+        "tags": "hatsune miku,vocaloid,anime"
+      },
+      {
+        "id": "apx004",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx004_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx004.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx004.jpg",
+        "tags": "makima,chainsaw man,anime"
+      },
+      {
+        "id": "apx005",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx005_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx005.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx005.jpg",
+        "tags": "marcille,delicious in dungeon,anime"
+      },
+      {
+        "id": "apx006",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx006_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx006.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx006.jpg",
+        "tags": "reze,chainsaw man,anime"
+      },
+      {
+        "id": "apx007",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx007_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx007.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx007.jpg",
+        "tags": "saber,fate,anime"
+      },
+      {
+        "id": "apx008",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx008_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx008.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx008.jpg",
+        "tags": "saber,silver wolf,fate,anime"
       }
     ],
     "anime2": [
@@ -8885,6 +8941,41 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/awy006.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/awy006.jpg",
         "tags": "anime girl,anime"
+      },
+      {
+        "id": "ap2001",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2001_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2001.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2001.jpg",
+        "tags": "anime girl,fox,anime"
+      },
+      {
+        "id": "ap2002",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2002_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2002.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2002.jpg",
+        "tags": "anime girl,pirate,anime"
+      },
+      {
+        "id": "ap2003",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2003_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2003.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2003.jpg",
+        "tags": "anime girl,anime"
+      },
+      {
+        "id": "ap2004",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2004_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2004.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2004.jpg",
+        "tags": "anime girl,anime"
+      },
+      {
+        "id": "ap2005",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2005_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2005.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2005.jpg",
+        "tags": "anime girl,twins,anime"
       }
     ],
     "game": [
@@ -9055,6 +9146,69 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gwx005.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gwx005.jpg",
         "tags": "Wuthering Waves,denia,game"
+      },
+      {
+        "id": "gpx001",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx001_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx001.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx001.jpg",
+        "tags": "Honkai Star Rail,castorice,game"
+      },
+      {
+        "id": "gpx002",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx002_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx002.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx002.jpg",
+        "tags": "Nikke,nayuta,game"
+      },
+      {
+        "id": "gpx003",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx003_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx003.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx003.jpg",
+        "tags": "Honkai Star Rail,herta,game"
+      },
+      {
+        "id": "gpx004",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx004_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx004.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx004.jpg",
+        "tags": "Wuthering Waves,fleurdelys,game"
+      },
+      {
+        "id": "gpx005",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx005_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx005.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx005.jpg",
+        "tags": "Wuthering Waves,denia,game"
+      },
+      {
+        "id": "gpx006",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx006_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx006.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx006.jpg",
+        "tags": "Zenless Zone Zero,lucia,game"
+      },
+      {
+        "id": "gpx007",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx007_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx007.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx007.jpg",
+        "tags": "Zenless Zone Zero,vivian,game"
+      },
+      {
+        "id": "gpx008",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx008_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx008.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx008.jpg",
+        "tags": "Zenless Zone Zero,ramielle,game"
+      },
+      {
+        "id": "gpx009",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx009_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx009.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx009.jpg",
+        "tags": "Genshin Impact,game"
       }
     ],
     "god": [
@@ -12324,7 +12478,9 @@
       "fw016",
       "fw017",
       "awx001",
-      "awx002"
+      "awx002",
+      "apx004",
+      "apx006"
     ],
     "death note": [
       "w89vl6",
@@ -12569,7 +12725,8 @@
       "j3gwmw",
       "jx8pm5",
       "p8em3m",
-      "awx001"
+      "awx001",
+      "apx004"
     ],
     "my hero academia": [
       "w5mjxr",
@@ -15413,7 +15570,20 @@
       "awy004",
       "awy005",
       "awy006",
-      "awy007"
+      "awy007",
+      "apx001",
+      "apx002",
+      "apx003",
+      "apx004",
+      "apx005",
+      "apx006",
+      "apx007",
+      "apx008",
+      "ap2001",
+      "ap2002",
+      "ap2003",
+      "ap2004",
+      "ap2005"
     ],
     "toji": [
       "fw004"
@@ -15450,7 +15620,8 @@
       "fw015",
       "fw016",
       "fw017",
-      "awx002"
+      "awx002",
+      "apx006"
     ],
     "tanjiro": [
       "fw018"
@@ -15480,7 +15651,16 @@
       "gwx002",
       "gwx003",
       "gwx004",
-      "gwx005"
+      "gwx005",
+      "gpx001",
+      "gpx002",
+      "gpx003",
+      "gpx004",
+      "gpx005",
+      "gpx006",
+      "gpx007",
+      "gpx008",
+      "gpx009"
     ],
     "gaming": [
       "gm001"
@@ -18225,7 +18405,12 @@
       "awy004",
       "awy005",
       "awy006",
-      "awy007"
+      "awy007",
+      "ap2001",
+      "ap2002",
+      "ap2003",
+      "ap2004",
+      "ap2005"
     ],
     "hu tao": [
       "wpxbg002"
@@ -18262,25 +18447,35 @@
       "ppn002"
     ],
     "frieren": [
-      "awx003"
+      "awx003",
+      "apx002",
+      "apx002"
     ],
     "delicious in dungeon": [
-      "awx004"
+      "awx004",
+      "apx005"
     ],
     "marcille": [
-      "awx004"
+      "awx004",
+      "apx005"
     ],
     "hatsune miku": [
-      "awx006"
+      "awx006",
+      "apx003"
     ],
     "vocaloid": [
-      "awx006"
+      "awx006",
+      "apx003"
     ],
     "fate": [
-      "awx007"
+      "awx007",
+      "apx007",
+      "apx008"
     ],
     "saber": [
-      "awx007"
+      "awx007",
+      "apx007",
+      "apx008"
     ],
     "hololive": [
       "awx008"
@@ -18298,7 +18493,8 @@
       "awy004"
     ],
     "twins": [
-      "awy005"
+      "awy005",
+      "ap2005"
     ],
     "portrait": [
       "awy007"
@@ -18308,10 +18504,12 @@
       "gwx002"
     ],
     "castorice": [
-      "gwx001"
+      "gwx001",
+      "gpx001"
     ],
     "silver wolf": [
-      "gwx002"
+      "gwx002",
+      "apx008"
     ],
     "skirk": [
       "gwx003"
@@ -18320,7 +18518,8 @@
       "gwx004"
     ],
     "denia": [
-      "gwx005"
+      "gwx005",
+      "gpx005"
     ],
     "ganesha": [
       "hgod351"
@@ -18333,6 +18532,55 @@
     ],
     "bridge": [
       "nat017"
+    ],
+    "dark magician girl": [
+      "apx001"
+    ],
+    "yugioh": [
+      "apx001"
+    ],
+    "fox": [
+      "ap2001"
+    ],
+    "pirate": [
+      "ap2002"
+    ],
+    "Honkai Star Rail": [
+      "gpx001",
+      "gpx003"
+    ],
+    "Nikke": [
+      "gpx002"
+    ],
+    "nayuta": [
+      "gpx002"
+    ],
+    "herta": [
+      "gpx003"
+    ],
+    "Wuthering Waves": [
+      "gpx004",
+      "gpx005"
+    ],
+    "fleurdelys": [
+      "gpx004"
+    ],
+    "Zenless Zone Zero": [
+      "gpx006",
+      "gpx007",
+      "gpx008"
+    ],
+    "lucia": [
+      "gpx006"
+    ],
+    "vivian": [
+      "gpx007"
+    ],
+    "ramielle": [
+      "gpx008"
+    ],
+    "Genshin Impact": [
+      "gpx009"
     ]
   }
 }
