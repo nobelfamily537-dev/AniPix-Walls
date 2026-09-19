@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-09-18",
+  "last_updated": "2026-09-19",
   "categories": {
     "ai3d": [
       {
@@ -7587,6 +7587,114 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx008.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/apx008.jpg",
         "tags": "saber,silver wolf,fate,anime"
+      },
+      {
+        "id": "d19_eren",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_eren_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_eren.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_eren.jpg"
+      },
+      {
+        "id": "d19_gojo",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_gojo_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_gojo.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_gojo.jpg"
+      },
+      {
+        "id": "d19_goku",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_goku_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_goku.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_goku.jpg"
+      },
+      {
+        "id": "d19_ichigo",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_ichigo_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_ichigo.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_ichigo.jpg"
+      },
+      {
+        "id": "d19_itachi",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_itachi_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_itachi.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_itachi.jpg"
+      },
+      {
+        "id": "d19_kakashi",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_kakashi_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_kakashi.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_kakashi.jpg"
+      },
+      {
+        "id": "d19_levi",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_levi_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_levi.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_levi.jpg"
+      },
+      {
+        "id": "d19_madara",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_madara_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_madara.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_madara.jpg"
+      },
+      {
+        "id": "d19_minato",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_minato_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_minato.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_minato.jpg"
+      },
+      {
+        "id": "d19_naruto",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_naruto_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_naruto.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_naruto.jpg"
+      },
+      {
+        "id": "d19_nezuko",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_nezuko_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_nezuko.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_nezuko.jpg"
+      },
+      {
+        "id": "d19_rengoku",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_rengoku_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_rengoku.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_rengoku.jpg"
+      },
+      {
+        "id": "d19_sanji",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_sanji_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_sanji.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_sanji.jpg"
+      },
+      {
+        "id": "d19_sasuke",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_sasuke_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_sasuke.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_sasuke.jpg"
+      },
+      {
+        "id": "d19_tanjiro",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_tanjiro_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_tanjiro.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_tanjiro.jpg"
+      },
+      {
+        "id": "d19_vegeta",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_vegeta_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_vegeta.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_vegeta.jpg"
+      },
+      {
+        "id": "d19_zenitsu",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_zenitsu_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_zenitsu.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_zenitsu.jpg"
+      },
+      {
+        "id": "d19_zoro",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_zoro_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_zoro.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_zoro.jpg"
       }
     ],
     "anime2": [
@@ -8976,6 +9084,30 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2005.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/ap2005.jpg",
         "tags": "anime girl,twins,anime"
+      },
+      {
+        "id": "d19_stairs",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d19_stairs_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d19_stairs.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d19_stairs.jpg"
+      },
+      {
+        "id": "d19_collage",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d19_collage_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d19_collage.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d19_collage.jpg"
+      },
+      {
+        "id": "d19_plush",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d19_plush_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d19_plush.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d19_plush.jpg"
+      },
+      {
+        "id": "d19_seated",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d19_seated_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d19_seated.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d19_seated.jpg"
       }
     ],
     "game": [
@@ -9209,6 +9341,12 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx009.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gpx009.jpg",
         "tags": "Genshin Impact,game"
+      },
+      {
+        "id": "d19_genshin",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d19_genshin_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d19_genshin.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d19_genshin.jpg"
       }
     ],
     "god": [
@@ -11590,6 +11728,12 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/nat017.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/nat017.jpg",
         "tags": "nature,bridge"
+      },
+      {
+        "id": "d19_tree",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d19_tree_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d19_tree.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d19_tree.jpg"
       }
     ],
     "space": [
@@ -12444,7 +12588,9 @@
       "3zyqw6",
       "rdvxzj",
       "8owd8o",
-      "fw012"
+      "fw012",
+      "d19_eren",
+      "d19_levi"
     ],
     "chainsaw man": [
       "5yrw55",
@@ -12554,7 +12700,11 @@
       "fw005",
       "fw008",
       "fw009",
-      "fw018"
+      "fw018",
+      "d19_nezuko",
+      "d19_rengoku",
+      "d19_tanjiro",
+      "d19_zenitsu"
     ],
     "denji": [
       "5yrw55",
@@ -12600,7 +12750,8 @@
       "3zyqw6",
       "rdvxzj",
       "8owd8o",
-      "fw012"
+      "fw012",
+      "d19_eren"
     ],
     "gojo": [
       "k872qm",
@@ -12667,7 +12818,8 @@
       "up_gojo9",
       "up_gojo10",
       "fw003",
-      "fw004"
+      "fw004",
+      "d19_gojo"
     ],
     "l lawliet": [
       "w89vl6",
@@ -12787,7 +12939,8 @@
     "naruto": [
       "up_madara1",
       "up_madara2",
-      "fw002"
+      "fw002",
+      "d19_naruto"
     ],
     "one piece": [
       "w5d89r",
@@ -12798,7 +12951,9 @@
       "2er9e9",
       "gpvq7q",
       "o5w13l",
-      "e79oor"
+      "e79oor",
+      "d19_sanji",
+      "d19_zoro"
     ],
     "oshi no": [
       "p9y3m3",
@@ -13147,7 +13302,8 @@
       "2er9e9",
       "gpvq7q",
       "o5w13l",
-      "e79oor"
+      "e79oor",
+      "d19_zoro"
     ],
     "itachi": [
       "393r16",
@@ -13241,7 +13397,8 @@
       "up_naruto7",
       "up_naruto8",
       "up_naruto9",
-      "up_naruto10"
+      "up_naruto10",
+      "d19_itachi"
     ],
     "akatsuki": [
       "393r16",
@@ -13356,7 +13513,8 @@
     ],
     "madara uchiha": [
       "up_madara1",
-      "up_madara2"
+      "up_madara2",
+      "d19_madara"
     ],
     "fallen angel": [
       "up_angel1"
@@ -13518,7 +13676,8 @@
       "up_gojo7",
       "up_gojo8",
       "up_gojo9",
-      "up_gojo10"
+      "up_gojo10",
+      "d19_gojo"
     ],
     "satoru gojo": [
       "up_gojo1",
@@ -14374,7 +14533,12 @@
       "up_naruto7",
       "up_naruto8",
       "up_naruto9",
-      "up_naruto10"
+      "up_naruto10",
+      "d19_itachi",
+      "d19_kakashi",
+      "d19_madara",
+      "d19_minato",
+      "d19_sasuke"
     ],
     "naruto uzumaki": [
       "anime_naruto1",
@@ -14396,7 +14560,8 @@
       "up_naruto7",
       "up_naruto8",
       "up_naruto9",
-      "up_naruto10"
+      "up_naruto10",
+      "d19_naruto"
     ],
     "sasuke uchiha": [
       "anime_naruto1",
@@ -14418,7 +14583,8 @@
       "up_naruto7",
       "up_naruto8",
       "up_naruto9",
-      "up_naruto10"
+      "up_naruto10",
+      "d19_sasuke"
     ],
     "sasuke": [
       "anime_naruto1",
@@ -14462,7 +14628,8 @@
       "up_naruto7",
       "up_naruto8",
       "up_naruto9",
-      "up_naruto10"
+      "up_naruto10",
+      "d19_kakashi"
     ],
     "hinata hyuga": [
       "anime_naruto1",
@@ -15592,7 +15759,8 @@
       "fw004"
     ],
     "zenitsu": [
-      "fw005"
+      "fw005",
+      "d19_zenitsu"
     ],
     "quotes": [
       "fw006"
@@ -15624,7 +15792,8 @@
       "apx006"
     ],
     "tanjiro": [
-      "fw018"
+      "fw018",
+      "d19_tanjiro"
     ],
     "game": [
       "gm001",
@@ -18361,7 +18530,8 @@
       "gm012",
       "wpxbg002",
       "gwx003",
-      "gwx004"
+      "gwx004",
+      "d19_genshin"
     ],
     "hutao": [
       "wpx001"
@@ -18410,7 +18580,11 @@
       "ap2002",
       "ap2003",
       "ap2004",
-      "ap2005"
+      "ap2005",
+      "d19_stairs",
+      "d19_collage",
+      "d19_plush",
+      "d19_seated"
     ],
     "hu tao": [
       "wpxbg002"
@@ -18581,6 +18755,40 @@
     ],
     "Genshin Impact": [
       "gpx009"
+    ],
+    "goku": [
+      "d19_goku"
+    ],
+    "dragon ball": [
+      "d19_goku",
+      "d19_vegeta"
+    ],
+    "ichigo": [
+      "d19_ichigo"
+    ],
+    "bleach": [
+      "d19_ichigo"
+    ],
+    "levi": [
+      "d19_levi"
+    ],
+    "minato": [
+      "d19_minato"
+    ],
+    "nezuko": [
+      "d19_nezuko"
+    ],
+    "rengoku": [
+      "d19_rengoku"
+    ],
+    "sanji": [
+      "d19_sanji"
+    ],
+    "vegeta": [
+      "d19_vegeta"
+    ],
+    "anime scenery": [
+      "d19_tree"
     ]
   }
 }
