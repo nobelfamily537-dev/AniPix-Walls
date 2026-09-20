@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-09-19",
+  "last_updated": "2026-09-20",
   "categories": {
     "ai3d": [
       {
@@ -7695,6 +7695,90 @@
         "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_zoro_thumb.jpg",
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_zoro.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d19_zoro.jpg"
+      },
+      {
+        "id": "d20_makima",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_makima_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_makima.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_makima.jpg",
+        "tags": "chainsaw man,makima"
+      },
+      {
+        "id": "d20_denji",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_denji_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_denji.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_denji.jpg",
+        "tags": "chainsaw man,denji"
+      },
+      {
+        "id": "d20_kita",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_kita_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_kita.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_kita.jpg",
+        "tags": "bocchi the rock,kita ikuyo,kita"
+      },
+      {
+        "id": "d20_tengoku",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_tengoku_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_tengoku.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_tengoku.jpg",
+        "tags": "tengoku daimakyou,heavenly delusion,maru,kiruko"
+      },
+      {
+        "id": "d20_lain",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_lain_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_lain.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_lain.jpg",
+        "tags": "serial experiments lain,lain"
+      },
+      {
+        "id": "d20_eva",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_eva_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_eva.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_eva.jpg",
+        "tags": "evangelion,neon genesis evangelion"
+      },
+      {
+        "id": "d20_ryo",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_ryo_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_ryo.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_ryo.jpg",
+        "tags": "bocchi the rock,ryo yamada,ryo"
+      },
+      {
+        "id": "d20_madoka",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_madoka_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_madoka.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_madoka.jpg",
+        "tags": "madoka magica,puella magi madoka magica"
+      },
+      {
+        "id": "d20_nobara",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_nobara_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_nobara.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_nobara.jpg",
+        "tags": "jujutsu kaisen,nobara kugisaki,nobara"
+      },
+      {
+        "id": "d20_angel",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_angel_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_angel.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_angel.jpg",
+        "tags": "chainsaw man,angel"
+      },
+      {
+        "id": "d20_wardevil",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_wardevil_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_wardevil.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_wardevil.jpg",
+        "tags": "chainsaw man,war devil,asa mitaka"
+      },
+      {
+        "id": "d20_gojo",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_gojo_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_gojo.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d20_gojo.jpg",
+        "tags": "jujutsu kaisen,gojo satoru,gojo"
       }
     ],
     "anime2": [
@@ -9108,6 +9192,34 @@
         "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d19_seated_thumb.jpg",
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d19_seated.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d19_seated.jpg"
+      },
+      {
+        "id": "d20_yourname",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d20_yourname_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d20_yourname.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d20_yourname.jpg",
+        "tags": "your name,kimi no na wa,anime scenery"
+      },
+      {
+        "id": "d20_kimono",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d20_kimono_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d20_kimono.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d20_kimono.jpg",
+        "tags": "anime girl,kimono"
+      },
+      {
+        "id": "d20_haibara",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d20_haibara_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d20_haibara.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d20_haibara.jpg",
+        "tags": "detective conan,haibara ai"
+      },
+      {
+        "id": "d20_whitehair",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d20_whitehair_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d20_whitehair.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d20_whitehair.jpg",
+        "tags": "anime girl,white hair"
       }
     ],
     "game": [
@@ -9347,6 +9459,34 @@
         "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d19_genshin_thumb.jpg",
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d19_genshin.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d19_genshin.jpg"
+      },
+      {
+        "id": "d20_arlecchino",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d20_arlecchino_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d20_arlecchino.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d20_arlecchino.jpg",
+        "tags": "genshin impact,arlecchino,the knave"
+      },
+      {
+        "id": "d20_firefly",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d20_firefly_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d20_firefly.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d20_firefly.jpg",
+        "tags": "honkai star rail,firefly"
+      },
+      {
+        "id": "d20_p5royal",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d20_p5royal_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d20_p5royal.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d20_p5royal.jpg",
+        "tags": "persona 5,persona 5 royal"
+      },
+      {
+        "id": "d20_touhou",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d20_touhou_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d20_touhou.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d20_touhou.jpg",
+        "tags": "touhou,touhou project"
       }
     ],
     "god": [
@@ -11560,6 +11700,41 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/hgod354.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/hgod354.jpg",
         "tags": "hindu god,god,Durga"
+      },
+      {
+        "id": "d20_shiva_cosmic",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_shiva_cosmic_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_shiva_cosmic.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_shiva_cosmic.jpg",
+        "tags": "hindu god,god,shiva,mahadev"
+      },
+      {
+        "id": "d20_ram_sunset",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_ram_sunset_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_ram_sunset.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_ram_sunset.jpg",
+        "tags": "hindu god,god,rama,shri ram"
+      },
+      {
+        "id": "d20_krishna",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_krishna_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_krishna.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_krishna.jpg",
+        "tags": "hindu god,god,krishna"
+      },
+      {
+        "id": "d20_hanuman",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_hanuman_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_hanuman.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_hanuman.jpg",
+        "tags": "hindu god,god,hanuman"
+      },
+      {
+        "id": "d20_shiva_night",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_shiva_night_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_shiva_night.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_shiva_night.jpg",
+        "tags": "hindu god,god,shiva,mahadev"
       }
     ],
     "live": [
@@ -12626,7 +12801,11 @@
       "awx001",
       "awx002",
       "apx004",
-      "apx006"
+      "apx006",
+      "d20_makima",
+      "d20_denji",
+      "d20_angel",
+      "d20_wardevil"
     ],
     "death note": [
       "w89vl6",
@@ -12732,7 +12911,8 @@
       "83qrl1",
       "j3gwmw",
       "jx8pm5",
-      "p8em3m"
+      "p8em3m",
+      "d20_denji"
     ],
     "eren": [
       "6ld5wl",
@@ -12775,7 +12955,8 @@
       "7p5dw9",
       "725ely",
       "zy3pzw",
-      "2yrgom"
+      "2yrgom",
+      "d20_gojo"
     ],
     "jjk": [
       "up_sukuna1",
@@ -12819,7 +13000,9 @@
       "up_gojo10",
       "fw003",
       "fw004",
-      "d19_gojo"
+      "d19_gojo",
+      "d20_nobara",
+      "d20_gojo"
     ],
     "l lawliet": [
       "w89vl6",
@@ -12878,7 +13061,8 @@
       "jx8pm5",
       "p8em3m",
       "awx001",
-      "apx004"
+      "apx004",
+      "d20_makima"
     ],
     "my hero academia": [
       "w5mjxr",
@@ -13523,7 +13707,8 @@
       "up_angel1"
     ],
     "angel": [
-      "up_angel1"
+      "up_angel1",
+      "d20_angel"
     ],
     "yoriichi": [
       "up_yoriichi1"
@@ -13677,7 +13862,8 @@
       "up_gojo8",
       "up_gojo9",
       "up_gojo10",
-      "d19_gojo"
+      "d19_gojo",
+      "d20_gojo"
     ],
     "satoru gojo": [
       "up_gojo1",
@@ -15859,7 +16045,8 @@
       "hgod347",
       "hgod348",
       "hgod350",
-      "hgod352"
+      "hgod352",
+      "d20_krishna"
     ],
     "god": [
       "god001",
@@ -16219,7 +16406,12 @@
       "hgod351",
       "hgod352",
       "hgod353",
-      "hgod354"
+      "hgod354",
+      "d20_shiva_cosmic",
+      "d20_ram_sunset",
+      "d20_krishna",
+      "d20_hanuman",
+      "d20_shiva_night"
     ],
     "hindu": [
       "god001",
@@ -16596,7 +16788,12 @@
       "hgod351",
       "hgod352",
       "hgod353",
-      "hgod354"
+      "hgod354",
+      "d20_shiva_cosmic",
+      "d20_ram_sunset",
+      "d20_krishna",
+      "d20_hanuman",
+      "d20_shiva_night"
     ],
     "bhakti": [
       "hgod001",
@@ -18531,7 +18728,8 @@
       "wpxbg002",
       "gwx003",
       "gwx004",
-      "d19_genshin"
+      "d19_genshin",
+      "d20_arlecchino"
     ],
     "hutao": [
       "wpx001"
@@ -18584,7 +18782,9 @@
       "d19_stairs",
       "d19_collage",
       "d19_plush",
-      "d19_seated"
+      "d19_seated",
+      "d20_kimono",
+      "d20_whitehair"
     ],
     "hu tao": [
       "wpxbg002"
@@ -18658,7 +18858,8 @@
       "awx008"
     ],
     "kimono": [
-      "awy001"
+      "awy001",
+      "d20_kimono"
     ],
     "geisha": [
       "awy002"
@@ -18675,7 +18876,8 @@
     ],
     "honkai star rail": [
       "gwx001",
-      "gwx002"
+      "gwx002",
+      "d20_firefly"
     ],
     "castorice": [
       "gwx001",
@@ -18699,7 +18901,9 @@
       "hgod351"
     ],
     "shiva": [
-      "hgod353"
+      "hgod353",
+      "d20_shiva_cosmic",
+      "d20_shiva_night"
     ],
     "durga": [
       "hgod354"
@@ -18788,7 +18992,115 @@
       "d19_vegeta"
     ],
     "anime scenery": [
-      "d19_tree"
+      "d19_tree",
+      "d20_yourname"
+    ],
+    "bocchi the rock": [
+      "d20_kita",
+      "d20_ryo"
+    ],
+    "kita ikuyo": [
+      "d20_kita"
+    ],
+    "kita": [
+      "d20_kita"
+    ],
+    "tengoku daimakyou": [
+      "d20_tengoku"
+    ],
+    "heavenly delusion": [
+      "d20_tengoku"
+    ],
+    "maru": [
+      "d20_tengoku"
+    ],
+    "kiruko": [
+      "d20_tengoku"
+    ],
+    "serial experiments lain": [
+      "d20_lain"
+    ],
+    "lain": [
+      "d20_lain"
+    ],
+    "evangelion": [
+      "d20_eva"
+    ],
+    "neon genesis evangelion": [
+      "d20_eva"
+    ],
+    "ryo yamada": [
+      "d20_ryo"
+    ],
+    "ryo": [
+      "d20_ryo"
+    ],
+    "madoka magica": [
+      "d20_madoka"
+    ],
+    "puella magi madoka magica": [
+      "d20_madoka"
+    ],
+    "nobara kugisaki": [
+      "d20_nobara"
+    ],
+    "nobara": [
+      "d20_nobara"
+    ],
+    "war devil": [
+      "d20_wardevil"
+    ],
+    "asa mitaka": [
+      "d20_wardevil"
+    ],
+    "your name": [
+      "d20_yourname"
+    ],
+    "kimi no na wa": [
+      "d20_yourname"
+    ],
+    "detective conan": [
+      "d20_haibara"
+    ],
+    "haibara ai": [
+      "d20_haibara"
+    ],
+    "white hair": [
+      "d20_whitehair"
+    ],
+    "arlecchino": [
+      "d20_arlecchino"
+    ],
+    "the knave": [
+      "d20_arlecchino"
+    ],
+    "firefly": [
+      "d20_firefly"
+    ],
+    "persona 5": [
+      "d20_p5royal"
+    ],
+    "persona 5 royal": [
+      "d20_p5royal"
+    ],
+    "touhou": [
+      "d20_touhou"
+    ],
+    "touhou project": [
+      "d20_touhou"
+    ],
+    "mahadev": [
+      "d20_shiva_cosmic",
+      "d20_shiva_night"
+    ],
+    "rama": [
+      "d20_ram_sunset"
+    ],
+    "shri ram": [
+      "d20_ram_sunset"
+    ],
+    "hanuman": [
+      "d20_hanuman"
     ]
   }
 }
