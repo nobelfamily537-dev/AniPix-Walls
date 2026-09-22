@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-09-21",
+  "last_updated": "2026-09-22",
   "categories": {
     "ai3d": [
       {
@@ -7835,6 +7835,104 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d21_blueoutfitgirl.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d21_blueoutfitgirl.jpg",
         "tags": "anime girl,purple hair"
+      },
+      {
+        "id": "d22_girlanddog",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_girlanddog_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_girlanddog.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_girlanddog.jpg",
+        "tags": "anime girl,dog"
+      },
+      {
+        "id": "d22_bookgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_bookgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_bookgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_bookgirl.jpg",
+        "tags": "anime girl,book"
+      },
+      {
+        "id": "d22_bouquetgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_bouquetgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_bouquetgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_bouquetgirl.jpg",
+        "tags": "anime girl,flowers"
+      },
+      {
+        "id": "d22_scythegirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_scythegirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_scythegirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_scythegirl.jpg",
+        "tags": "anime girl,scythe"
+      },
+      {
+        "id": "d22_umbrellagirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_umbrellagirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_umbrellagirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_umbrellagirl.jpg",
+        "tags": "anime girl,umbrella"
+      },
+      {
+        "id": "d22_dressgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_dressgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_dressgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_dressgirl.jpg",
+        "tags": "anime girl,dress"
+      },
+      {
+        "id": "d22_guitargirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_guitargirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_guitargirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_guitargirl.jpg",
+        "tags": "anime girl,guitar"
+      },
+      {
+        "id": "d22_guitarroomgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_guitarroomgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_guitarroomgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_guitarroomgirl.jpg",
+        "tags": "anime girl,guitar,room"
+      },
+      {
+        "id": "d22_teddygirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_teddygirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_teddygirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_teddygirl.jpg",
+        "tags": "anime girl,teddy bear"
+      },
+      {
+        "id": "d22_boxesgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_boxesgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_boxesgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_boxesgirl.jpg",
+        "tags": "anime girl"
+      },
+      {
+        "id": "d22_doorwaygirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_doorwaygirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_doorwaygirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_doorwaygirl.jpg",
+        "tags": "anime girl,doorway"
+      },
+      {
+        "id": "d22_cargirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_cargirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_cargirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_cargirl.jpg",
+        "tags": "anime girl,car"
+      },
+      {
+        "id": "d22_balloongirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_balloongirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_balloongirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_balloongirl.jpg",
+        "tags": "anime girl,balloons"
+      },
+      {
+        "id": "d22_purpleflowersgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_purpleflowersgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_purpleflowersgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_purpleflowersgirl.jpg",
+        "tags": "anime girl,purple flowers"
       }
     ],
     "anime2": [
@@ -9325,6 +9423,55 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d21_gogglesgirl.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d21_gogglesgirl.jpg",
         "tags": "anime girl,goggles,purple hair"
+      },
+      {
+        "id": "d22_birdbuilding",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_birdbuilding_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_birdbuilding.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_birdbuilding.jpg",
+        "tags": "anime scenery,bird"
+      },
+      {
+        "id": "d22_pondgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_pondgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_pondgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_pondgirl.jpg",
+        "tags": "anime girl,pond"
+      },
+      {
+        "id": "d22_ruinscastle",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_ruinscastle_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_ruinscastle.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_ruinscastle.jpg",
+        "tags": "anime scenery,castle"
+      },
+      {
+        "id": "d22_cartooncity",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_cartooncity_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_cartooncity.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_cartooncity.jpg",
+        "tags": "anime scenery,city"
+      },
+      {
+        "id": "d22_nighttowercity",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_nighttowercity_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_nighttowercity.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_nighttowercity.jpg",
+        "tags": "anime scenery,city,night"
+      },
+      {
+        "id": "d22_cloudsgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_cloudsgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_cloudsgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_cloudsgirl.jpg",
+        "tags": "anime girl,clouds"
+      },
+      {
+        "id": "d22_citygirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_citygirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_citygirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d22_citygirl.jpg",
+        "tags": "anime girl,city"
       }
     ],
     "game": [
@@ -18966,7 +19113,24 @@
       "d19_plush",
       "d19_seated",
       "d20_kimono",
-      "d20_whitehair"
+      "d20_whitehair",
+      "d22_pondgirl",
+      "d22_cloudsgirl",
+      "d22_citygirl",
+      "d22_girlanddog",
+      "d22_bookgirl",
+      "d22_bouquetgirl",
+      "d22_scythegirl",
+      "d22_umbrellagirl",
+      "d22_dressgirl",
+      "d22_guitargirl",
+      "d22_guitarroomgirl",
+      "d22_teddygirl",
+      "d22_boxesgirl",
+      "d22_doorwaygirl",
+      "d22_cargirl",
+      "d22_balloongirl",
+      "d22_purpleflowersgirl"
     ],
     "hu tao": [
       "wpxbg002"
@@ -19047,7 +19211,8 @@
       "awy002"
     ],
     "night": [
-      "awy004"
+      "awy004",
+      "d22_nighttowercity"
     ],
     "twins": [
       "awy005",
@@ -19175,7 +19340,11 @@
     ],
     "anime scenery": [
       "d19_tree",
-      "d20_yourname"
+      "d20_yourname",
+      "d22_birdbuilding",
+      "d22_ruinscastle",
+      "d22_cartooncity",
+      "d22_nighttowercity"
     ],
     "bocchi the rock": [
       "d20_kita",
@@ -19283,6 +19452,63 @@
     ],
     "hanuman": [
       "d20_hanuman"
+    ],
+    "bird": [
+      "d22_birdbuilding"
+    ],
+    "pond": [
+      "d22_pondgirl"
+    ],
+    "castle": [
+      "d22_ruinscastle"
+    ],
+    "city": [
+      "d22_cartooncity",
+      "d22_nighttowercity",
+      "d22_citygirl"
+    ],
+    "clouds": [
+      "d22_cloudsgirl"
+    ],
+    "dog": [
+      "d22_girlanddog"
+    ],
+    "book": [
+      "d22_bookgirl"
+    ],
+    "flowers": [
+      "d22_bouquetgirl"
+    ],
+    "scythe": [
+      "d22_scythegirl"
+    ],
+    "umbrella": [
+      "d22_umbrellagirl"
+    ],
+    "dress": [
+      "d22_dressgirl"
+    ],
+    "guitar": [
+      "d22_guitargirl",
+      "d22_guitarroomgirl"
+    ],
+    "room": [
+      "d22_guitarroomgirl"
+    ],
+    "teddy bear": [
+      "d22_teddygirl"
+    ],
+    "doorway": [
+      "d22_doorwaygirl"
+    ],
+    "car": [
+      "d22_cargirl"
+    ],
+    "balloons": [
+      "d22_balloongirl"
+    ],
+    "purple flowers": [
+      "d22_purpleflowersgirl"
     ]
   }
 }
