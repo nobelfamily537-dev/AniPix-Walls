@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-09-22",
+  "last_updated": "2026-09-23",
   "categories": {
     "ai3d": [
       {
@@ -7933,6 +7933,97 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_purpleflowersgirl.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d22_purpleflowersgirl.jpg",
         "tags": "anime girl,purple flowers"
+      },
+      {
+        "id": "d23_darkwatergirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_darkwatergirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_darkwatergirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_darkwatergirl.jpg",
+        "tags": "anime girl,red moon"
+      },
+      {
+        "id": "d23_samurai",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_samurai_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_samurai.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_samurai.jpg",
+        "tags": "anime boy,samurai"
+      },
+      {
+        "id": "d23_closeupboy",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_closeupboy_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_closeupboy.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_closeupboy.jpg",
+        "tags": "anime boy,close up"
+      },
+      {
+        "id": "d23_cliffsilhouette",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_cliffsilhouette_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_cliffsilhouette.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_cliffsilhouette.jpg",
+        "tags": "anime scenery,sunset"
+      },
+      {
+        "id": "d23_asuka",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_asuka_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_asuka.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_asuka.jpg",
+        "tags": "asuka langley,evangelion"
+      },
+      {
+        "id": "d23_blondegirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_blondegirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_blondegirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_blondegirl.jpg",
+        "tags": "anime girl,blonde"
+      },
+      {
+        "id": "d23_aot",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_aot_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_aot.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_aot.jpg",
+        "tags": "attack on titan,levi"
+      },
+      {
+        "id": "d23_miku",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_miku_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_miku.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_miku.jpg",
+        "tags": "hatsune miku"
+      },
+      {
+        "id": "d23_kaneki",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_kaneki_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_kaneki.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_kaneki.jpg",
+        "tags": "kaneki,tokyo ghoul"
+      },
+      {
+        "id": "d23_glassesgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_glassesgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_glassesgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_glassesgirl.jpg",
+        "tags": "anime girl,glasses"
+      },
+      {
+        "id": "d23_alleywaygirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_alleywaygirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_alleywaygirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_alleywaygirl.jpg",
+        "tags": "anime girl,town"
+      },
+      {
+        "id": "d23_gogglesgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_gogglesgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_gogglesgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_gogglesgirl.jpg",
+        "tags": "anime girl,goggles"
+      },
+      {
+        "id": "d23_synthwavecity",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_synthwavecity_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_synthwavecity.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d23_synthwavecity.jpg",
+        "tags": "anime scenery,city night"
       }
     ],
     "anime2": [
@@ -12231,6 +12322,48 @@
         "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d19_tree_thumb.jpg",
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d19_tree.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d19_tree.jpg"
+      },
+      {
+        "id": "d23_sakuratree",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_sakuratree_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_sakuratree.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_sakuratree.jpg",
+        "tags": "nature,sakura"
+      },
+      {
+        "id": "d23_tropicalbeach",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_tropicalbeach_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_tropicalbeach.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_tropicalbeach.jpg",
+        "tags": "nature,beach"
+      },
+      {
+        "id": "d23_flowerfield",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_flowerfield_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_flowerfield.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_flowerfield.jpg",
+        "tags": "nature,flower"
+      },
+      {
+        "id": "d23_greenhills",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_greenhills_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_greenhills.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_greenhills.jpg",
+        "tags": "nature,hills"
+      },
+      {
+        "id": "d23_gardenpond",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_gardenpond_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_gardenpond.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_gardenpond.jpg",
+        "tags": "nature,garden"
+      },
+      {
+        "id": "d23_forest",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_forest_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_forest.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_forest.jpg",
+        "tags": "nature,forest"
       }
     ],
     "space": [
@@ -12981,6 +13114,27 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d21_spaceplatform.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d21_spaceplatform.jpg",
         "tags": "space,galaxy,universe"
+      },
+      {
+        "id": "d23_astronaut",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d23_astronaut_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d23_astronaut.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d23_astronaut.jpg",
+        "tags": "space,galaxy,universe"
+      },
+      {
+        "id": "d23_roadtoplanet",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d23_roadtoplanet_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d23_roadtoplanet.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d23_roadtoplanet.jpg",
+        "tags": "space,galaxy,universe"
+      },
+      {
+        "id": "d23_nightship",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d23_nightship_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d23_nightship.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d23_nightship.jpg",
+        "tags": "space,galaxy,universe"
       }
     ]
   },
@@ -13094,7 +13248,8 @@
       "8owd8o",
       "fw012",
       "d19_eren",
-      "d19_levi"
+      "d19_levi",
+      "d23_aot"
     ],
     "chainsaw man": [
       "5yrw55",
@@ -14059,7 +14214,8 @@
       "up_kokushibo2"
     ],
     "kaneki": [
-      "up_kaneki1"
+      "up_kaneki1",
+      "d23_kaneki"
     ],
     "ken kaneki": [
       "up_kaneki_new1",
@@ -14074,7 +14230,8 @@
       "up_kaneki_new10"
     ],
     "tokyo ghoul": [
-      "up_kaneki1"
+      "up_kaneki1",
+      "d23_kaneki"
     ],
     "free fire": [
       "game_ff1",
@@ -16757,11 +16914,18 @@
       "nat006",
       "nat007",
       "nat016",
-      "nat017"
+      "nat017",
+      "d23_sakuratree",
+      "d23_tropicalbeach",
+      "d23_flowerfield",
+      "d23_greenhills",
+      "d23_gardenpond",
+      "d23_forest"
     ],
     "flower": [
       "nat001",
-      "nat016"
+      "nat016",
+      "d23_flowerfield"
     ],
     "hindu god": [
       "hgod001",
@@ -18272,7 +18436,10 @@
       "spc039",
       "spc040",
       "spc041",
-      "spc042"
+      "spc042",
+      "d23_astronaut",
+      "d23_roadtoplanet",
+      "d23_nightship"
     ],
     "galaxy": [
       "uw001",
@@ -18396,7 +18563,10 @@
       "spc039",
       "spc040",
       "spc041",
-      "spc042"
+      "spc042",
+      "d23_astronaut",
+      "d23_roadtoplanet",
+      "d23_nightship"
     ],
     "universe": [
       "uw001",
@@ -18520,7 +18690,10 @@
       "spc039",
       "spc040",
       "spc041",
-      "spc042"
+      "spc042",
+      "d23_astronaut",
+      "d23_roadtoplanet",
+      "d23_nightship"
     ],
     "nasa": [
       "uw001",
@@ -19130,7 +19303,12 @@
       "d22_doorwaygirl",
       "d22_cargirl",
       "d22_balloongirl",
-      "d22_purpleflowersgirl"
+      "d22_purpleflowersgirl",
+      "d23_darkwatergirl",
+      "d23_blondegirl",
+      "d23_glassesgirl",
+      "d23_alleywaygirl",
+      "d23_gogglesgirl"
     ],
     "hu tao": [
       "wpxbg002"
@@ -19181,7 +19359,8 @@
     ],
     "hatsune miku": [
       "awx006",
-      "apx003"
+      "apx003",
+      "d23_miku"
     ],
     "vocaloid": [
       "awx006",
@@ -19321,7 +19500,8 @@
       "d19_ichigo"
     ],
     "levi": [
-      "d19_levi"
+      "d19_levi",
+      "d23_aot"
     ],
     "minato": [
       "d19_minato"
@@ -19344,7 +19524,9 @@
       "d22_birdbuilding",
       "d22_ruinscastle",
       "d22_cartooncity",
-      "d22_nighttowercity"
+      "d22_nighttowercity",
+      "d23_cliffsilhouette",
+      "d23_synthwavecity"
     ],
     "bocchi the rock": [
       "d20_kita",
@@ -19375,7 +19557,8 @@
       "d20_lain"
     ],
     "evangelion": [
-      "d20_eva"
+      "d20_eva",
+      "d23_asuka"
     ],
     "neon genesis evangelion": [
       "d20_eva"
@@ -19509,6 +19692,55 @@
     ],
     "purple flowers": [
       "d22_purpleflowersgirl"
+    ],
+    "sakura": [
+      "d23_sakuratree"
+    ],
+    "beach": [
+      "d23_tropicalbeach"
+    ],
+    "hills": [
+      "d23_greenhills"
+    ],
+    "garden": [
+      "d23_gardenpond"
+    ],
+    "forest": [
+      "d23_forest"
+    ],
+    "red moon": [
+      "d23_darkwatergirl"
+    ],
+    "anime boy": [
+      "d23_samurai",
+      "d23_closeupboy"
+    ],
+    "samurai": [
+      "d23_samurai"
+    ],
+    "close up": [
+      "d23_closeupboy"
+    ],
+    "sunset": [
+      "d23_cliffsilhouette"
+    ],
+    "asuka langley": [
+      "d23_asuka"
+    ],
+    "blonde": [
+      "d23_blondegirl"
+    ],
+    "glasses": [
+      "d23_glassesgirl"
+    ],
+    "town": [
+      "d23_alleywaygirl"
+    ],
+    "goggles": [
+      "d23_gogglesgirl"
+    ],
+    "city night": [
+      "d23_synthwavecity"
     ]
   }
 }
