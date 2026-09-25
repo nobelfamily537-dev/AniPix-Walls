@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-09-24",
+  "last_updated": "2026-09-25",
   "categories": {
     "ai3d": [
       {
@@ -8087,6 +8087,90 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/dhx_book.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/dhx_book.jpg",
         "tags": "Hatsune Miku,Vocaloid"
+      },
+      {
+        "id": "d25_pokemon_gastly",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_pokemon_gastly_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_pokemon_gastly.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_pokemon_gastly.jpg",
+        "tags": "Pokemon,Gastly"
+      },
+      {
+        "id": "d25_hannyaswordgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_hannyaswordgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_hannyaswordgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_hannyaswordgirl.jpg",
+        "tags": "hannya mask,sword girl"
+      },
+      {
+        "id": "d25_sunsetsilhouette",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_sunsetsilhouette_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_sunsetsilhouette.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_sunsetsilhouette.jpg",
+        "tags": "sunset,silhouette,schoolgirl"
+      },
+      {
+        "id": "d25_floatinggirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_floatinggirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_floatinggirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_floatinggirl.jpg",
+        "tags": "girl,floating,city"
+      },
+      {
+        "id": "d25_classroombreeze",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_classroombreeze_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_classroombreeze.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_classroombreeze.jpg",
+        "tags": "classroom,slice of life"
+      },
+      {
+        "id": "d25_floralhairgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_floralhairgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_floralhairgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_floralhairgirl.jpg",
+        "tags": "girl,flowers,profile"
+      },
+      {
+        "id": "d25_glowingblueeyes",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_glowingblueeyes_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_glowingblueeyes.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_glowingblueeyes.jpg",
+        "tags": "girl,blue eyes,closeup"
+      },
+      {
+        "id": "d25_crescentmoongirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_crescentmoongirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_crescentmoongirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_crescentmoongirl.jpg",
+        "tags": "girl,crescent moon"
+      },
+      {
+        "id": "d25_kimonofireworks",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_kimonofireworks_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_kimonofireworks.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_kimonofireworks.jpg",
+        "tags": "kimono,fireworks"
+      },
+      {
+        "id": "d25_whitebluehairgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_whitebluehairgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_whitebluehairgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_whitebluehairgirl.jpg",
+        "tags": "girl,blue hair,closeup"
+      },
+      {
+        "id": "d25_rainyshrinestairs",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_rainyshrinestairs_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_rainyshrinestairs.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_rainyshrinestairs.jpg",
+        "tags": "kimono,shrine,rain"
+      },
+      {
+        "id": "d25_demonmaskgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_demonmaskgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_demonmaskgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d25_demonmaskgirl.jpg",
+        "tags": "demon mask,red eyes"
       }
     ],
     "anime2": [
@@ -9696,6 +9780,62 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/fx_starry.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/fx_starry.jpg",
         "tags": "anime girl,starry night"
+      },
+      {
+        "id": "d25_foggylamppost",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_foggylamppost_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_foggylamppost.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_foggylamppost.jpg",
+        "tags": "foggy night,street lamp"
+      },
+      {
+        "id": "d25_nightcabin",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_nightcabin_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_nightcabin.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_nightcabin.jpg",
+        "tags": "cozy night,cabin,dog"
+      },
+      {
+        "id": "d25_cyberpunklone",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_cyberpunklone_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_cyberpunklone.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_cyberpunklone.jpg",
+        "tags": "cyberpunk,city"
+      },
+      {
+        "id": "d25_hoodieheadphones",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_hoodieheadphones_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_hoodieheadphones.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_hoodieheadphones.jpg",
+        "tags": "cyberpunk,hoodie,headphones"
+      },
+      {
+        "id": "d25_whiteruins",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_whiteruins_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_whiteruins.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_whiteruins.jpg",
+        "tags": "white hair,ruins"
+      },
+      {
+        "id": "d25_roninredsun",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_roninredsun_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_roninredsun.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_roninredsun.jpg",
+        "tags": "ronin,samurai,red sun"
+      },
+      {
+        "id": "d25_whitedresswater",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_whitedresswater_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_whitedresswater.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_whitedresswater.jpg",
+        "tags": "white dress,water reflection"
+      },
+      {
+        "id": "d25_silverhairredbow",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_silverhairredbow_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_silverhairredbow.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d25_silverhairredbow.jpg",
+        "tags": "silver hair,red bow"
       }
     ],
     "game": [
@@ -10033,6 +10173,20 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d21_genshinfandesign.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d21_genshinfandesign.jpg",
         "tags": "game,genshin impact"
+      },
+      {
+        "id": "d25_honkaiimpact",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d25_honkaiimpact_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d25_honkaiimpact.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d25_honkaiimpact.jpg",
+        "tags": "Honkai Impact 3rd"
+      },
+      {
+        "id": "d25_raidenshogun",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d25_raidenshogun_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d25_raidenshogun.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d25_raidenshogun.jpg",
+        "tags": "Genshin Impact,Raiden Shogun"
       }
     ],
     "god": [
@@ -12497,6 +12651,13 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_forest.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d23_forest.jpg",
         "tags": "nature,forest"
+      },
+      {
+        "id": "d25_mountainlake",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d25_mountainlake_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d25_mountainlake.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d25_mountainlake.jpg",
+        "tags": "nature,mountain,lake"
       }
     ],
     "space": [
@@ -13268,6 +13429,20 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d23_nightship.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d23_nightship.jpg",
         "tags": "space,galaxy,universe"
+      },
+      {
+        "id": "d25_glowingmoon",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d25_glowingmoon_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d25_glowingmoon.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d25_glowingmoon.jpg",
+        "tags": "space,galaxy,universe,moon"
+      },
+      {
+        "id": "d25_lunarview",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d25_lunarview_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d25_lunarview.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d25_lunarview.jpg",
+        "tags": "space,galaxy,universe,moon"
       }
     ]
   },
