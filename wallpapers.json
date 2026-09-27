@@ -1,6 +1,6 @@
 {
- "version": 1,
- "last_updated": "2026-09-26",
+ "version": 2,
+ "last_updated": "2026-09-27",
  "categories": {
   "ai3d": [
    {
@@ -8206,6 +8206,69 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d26_miku_ribbons.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d26_miku_ribbons.jpg",
     "tags": "hatsune miku,vocaloid"
+   },
+   {
+    "id": "d27_girl_umbrella",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_girl_umbrella_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_girl_umbrella.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_girl_umbrella.jpg",
+    "tags": "anime girl,umbrella"
+   },
+   {
+    "id": "d27_school_uniform_girl",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_school_uniform_girl_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_school_uniform_girl.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_school_uniform_girl.jpg",
+    "tags": "anime girl,school uniform"
+   },
+   {
+    "id": "d27_initiald_ae86",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_initiald_ae86_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_initiald_ae86.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_initiald_ae86.jpg",
+    "tags": "initial d,ae86,drift"
+   },
+   {
+    "id": "d27_ghibli_bikes",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_ghibli_bikes_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_ghibli_bikes.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_ghibli_bikes.jpg",
+    "tags": "ghibli style,countryside"
+   },
+   {
+    "id": "d27_flying_above_city",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_flying_above_city_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_flying_above_city.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_flying_above_city.jpg",
+    "tags": "anime girl,flying,city"
+   },
+   {
+    "id": "d27_joao_anime_girl",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_joao_anime_girl_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_joao_anime_girl.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_joao_anime_girl.jpg",
+    "tags": "anime girl,schoolgirl"
+   },
+   {
+    "id": "d27_girlsbandcry_subaru",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_girlsbandcry_subaru_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_girlsbandcry_subaru.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_girlsbandcry_subaru.jpg",
+    "tags": "girls band cry,subaru"
+   },
+   {
+    "id": "d27_souleater_maka",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_souleater_maka_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_souleater_maka.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_souleater_maka.jpg",
+    "tags": "soul eater,maka"
+   },
+   {
+    "id": "d27_frenzy_girl",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_frenzy_girl_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_frenzy_girl.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_frenzy_girl.jpg",
+    "tags": "anime girl"
    }
   ],
   "anime2": [
@@ -9927,6 +9990,55 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d26_hooded_cavern.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d26_hooded_cavern.jpg",
     "tags": "fantasy,dark,cave"
+   },
+   {
+    "id": "d27_beach_moon",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_beach_moon_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_beach_moon.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_beach_moon.jpg",
+    "tags": "anime scenery,beach,moon"
+   },
+   {
+    "id": "d27_train_crossing",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_train_crossing_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_train_crossing.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_train_crossing.jpg",
+    "tags": "anime scenery,shinkai style,train"
+   },
+   {
+    "id": "d27_sakura_street",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_sakura_street_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_sakura_street.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_sakura_street.jpg",
+    "tags": "anime scenery,sakura,street"
+   },
+   {
+    "id": "d27_ghibli_forest",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_ghibli_forest_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_ghibli_forest.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_ghibli_forest.jpg",
+    "tags": "ghibli,forest"
+   },
+   {
+    "id": "d27_nausicca_desert",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_nausicca_desert_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_nausicca_desert.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_nausicca_desert.jpg",
+    "tags": "nausicaa,ghibli,desert"
+   },
+   {
+    "id": "d27_industrial_dream",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_industrial_dream_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_industrial_dream.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_industrial_dream.jpg",
+    "tags": "anime scenery,cyberpunk,industrial"
+   },
+   {
+    "id": "d27_railroad_clouds",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_railroad_clouds_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_railroad_clouds.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_railroad_clouds.jpg",
+    "tags": "anime scenery,railway,clouds"
    }
   ],
   "game": [
@@ -10327,6 +10439,20 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d26_gi_nahida_stars.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d26_gi_nahida_stars.jpg",
     "tags": "Genshin Impact,Nahida"
+   },
+   {
+    "id": "d27_genshin_hutao_lantern",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d27_genshin_hutao_lantern_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d27_genshin_hutao_lantern.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d27_genshin_hutao_lantern.jpg",
+    "tags": "Genshin Impact,Hu Tao"
+   },
+   {
+    "id": "d27_arknights_girl",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d27_arknights_girl_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d27_arknights_girl.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d27_arknights_girl.jpg",
+    "tags": "Arknights"
    }
   ],
   "god": [
@@ -12798,6 +12924,13 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d25_mountainlake.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d25_mountainlake.jpg",
     "tags": "nature,mountain,lake"
+   },
+   {
+    "id": "d27_flower_field",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d27_flower_field_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d27_flower_field.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d27_flower_field.jpg",
+    "tags": "nature,flowers,field"
    }
   ],
   "space": [
@@ -13583,6 +13716,48 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d25_lunarview.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d25_lunarview.jpg",
     "tags": "space,galaxy,universe,moon"
+   },
+   {
+    "id": "d27_webb_pillars",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_webb_pillars_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_webb_pillars.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_webb_pillars.jpg",
+    "tags": "space,galaxy,universe,nebula"
+   },
+   {
+    "id": "d27_webb_tarantula",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_webb_tarantula_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_webb_tarantula.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_webb_tarantula.jpg",
+    "tags": "space,galaxy,universe,nebula"
+   },
+   {
+    "id": "d27_webb_cartwheel",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_webb_cartwheel_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_webb_cartwheel.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_webb_cartwheel.jpg",
+    "tags": "space,galaxy,universe,galaxy wheel"
+   },
+   {
+    "id": "d27_webb_cassiopeia",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_webb_cassiopeia_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_webb_cassiopeia.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_webb_cassiopeia.jpg",
+    "tags": "space,galaxy,universe,nebula"
+   },
+   {
+    "id": "d27_webb_ring_nebula",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_webb_ring_nebula_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_webb_ring_nebula.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_webb_ring_nebula.jpg",
+    "tags": "space,galaxy,universe,nebula"
+   },
+   {
+    "id": "d27_earthrise_moon",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_earthrise_moon_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_earthrise_moon.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d27_earthrise_moon.jpg",
+    "tags": "space,galaxy,universe,moon,earth"
    }
   ]
  },
@@ -16346,7 +16521,8 @@
    "up_rezero_new7",
    "up_rezero_new8",
    "up_rezero_new9",
-   "up_rezero_new10"
+   "up_rezero_new10",
+   "d27_girlsbandcry_subaru"
   ],
   "rem": [
    "up_rezero_new1",
@@ -17370,7 +17546,8 @@
    "d23_flowerfield",
    "d23_greenhills",
    "d23_gardenpond",
-   "d23_forest"
+   "d23_forest",
+   "d27_flower_field"
   ],
   "flower": [
    "nat001",
@@ -18889,7 +19066,13 @@
    "spc042",
    "d23_astronaut",
    "d23_roadtoplanet",
-   "d23_nightship"
+   "d23_nightship",
+   "d27_webb_pillars",
+   "d27_webb_tarantula",
+   "d27_webb_cartwheel",
+   "d27_webb_cassiopeia",
+   "d27_webb_ring_nebula",
+   "d27_earthrise_moon"
   ],
   "galaxy": [
    "uw001",
@@ -19016,7 +19199,13 @@
    "spc042",
    "d23_astronaut",
    "d23_roadtoplanet",
-   "d23_nightship"
+   "d23_nightship",
+   "d27_webb_pillars",
+   "d27_webb_tarantula",
+   "d27_webb_cartwheel",
+   "d27_webb_cassiopeia",
+   "d27_webb_ring_nebula",
+   "d27_earthrise_moon"
   ],
   "universe": [
    "uw001",
@@ -19143,7 +19332,13 @@
    "spc042",
    "d23_astronaut",
    "d23_roadtoplanet",
-   "d23_nightship"
+   "d23_nightship",
+   "d27_webb_pillars",
+   "d27_webb_tarantula",
+   "d27_webb_cartwheel",
+   "d27_webb_cassiopeia",
+   "d27_webb_ring_nebula",
+   "d27_earthrise_moon"
   ],
   "nasa": [
    "uw001",
@@ -19443,7 +19638,11 @@
    "spc024",
    "spc025",
    "spc026",
-   "spc027"
+   "spc027",
+   "d27_webb_pillars",
+   "d27_webb_tarantula",
+   "d27_webb_cassiopeia",
+   "d27_webb_ring_nebula"
   ],
   "stars": [
    "uw001",
@@ -19765,7 +19964,12 @@
    "d23_blondegirl",
    "d23_glassesgirl",
    "d23_alleywaygirl",
-   "d23_gogglesgirl"
+   "d23_gogglesgirl",
+   "d27_girl_umbrella",
+   "d27_school_uniform_girl",
+   "d27_flying_above_city",
+   "d27_joao_anime_girl",
+   "d27_frenzy_girl"
   ],
   "hu tao": [
    "wpxbg002"
@@ -19943,7 +20147,8 @@
    "gpx008"
   ],
   "Genshin Impact": [
-   "gpx009"
+   "gpx009",
+   "d27_genshin_hutao_lantern"
   ],
   "goku": [
    "d19_goku",
@@ -19991,7 +20196,12 @@
    "d22_cartooncity",
    "d22_nighttowercity",
    "d23_cliffsilhouette",
-   "d23_synthwavecity"
+   "d23_synthwavecity",
+   "d27_beach_moon",
+   "d27_train_crossing",
+   "d27_sakura_street",
+   "d27_industrial_dream",
+   "d27_railroad_clouds"
   ],
   "bocchi the rock": [
    "d20_kita",
@@ -20113,10 +20323,12 @@
   "city": [
    "d22_cartooncity",
    "d22_nighttowercity",
-   "d22_citygirl"
+   "d22_citygirl",
+   "d27_flying_above_city"
   ],
   "clouds": [
-   "d22_cloudsgirl"
+   "d22_cloudsgirl",
+   "d27_railroad_clouds"
   ],
   "dog": [
    "d22_girlanddog"
@@ -20125,13 +20337,15 @@
    "d22_bookgirl"
   ],
   "flowers": [
-   "d22_bouquetgirl"
+   "d22_bouquetgirl",
+   "d27_flower_field"
   ],
   "scythe": [
    "d22_scythegirl"
   ],
   "umbrella": [
-   "d22_umbrellagirl"
+   "d22_umbrellagirl",
+   "d27_girl_umbrella"
   ],
   "dress": [
    "d22_dressgirl"
@@ -20159,10 +20373,12 @@
    "d22_purpleflowersgirl"
   ],
   "sakura": [
-   "d23_sakuratree"
+   "d23_sakuratree",
+   "d27_sakura_street"
   ],
   "beach": [
-   "d23_tropicalbeach"
+   "d23_tropicalbeach",
+   "d27_beach_moon"
   ],
   "hills": [
    "d23_greenhills"
@@ -20171,7 +20387,8 @@
    "d23_gardenpond"
   ],
   "forest": [
-   "d23_forest"
+   "d23_forest",
+   "d27_ghibli_forest"
   ],
   "red moon": [
    "d23_darkwatergirl"
@@ -20217,6 +20434,86 @@
   ],
   "collei": [
    "d26_gi_collei"
+  ],
+  "school uniform": [
+   "d27_school_uniform_girl"
+  ],
+  "initial d": [
+   "d27_initiald_ae86"
+  ],
+  "ae86": [
+   "d27_initiald_ae86"
+  ],
+  "drift": [
+   "d27_initiald_ae86"
+  ],
+  "ghibli style": [
+   "d27_ghibli_bikes"
+  ],
+  "countryside": [
+   "d27_ghibli_bikes"
+  ],
+  "flying": [
+   "d27_flying_above_city"
+  ],
+  "schoolgirl": [
+   "d27_joao_anime_girl"
+  ],
+  "girls band cry": [
+   "d27_girlsbandcry_subaru"
+  ],
+  "soul eater": [
+   "d27_souleater_maka"
+  ],
+  "maka": [
+   "d27_souleater_maka"
+  ],
+  "moon": [
+   "d27_beach_moon",
+   "d27_earthrise_moon"
+  ],
+  "shinkai style": [
+   "d27_train_crossing"
+  ],
+  "train": [
+   "d27_train_crossing"
+  ],
+  "street": [
+   "d27_sakura_street"
+  ],
+  "ghibli": [
+   "d27_ghibli_forest",
+   "d27_nausicca_desert"
+  ],
+  "nausicaa": [
+   "d27_nausicca_desert"
+  ],
+  "desert": [
+   "d27_nausicca_desert"
+  ],
+  "cyberpunk": [
+   "d27_industrial_dream"
+  ],
+  "industrial": [
+   "d27_industrial_dream"
+  ],
+  "railway": [
+   "d27_railroad_clouds"
+  ],
+  "Hu Tao": [
+   "d27_genshin_hutao_lantern"
+  ],
+  "Arknights": [
+   "d27_arknights_girl"
+  ],
+  "galaxy wheel": [
+   "d27_webb_cartwheel"
+  ],
+  "earth": [
+   "d27_earthrise_moon"
+  ],
+  "field": [
+   "d27_flower_field"
   ]
  }
 }
