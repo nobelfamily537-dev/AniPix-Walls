@@ -1,6 +1,6 @@
 {
  "version": 2,
- "last_updated": "2026-09-27",
+ "last_updated": "2026-09-28",
  "categories": {
   "ai3d": [
    {
@@ -8269,6 +8269,69 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_frenzy_girl.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d27_frenzy_girl.jpg",
     "tags": "anime girl"
+   },
+   {
+    "id": "d28_naruto_fire",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_naruto_fire_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_naruto_fire.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_naruto_fire.jpg",
+    "tags": "naruto,uzumaki"
+   },
+   {
+    "id": "d28_onepiece_trio",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_onepiece_trio_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_onepiece_trio.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_onepiece_trio.jpg",
+    "tags": "one piece,luffy,ace"
+   },
+   {
+    "id": "d28_miku_setup",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_miku_setup_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_miku_setup.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_miku_setup.jpg",
+    "tags": "hatsune miku,vocaloid"
+   },
+   {
+    "id": "d28_asuka_birds",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_asuka_birds_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_asuka_birds.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_asuka_birds.jpg",
+    "tags": "evangelion,asuka"
+   },
+   {
+    "id": "d28_obito_camera",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_obito_camera_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_obito_camera.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_obito_camera.jpg",
+    "tags": "naruto,obito uchiha"
+   },
+   {
+    "id": "d28_boat_sunset",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_boat_sunset_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_boat_sunset.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_boat_sunset.jpg",
+    "tags": "anime,boat,sunset,ocean"
+   },
+   {
+    "id": "d28_temple_autumn",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_temple_autumn_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_temple_autumn.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_temple_autumn.jpg",
+    "tags": "anime,temple,autumn,japan"
+   },
+   {
+    "id": "d28_cosmic_sky",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_cosmic_sky_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_cosmic_sky.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_cosmic_sky.jpg",
+    "tags": "anime,sky,stars,cosmic"
+   },
+   {
+    "id": "d28_miku_collage",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_miku_collage_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_miku_collage.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d28_miku_collage.jpg",
+    "tags": "hatsune miku,vocaloid"
    }
   ],
   "anime2": [
@@ -10039,6 +10102,55 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_railroad_clouds.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d27_railroad_clouds.jpg",
     "tags": "anime scenery,railway,clouds"
+   },
+   {
+    "id": "d28_pinkchair_girl",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_pinkchair_girl_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_pinkchair_girl.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_pinkchair_girl.jpg",
+    "tags": "anime girl,pink hair"
+   },
+   {
+    "id": "d28_garden_stairs",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_garden_stairs_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_garden_stairs.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_garden_stairs.jpg",
+    "tags": "anime,garden,flowers"
+   },
+   {
+    "id": "d28_puppet_girl",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_puppet_girl_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_puppet_girl.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_puppet_girl.jpg",
+    "tags": "anime girl,puppet"
+   },
+   {
+    "id": "d28_snow_umbrella",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_snow_umbrella_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_snow_umbrella.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_snow_umbrella.jpg",
+    "tags": "anime girl,snow,umbrella"
+   },
+   {
+    "id": "d28_maid_girl",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_maid_girl_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_maid_girl.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_maid_girl.jpg",
+    "tags": "anime girl,maid"
+   },
+   {
+    "id": "d28_catgirl_city",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_catgirl_city_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_catgirl_city.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_catgirl_city.jpg",
+    "tags": "anime girl,cat girl,city"
+   },
+   {
+    "id": "d28_strawberry_girl",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_strawberry_girl_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_strawberry_girl.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d28_strawberry_girl.jpg",
+    "tags": "anime girl,greenhouse"
    }
   ],
   "game": [
@@ -10453,6 +10565,20 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d27_arknights_girl.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d27_arknights_girl.jpg",
     "tags": "Arknights"
+   },
+   {
+    "id": "d28_genshin_hutao",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d28_genshin_hutao_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d28_genshin_hutao.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d28_genshin_hutao.jpg",
+    "tags": "Genshin Impact,Hu Tao"
+   },
+   {
+    "id": "d28_genshin_hutao_night",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d28_genshin_hutao_night_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d28_genshin_hutao_night.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d28_genshin_hutao_night.jpg",
+    "tags": "Genshin Impact,Hu Tao"
    }
   ],
   "god": [
@@ -12931,6 +13057,55 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d27_flower_field.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d27_flower_field.jpg",
     "tags": "nature,flowers,field"
+   },
+   {
+    "id": "d28_red_leaves",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_red_leaves_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_red_leaves.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_red_leaves.jpg",
+    "tags": "nature,autumn,leaves"
+   },
+   {
+    "id": "d28_forest_fog",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_forest_fog_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_forest_fog.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_forest_fog.jpg",
+    "tags": "nature,forest,fog"
+   },
+   {
+    "id": "d28_dark_leaves",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_dark_leaves_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_dark_leaves.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_dark_leaves.jpg",
+    "tags": "nature,leaves,dark"
+   },
+   {
+    "id": "d28_desert_rocks",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_desert_rocks_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_desert_rocks.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_desert_rocks.jpg",
+    "tags": "nature,desert,rocks"
+   },
+   {
+    "id": "d28_river_forest",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_river_forest_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_river_forest.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_river_forest.jpg",
+    "tags": "nature,river,forest"
+   },
+   {
+    "id": "d28_forest_stream",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_forest_stream_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_forest_stream.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_forest_stream.jpg",
+    "tags": "nature,stream,forest"
+   },
+   {
+    "id": "d28_leaves_water",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_leaves_water_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_leaves_water.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_leaves_water.jpg",
+    "tags": "nature,autumn,water"
    }
   ],
   "space": [
