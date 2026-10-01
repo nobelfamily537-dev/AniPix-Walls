@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-30",
+  "last_updated": "2026-10-01",
   "categories": {
     "ai3d": [
       {
@@ -8422,6 +8422,34 @@
         "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d30_violet_thumb.jpg",
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d30_violet.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d30_violet.jpg"
+      },
+      {
+        "id": "d01_kimono",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d01_kimono_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d01_kimono.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d01_kimono.jpg",
+        "tags": "anime,anime girl,kimono,cherry blossom"
+      },
+      {
+        "id": "d01_rainumbrella",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d01_rainumbrella_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d01_rainumbrella.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d01_rainumbrella.jpg",
+        "tags": "anime,anime girl,rain,umbrella"
+      },
+      {
+        "id": "d01_jinwoo",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d01_jinwoo_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d01_jinwoo.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d01_jinwoo.jpg",
+        "tags": "Solo Leveling,Sung Jin-woo"
+      },
+      {
+        "id": "d01_starrysilhouette",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d01_starrysilhouette_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d01_starrysilhouette.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d01_starrysilhouette.jpg",
+        "tags": "anime,night sky,silhouette"
       }
     ],
     "anime2": [
@@ -10349,6 +10377,62 @@
         "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d30_smoking_girl_thumb.jpg",
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d30_smoking_girl.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d30_smoking_girl.jpg"
+      },
+      {
+        "id": "d01_pinkeyes",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_pinkeyes_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_pinkeyes.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_pinkeyes.jpg",
+        "tags": "anime,anime girl"
+      },
+      {
+        "id": "d01_hoodiegirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_hoodiegirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_hoodiegirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_hoodiegirl.jpg",
+        "tags": "anime,anime girl,hoodie"
+      },
+      {
+        "id": "d01_bluehair",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_bluehair_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_bluehair.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_bluehair.jpg",
+        "tags": "anime,anime girl"
+      },
+      {
+        "id": "d01_pinkheadphones",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_pinkheadphones_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_pinkheadphones.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_pinkheadphones.jpg",
+        "tags": "anime,anime girl,clouds"
+      },
+      {
+        "id": "d01_slicedface",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_slicedface_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_slicedface.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_slicedface.jpg",
+        "tags": "anime,anime girl,portrait"
+      },
+      {
+        "id": "d01_redcloseup",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_redcloseup_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_redcloseup.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_redcloseup.jpg",
+        "tags": "anime,anime girl,portrait"
+      },
+      {
+        "id": "d01_floatumbrella",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_floatumbrella_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_floatumbrella.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_floatumbrella.jpg",
+        "tags": "anime,anime girl,umbrella"
+      },
+      {
+        "id": "d01_asunagirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_asunagirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_asunagirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_asunagirl.jpg",
+        "tags": "anime,anime girl,trench coat"
       }
     ],
     "game": [
@@ -13073,6 +13157,27 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_shiva_night.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d20_shiva_night.jpg",
         "tags": "hindu god,god,shiva,mahadev"
+      },
+      {
+        "id": "d01_ganesha",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d01_ganesha_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d01_ganesha.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d01_ganesha.jpg",
+        "tags": "hindu god,god,ganesha"
+      },
+      {
+        "id": "d01_radhakrishna",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d01_radhakrishna_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d01_radhakrishna.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d01_radhakrishna.jpg",
+        "tags": "hindu god,god,krishna,radha"
+      },
+      {
+        "id": "d01_lakshmi",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d01_lakshmi_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d01_lakshmi.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d01_lakshmi.jpg",
+        "tags": "hindu god,god,lakshmi"
       }
     ],
     "live": [
@@ -13352,6 +13457,20 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_leaves_water.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d28_leaves_water.jpg",
         "tags": "nature,autumn,water"
+      },
+      {
+        "id": "d01_asianvalley",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d01_asianvalley_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d01_asianvalley.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d01_asianvalley.jpg",
+        "tags": "nature,landscape,digital art"
+      },
+      {
+        "id": "d01_deer",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d01_deer_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d01_deer.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d01_deer.jpg",
+        "tags": "nature,deer,landscape"
       }
     ],
     "space": [
@@ -14203,6 +14322,41 @@
         "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/sp_spacegirl1_thumb.jpg",
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/sp_spacegirl1.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/sp_spacegirl1.jpg"
+      },
+      {
+        "id": "d01_blackhole",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_blackhole_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_blackhole.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_blackhole.jpg",
+        "tags": "space,galaxy,universe,black hole"
+      },
+      {
+        "id": "d01_astronaut",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_astronaut_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_astronaut.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_astronaut.jpg",
+        "tags": "space,astronaut,galaxy,universe"
+      },
+      {
+        "id": "d01_nebula",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_nebula_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_nebula.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_nebula.jpg",
+        "tags": "space,galaxy,universe,nebula"
+      },
+      {
+        "id": "d01_mystichorizon",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_mystichorizon_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_mystichorizon.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_mystichorizon.jpg",
+        "tags": "space,galaxy,universe"
+      },
+      {
+        "id": "d01_spacestation",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_spacestation_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_spacestation.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_spacestation.jpg",
+        "tags": "space,astronaut,galaxy,universe"
       }
     ]
   },
@@ -17019,7 +17173,8 @@
       "anime_solo_new8",
       "anime_solo_new9",
       "anime_solo_new10",
-      "d30_solo_leveling"
+      "d30_solo_leveling",
+      "d01_jinwoo"
     ],
     "song jin woo": [
       "up_solo_new1",
@@ -17499,7 +17654,18 @@
       "ap2002",
       "ap2003",
       "ap2004",
-      "ap2005"
+      "ap2005",
+      "d01_pinkeyes",
+      "d01_hoodiegirl",
+      "d01_bluehair",
+      "d01_pinkheadphones",
+      "d01_slicedface",
+      "d01_redcloseup",
+      "d01_floatumbrella",
+      "d01_asunagirl",
+      "d01_kimono",
+      "d01_rainumbrella",
+      "d01_starrysilhouette"
     ],
     "toji": [
       "fw004",
@@ -17610,7 +17776,8 @@
       "hgod348",
       "hgod350",
       "hgod352",
-      "d20_krishna"
+      "d20_krishna",
+      "d01_radhakrishna"
     ],
     "god": [
       "god001",
@@ -17975,7 +18142,10 @@
       "d20_ram_sunset",
       "d20_krishna",
       "d20_hanuman",
-      "d20_shiva_night"
+      "d20_shiva_night",
+      "d01_ganesha",
+      "d01_radhakrishna",
+      "d01_lakshmi"
     ],
     "hindu": [
       "god001",
@@ -17999,7 +18169,9 @@
       "d23_greenhills",
       "d23_gardenpond",
       "d23_forest",
-      "d27_flower_field"
+      "d27_flower_field",
+      "d01_asianvalley",
+      "d01_deer"
     ],
     "flower": [
       "nat001",
@@ -18365,7 +18537,10 @@
       "d20_ram_sunset",
       "d20_krishna",
       "d20_hanuman",
-      "d20_shiva_night"
+      "d20_shiva_night",
+      "d01_ganesha",
+      "d01_radhakrishna",
+      "d01_lakshmi"
     ],
     "bhakti": [
       "hgod001",
@@ -19524,7 +19699,12 @@
       "d27_webb_cartwheel",
       "d27_webb_cassiopeia",
       "d27_webb_ring_nebula",
-      "d27_earthrise_moon"
+      "d27_earthrise_moon",
+      "d01_blackhole",
+      "d01_astronaut",
+      "d01_nebula",
+      "d01_mystichorizon",
+      "d01_spacestation"
     ],
     "galaxy": [
       "uw001",
@@ -19657,7 +19837,12 @@
       "d27_webb_cartwheel",
       "d27_webb_cassiopeia",
       "d27_webb_ring_nebula",
-      "d27_earthrise_moon"
+      "d27_earthrise_moon",
+      "d01_blackhole",
+      "d01_astronaut",
+      "d01_nebula",
+      "d01_mystichorizon",
+      "d01_spacestation"
     ],
     "universe": [
       "uw001",
@@ -19790,7 +19975,12 @@
       "d27_webb_cartwheel",
       "d27_webb_cassiopeia",
       "d27_webb_ring_nebula",
-      "d27_earthrise_moon"
+      "d27_earthrise_moon",
+      "d01_blackhole",
+      "d01_astronaut",
+      "d01_nebula",
+      "d01_mystichorizon",
+      "d01_spacestation"
     ],
     "nasa": [
       "uw001",
@@ -20094,7 +20284,8 @@
       "d27_webb_pillars",
       "d27_webb_tarantula",
       "d27_webb_cassiopeia",
-      "d27_webb_ring_nebula"
+      "d27_webb_ring_nebula",
+      "d01_nebula"
     ],
     "stars": [
       "uw001",
@@ -20320,7 +20511,9 @@
       "nat004",
       "nat005",
       "nat006",
-      "nat007"
+      "nat007",
+      "d01_asianvalley",
+      "d01_deer"
     ],
     "genshin impact": [
       "gm008",
@@ -20369,7 +20562,9 @@
     ],
     "astronaut": [
       "spc035",
-      "d30_astronaut_girl"
+      "d30_astronaut_girl",
+      "d01_astronaut",
+      "d01_spacestation"
     ],
     "radha krishna": [
       "hgod349"
@@ -20430,7 +20625,17 @@
       "d30_astronaut_girl",
       "d30_stars_girl",
       "d30_moto_girl",
-      "d30_smoking_girl"
+      "d30_smoking_girl",
+      "d01_pinkeyes",
+      "d01_hoodiegirl",
+      "d01_bluehair",
+      "d01_pinkheadphones",
+      "d01_slicedface",
+      "d01_redcloseup",
+      "d01_floatumbrella",
+      "d01_asunagirl",
+      "d01_kimono",
+      "d01_rainumbrella"
     ],
     "hu tao": [
       "wpxbg002"
@@ -20509,7 +20714,8 @@
     ],
     "kimono": [
       "awy001",
-      "d20_kimono"
+      "d20_kimono",
+      "d01_kimono"
     ],
     "geisha": [
       "awy002"
@@ -20523,7 +20729,9 @@
       "ap2005"
     ],
     "portrait": [
-      "awy007"
+      "awy007",
+      "d01_slicedface",
+      "d01_redcloseup"
     ],
     "honkai star rail": [
       "gwx001",
@@ -20549,7 +20757,8 @@
       "gpx005"
     ],
     "ganesha": [
-      "hgod351"
+      "hgod351",
+      "d01_ganesha"
     ],
     "shiva": [
       "hgod353",
@@ -20794,7 +21003,8 @@
     ],
     "clouds": [
       "d22_cloudsgirl",
-      "d27_railroad_clouds"
+      "d27_railroad_clouds",
+      "d01_pinkheadphones"
     ],
     "dog": [
       "d22_girlanddog"
@@ -20812,7 +21022,9 @@
     "umbrella": [
       "d22_umbrellagirl",
       "d27_girl_umbrella",
-      "d30_sidewalk_umbrella"
+      "d30_sidewalk_umbrella",
+      "d01_floatumbrella",
+      "d01_rainumbrella"
     ],
     "dress": [
       "d22_dressgirl"
@@ -21004,6 +21216,42 @@
     ],
     "violet evergarden": [
       "d30_violet"
+    ],
+    "hoodie": [
+      "d01_hoodiegirl"
+    ],
+    "trench coat": [
+      "d01_asunagirl"
+    ],
+    "cherry blossom": [
+      "d01_kimono"
+    ],
+    "rain": [
+      "d01_rainumbrella"
+    ],
+    "sung jin-woo": [
+      "d01_jinwoo"
+    ],
+    "night sky": [
+      "d01_starrysilhouette"
+    ],
+    "silhouette": [
+      "d01_starrysilhouette"
+    ],
+    "black hole": [
+      "d01_blackhole"
+    ],
+    "digital art": [
+      "d01_asianvalley"
+    ],
+    "deer": [
+      "d01_deer"
+    ],
+    "radha": [
+      "d01_radhakrishna"
+    ],
+    "lakshmi": [
+      "d01_lakshmi"
     ]
   }
 }
