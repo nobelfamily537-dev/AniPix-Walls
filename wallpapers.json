@@ -65,6 +65,48 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart3.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart3.jpg",
     "tags": "ai,aiart,anime"
+   },
+   {
+    "id": "ai3d_animeart4",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart4_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart4.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart4.jpg",
+    "tags": "ai,aiart,anime"
+   },
+   {
+    "id": "ai3d_animeart5",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart5_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart5.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart5.jpg",
+    "tags": "ai,aiart,anime"
+   },
+   {
+    "id": "ai3d_animeart6",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart6_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart6.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart6.jpg",
+    "tags": "ai,aiart,anime"
+   },
+   {
+    "id": "ai3d_animeart7",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart7_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart7.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart7.jpg",
+    "tags": "ai,aiart,anime"
+   },
+   {
+    "id": "ai3d_animeart8",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart8_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart8.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart8.jpg",
+    "tags": "ai,aiart,anime"
+   },
+   {
+    "id": "ai3d_animeart9",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart9_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart9.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart9.jpg",
+    "tags": "ai,aiart,anime"
    }
   ],
   "anime": [
@@ -11252,6 +11294,27 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_oc_panther.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_oc_panther.jpg",
     "tags": "anime,streetwear,hunter x hunter,killua"
+   },
+   {
+    "id": "game_genshin_ningguang1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_ningguang1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_ningguang1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_ningguang1.jpg",
+    "tags": "genshin impact,genshin,ningguang,tianquan,liyue,game"
+   },
+   {
+    "id": "game_genshin_yaemiko1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_yaemiko1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_yaemiko1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_yaemiko1.jpg",
+    "tags": "genshin impact,genshin,yae miko,guuji,fox,game"
+   },
+   {
+    "id": "game_genshin_navia1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_navia1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_navia1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_navia1.jpg",
+    "tags": "genshin impact,genshin,navia,spina di rosula,fontaine,game"
    }
   ],
   "god": [
