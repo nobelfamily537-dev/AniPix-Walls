@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-10-01",
+  "last_updated": "2026-10-02",
   "categories": {
     "ai3d": [
       {
@@ -8450,6 +8450,55 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d01_starrysilhouette.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d01_starrysilhouette.jpg",
         "tags": "anime,night sky,silhouette"
+      },
+      {
+        "id": "d02_itachi",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_itachi_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_itachi.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_itachi.jpg",
+        "tags": "Naruto,Itachi Uchiha,anime,sharingan"
+      },
+      {
+        "id": "d02_miku",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_miku_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_miku.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_miku.jpg",
+        "tags": "Vocaloid,Hatsune Miku,anime"
+      },
+      {
+        "id": "d02_gojo",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_gojo_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_gojo.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_gojo.jpg",
+        "tags": "Jujutsu Kaisen,Gojo Satoru,anime"
+      },
+      {
+        "id": "d02_toriigate",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_toriigate_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_toriigate.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_toriigate.jpg",
+        "tags": "anime,torii gate,sunset,landscape"
+      },
+      {
+        "id": "d02_fujistreet",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_fujistreet_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_fujistreet.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_fujistreet.jpg",
+        "tags": "anime,cherry blossom,mount fuji,street"
+      },
+      {
+        "id": "d02_floatingcity",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_floatingcity_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_floatingcity.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_floatingcity.jpg",
+        "tags": "anime,fantasy,floating city,girl"
+      },
+      {
+        "id": "d02_japanvillage",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_japanvillage_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_japanvillage.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/d02_japanvillage.jpg",
+        "tags": "anime,village,river,landscape"
       }
     ],
     "anime2": [
@@ -10433,6 +10482,55 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_asunagirl.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d01_asunagirl.jpg",
         "tags": "anime,anime girl,trench coat"
+      },
+      {
+        "id": "d02_hoodiegirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_hoodiegirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_hoodiegirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_hoodiegirl.jpg",
+        "tags": "anime,anime girl,hoodie"
+      },
+      {
+        "id": "d02_pinkhairgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_pinkhairgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_pinkhairgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_pinkhairgirl.jpg",
+        "tags": "anime,anime girl,portrait"
+      },
+      {
+        "id": "d02_sailorgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_sailorgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_sailorgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_sailorgirl.jpg",
+        "tags": "anime,anime girl,portrait"
+      },
+      {
+        "id": "d02_catgirlpurple",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_catgirlpurple_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_catgirlpurple.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_catgirlpurple.jpg",
+        "tags": "anime,anime girl,cat ears,hoodie"
+      },
+      {
+        "id": "d02_whitedressgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_whitedressgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_whitedressgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_whitedressgirl.jpg",
+        "tags": "anime,anime girl,portrait"
+      },
+      {
+        "id": "d02_reddarkgirl",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_reddarkgirl_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_reddarkgirl.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_reddarkgirl.jpg",
+        "tags": "anime,anime girl,portrait,dark"
+      },
+      {
+        "id": "d02_catgirlhoodie",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_catgirlhoodie_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_catgirlhoodie.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/d02_catgirlhoodie.jpg",
+        "tags": "anime,anime girl,cat ears,hoodie"
       }
     ],
     "game": [
@@ -10909,6 +11007,27 @@
         "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d30_solo_leveling_thumb.jpg",
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d30_solo_leveling.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d30_solo_leveling.jpg"
+      },
+      {
+        "id": "d02_nahidaforest",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d02_nahidaforest_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d02_nahidaforest.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d02_nahidaforest.jpg",
+        "tags": "Genshin Impact,Nahida,game,anime"
+      },
+      {
+        "id": "d02_nahidaroom",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d02_nahidaroom_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d02_nahidaroom.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d02_nahidaroom.jpg",
+        "tags": "Genshin Impact,Nahida,game,anime"
+      },
+      {
+        "id": "d02_nahidawater",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d02_nahidawater_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d02_nahidawater.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/d02_nahidawater.jpg",
+        "tags": "Genshin Impact,Nahida,game,anime"
       }
     ],
     "god": [
@@ -13178,6 +13297,27 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d01_lakshmi.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d01_lakshmi.jpg",
         "tags": "hindu god,god,lakshmi"
+      },
+      {
+        "id": "d02_ganesha",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d02_ganesha_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d02_ganesha.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d02_ganesha.jpg",
+        "tags": "hindu god,Ganesha,god"
+      },
+      {
+        "id": "d02_radhakrishna",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d02_radhakrishna_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d02_radhakrishna.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d02_radhakrishna.jpg",
+        "tags": "hindu god,Radha Krishna,god"
+      },
+      {
+        "id": "d02_shivacosmic",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d02_shivacosmic_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d02_shivacosmic.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/d02_shivacosmic.jpg",
+        "tags": "hindu god,Shiva,god"
       }
     ],
     "live": [
@@ -13471,6 +13611,27 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d01_deer.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d01_deer.jpg",
         "tags": "nature,deer,landscape"
+      },
+      {
+        "id": "d02_wildflowerfield",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d02_wildflowerfield_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d02_wildflowerfield.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d02_wildflowerfield.jpg",
+        "tags": "nature,meadow,flowers,landscape"
+      },
+      {
+        "id": "d02_lavendermoon",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d02_lavendermoon_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d02_lavendermoon.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d02_lavendermoon.jpg",
+        "tags": "nature,lavender,night sky,landscape"
+      },
+      {
+        "id": "d02_mirrorriver",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d02_mirrorriver_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d02_mirrorriver.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/d02_mirrorriver.jpg",
+        "tags": "nature,river,landscape"
       }
     ],
     "space": [
@@ -14357,6 +14518,20 @@
         "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_spacestation.jpg",
         "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d01_spacestation.jpg",
         "tags": "space,astronaut,galaxy,universe"
+      },
+      {
+        "id": "d02_cosmiccity",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d02_cosmiccity_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d02_cosmiccity.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d02_cosmiccity.jpg",
+        "tags": "space,cosmic,city,nebula"
+      },
+      {
+        "id": "d02_spacefloat",
+        "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d02_spacefloat_thumb.jpg",
+        "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d02_spacefloat.jpg",
+        "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d02_spacefloat.jpg",
+        "tags": "space,cosmic,city"
       }
     ]
   },
@@ -14664,12 +14839,14 @@
       "725ely",
       "zy3pzw",
       "2yrgom",
-      "d20_gojo"
+      "d20_gojo",
+      "d02_gojo"
     ],
     "jjk": [
       "up_sukuna1",
       "up_sukuna2",
-      "up_itadori1"
+      "up_itadori1",
+      "d02_gojo"
     ],
     "jujutsu": [
       "k872qm",
@@ -14711,7 +14888,8 @@
       "d19_gojo",
       "d20_nobara",
       "d20_gojo",
-      "d30_toji"
+      "d30_toji",
+      "d02_gojo"
     ],
     "l lawliet": [
       "w89vl6",
@@ -14834,7 +15012,8 @@
       "up_madara1",
       "up_madara2",
       "fw002",
-      "d19_naruto"
+      "d19_naruto",
+      "d02_itachi"
     ],
     "one piece": [
       "w5d89r",
@@ -15246,7 +15425,8 @@
       "up_naruto7",
       "up_naruto8",
       "up_naruto9",
-      "up_naruto10"
+      "up_naruto10",
+      "d02_itachi"
     ],
     "itachi uchiha": [
       "393r16",
@@ -17777,7 +17957,8 @@
       "hgod350",
       "hgod352",
       "d20_krishna",
-      "d01_radhakrishna"
+      "d01_radhakrishna",
+      "d02_radhakrishna"
     ],
     "god": [
       "god001",
@@ -18145,7 +18326,10 @@
       "d20_shiva_night",
       "d01_ganesha",
       "d01_radhakrishna",
-      "d01_lakshmi"
+      "d01_lakshmi",
+      "d02_ganesha",
+      "d02_radhakrishna",
+      "d02_shivacosmic"
     ],
     "hindu": [
       "god001",
@@ -18540,7 +18724,10 @@
       "d20_shiva_night",
       "d01_ganesha",
       "d01_radhakrishna",
-      "d01_lakshmi"
+      "d01_lakshmi",
+      "d02_ganesha",
+      "d02_radhakrishna",
+      "d02_shivacosmic"
     ],
     "bhakti": [
       "hgod001",
@@ -19704,7 +19891,9 @@
       "d01_astronaut",
       "d01_nebula",
       "d01_mystichorizon",
-      "d01_spacestation"
+      "d01_spacestation",
+      "d02_cosmiccity",
+      "d02_spacefloat"
     ],
     "galaxy": [
       "uw001",
@@ -19842,7 +20031,9 @@
       "d01_astronaut",
       "d01_nebula",
       "d01_mystichorizon",
-      "d01_spacestation"
+      "d01_spacestation",
+      "d02_cosmiccity",
+      "d02_spacefloat"
     ],
     "universe": [
       "uw001",
@@ -19980,7 +20171,9 @@
       "d01_astronaut",
       "d01_nebula",
       "d01_mystichorizon",
-      "d01_spacestation"
+      "d01_spacestation",
+      "d02_cosmiccity",
+      "d02_spacefloat"
     ],
     "nasa": [
       "uw001",
@@ -20532,7 +20725,10 @@
       "d26_gi_nahida_dress",
       "d26_gi_nahida_chibi",
       "d26_gi_nahida_forest",
-      "d26_gi_nahida_stars"
+      "d26_gi_nahida_stars",
+      "d02_nahidaforest",
+      "d02_nahidaroom",
+      "d02_nahidawater"
     ],
     "hutao": [
       "wpx001"
@@ -20689,12 +20885,14 @@
       "awx006",
       "apx003",
       "d23_miku",
-      "d26_miku_ribbons"
+      "d26_miku_ribbons",
+      "d02_miku"
     ],
     "vocaloid": [
       "awx006",
       "apx003",
-      "d26_miku_ribbons"
+      "d26_miku_ribbons",
+      "d02_miku"
     ],
     "fate": [
       "awx007",
@@ -20758,12 +20956,14 @@
     ],
     "ganesha": [
       "hgod351",
-      "d01_ganesha"
+      "d01_ganesha",
+      "d02_ganesha"
     ],
     "shiva": [
       "hgod353",
       "d20_shiva_cosmic",
-      "d20_shiva_night"
+      "d20_shiva_night",
+      "d02_shivacosmic"
     ],
     "durga": [
       "hgod354"
@@ -21109,7 +21309,10 @@
       "d26_gi_nahida_dress",
       "d26_gi_nahida_chibi",
       "d26_gi_nahida_forest",
-      "d26_gi_nahida_stars"
+      "d26_gi_nahida_stars",
+      "d02_nahidaforest",
+      "d02_nahidaroom",
+      "d02_nahidawater"
     ],
     "collei": [
       "d26_gi_collei"
@@ -21252,6 +21455,14 @@
     ],
     "lakshmi": [
       "d01_lakshmi"
+    ],
+    "miku": [
+      "d02_miku"
+    ],
+    "genshin": [
+      "d02_nahidaforest",
+      "d02_nahidaroom",
+      "d02_nahidawater"
     ]
   }
 }
