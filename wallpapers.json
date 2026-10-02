@@ -81,20 +81,6 @@
     "tags": "ai,aiart,anime"
    },
    {
-    "id": "ai3d_animeart6",
-    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart6_thumb.jpg",
-    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart6.jpg",
-    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart6.jpg",
-    "tags": "ai,aiart,anime"
-   },
-   {
-    "id": "ai3d_animeart7",
-    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart7_thumb.jpg",
-    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart7.jpg",
-    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart7.jpg",
-    "tags": "ai,aiart,anime"
-   },
-   {
     "id": "ai3d_animeart8",
     "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart8_thumb.jpg",
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart8.jpg",
@@ -102,10 +88,17 @@
     "tags": "ai,aiart,anime"
    },
    {
-    "id": "ai3d_animeart9",
-    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart9_thumb.jpg",
-    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart9.jpg",
-    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart9.jpg",
+    "id": "ai3d_animeart10",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart10_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart10.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart10.jpg",
+    "tags": "ai,aiart,anime"
+   },
+   {
+    "id": "ai3d_animeart11",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart11_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart11.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart11.jpg",
     "tags": "ai,aiart,anime"
    }
   ],
@@ -11296,25 +11289,32 @@
     "tags": "anime,streetwear,hunter x hunter,killua"
    },
    {
-    "id": "game_genshin_ningguang1",
-    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_ningguang1_thumb.jpg",
-    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_ningguang1.jpg",
-    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_ningguang1.jpg",
-    "tags": "genshin impact,genshin,ningguang,tianquan,liyue,game"
+    "id": "game_wuwa_shorekeeper1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa_shorekeeper1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa_shorekeeper1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa_shorekeeper1.jpg",
+    "tags": "wuwa,wuthering waves,shorekeeper"
    },
    {
-    "id": "game_genshin_yaemiko1",
-    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_yaemiko1_thumb.jpg",
-    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_yaemiko1.jpg",
-    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_yaemiko1.jpg",
-    "tags": "genshin impact,genshin,yae miko,guuji,fox,game"
+    "id": "game_wuwa_yinlin1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa_yinlin1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa_yinlin1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa_yinlin1.jpg",
+    "tags": "wuwa,wuthering waves,yinlin"
    },
    {
-    "id": "game_genshin_navia1",
-    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_navia1_thumb.jpg",
-    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_navia1.jpg",
-    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_navia1.jpg",
-    "tags": "genshin impact,genshin,navia,spina di rosula,fontaine,game"
+    "id": "game_wuwa_sanhua1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa_sanhua1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa_sanhua1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa_sanhua1.jpg",
+    "tags": "wuwa,wuthering waves,sanhua"
+   },
+   {
+    "id": "game_wuwa_camellya1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa_camellya1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa_camellya1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa_camellya1.jpg",
+    "tags": "wuwa,wuthering waves,camellya,aiart"
    }
   ],
   "god": [
