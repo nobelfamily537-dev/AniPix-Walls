@@ -11231,6 +11231,27 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa22.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa22.jpg",
     "tags": "wuwa,wuthering waves,rover"
+   },
+   {
+    "id": "game_wuwa23",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa23_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa23.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa23.jpg",
+    "tags": "wuwa,wuthering waves,rover"
+   },
+   {
+    "id": "game_oc_darkangel",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_oc_darkangel_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_oc_darkangel.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_oc_darkangel.jpg",
+    "tags": "anime,dark angel,oc"
+   },
+   {
+    "id": "game_oc_panther",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_oc_panther_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_oc_panther.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_oc_panther.jpg",
+    "tags": "anime,streetwear,hunter x hunter,killua"
    }
   ],
   "god": [
