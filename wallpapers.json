@@ -124,6 +124,24 @@
     "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart15_thumb.jpg",
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart15.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart15.jpg"
+   },
+   {
+    "id": "ai3d_animeart16",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart16_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart16.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart16.jpg"
+   },
+   {
+    "id": "ai3d_animeart17",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart17_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart17.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart17.jpg"
+   },
+   {
+    "id": "ai3d_animeart18",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart18_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart18.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/ai3d/ai3d_animeart18.jpg"
    }
   ],
   "anime": [
@@ -14021,6 +14039,12 @@
     "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/nature_21_thumb.jpg",
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/nature_21.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/nature_21.jpg"
+   },
+   {
+    "id": "nature_22",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/nature_22_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/nature_22.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/nature/nature_22.jpg"
    }
   ],
   "space": [
