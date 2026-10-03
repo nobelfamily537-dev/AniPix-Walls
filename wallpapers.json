@@ -13927,6 +13927,51 @@
     "tags": "Solo Leveling,Sung Jinwoo,Cha Hae-In,Baek Yoonho,Choi Jong-In,Go Gunhee,Woo Jinchul,Yoo Jinho,Sung Jinah,Joohee Lee,Song Chi-Yul",
     "isLive": true,
     "video": true
+   },
+   {
+    "id": "live_itachi001",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/live/live_itachi001_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/live/live_itachi001.mp4",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/live/live_itachi001.mp4",
+    "tags": "Naruto,Itachi Uchiha,anime,live",
+    "isLive": true,
+    "video": true
+   },
+   {
+    "id": "live_gojo001",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/live/live_gojo001_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/live/live_gojo001.mp4",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/live/live_gojo001.mp4",
+    "tags": "Jujutsu Kaisen,Satoru Gojo,anime,live",
+    "isLive": true,
+    "video": true
+   },
+   {
+    "id": "live_sukuna001",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/live/live_sukuna001_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/live/live_sukuna001.mp4",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/live/live_sukuna001.mp4",
+    "tags": "Jujutsu Kaisen,Ryomen Sukuna,anime,live",
+    "isLive": true,
+    "video": true
+   },
+   {
+    "id": "live_ichigo001",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/live/live_ichigo001_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/live/live_ichigo001.mp4",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/live/live_ichigo001.mp4",
+    "tags": "Bleach,Ichigo Kurosaki,anime,live",
+    "isLive": true,
+    "video": true
+   },
+   {
+    "id": "live_rengoku001",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/live/live_rengoku001_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/live/live_rengoku001.mp4",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/live/live_rengoku001.mp4",
+    "tags": "Demon Slayer,Kyojuro Rengoku,anime,live",
+    "isLive": true,
+    "video": true
    }
   ],
   "nature": [
