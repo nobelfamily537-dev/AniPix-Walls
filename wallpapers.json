@@ -1,6 +1,6 @@
 {
  "version": 2,
- "last_updated": "2026-10-03",
+ "last_updated": "2026-10-04",
  "categories": {
   "ai3d": [
    {
@@ -8671,6 +8671,55 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_tokyoghoul2.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_tokyoghoul2.jpg",
     "tags": "tokyo ghoul,touka,kaneki,anime"
+   },
+   {
+    "id": "anime_gokumui1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_gokumui1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_gokumui1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_gokumui1.jpg",
+    "tags": "dragon ball,goku,anime"
+   },
+   {
+    "id": "anime_rengoku1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_rengoku1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_rengoku1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_rengoku1.jpg",
+    "tags": "demon slayer,rengoku,anime"
+   },
+   {
+    "id": "anime_zenitsu1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_zenitsu1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_zenitsu1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_zenitsu1.jpg",
+    "tags": "demon slayer,zenitsu,anime"
+   },
+   {
+    "id": "anime_giyu1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_giyu1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_giyu1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_giyu1.jpg",
+    "tags": "demon slayer,giyu,anime"
+   },
+   {
+    "id": "anime_luffygear5",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_luffygear5_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_luffygear5.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_luffygear5.jpg",
+    "tags": "one piece,luffy,anime"
+   },
+   {
+    "id": "anime_madara1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_madara1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_madara1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_madara1.jpg",
+    "tags": "naruto,madara,anime"
+   },
+   {
+    "id": "anime_narutosasuke1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_narutosasuke1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_narutosasuke1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_narutosasuke1.jpg",
+    "tags": "naruto,sasuke,anime"
    }
   ],
   "anime2": [
@@ -10847,6 +10896,62 @@
     "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/up_evangelion1_thumb.jpg",
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/up_evangelion1.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/up_evangelion1.jpg"
+   },
+   {
+    "id": "anime2_gojoinfinite1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_gojoinfinite1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_gojoinfinite1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_gojoinfinite1.jpg",
+    "tags": "jujutsu kaisen,gojo,anime"
+   },
+   {
+    "id": "anime2_sukuna1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_sukuna1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_sukuna1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_sukuna1.jpg",
+    "tags": "jujutsu kaisen,sukuna,anime"
+   },
+   {
+    "id": "anime2_sukunaking1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_sukunaking1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_sukunaking1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_sukunaking1.jpg",
+    "tags": "jujutsu kaisen,sukuna,anime"
+   },
+   {
+    "id": "anime2_denji1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_denji1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_denji1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_denji1.jpg",
+    "tags": "chainsaw man,denji,anime"
+   },
+   {
+    "id": "anime2_akaza1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_akaza1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_akaza1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_akaza1.jpg",
+    "tags": "demon slayer,akaza,anime"
+   },
+   {
+    "id": "anime2_itadori1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_itadori1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_itadori1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_itadori1.jpg",
+    "tags": "jujutsu kaisen,itadori,anime"
+   },
+   {
+    "id": "anime2_frieza1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_frieza1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_frieza1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_frieza1.jpg",
+    "tags": "dragon ball,frieza,anime"
+   },
+   {
+    "id": "anime2_luffymoon1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_luffymoon1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_luffymoon1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_luffymoon1.jpg",
+    "tags": "one piece,luffy,anime"
    }
   ],
   "game": [
@@ -11736,6 +11841,20 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa35.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa35.jpg",
     "tags": "wuthering waves,hsin,Suisui,Yangyang,Jingran,Qingxiao"
+   },
+   {
+    "id": "game_collei1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_collei1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_collei1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_collei1.jpg",
+    "tags": "genshin impact,collei,game"
+   },
+   {
+    "id": "game_nahida1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_nahida1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_nahida1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_nahida1.jpg",
+    "tags": "genshin impact,nahida,game"
    }
   ],
   "god": [
@@ -14040,6 +14159,27 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/hgod356.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/hgod356.jpg",
     "tags": "god,Buddha,Gautama Buddha"
+   },
+   {
+    "id": "god_lakshmi1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/god_lakshmi1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/god_lakshmi1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/god_lakshmi1.jpg",
+    "tags": "hindu god,laxmi,god"
+   },
+   {
+    "id": "god_ganesha1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/god_ganesha1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/god_ganesha1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/god_ganesha1.jpg",
+    "tags": "hindu god,ganesha,god"
+   },
+   {
+    "id": "god_shiva1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/god_shiva1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/god_shiva1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/god_shiva1.jpg",
+    "tags": "hindu god,shiva,god"
    }
   ],
   "live": [
