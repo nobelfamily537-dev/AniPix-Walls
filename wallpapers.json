@@ -1,6 +1,6 @@
 {
  "version": 2,
- "last_updated": "2026-10-04",
+ "last_updated": "2026-10-05",
  "categories": {
   "ai3d": [
    {
@@ -8720,6 +8720,48 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_narutosasuke1.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/anime_narutosasuke1.jpg",
     "tags": "naruto,sasuke,anime"
+   },
+   {
+    "id": "vp_an_csm1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_csm1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_csm1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_csm1.jpg",
+    "tags": "chainsaw man,denji"
+   },
+   {
+    "id": "vp_an_csm2",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_csm2_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_csm2.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_csm2.jpg",
+    "tags": "chainsaw man,denji"
+   },
+   {
+    "id": "vp_an_csm3",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_csm3_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_csm3.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_csm3.jpg",
+    "tags": "chainsaw man,war devil"
+   },
+   {
+    "id": "vp_an_eva1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_eva1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_eva1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_eva1.jpg",
+    "tags": "evangelion,asuka"
+   },
+   {
+    "id": "vp_an_eva3",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_eva3_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_eva3.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_eva3.jpg",
+    "tags": "evangelion,rei ayanami"
+   },
+   {
+    "id": "vp_an_jjk2",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_jjk2_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_jjk2.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_jjk2.jpg",
+    "tags": "jujutsu kaisen,gojo"
    }
   ],
   "anime2": [
@@ -10952,6 +10994,41 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_luffymoon1.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/anime2_luffymoon1.jpg",
     "tags": "one piece,luffy,anime"
+   },
+   {
+    "id": "vp_an_mad1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_mad1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_mad1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_mad1.jpg",
+    "tags": "madoka magica,homura"
+   },
+   {
+    "id": "vp_an_pink",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_pink_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_pink.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_pink.jpg",
+    "tags": "anime girl"
+   },
+   {
+    "id": "vp_an_stairs",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_stairs_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_stairs.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_stairs.jpg",
+    "tags": "anime girl"
+   },
+   {
+    "id": "vp_an_yourname",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_yourname_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_yourname.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_yourname.jpg",
+    "tags": "your name,anime"
+   },
+   {
+    "id": "vp_an_balloon",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_balloon_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_balloon.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_balloon.jpg",
+    "tags": "anime girl"
    }
   ],
   "game": [
@@ -11855,6 +11932,34 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_nahida1.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_nahida1.jpg",
     "tags": "genshin impact,nahida,game"
+   },
+   {
+    "id": "vp_gm_firefly",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/vp_gm_firefly_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/vp_gm_firefly.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/vp_gm_firefly.jpg",
+    "tags": "honkai star rail,firefly"
+   },
+   {
+    "id": "vp_gm_persona",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/vp_gm_persona_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/vp_gm_persona.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/vp_gm_persona.jpg",
+    "tags": "persona 3"
+   },
+   {
+    "id": "vp_gm_skirk",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/vp_gm_skirk_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/vp_gm_skirk.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/vp_gm_skirk.jpg",
+    "tags": "genshin impact,skirk"
+   },
+   {
+    "id": "vp_gm_touhou",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/vp_gm_touhou_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/vp_gm_touhou.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/vp_gm_touhou.jpg",
+    "tags": "touhou"
    }
   ],
   "god": [
@@ -14180,6 +14285,48 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/god_shiva1.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/god_shiva1.jpg",
     "tags": "hindu god,shiva,god"
+   },
+   {
+    "id": "vp_gd_durga",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_durga_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_durga.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_durga.jpg",
+    "tags": "hindu god,god,shiva,parvati"
+   },
+   {
+    "id": "vp_gd_hanuman",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_hanuman_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_hanuman.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_hanuman.jpg",
+    "tags": "hindu god,god,hanuman"
+   },
+   {
+    "id": "vp_gd_ram2",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_ram2_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_ram2.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_ram2.jpg",
+    "tags": "hindu god,god,ram"
+   },
+   {
+    "id": "vp_gd_khatu",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_khatu_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_khatu.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_khatu.jpg",
+    "tags": "hindu god,god,khatu shyam"
+   },
+   {
+    "id": "vp_gd_vishnu2",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_vishnu2_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_vishnu2.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_vishnu2.jpg",
+    "tags": "hindu god,god,vishnu"
+   },
+   {
+    "id": "vp_gd_durga2",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_durga2_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_durga2.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_durga2.jpg",
+    "tags": "hindu god,god,durga"
    }
   ],
   "live": [
@@ -15481,6 +15628,34 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d02_spacefloat.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/d02_spacefloat.jpg",
     "tags": "space,cosmic,city"
+   },
+   {
+    "id": "vp_sp_carina",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/vp_sp_carina_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/vp_sp_carina.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/vp_sp_carina.jpg",
+    "tags": "space,galaxy,universe"
+   },
+   {
+    "id": "vp_sp_pillars",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/vp_sp_pillars_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/vp_sp_pillars.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/vp_sp_pillars.jpg",
+    "tags": "space,galaxy,universe"
+   },
+   {
+    "id": "vp_sp_andromeda",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/vp_sp_andromeda_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/vp_sp_andromeda.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/vp_sp_andromeda.jpg",
+    "tags": "space,galaxy,universe"
+   },
+   {
+    "id": "vp_sp_whirlpool",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/vp_sp_whirlpool_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/vp_sp_whirlpool.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/space/vp_sp_whirlpool.jpg",
+    "tags": "space,galaxy,universe"
    }
   ]
  },
@@ -15640,7 +15815,10 @@
    "d30_yoru",
    "up_denji1",
    "up_makima1",
-   "up_power1"
+   "up_power1",
+   "vp_an_csm1",
+   "vp_an_csm2",
+   "vp_an_csm3"
   ],
   "death note": [
    "w89vl6",
@@ -15750,7 +15928,9 @@
    "jx8pm5",
    "p8em3m",
    "d20_denji",
-   "up_denji1"
+   "up_denji1",
+   "vp_an_csm1",
+   "vp_an_csm2"
   ],
   "eren": [
    "6ld5wl",
@@ -15795,7 +15975,8 @@
    "zy3pzw",
    "2yrgom",
    "d20_gojo",
-   "d02_gojo"
+   "d02_gojo",
+   "vp_an_jjk2"
   ],
   "jjk": [
    "up_sukuna1",
@@ -15844,7 +16025,8 @@
    "d20_nobara",
    "d20_gojo",
    "d30_toji",
-   "d02_gojo"
+   "d02_gojo",
+   "vp_an_jjk2"
   ],
   "l lawliet": [
    "w89vl6",
@@ -18808,7 +18990,8 @@
    "d01_asunagirl",
    "d01_kimono",
    "d01_rainumbrella",
-   "d01_starrysilhouette"
+   "d01_starrysilhouette",
+   "vp_an_yourname"
   ],
   "toji": [
    "fw004",
@@ -19292,7 +19475,13 @@
    "d01_lakshmi",
    "d02_ganesha",
    "d02_radhakrishna",
-   "d02_shivacosmic"
+   "d02_shivacosmic",
+   "vp_gd_durga",
+   "vp_gd_hanuman",
+   "vp_gd_ram2",
+   "vp_gd_khatu",
+   "vp_gd_vishnu2",
+   "vp_gd_durga2"
   ],
   "hindu": [
    "god001",
@@ -19690,7 +19879,13 @@
    "d01_lakshmi",
    "d02_ganesha",
    "d02_radhakrishna",
-   "d02_shivacosmic"
+   "d02_shivacosmic",
+   "vp_gd_durga",
+   "vp_gd_hanuman",
+   "vp_gd_ram2",
+   "vp_gd_khatu",
+   "vp_gd_vishnu2",
+   "vp_gd_durga2"
   ],
   "bhakti": [
    "hgod001",
@@ -20856,7 +21051,11 @@
    "d01_mystichorizon",
    "d01_spacestation",
    "d02_cosmiccity",
-   "d02_spacefloat"
+   "d02_spacefloat",
+   "vp_sp_carina",
+   "vp_sp_pillars",
+   "vp_sp_andromeda",
+   "vp_sp_whirlpool"
   ],
   "galaxy": [
    "uw001",
@@ -20996,7 +21195,11 @@
    "d01_mystichorizon",
    "d01_spacestation",
    "d02_cosmiccity",
-   "d02_spacefloat"
+   "d02_spacefloat",
+   "vp_sp_carina",
+   "vp_sp_pillars",
+   "vp_sp_andromeda",
+   "vp_sp_whirlpool"
   ],
   "universe": [
    "uw001",
@@ -21136,7 +21339,11 @@
    "d01_mystichorizon",
    "d01_spacestation",
    "d02_cosmiccity",
-   "d02_spacefloat"
+   "d02_spacefloat",
+   "vp_sp_carina",
+   "vp_sp_pillars",
+   "vp_sp_andromeda",
+   "vp_sp_whirlpool"
   ],
   "nasa": [
    "uw001",
@@ -21691,7 +21898,8 @@
    "d26_gi_nahida_stars",
    "d02_nahidaforest",
    "d02_nahidaroom",
-   "d02_nahidawater"
+   "d02_nahidawater",
+   "vp_gm_skirk"
   ],
   "hutao": [
    "wpx001"
@@ -21797,7 +22005,10 @@
    "d01_rainumbrella",
    "up_waifupink1",
    "up_windy1",
-   "up_bunny1"
+   "up_bunny1",
+   "vp_an_pink",
+   "vp_an_stairs",
+   "vp_an_balloon"
   ],
   "hu tao": [
    "wpxbg002"
@@ -21901,7 +22112,8 @@
   "honkai star rail": [
    "gwx001",
    "gwx002",
-   "d20_firefly"
+   "d20_firefly",
+   "vp_gm_firefly"
   ],
   "castorice": [
    "gwx001",
@@ -21912,7 +22124,8 @@
    "apx008"
   ],
   "skirk": [
-   "gwx003"
+   "gwx003",
+   "vp_gm_skirk"
   ],
   "yae miko": [
    "gwx004"
@@ -21930,10 +22143,12 @@
    "hgod353",
    "d20_shiva_cosmic",
    "d20_shiva_night",
-   "d02_shivacosmic"
+   "d02_shivacosmic",
+   "vp_gd_durga"
   ],
   "durga": [
-   "hgod354"
+   "hgod354",
+   "vp_gd_durga2"
   ],
   "bridge": [
    "nat017"
@@ -22077,7 +22292,9 @@
    "d20_eva",
    "d23_asuka",
    "up_rei1",
-   "up_evangelion1"
+   "up_evangelion1",
+   "vp_an_eva1",
+   "vp_an_eva3"
   ],
   "neon genesis evangelion": [
    "d20_eva"
@@ -22090,7 +22307,8 @@
   ],
   "madoka magica": [
    "d20_madoka",
-   "up_madoka1"
+   "up_madoka1",
+   "vp_an_mad1"
   ],
   "puella magi madoka magica": [
    "d20_madoka"
@@ -22102,13 +22320,15 @@
    "d20_nobara"
   ],
   "war devil": [
-   "d20_wardevil"
+   "d20_wardevil",
+   "vp_an_csm3"
   ],
   "asa mitaka": [
    "d20_wardevil"
   ],
   "your name": [
-   "d20_yourname"
+   "d20_yourname",
+   "vp_an_yourname"
   ],
   "kimi no na wa": [
    "d20_yourname"
@@ -22129,7 +22349,8 @@
    "d20_arlecchino"
   ],
   "firefly": [
-   "d20_firefly"
+   "d20_firefly",
+   "vp_gm_firefly"
   ],
   "persona 5": [
    "d20_p5royal"
@@ -22138,7 +22359,8 @@
    "d20_p5royal"
   ],
   "touhou": [
-   "d20_touhou"
+   "d20_touhou",
+   "vp_gm_touhou"
   ],
   "touhou project": [
    "d20_touhou"
@@ -22154,7 +22376,8 @@
    "d20_ram_sunset"
   ],
   "hanuman": [
-   "d20_hanuman"
+   "d20_hanuman",
+   "vp_gd_hanuman"
   ],
   "bird": [
    "d22_birdbuilding"
@@ -22455,7 +22678,8 @@
    "up_tomioka1"
   ],
   "rei ayanami": [
-   "up_rei1"
+   "up_rei1",
+   "vp_an_eva3"
   ],
   "sousou no frieren": [
    "up_frieren1"
@@ -22480,6 +22704,27 @@
   ],
   "princess mononoke": [
    "up_mononoke1"
+  ],
+  "asuka": [
+   "vp_an_eva1"
+  ],
+  "homura": [
+   "vp_an_mad1"
+  ],
+  "persona 3": [
+   "vp_gm_persona"
+  ],
+  "parvati": [
+   "vp_gd_durga"
+  ],
+  "ram": [
+   "vp_gd_ram2"
+  ],
+  "khatu shyam": [
+   "vp_gd_khatu"
+  ],
+  "vishnu": [
+   "vp_gd_vishnu2"
   ]
  }
 }
