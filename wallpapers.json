@@ -1,6 +1,6 @@
 {
  "version": 2,
- "last_updated": "2026-10-05",
+ "last_updated": "2026-10-06",
  "categories": {
   "ai3d": [
    {
@@ -8762,6 +8762,54 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_jjk2.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_jjk2.jpg",
     "tags": "jujutsu kaisen,gojo"
+   },
+   {
+    "id": "an_gokumui1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_gokumui1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_gokumui1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_gokumui1.jpg"
+   },
+   {
+    "id": "an_kakashi1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_kakashi1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_kakashi1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_kakashi1.jpg"
+   },
+   {
+    "id": "an_gojo2",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_gojo2_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_gojo2.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_gojo2.jpg"
+   },
+   {
+    "id": "an_luffy1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_luffy1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_luffy1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_luffy1.jpg"
+   },
+   {
+    "id": "an_denji1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_denji1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_denji1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_denji1.jpg"
+   },
+   {
+    "id": "an_rengoku1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_rengoku1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_rengoku1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_rengoku1.jpg"
+   },
+   {
+    "id": "an_zenitsu1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_zenitsu1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_zenitsu1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_zenitsu1.jpg"
+   },
+   {
+    "id": "an_tanjiro2",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_tanjiro2_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_tanjiro2.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_tanjiro2.jpg"
    }
   ],
   "anime2": [
@@ -12506,6 +12554,60 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa_yangyang9.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_wuwa_yangyang9.jpg",
     "tags": "wuthering waves,yangyang"
+   },
+   {
+    "id": "gm_ayaka1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_ayaka1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_ayaka1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_ayaka1.jpg"
+   },
+   {
+    "id": "gm_ganyu1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_ganyu1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_ganyu1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_ganyu1.jpg"
+   },
+   {
+    "id": "gm_hutao1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_hutao1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_hutao1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_hutao1.jpg"
+   },
+   {
+    "id": "gm_keqing1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_keqing1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_keqing1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_keqing1.jpg"
+   },
+   {
+    "id": "gm_raiden1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_raiden1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_raiden1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_raiden1.jpg"
+   },
+   {
+    "id": "gm_shenhe1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_shenhe1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_shenhe1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_shenhe1.jpg"
+   },
+   {
+    "id": "gm_yaemiko1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_yaemiko1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_yaemiko1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_yaemiko1.jpg"
+   },
+   {
+    "id": "gm_yelan1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_yelan1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_yelan1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_yelan1.jpg"
+   },
+   {
+    "id": "gm_kokomi1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_kokomi1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_kokomi1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_kokomi1.jpg"
    }
   ],
   "god": [
@@ -14873,6 +14975,48 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_durga2.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/vp_gd_durga2.jpg",
     "tags": "hindu god,god,durga"
+   },
+   {
+    "id": "gd_shiva1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_shiva1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_shiva1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_shiva1.jpg"
+   },
+   {
+    "id": "gd_ganesha1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_ganesha1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_ganesha1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_ganesha1.jpg"
+   },
+   {
+    "id": "gd_hanuman1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_hanuman1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_hanuman1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_hanuman1.jpg"
+   },
+   {
+    "id": "gd_ram1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_ram1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_ram1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_ram1.jpg"
+   },
+   {
+    "id": "gd_durga1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_durga1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_durga1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_durga1.jpg"
+   },
+   {
+    "id": "gd_lakshmi1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_lakshmi1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_lakshmi1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_lakshmi1.jpg"
+   },
+   {
+    "id": "gd_saraswati1",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_saraswati1_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_saraswati1.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/god/gd_saraswati1.jpg"
    }
   ],
   "live": [
@@ -16364,7 +16508,8 @@
    "up_power1",
    "vp_an_csm1",
    "vp_an_csm2",
-   "vp_an_csm3"
+   "vp_an_csm3",
+   "an_denji1"
   ],
   "death note": [
    "w89vl6",
@@ -16444,7 +16589,10 @@
    "d19_tanjiro",
    "d19_zenitsu",
    "d30_tomioka",
-   "up_tomioka1"
+   "up_tomioka1",
+   "an_rengoku1",
+   "an_zenitsu1",
+   "an_tanjiro2"
   ],
   "denji": [
    "5yrw55",
@@ -16476,7 +16624,8 @@
    "d20_denji",
    "up_denji1",
    "vp_an_csm1",
-   "vp_an_csm2"
+   "vp_an_csm2",
+   "an_denji1"
   ],
   "eren": [
    "6ld5wl",
@@ -16522,7 +16671,8 @@
    "2yrgom",
    "d20_gojo",
    "d02_gojo",
-   "vp_an_jjk2"
+   "vp_an_jjk2",
+   "an_gojo2"
   ],
   "jjk": [
    "up_sukuna1",
@@ -16572,7 +16722,8 @@
    "d20_gojo",
    "d30_toji",
    "d02_gojo",
-   "vp_an_jjk2"
+   "vp_an_jjk2",
+   "an_gojo2"
   ],
   "l lawliet": [
    "w89vl6",
@@ -16602,7 +16753,8 @@
    "gpvq7q",
    "o5w13l",
    "e79oor",
-   "d26_luffy_ocean"
+   "d26_luffy_ocean",
+   "an_luffy1"
   ],
   "makima": [
    "5yrw55",
@@ -16698,7 +16850,8 @@
    "fw002",
    "d19_naruto",
    "d02_itachi",
-   "up_sasuke1"
+   "up_sasuke1",
+   "an_kakashi1"
   ],
   "one piece": [
    "w5d89r",
@@ -16715,7 +16868,8 @@
    "d26_luffy_ocean",
    "up_sabo1",
    "up_zoro2",
-   "up_zoro3"
+   "up_zoro3",
+   "an_luffy1"
   ],
   "oshi no": [
    "p9y3m3",
@@ -17459,7 +17613,8 @@
    "up_gojo7",
    "up_gojo8",
    "up_gojo9",
-   "up_gojo10"
+   "up_gojo10",
+   "an_gojo2"
   ],
   "jujutsu kasien": [
    "up_geto_new1",
@@ -18467,7 +18622,8 @@
    "up_naruto8",
    "up_naruto9",
    "up_naruto10",
-   "fw002"
+   "fw002",
+   "an_kakashi1"
   ],
   "obito uchiha": [
    "anime_naruto1",
@@ -19548,7 +19704,8 @@
   ],
   "zenitsu": [
    "fw005",
-   "d19_zenitsu"
+   "d19_zenitsu",
+   "an_zenitsu1"
   ],
   "quotes": [
    "fw006"
@@ -19581,7 +19738,8 @@
   ],
   "tanjiro": [
    "fw018",
-   "d19_tanjiro"
+   "d19_tanjiro",
+   "an_tanjiro2"
   ],
   "game": [
    "gm001",
@@ -20027,7 +20185,14 @@
    "vp_gd_ram2",
    "vp_gd_khatu",
    "vp_gd_vishnu2",
-   "vp_gd_durga2"
+   "vp_gd_durga2",
+   "gd_shiva1",
+   "gd_ganesha1",
+   "gd_hanuman1",
+   "gd_ram1",
+   "gd_durga1",
+   "gd_lakshmi1",
+   "gd_saraswati1"
   ],
   "hindu": [
    "god001",
@@ -20431,7 +20596,14 @@
    "vp_gd_ram2",
    "vp_gd_khatu",
    "vp_gd_vishnu2",
-   "vp_gd_durga2"
+   "vp_gd_durga2",
+   "gd_shiva1",
+   "gd_ganesha1",
+   "gd_hanuman1",
+   "gd_ram1",
+   "gd_durga1",
+   "gd_lakshmi1",
+   "gd_saraswati1"
   ],
   "bhakti": [
    "hgod001",
@@ -22445,10 +22617,20 @@
    "d02_nahidaforest",
    "d02_nahidaroom",
    "d02_nahidawater",
-   "vp_gm_skirk"
+   "vp_gm_skirk",
+   "gm_ayaka1",
+   "gm_ganyu1",
+   "gm_hutao1",
+   "gm_keqing1",
+   "gm_raiden1",
+   "gm_shenhe1",
+   "gm_yaemiko1",
+   "gm_yelan1",
+   "gm_kokomi1"
   ],
   "hutao": [
-   "wpx001"
+   "wpx001",
+   "gm_hutao1"
   ],
   "nisekoi": [
    "wpx002"
@@ -22557,7 +22739,8 @@
    "vp_an_balloon"
   ],
   "hu tao": [
-   "wpxbg002"
+   "wpxbg002",
+   "gm_hutao1"
   ],
   "konosuba": [
    "wpxbg003",
@@ -22674,7 +22857,8 @@
    "vp_gm_skirk"
   ],
   "yae miko": [
-   "gwx004"
+   "gwx004",
+   "gm_yaemiko1"
   ],
   "denia": [
    "gwx005",
@@ -22683,18 +22867,21 @@
   "ganesha": [
    "hgod351",
    "d01_ganesha",
-   "d02_ganesha"
+   "d02_ganesha",
+   "gd_ganesha1"
   ],
   "shiva": [
    "hgod353",
    "d20_shiva_cosmic",
    "d20_shiva_night",
    "d02_shivacosmic",
-   "vp_gd_durga"
+   "vp_gd_durga",
+   "gd_shiva1"
   ],
   "durga": [
    "hgod354",
-   "vp_gd_durga2"
+   "vp_gd_durga2",
+   "gd_durga1"
   ],
   "bridge": [
    "nat017"
@@ -22753,14 +22940,16 @@
    "d19_goku",
    "d26_goku_redsun",
    "d26_goku_moon",
-   "d26_goku_purple"
+   "d26_goku_purple",
+   "an_gokumui1"
   ],
   "dragon ball": [
    "d19_goku",
    "d19_vegeta",
    "d26_goku_redsun",
    "d26_goku_moon",
-   "d26_goku_purple"
+   "d26_goku_purple",
+   "an_gokumui1"
   ],
   "ichigo": [
    "d19_ichigo"
@@ -22780,7 +22969,8 @@
    "d19_nezuko"
   ],
   "rengoku": [
-   "d19_rengoku"
+   "d19_rengoku",
+   "an_rengoku1"
   ],
   "sanji": [
    "d19_sanji"
@@ -22923,7 +23113,8 @@
   ],
   "hanuman": [
    "d20_hanuman",
-   "vp_gd_hanuman"
+   "vp_gd_hanuman",
+   "gd_hanuman1"
   ],
   "bird": [
    "d22_birdbuilding"
@@ -23198,7 +23389,8 @@
    "d01_radhakrishna"
   ],
   "lakshmi": [
-   "d01_lakshmi"
+   "d01_lakshmi",
+   "gd_lakshmi1"
   ],
   "miku": [
    "d02_miku"
@@ -23264,13 +23456,92 @@
    "vp_gd_durga"
   ],
   "ram": [
-   "vp_gd_ram2"
+   "vp_gd_ram2",
+   "gd_ram1"
   ],
   "khatu shyam": [
    "vp_gd_khatu"
   ],
   "vishnu": [
    "vp_gd_vishnu2"
+  ],
+  "dragon ball z": [
+   "an_gokumui1"
+  ],
+  "goku ultra instinct": [
+   "an_gokumui1"
+  ],
+  "hatake kakashi": [
+   "an_kakashi1"
+  ],
+  "monkey d luffy": [
+   "an_luffy1"
+  ],
+  "kyojuro rengoku": [
+   "an_rengoku1"
+  ],
+  "zenitsu agatsuma": [
+   "an_zenitsu1"
+  ],
+  "ayaka": [
+   "gm_ayaka1"
+  ],
+  "kamisato ayaka": [
+   "gm_ayaka1"
+  ],
+  "ganyu": [
+   "gm_ganyu1"
+  ],
+  "keqing": [
+   "gm_keqing1"
+  ],
+  "raiden shogun": [
+   "gm_raiden1"
+  ],
+  "ei": [
+   "gm_raiden1"
+  ],
+  "shenhe": [
+   "gm_shenhe1"
+  ],
+  "yae": [
+   "gm_yaemiko1"
+  ],
+  "yelan": [
+   "gm_yelan1"
+  ],
+  "kokomi": [
+   "gm_kokomi1"
+  ],
+  "sangonomiya kokomi": [
+   "gm_kokomi1"
+  ],
+  "lord shiva": [
+   "gd_shiva1"
+  ],
+  "ganpati": [
+   "gd_ganesha1"
+  ],
+  "bajrangbali": [
+   "gd_hanuman1"
+  ],
+  "lord ram": [
+   "gd_ram1"
+  ],
+  "goddess durga": [
+   "gd_durga1"
+  ],
+  "goddess lakshmi": [
+   "gd_lakshmi1"
+  ],
+  "saraswati": [
+   "gd_saraswati1"
+  ],
+  "goddess saraswati": [
+   "gd_saraswati1"
+  ],
+  "tanjiro kamado": [
+   "an_tanjiro2"
   ]
  }
 }
