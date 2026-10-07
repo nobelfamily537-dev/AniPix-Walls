@@ -1,6 +1,6 @@
 {
  "version": 2,
- "last_updated": "2026-10-06",
+ "last_updated": "2026-10-07",
  "categories": {
   "ai3d": [
    {
@@ -8810,6 +8810,94 @@
     "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_tanjiro2_thumb.jpg",
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_tanjiro2.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/an_tanjiro2.jpg"
+   },
+   {
+    "id": "vp_an_eren_aot",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_eren_aot_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_eren_aot.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_eren_aot.jpg",
+    "tags": "eren yeager,eren,attack on titan,aot,shingeki no kyojin,titan shifter,green eyes,red,dark,angry,close up,anime boy,aesthetic,amoled",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_ichigo_bleach",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_ichigo_bleach_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_ichigo_bleach.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_ichigo_bleach.jpg",
+    "tags": "ichigo kurosaki,ichigo,bleach,zangetsu,sword,katana,orange hair,black,red,dark,anime boy,bankai,shinigami,aesthetic,amoled",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_light_deathnote",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_light_deathnote_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_light_deathnote.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_light_deathnote.jpg",
+    "tags": "light yagami,light,yagami light,kira,death note,brown hair,white shirt,dark,red,anime boy,aesthetic,minimal,amoled",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_giyu_demonslayer",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_giyu_demonslayer_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_giyu_demonslayer.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_giyu_demonslayer.jpg",
+    "tags": "giyu tomioka,giyu,tomioka,demon slayer,kimetsu no yaiba,hashira,water hashira,blue,night,moon,forest,anime boy,aesthetic,dark",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_trunks_db",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_trunks_db_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_trunks_db.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_trunks_db.jpg",
+    "tags": "trunks,dragon ball,dragon ball z,dragon ball super,dbz,super saiyan,purple hair,sword,jacket,black,purple,anime boy,aesthetic,amoled,minimal",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_natsu_fairytail",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_natsu_fairytail_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_natsu_fairytail.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_natsu_fairytail.jpg",
+    "tags": "natsu dragneel,natsu,fairy tail,fire,flame,pink hair,dragon slayer,orange,yellow,red,anime boy,aesthetic,powerful",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_killua_hxh",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_killua_hxh_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_killua_hxh.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_killua_hxh.jpg",
+    "tags": "killua,killua zoldyck,hunter x hunter,hxh,white hair,blue eyes,assassin,lightning,orange,black,anime boy,dark,aesthetic,amoled",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_inuyasha",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_inuyasha_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_inuyasha.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_inuyasha.jpg",
+    "tags": "inuyasha,dog ears,half demon,white hair,katana,sword,red robe,cherry blossom,spring,pink,red,anime boy,aesthetic,feudal japan",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_gojo_halloween",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_gojo_halloween_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_gojo_halloween.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_gojo_halloween.jpg",
+    "tags": "gojo satoru,gojo,jujutsu kaisen,jjk,halloween,pumpkin,six eyes,blue,moon,night,anime boy,dark,aesthetic,amoled,monochrome",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_deku_mha",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_deku_mha_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_deku_mha.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_deku_mha.jpg",
+    "tags": "izuku midoriya,deku,my hero academia,mha,boku no hero academia,green hair,one for all,teal,dark,anime boy,aesthetic,hero",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_naruto_halloween",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_naruto_halloween_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_naruto_halloween.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime/vp_an_naruto_halloween.jpg",
+    "tags": "naruto uzumaki,naruto,halloween,pumpkin,full moon,bats,ninja,orange,night,anime boy,aesthetic,dark,konoha",
+    "date": "2026-10-07"
    }
   ],
   "anime2": [
@@ -11077,6 +11165,78 @@
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_balloon.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_balloon.jpg",
     "tags": "anime girl"
+   },
+   {
+    "id": "vp_an_broly_db",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_broly_db_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_broly_db.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_broly_db.jpg",
+    "tags": "broly,dragon ball,dragon ball super,super saiyan,legendary super saiyan,green hair,muscular,energy,teal,green,anime boy,aesthetic,powerful",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_gojo_jjk",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_gojo_jjk_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_gojo_jjk.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_gojo_jjk.jpg",
+    "tags": "gojo satoru,gojo,jujutsu kaisen,jjk,sunglasses,six eyes,white hair,magenta,pink,purple,anime boy,aesthetic,minimal",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_kakashi_naruto",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_kakashi_naruto_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_kakashi_naruto.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_kakashi_naruto.jpg",
+    "tags": "kakashi hatake,kakashi,naruto,sharingan,copy ninja,mask,white hair,red eyes,green,anime boy,aesthetic,leaf village,konoha",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_luffy_onepiece",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_luffy_onepiece_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_luffy_onepiece.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_luffy_onepiece.jpg",
+    "tags": "monkey d luffy,luffy,one piece,straw hat,red,black,gear,pirate,anime boy,aesthetic,dark,powerful,amoled",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_saitama_opm",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_saitama_opm_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_saitama_opm.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_saitama_opm.jpg",
+    "tags": "saitama,one punch man,opm,bald,hero,red,yellow,anime boy,aesthetic,minimal,powerful",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_sailormoon",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_sailormoon_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_sailormoon.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_sailormoon.jpg",
+    "tags": "sailor moon,usagi tsukino,usagi,sailor,blonde,pink,magenta,anime girl,magical girl,cute,aesthetic,minimal",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_kenshin",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_kenshin_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_kenshin.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_kenshin.jpg",
+    "tags": "kenshin himura,kenshin,rurouni kenshin,samurai,x-shaped scar,katana,sword,red hair,red,blue,anime boy,aesthetic,meiji",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_kaneki_tokyoghoul",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_kaneki_tokyoghoul_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_kaneki_tokyoghoul.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_kaneki_tokyoghoul.jpg",
+    "tags": "ken kaneki,kaneki,tokyo ghoul,ghoul,white hair,red eye,mask,red,black,purple,anime boy,dark,aesthetic,amoled",
+    "date": "2026-10-07"
+   },
+   {
+    "id": "vp_an_meliodas_sds",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_meliodas_sds_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_meliodas_sds.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/anime2/vp_an_meliodas_sds.jpg",
+    "tags": "meliodas,seven deadly sins,nanatsu no taizai,sds,elizabeth,diane,ban,king,hawk,group,bright,colorful,rainbow,anime,aesthetic",
+    "date": "2026-10-07"
    }
   ],
   "game": [
@@ -12608,6 +12768,14 @@
     "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_kokomi1_thumb.jpg",
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_kokomi1.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/gm_kokomi1.jpg"
+   },
+   {
+    "id": "game_genshin_raiden",
+    "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_raiden_thumb.jpg",
+    "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_raiden.jpg",
+    "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/game_genshin_raiden.jpg",
+    "tags": "raiden shogun,raiden,ei,genshin impact,genshin,inazuma,purple hair,purple,katana,electro,anime girl,aesthetic,minimal",
+    "date": "2026-10-07"
    }
   ],
   "god": [
