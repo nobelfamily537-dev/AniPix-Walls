@@ -1,0 +1,51 @@
+name: Import Pinterest wallpapers
+
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: "Pinterest URLs (space separated)"
+        required: true
+      category:
+        description: "Category (anime / anime2 / game / god / ai3d / nature / space)"
+        required: false
+        default: "anime"
+      tags:
+        description: "Comma separated tags"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install --quiet pillow requests
+
+      - name: Run importer
+        env:
+          PINTEREST_URLS: ${{ inputs.urls }}
+          CATEGORY: ${{ inputs.category }}
+          TAGS: ${{ inputs.tags }}
+        run: python scripts/pinterest_import.py
+
+      - name: Commit and push
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "Add Pinterest wallpapers (${{ inputs.category }})"
+            git push
+          fi
