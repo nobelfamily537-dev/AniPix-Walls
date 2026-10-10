@@ -1,0 +1,53 @@
+name: Auto-tag wallpapers (WD14)
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max images this run"
+        required: false
+        default: "1000"
+      threshold:
+        description: "Min tag probability"
+        required: false
+        default: "0.35"
+      categories:
+        description: "Comma list to restrict (blank = all)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install --quiet onnxruntime pillow numpy
+
+      - name: Auto-tag
+        env:
+          LIMIT: ${{ inputs.limit }}
+          THRESHOLD: ${{ inputs.threshold }}
+          CATEGORIES: ${{ inputs.categories }}
+        run: python scripts/wd14_tag.py
+
+      - name: Commit and push
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "Auto-tag wallpapers with WD14 (AI tags)"
+            git push
+          fi
