@@ -7,7 +7,7 @@ Env:
   MAXTAGS      max tags kept per image (default 15)
   CATEGORIES   comma list to restrict (default: all)
 """
-import os, io, json, csv, sys, urllib.request
+import os, io, json, csv, sys, tempfile, urllib.request
 import numpy as np
 from PIL import Image
 import onnxruntime as ort
@@ -32,17 +32,18 @@ def dl(url, path):
     return path
 
 
-dl(MODEL, "model.onnx")
-dl(LABELS, "selected_tags.csv")
+MD = tempfile.mkdtemp()
+M = dl(MODEL, os.path.join(MD, "model.onnx"))
+L = dl(LABELS, os.path.join(MD, "selected_tags.csv"))
 
 # labels
 names, kinds = [], []
-with open("selected_tags.csv", encoding="utf-8") as f:
+with open(L, encoding="utf-8") as f:
     for row in csv.DictReader(f):
         names.append(row["name"])
         kinds.append(int(row.get("category", 0)))
 
-sess = ort.InferenceSession("model.onnx", providers=["CPUExecutionProvider"])
+sess = ort.InferenceSession(M, providers=["CPUExecutionProvider"])
 inp = sess.get_inputs()[0]
 _, H, W, _ = inp.shape
 print("model input:", inp.shape)
@@ -83,7 +84,8 @@ done = 0
 for cat, e in todo:
     try:
         url = e["full"] or e["thumb"]
-        raw = u2.urlopen(url, timeout=60).read()
+        rq = u2.Request(url, headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36"})
+        raw = u2.urlopen(rq, timeout=60).read()
         tmp = os.path.join(tempfile.gettempdir(), "t.jpg")
         open(tmp, "wb").write(raw)
         tags = tag(tmp)
