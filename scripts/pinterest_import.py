@@ -98,7 +98,8 @@ for url in URLS:
             "full": f"{RAW}/{CAT}/{wid}.jpg",
             "alt": f"{RAW}/{CAT}/{wid}.jpg",
         })
-        tags = sorted(set(["pinterest"] + FORCE_TAGS + auto_tags(text)))
+        tags = sorted(set(["pinterest"] + FORCE_TAGS +
+                       (auto_tags(text) if not FORCE_TAGS else [])))  # no guessing when caller gives tags
         for t in tags:
             data["tags"].setdefault(t, [])
             if wid not in data["tags"][t]:
