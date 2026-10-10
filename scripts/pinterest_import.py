@@ -92,14 +92,15 @@ for url in URLS:
         full.resize((360, 640), Image.LANCZOS).save(
             f"{CAT}/{wid}_thumb.jpg", "JPEG", quality=80, optimize=True, progressive=True)
 
+        tags = sorted(set(["pinterest"] + FORCE_TAGS +
+                       (auto_tags(text) if not FORCE_TAGS else [])))  # no guessing when caller gives tags
         data["categories"][CAT].insert(0, {
             "id": wid,
             "thumb": f"{RAW}/{CAT}/{wid}_thumb.jpg",
             "full": f"{RAW}/{CAT}/{wid}.jpg",
             "alt": f"{RAW}/{CAT}/{wid}.jpg",
+            "tags": ",".join(tags),   # REQUIRED: the app searches this per-entry field
         })
-        tags = sorted(set(["pinterest"] + FORCE_TAGS +
-                       (auto_tags(text) if not FORCE_TAGS else [])))  # no guessing when caller gives tags
         for t in tags:
             data["tags"].setdefault(t, [])
             if wid not in data["tags"][t]:
