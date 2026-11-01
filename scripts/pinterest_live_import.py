@@ -79,7 +79,15 @@ def thumb(mp4, out):
 
 
 added = []
-for url in URLS:
+# PER-URL TAGS: "url|tag one~tag two"  (~ separates tags so spaces are allowed)
+def split_entry(entry):
+    if "|" in entry:
+        u, t = entry.split("|", 1)
+        return u.strip(), [x.strip().lower() for x in t.split("~") if x.strip()]
+    return entry, []
+
+for entry in URLS:
+    url, own_tags = split_entry(entry)
     try:
         r = requests.get(url, headers=UA, timeout=60, allow_redirects=True)
         r.raise_for_status()
@@ -107,7 +115,7 @@ for url in URLS:
             os.remove(mp4)
             continue
 
-        tags = sorted(set(["pinterest", "live wallpaper", "video"] + FORCE_TAGS))
+        tags = sorted(set(["pinterest", "live wallpaper", "video"] + FORCE_TAGS + own_tags))
         data["categories"][CAT].insert(0, {
             "id": wid,
             "thumb": f"{RAW}/{CAT}/{wid}_thumb.jpg",
