@@ -7,8 +7,20 @@ Env:
   CATEGORY        default: live
   TAGS            comma-separated tags to force
 """
-import os, re, json, html, time, hashlib, subprocess, tempfile
+import os, re, json, html, time, hashlib, subprocess, shutil
 import requests
+
+def ffmpeg_bin():
+    if shutil.which("ffmpeg"):
+        return "ffmpeg"
+    try:
+        import imageio_ffmpeg
+        return imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception:
+        return None
+
+FF = ffmpeg_bin()
+print("ffmpeg:", FF)
 
 URLS = [u.strip() for u in os.environ.get("PINTEREST_URLS", "").split() if u.strip()]
 CAT = (os.environ.get("CATEGORY", "live").strip() or "live")
@@ -54,8 +66,10 @@ def find_video(txt):
 
 def thumb(mp4, out):
     """First decent frame -> 360x640 cover crop."""
+    if not FF:
+        return False
     for ss in ("0.5", "1.5", "0"):
-        cmd = ["ffmpeg", "-y", "-loglevel", "error", "-ss", ss, "-i", mp4,
+        cmd = [FF, "-y", "-loglevel", "error", "-ss", ss, "-i", mp4,
                "-frames:v", "1", "-vf",
                "scale=360:640:force_original_aspect_ratio=increase,crop=360:640",
                "-q:v", "3", out]
@@ -113,6 +127,10 @@ for url in URLS:
         time.sleep(1)
     except Exception as e:
         print(f"ERROR {url}: {e}")
+        for f in os.listdir(CAT):
+            if f.endswith(".mp4") and f[:-4] not in existing and not os.path.exists(f"{CAT}/{f[:-4]}_thumb.jpg"):
+                os.remove(f"{CAT}/{f}")
+                print(f"  cleaned orphan {f}")
 
 json.dump(data, open("wallpapers.json", "w", encoding="utf-8"),
           ensure_ascii=False, separators=(",", ":"))
