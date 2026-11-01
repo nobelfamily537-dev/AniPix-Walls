@@ -22,7 +22,10 @@ def ffmpeg_bin():
 FF = ffmpeg_bin()
 print("ffmpeg:", FF)
 
-URLS = [u.strip() for u in os.environ.get("PINTEREST_URLS", "").split() if u.strip()]
+_raw = os.environ.get("PINTEREST_URLS", "")
+# ";" separates entries (lets tags contain spaces); otherwise split on whitespace
+URLS = ([u.strip() for u in _raw.split(";") if u.strip()] if ";" in _raw
+        else [u.strip() for u in _raw.split() if u.strip()])
 CAT = (os.environ.get("CATEGORY", "live").strip() or "live")
 FORCE_TAGS = [t.strip().lower() for t in os.environ.get("TAGS", "").split(",") if t.strip()]
 REPO = os.environ.get("GITHUB_REPOSITORY", "nobelfamily537-dev/AniPix-Walls")
