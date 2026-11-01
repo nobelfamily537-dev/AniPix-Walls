@@ -1,5 +1,5 @@
 {
- "version": 15,
+ "version": 16,
  "last_updated": "2026-11-01",
  "categories": {
   "ai3d": [
@@ -16055,7 +16055,7 @@
     "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pinb98de37f6154_thumb.jpg",
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pinb98de37f6154.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pinb98de37f6154.jpg",
-    "tags": "pinterest,wuthering waves,wuwa,anime girl,white hair,red,fan,fox ears,chinese style,elegant,game character",
+    "tags": "hsin,pinterest,wuthering waves,wuwa,anime girl,white hair,red,fan,fox ears,chinese style,elegant,game character",
     "date": "2026-11-01"
    },
    {
@@ -16063,7 +16063,7 @@
     "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pin75fa895fd619_thumb.jpg",
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pin75fa895fd619.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pin75fa895fd619.jpg",
-    "tags": "pinterest,wuthering waves,wuwa,anime girl,white hair,red eyes,red flowers,portrait,close up,gold,game character",
+    "tags": "hsin,pinterest,wuthering waves,wuwa,anime girl,white hair,red eyes,red flowers,portrait,close up,gold,game character",
     "date": "2026-11-01"
    },
    {
@@ -16071,7 +16071,7 @@
     "thumb": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pinec42393e9af6_thumb.jpg",
     "full": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pinec42393e9af6.jpg",
     "alt": "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main/game/pinec42393e9af6.jpg",
-    "tags": "pinterest,wuthering waves,wuwa,anime girl,white hair,water,fox spirit,red,black,gold,fantasy,game character",
+    "tags": "hsin,pinterest,wuthering waves,wuwa,anime girl,white hair,water,fox spirit,red,black,gold,fantasy,game character",
     "date": "2026-11-01"
    },
    {
@@ -37381,7 +37381,10 @@
    "pin09e81b385e",
    "pin3ceeb91685",
    "pina76b3eecd5",
-   "pin2bb6b7017b"
+   "pin2bb6b7017b",
+   "pinb98de37f6154",
+   "pin75fa895fd619",
+   "pinec42393e9af6"
   ],
   "hiyuki": [
    "pinfda4cbee98",
