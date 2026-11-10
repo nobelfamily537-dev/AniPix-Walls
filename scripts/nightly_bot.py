@@ -24,18 +24,42 @@ except Exception:
 MODE = (CFG.get("mode") or os.environ.get("MODE", "fetch")).strip()
 
 SERIES = {
-    "mashle": ["mashle*"],
-    "ranma": ["ranma*"],
-    "spice_and_wolf": ["ookami_to_koushinryou*", "spice_and_wolf*"],
-    "kaguya": ["kaguya*sama*"],
-    "mob_psycho": ["mob_psycho*"],
-    "apothecary": ["kusuriya*"],
-    "classroom_elite": ["youkoso_jitsuryoku*"],
-    "haikyuu": ["haikyuu*"],
-    "overlord": ["overlord_*"],
-    "gintama": ["gintama*"],
-    "lycoris": ["lycoris_recoil*"],
-    "yofukashi": ["yofukashi_no_uta*"],
+    "mashle": {
+        "wallhaven": ["mashle", "mashle magic and muscles"],
+        "booru": ["mashle", "mashle_(manga)"],
+        "chars": ["mash_burnedead", "lance_crown", "dot_barrett", "finn_ames"],
+    },
+    "ranma": {
+        "wallhaven": ["ranma", "ranma 1/2"],
+        "booru": ["ranma_1/2", "ranma_1/2_(series)"],
+        "chars": ["saotome_ranma", "tendou_akane", "shampoo_(ranma_1/2)"],
+    },
+    "spice_and_wolf": {
+        "wallhaven": ["spice and wolf", "holo spice and wolf"],
+        "booru": ["ookami_to_koushinryou", "spice_and_wolf"],
+        "chars": ["holo"],
+    },
+    "kaguya": {
+        "wallhaven": ["kaguya", "kaguya sama"],
+        "booru": ["kaguya-sama_wa_kokurasetai_~tensai-tachi_no_renai_zunousen~",
+                  "kaguya-sama_wa_kokurasetai"],
+        "chars": ["shinomiya_kaguya", "fujiwara_chika", "hayasaka_ai"],
+    },
+    "mob_psycho": {
+        "wallhaven": ["mob psycho", "mob psycho 100"],
+        "booru": ["mob_psycho_100"],
+        "chars": ["kageyama_shigeo", "reigen_arataka"],
+    },
+    "apothecary": {
+        "wallhaven": ["apothecary diaries", "maomao"],
+        "booru": ["kusuriya_no_hitorigoto"],
+        "chars": ["maomao_(kusuriya_no_hitorigoto)", "jinshi_(kusuriya_no_hitorigoto)"],
+    },
+    "haikyuu": {
+        "wallhaven": ["haikyuu"],
+        "booru": ["haikyuu!!"],
+        "chars": ["hinata_shouyou", "kageyama_tobio"],
+    },
 }
 
 BAD = {"text", "english_text", "watermark", "signature", "comic", "multiple_views",
@@ -58,75 +82,107 @@ def get(url, **kw):
 
 
 # ---------------------------------------------------------------- fetch mode
+def wh_search(q, ratios="9x16"):
+    params = {"q": q, "categories": "010", "purity": "100",
+              "sorting": "favorites", "order": "desc", "page": 1}
+    if ratios:
+        params["ratios"] = ratios
+    r = get("https://wallhaven.cc/api/v1/search", params=params)
+    if not r:
+        return []
+    out = []
+    for d in r.json().get("data", []):
+        out.append({"url": d["path"], "w": d["dimension_x"], "h": d["dimension_y"],
+                    "score": d.get("favorites", 0), "id": f"wh{d['id']}",
+                    "tags": " ".join(t["name"].replace(" ", "_") for t in d.get("tags", []))})
+    print(f"   wallhaven '{q}' ratios={ratios} -> {len(out)}")
+    return out
+
+
+def booru_search(tag, limit=100):
+    out = []
+    for base, src in (("https://konachan.net/post.json", "kc"),
+                      ("https://yande.re/post.json", "yd")):
+        r = get(base, params={"tags": f"{tag} rating:safe", "limit": limit})
+        if not r:
+            continue
+        try:
+            posts = r.json()
+        except Exception:
+            continue
+        n = 0
+        for p in posts:
+            if not p.get("file_url"):
+                continue
+            out.append({"url": p["file_url"], "w": p.get("width") or 0,
+                        "h": p.get("height") or 0, "score": p.get("score") or 0,
+                        "id": f"{src}{p['id']}", "tags": p.get("tags", "")})
+            n += 1
+        print(f"   {src} '{tag}' -> {n}")
+    return out
+
+
 def do_fetch():
-    per = int(CFG.get("per_series") or os.environ.get("PER", "24"))
+    per = int(CFG.get("per_series") or os.environ.get("PER", "20"))
     slugs = [x for x in (CFG.get("series") or os.environ.get("SERIES", "")).split() if x]
     os.makedirs("_cand", exist_ok=True)
     manifest = []
 
-    def resolve(pattern):
-        r = get(f"{API}/tags.json", params={
-            "search[name_matches]": pattern, "search[category]": 3, "limit": 30})
-        if not r:
-            return None, 0
-        tags = [t for t in r.json() if t.get("post_count", 0) > 0]
-        if not tags:
-            return None, 0
-        tags.sort(key=lambda t: -t["post_count"])
-        return tags[0]["name"], tags[0]["post_count"]
-
     for slug in slugs:
-        best, bestc = None, 0
-        for p in SERIES.get(slug, [slug + "*"]):
-            name, cnt = resolve(p)
-            print(f"{slug}: {p} -> {name} ({cnt})")
-            if cnt > bestc:
-                best, bestc = name, cnt
-        if not best:
-            print(f"NO TAG for {slug}")
+        cfg = SERIES.get(slug)
+        if not cfg:
+            print(f"unknown slug {slug}")
             continue
         outdir = os.path.join("_cand", slug)
         os.makedirs(outdir, exist_ok=True)
-        got, seen = 0, set()
-        for page in (1, 2):
-            r = get(f"{API}/posts.json", params={
-                "tags": f"{best} rating:general", "limit": 200, "page": page})
-            if not r:
-                break
-            posts = r.json()
-            posts.sort(key=lambda p: -(p.get("score") or 0))
-            for p in posts:
-                if got >= per:
+        cands, seen_url = [], set()
+        for q in cfg["wallhaven"]:
+            for ratios in ("9x16", ""):
+                for c in wh_search(q, ratios):
+                    if c["url"] not in seen_url:
+                        seen_url.add(c["url"])
+                        cands.append(c)
+                if len(cands) >= per * 3:
                     break
-                w, h = int(p.get("image_width") or 0), int(p.get("image_height") or 0)
-                if not w or not h or h < w * 1.15 or w < 700 or h < 900:
-                    continue
-                if (p.get("score") or 0) < 10:
-                    continue
-                if set((p.get("tag_string") or "").split()) & BAD:
-                    continue
-                furl = p.get("file_url") or ""
-                if not furl or p["id"] in seen:
-                    continue
-                seen.add(p["id"])
-                ext = os.path.splitext(furl)[1] or ".jpg"
-                fn = f"{got:02d}_{p['id']}{ext}"
-                resp = get(furl)
-                if not resp or len(resp.content) < 40000:
-                    continue
-                with open(os.path.join(outdir, fn), "wb") as f:
-                    f.write(resp.content)
-                manifest.append({
-                    "slug": slug, "file": f"_cand/{slug}/{fn}", "post": p["id"],
-                    "score": p.get("score"), "w": w, "h": h,
-                    "chars": p.get("tag_string_character", ""),
-                    "tags": p.get("tag_string", "")[:400],
-                })
-                got += 1
-                time.sleep(0.3)
+        for t in cfg["booru"]:
+            for c in booru_search(t):
+                if c["url"] not in seen_url:
+                    seen_url.add(c["url"])
+                    cands.append(c)
+
+        # rank: prefer portrait, decent resolution, high score
+        def ok(c):
+            w, h = int(c["w"] or 0), int(c["h"] or 0)
+            if not w or not h:
+                return False
+            if h < w * 1.05 or w < 640 or h < 1000:
+                return False
+            if set(c["tags"].lower().split()) & BAD:
+                return False
+            return True
+
+        good = [c for c in cands if ok(c)]
+        good.sort(key=lambda c: -(c["score"] or 0))
+        print(f"{slug}: {len(cands)} raw, {len(good)} usable")
+        got = 0
+        for c in good:
             if got >= per:
                 break
-        print(f"{slug}: {got} candidates from {best}")
+            resp = get(c["url"])
+            if not resp or len(resp.content) < 40000:
+                continue
+            ext = os.path.splitext(c["url"].split("?")[0])[1] or ".jpg"
+            fn = f"{got:02d}_{c['id']}{ext}"
+            with open(os.path.join(outdir, fn), "wb") as f:
+                f.write(resp.content)
+            manifest.append({"slug": slug, "file": f"_cand/{slug}/{fn}",
+                             "src": c["id"], "score": c["score"],
+                             "w": c["w"], "h": c["h"],
+                             "tags": c["tags"][:300], "url": c["url"]})
+            got += 1
+            time.sleep(0.2)
+        print(f"{slug}: saved {got}")
+
     json.dump(manifest, open("_cand/manifest.json", "w"), indent=1)
     print("TOTAL", len(manifest))
 
