@@ -15,17 +15,14 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet pillow
-      - name: Diag
+      - name: Source diag
         continue-on-error: true
-        run: python3 _stage/diag.py
-      - name: Phase A
-        continue-on-error: true
-        run: python3 _stage/fetch_a.py
+        run: python3 _stage/diag_src.py
       - name: Commit
         if: always()
         run: |
           git config user.email "nobelfamily537@gmail.com"
           git config user.name "AniPix Bot"
           git add -A
-          git commit -m "lowcount fetch run" || true
+          git commit -m "source diag" || true
           git push || true
