@@ -35,7 +35,7 @@ BAD_TAGS = ["text", "english_text", "watermark", "signature", "logo", "web_addre
             "letterboxed", "bad_anatomy", "bad_hands", "censored", "4koma", "sketch",
             "monochrome", "greyscale", "cosplay", "photo"]
 
-N_REDDIT, N_KON, N_WH = 34, 34, 18
+N_REDDIT, N_KON, N_WH = 50, 0, 20
 KON = "https://konachan.net/post.json"
 WH = "https://wallhaven.cc/api/v1/search"
 
@@ -104,7 +104,7 @@ def reddit_candidates(s, pool):
     out = []
     for v in pool:
         t = (v.get("title", "")).lower().replace("\u2019", "'")
-        if not any(k in t for k in s["reddit"]):
+        if v.get("series") != s["tag"] and not any(k in t for k in s["reddit"]):
             continue
         out.append({"url": v["url"], "series": s["tag"], "source": "reddit",
                     "score": v.get("score", 0), "title": v.get("title", "")[:90]})
@@ -137,7 +137,7 @@ def main():
     items, seen, diag = [], set(), {}
     for s in SERIES:
         rc = reddit_candidates(s, pool)
-        kc = konachan_candidates(s, diag)
+        kc = []
         wc = wallhaven_candidates(s, diag)
         diag[s["tag"]] = {"reddit": len(rc), "konachan": len(kc), "wallhaven": len(wc)}
         for c in rc + kc + wc:
