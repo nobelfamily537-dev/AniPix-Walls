@@ -16,7 +16,12 @@ HDR = {"User-Agent": "AniPixBot/1.0 (wallpaper curation)"}
 REPO = os.environ.get("GITHUB_REPOSITORY", "nobelfamily537-dev/AniPix-Walls")
 RAW = f"https://raw.githubusercontent.com/{REPO}/main"
 TODAY = datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%Y-%m-%d")
-MODE = os.environ.get("MODE", "fetch").strip()
+CFG = {}
+try:
+    CFG = json.load(open(".nightly/config.json"))
+except Exception:
+    pass
+MODE = (CFG.get("mode") or os.environ.get("MODE", "fetch")).strip()
 
 SERIES = {
     "mashle": ["mashle*"],
@@ -54,8 +59,8 @@ def get(url, **kw):
 
 # ---------------------------------------------------------------- fetch mode
 def do_fetch():
-    per = int(os.environ.get("PER", "24"))
-    slugs = [s for s in os.environ.get("SERIES", "").split() if s]
+    per = int(CFG.get("per_series") or os.environ.get("PER", "24"))
+    slugs = [x for x in (CFG.get("series") or os.environ.get("SERIES", "")).split() if x]
     os.makedirs("_cand", exist_ok=True)
     manifest = []
 
@@ -140,7 +145,7 @@ def crop_9x16(im, yfocus=0.28):
 
 
 def do_add():
-    spec = json.loads(os.environ.get("SPEC", "[]"))
+    spec = CFG.get("spec") or json.loads(os.environ.get("SPEC", "[]"))
     data = json.load(open("wallpapers.json", encoding="utf-8"))
     cats = data["categories"]
     tagmap = data.setdefault("tags", {})
@@ -216,5 +221,12 @@ def do_add():
 
 if MODE == "fetch":
     do_fetch()
+elif MODE == "cleanup":
+    import subprocess
+    for f in (".github/workflows/nightly-bot.yml", "scripts/nightly_bot.py",
+              ".nightly/config.json", ".nightly_probe"):
+        subprocess.run(["git", "rm", "-q", "-f", f], check=False)
+    subprocess.run(["git", "push", "origin", "--delete", "nightly-candidates"], check=False)
+    print("cleanup staged")
 else:
     do_add()
