@@ -10,82 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Probe sources
-        run: |
-          python3 - <<'PY'
-import json, urllib.request, os
-UA={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36","Accept":"image/avif,image/webp,image/*,*/*;q=0.8"}
-out={}
-def get(url, raw=False):
-    req=urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=60) as r:
-        b=r.read()
-    return b
-
-def test(name, url):
-    try:
-        b=get(url)
-        out[name]={"ok":True,"bytes":len(b)}
-        return b
-    except Exception as e:
-        out[name]={"ok":False,"err":str(e)[:120]}
-        return None
-
-# 1 konachan api
-try:
-    j=json.loads(get("https://konachan.net/post.json"))
-    out["konachan_api"]={"ok":True,"n":len(j),"sample":j[0]["file_url"] if j else None}
-    if j:
-        b=test("konachan_file", j[0]["file_url"]); 
-        if b: open("_stage/k.jpg","wb").write(b)
-except Exception as e:
-    out["konachan_api"]={"ok":False,"err":str(e)[:120]}
-
-# 2 safebooru
-try:
-    j=json.loads(get("https://safebooru.donmai.us/posts.json"))
-    out["safebooru_api"]={"ok":True,"n":len(j)}
-    if j:
-        u=j[0].get("file_url") or j[0].get("large_file_url")
-        out["safebooru_url"]=u
-        b=test("safebooru_file", u)
-        if b: open("_stage/s.jpg","wb").write(b)
-except Exception as e:
-    out["safebooru_api"]={"ok":False,"err":str(e)[:120]}
-
-# 3 danbooru
-try:
-    j=json.loads(get("https://danbooru.donmai.us/posts.json"))
-    out["danbooru_api"]={"ok":True,"n":len(j)}
-except Exception as e:
-    out["danbooru_api"]={"ok":False,"err":str(e)[:120]}
-
-# 4 wallhaven
-try:
-    j=json.loads(get("https://wallhaven.cc/api/v1/search"))
-    out["wallhaven_api"]={"ok":True,"n":len(j.get("data",[])),"sample":j["data"][0]["path"] if j.get("data") else None}
-    if j.get("data"):
-        b=test("wallhaven_file", j["data"][0]["path"])
-        if b: open("_stage/w.jpg","wb").write(b)
-except Exception as e:
-    out["wallhaven_api"]={"ok":False,"err":str(e)[:120]}
-
-# 5 reddit direct with UA
-test("reddit_direct","https://i.redd.it/kx9lfq2s3r8h1.jpeg")
-# 6 pinterest og
-try:
-    h=get("https://www.pinterest.com/pin/9901863838022/").decode("utf-8","ignore")
-    out["pinterest_page"]={"ok":True,"len":len(h),"has_og":"og:image" in h}
-except Exception as e:
-    out["pinterest_page"]={"ok":False,"err":str(e)[:120]}
-
-json.dump(out, open("_stage/probe.json","w"), indent=1)
-print(json.dumps(out)[:2000])
-PY
-      - name: Commit probe
+      - name: Run probe
+        continue-on-error: true
+        run: python3 _stage/probe.py
+      - name: Commit
+        if: always()
         run: |
           git config user.email "nobelfamily537@gmail.com"
           git config user.name "AniPix Bot"
+          echo "done" > _stage/probe_done.txt
           git add -A
-          git commit -m "lowcount probe 2" || true
+          git commit -m "lowcount probe 3" || true
           git push || true
