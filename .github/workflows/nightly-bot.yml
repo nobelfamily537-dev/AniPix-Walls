@@ -1,28 +1,10 @@
 name: Nightly bot
 
 on:
-  workflow_dispatch:
-    inputs:
-      mode:
-        description: "fetch | add"
-        required: true
-        default: "fetch"
-      series:
-        description: "series slugs (fetch mode)"
-        required: false
-        default: "mashle"
-      per_series:
-        description: "candidates per series"
-        required: false
-        default: "24"
-      spec:
-        description: "JSON spec (add mode)"
-        required: false
-        default: "[]"
-      message:
-        description: "commit message (add mode)"
-        required: false
-        default: "Nightly wallpaper add"
+  push:
+    paths:
+      - ".nightly/config.json"
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -39,31 +21,30 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Stash config
+        run: cp .nightly/config.json /tmp/cfg.json
+
       - name: Install deps
         run: pip install --quiet requests pillow
 
       - name: Run bot
-        env:
-          MODE: ${{ inputs.mode }}
-          SERIES: ${{ inputs.series }}
-          PER: ${{ inputs.per_series }}
-          SPEC: ${{ inputs.spec }}
         run: python scripts/nightly_bot.py
 
-      - name: Push
-        env:
-          MODE: ${{ inputs.mode }}
-          MSG: ${{ inputs.message }}
+      - name: Push results
         run: |
           git config user.email "nobelfamily537@gmail.com"
           git config user.name "AniPix Bot"
+          MODE=$(python -c "import json;print(json.load(open('/tmp/cfg.json'))['mode'])")
+          MSG=$(python -c "import json;print(json.load(open('/tmp/cfg.json')).get('message','Nightly wallpaper add'))")
+          echo "mode=$MODE"
           if [ "$MODE" = "fetch" ]; then
             git checkout -B nightly-candidates
             git add -A _cand
-            git commit -m "Nightly candidates" || echo "nothing to commit"
+            git commit -m "Nightly candidates" || echo "nothing"
             git push -f origin nightly-candidates
           else
+            rm -rf _cand
             git add -A
-            git commit -m "$MSG" || echo "nothing to commit"
+            git commit -m "$MSG" || echo "nothing"
             git push origin HEAD:main
           fi
