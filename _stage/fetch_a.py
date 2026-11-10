@@ -46,8 +46,8 @@ def get(url, timeout=90):
 def konachan_posts(tag):
     posts = []
     for page in (1, 2, 3):
-        url = ("https://konachan.net/post.json" + urllib.parse.quote(tag) +
-               "+score:%3E=5&limit=100&page=" + str(page))
+        qs = urllib.parse.urlencode({"tags": tag + " score:>=5", "limit": 100, "page": page})
+        url = "https://konachan.net/post.json?" + qs
         try:
             posts += json.loads(get(url, 60))
         except Exception as e:
@@ -119,8 +119,12 @@ def main():
         pool = json.load(open("_stage/reddit_pool.json"))
     items = []
     seen = set()
+    diag = {}
     for s in SERIES:
-        cands = reddit_candidates(s, pool) + konachan_candidates(s)
+        rc = reddit_candidates(s, pool)
+        kc = konachan_candidates(s)
+        diag[s["tag"]] = {"reddit": len(rc), "konachan": len(kc)}
+        cands = rc + kc
         for c in cands:
             if c["url"] in seen:
                 continue
@@ -131,6 +135,8 @@ def main():
     with cf.ThreadPoolExecutor(10) as ex:
         kept = [r for r in ex.map(preview, items) if r]
     json.dump(kept, open("_stage/report_a.json", "w"))
+    json.dump(diag, open("_stage/diag_a.json", "w"), indent=1)
+    print(json.dumps(diag))
     print("kept", len(kept))
 
 
