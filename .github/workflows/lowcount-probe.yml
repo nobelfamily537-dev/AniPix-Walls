@@ -15,14 +15,14 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet pillow
-      - name: Source diag
+      - name: Phase B
         continue-on-error: true
-        run: python3 _stage/diag_src.py
+        run: python3 _stage/fetch_b.py
       - name: Commit
         if: always()
         run: |
           git config user.email "nobelfamily537@gmail.com"
           git config user.name "AniPix Bot"
           git add -A
-          git commit -m "source diag" || true
+          git commit -m "Wallpaper top-up - 2026-11-10 (low-count series)" || true
           git push || true
