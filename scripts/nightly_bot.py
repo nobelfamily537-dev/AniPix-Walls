@@ -127,12 +127,12 @@ def do_fetch():
 
 
 # ------------------------------------------------------------------ add mode
-def crop_9x16(im, yfocus=0.28):
+def crop_9x16(im, yfocus=0.28, xfocus=0.5):
     w, h = im.size
     t = 9 / 16
     if w / h > t:
         nw = int(h * t)
-        x = (w - nw) // 2
+        x = int((w - nw) * xfocus)
         return im.crop((x, 0, x + nw, h))
     nh = int(w / t)
     y = int((h - nh) * yfocus)
@@ -153,47 +153,32 @@ def do_add():
     existing_ids = {e["id"] for items in cats.values() for e in items}
     added = []
     for item in spec:
-        pid = item["post_id"]
+        url = item["url"]
         cat = item["category"]
         tags = [t.strip().lower() for t in item["tags"].split(",") if t.strip()]
         try:
-            r = get(f"{API}/posts/{pid}.json")
-            if not r:
-                print(f"SKIP {pid}: no post json")
-                continue
-            p = r.json()
-            furl = p.get("file_url")
-            if not furl:
-                print(f"SKIP {pid}: no file_url")
-                continue
-            wid = "wpx" + hashlib.md5(f"db{pid}".encode()).hexdigest()[:10]
-            if wid in existing_ids:
-                print(f"SKIP {pid}: id exists {wid}")
-                continue
+            wid = "wpx" + hashlib.md5(url.encode()).hexdigest()[:10]
             full_url = f"{RAW}/{cat}/{wid}.jpg"
-            if full_url in existing_urls:
-                print(f"SKIP {pid}: url exists")
+            if wid in existing_ids or full_url in existing_urls:
+                print(f"SKIP {url}: duplicate")
                 continue
-            resp = get(furl)
+            resp = get(url)
             if not resp:
-                print(f"SKIP {pid}: download failed")
+                print(f"SKIP {url}: download failed")
                 continue
             im = Image.open(io.BytesIO(resp.content)).convert("RGB")
             if im.width < 700 or im.height < 900:
-                print(f"SKIP {pid}: too small {im.size}")
+                print(f"SKIP {url}: too small {im.size}")
                 continue
-            out = ImageOps.fit(crop_9x16(im), (1080, 1920), method=Image.LANCZOS)
+            out = ImageOps.fit(
+                crop_9x16(im, item.get("yfocus", 0.28), item.get("xfocus", 0.5)),
+                (1080, 1920), method=Image.LANCZOS)
             out.save(f"{cat}/{wid}.jpg", "JPEG", quality=95, optimize=True, progressive=True)
             out.resize((360, 640), Image.LANCZOS).save(
                 f"{cat}/{wid}_thumb.jpg", "JPEG", quality=80, optimize=True, progressive=True)
-            entry = {
-                "id": wid,
-                "thumb": f"{RAW}/{cat}/{wid}_thumb.jpg",
-                "full": full_url,
-                "alt": full_url,
-                "tags": ",".join(tags),
-                "date": TODAY,
-            }
+            entry = {"id": wid, "thumb": f"{RAW}/{cat}/{wid}_thumb.jpg",
+                     "full": full_url, "alt": full_url,
+                     "tags": ",".join(tags), "date": TODAY}
             cats[cat].insert(0, entry)
             for t in tags:
                 tagmap.setdefault(t, [])
@@ -201,11 +186,11 @@ def do_add():
                     tagmap[t].insert(0, wid)
             existing_ids.add(wid)
             existing_urls.update([full_url, entry["thumb"]])
-            added.append((wid, cat, pid))
-            print(f"ADDED {wid} {cat} post={pid}")
-            time.sleep(0.3)
+            added.append((wid, cat))
+            print(f"ADDED {wid} {cat} <- {url}")
+            time.sleep(0.2)
         except Exception as e:
-            print(f"ERROR {pid}: {e}")
+            print(f"ERROR {url}: {e}")
 
     data["version"] = int(data.get("version", 1)) + 1
     data["last_updated"] = TODAY
