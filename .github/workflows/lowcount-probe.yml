@@ -8,21 +8,19 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install --quiet pillow
-      - name: Phase B
-        continue-on-error: true
-        run: python3 _stage/fetch_b.py
+      - name: Cleanup
+        run: python3 _stage/cleanup.py
       - name: Commit
         if: always()
         run: |
           git config user.email "nobelfamily537@gmail.com"
           git config user.name "AniPix Bot"
           git add -A
-          git commit -m "Wallpaper top-up - 2026-11-10 (low-count series)" || true
+          git commit -m "Wallpaper top-up - 2026-11-10 (34 new across 8 series)" || true
           git push || true
