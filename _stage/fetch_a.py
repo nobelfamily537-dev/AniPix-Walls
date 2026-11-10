@@ -46,8 +46,8 @@ def get(url, timeout=90):
 def konachan_posts(tag):
     posts = []
     for page in (1, 2, 3):
-        url = ("https://konachan.net/post.json" +
-               urllib.parse.quote(tag) + "+score:%3E=5&limit=100&page=%d" % page)
+        url = ("https://konachan.net/post.json" + urllib.parse.quote(tag) +
+               "+score:%3E=5&limit=100&page=" + str(page))
         try:
             posts += json.loads(get(url, 60))
         except Exception as e:
