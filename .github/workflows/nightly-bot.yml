@@ -1,0 +1,69 @@
+name: Nightly bot
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "fetch | add"
+        required: true
+        default: "fetch"
+      series:
+        description: "series slugs (fetch mode)"
+        required: false
+        default: "mashle"
+      per_series:
+        description: "candidates per series"
+        required: false
+        default: "24"
+      spec:
+        description: "JSON spec (add mode)"
+        required: false
+        default: "[]"
+      message:
+        description: "commit message (add mode)"
+        required: false
+        default: "Nightly wallpaper add"
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install --quiet requests pillow
+
+      - name: Run bot
+        env:
+          MODE: ${{ inputs.mode }}
+          SERIES: ${{ inputs.series }}
+          PER: ${{ inputs.per_series }}
+          SPEC: ${{ inputs.spec }}
+        run: python scripts/nightly_bot.py
+
+      - name: Push
+        env:
+          MODE: ${{ inputs.mode }}
+          MSG: ${{ inputs.message }}
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          if [ "$MODE" = "fetch" ]; then
+            git checkout -B nightly-candidates
+            git add -A _cand
+            git commit -m "Nightly candidates" || echo "nothing to commit"
+            git push -f origin nightly-candidates
+          else
+            git add -A
+            git commit -m "$MSG" || echo "nothing to commit"
+            git push origin HEAD:main
+          fi
