@@ -36,6 +36,8 @@ BAD_TAGS = ["text", "english_text", "watermark", "signature", "logo", "web_addre
             "monochrome", "greyscale", "cosplay", "photo"]
 
 N_REDDIT, N_KON, N_WH = 34, 34, 18
+KON = "https://konachan.net/post.json"
+WH = "https://wallhaven.cc/api/v1/search"
 
 
 def get(url, timeout=90):
@@ -50,7 +52,7 @@ def konachan_candidates(s, diag):
         for page in (1, 2, 3):
             try:
                 qs = urllib.parse.urlencode({"tags": tag, "limit": 100, "page": page})
-                posts = json.loads(get("https://konachan.net/post.json?" + qs, 60))
+                posts = json.loads(get(KON + "?" + qs, 60))
             except Exception as e:
                 diag.setdefault("errors", []).append("kon %s p%d: %s" % (tag, page, str(e)[:90]))
                 break
@@ -82,7 +84,7 @@ def wallhaven_candidates(s, diag):
     try:
         qs = urllib.parse.urlencode({"q": s["wh"], "ratios": "portrait", "categories": "100",
                                      "purity": "100", "sorting": "relevance", "atleast": "1000x1500"})
-        j = json.loads(get("https://wallhaven.cc/api/v1/search?" + qs, 60))
+        j = json.loads(get(WH + "?" + qs, 60))
     except Exception as e:
         diag.setdefault("errors", []).append("wh %s: %s" % (s["wh"], str(e)[:90]))
         return out
