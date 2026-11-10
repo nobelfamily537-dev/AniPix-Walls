@@ -1,4 +1,4 @@
-name: Lowcount probe
+name: Lowcount fetch
 on:
   push:
     paths:
@@ -6,19 +6,26 @@ on:
 permissions:
   contents: write
 jobs:
-  probe:
+  fetch:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
-      - name: Run probe
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow
+      - name: Phase A
         continue-on-error: true
-        run: python3 _stage/probe.py
+        run: python3 _stage/fetch_a.py
+      - name: Phase B
+        continue-on-error: true
+        run: python3 _stage/fetch_b.py
       - name: Commit
         if: always()
         run: |
           git config user.email "nobelfamily537@gmail.com"
           git config user.name "AniPix Bot"
-          echo "done" > _stage/probe_done.txt
           git add -A
-          git commit -m "lowcount probe 3" || true
+          git commit -m "lowcount fetch run" || true
           git push || true
