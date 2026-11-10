@@ -1,0 +1,27 @@
+name: Lowcount probe
+on:
+  push:
+    paths:
+      - "_stage/trigger.txt"
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe download
+        run: |
+          curl -sL -o probe.jpg "https://i.redd.it/kx9lfq2s3r8h1.jpeg" || true
+          ls -l probe.jpg || true
+          python3 -c "import urllib.request;urllib.request.urlretrieve('https://i.redd.it/kx9lfq2s3r8h1.jpeg','probe2.jpg')" || true
+          ls -l probe2.jpg || true
+      - name: Commit probe
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          mkdir -p _stage
+          echo "probe ran $(date -u)" > _stage/probe_done.txt
+          git add -A
+          git commit -m "lowcount probe" || true
+          git push || true
