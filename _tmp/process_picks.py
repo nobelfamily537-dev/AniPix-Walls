@@ -5,10 +5,27 @@ import io, json, hashlib, os, sys, time
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import requests
+import numpy as np
 from PIL import Image, ImageFilter, ImageOps
 
 UA = {"User-Agent": "AniPixBot/1.0 (wallpaper curation)"}
 RAW = "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main"
+
+def trim_borders(im, thr=24, maxfrac=0.32):
+    a = np.asarray(im.convert("L"), dtype=float)
+    h, w = a.shape
+    top = 0
+    while top < h*maxfrac and a[top].mean() < thr: top += 1
+    bot = h
+    while bot > h*(1-maxfrac) and a[bot-1].mean() < thr: bot -= 1
+    left = 0
+    while left < w*maxfrac and a[:, left].mean() < thr: left += 1
+    right = w
+    while right > w*(1-maxfrac) and a[:, right-1].mean() < thr: right -= 1
+    if (top, bot, left, right) != (0, h, 0, w) and (bot-top) > h*0.45 and (right-left) > w*0.45:
+        return im.crop((left, top, right, bot))
+    return im
+
 TODAY = datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%Y-%m-%d")
 picks = json.load(open("_tmp/picks.json"))
 data = json.load(open("wallpapers.json", encoding="utf-8"))
@@ -61,6 +78,7 @@ for p in picks:
                     nh = int(w/t); y = int((h-nh)*0.18); im = im.crop((0, y, w, y+nh))
             else:
                 nw = int(h*t); x = (w-nw)//2; im = im.crop((x, 0, x+nw, h))
+            im = trim_borders(im)
             full = ImageOps.fit(im, (1080, 1920), method=Image.LANCZOS)
         os.makedirs(cat, exist_ok=True)
         full.save(f"{cat}/{wid}.jpg", "JPEG", quality=95, optimize=True, progressive=True)
