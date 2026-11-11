@@ -2,7 +2,6 @@
 """Re-render game previews from full wallhaven images with alpha/black handling."""
 import os, io, json, time
 import requests
-import numpy as np
 from PIL import Image, ImageOps
 
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
@@ -21,16 +20,19 @@ def load(content):
         return flat
     return src.convert("RGB")
 
-def trim(im, thr=24, maxfrac=0.35):
-    a = np.asarray(im.convert("L"), dtype=float); h, w = a.shape
+def trim_borders(im, thr=24, maxfrac=0.35):
+    g = im.convert("L")
+    w, h = g.size
+    rows = list(g.resize((1, h)).getdata())
+    cols = list(g.resize((w, 1)).getdata())
     top = 0
-    while top < h*maxfrac and a[top].mean() < thr: top += 1
+    while top < h*maxfrac and rows[top] < thr: top += 1
     bot = h
-    while bot > h*(1-maxfrac) and a[bot-1].mean() < thr: bot -= 1
+    while bot > h*(1-maxfrac) and rows[bot-1] < thr: bot -= 1
     left = 0
-    while left < w*maxfrac and a[:, left].mean() < thr: left += 1
+    while left < w*maxfrac and cols[left] < thr: left += 1
     right = w
-    while right > w*(1-maxfrac) and a[:, right-1].mean() < thr: right -= 1
+    while right > w*(1-maxfrac) and cols[right-1] < thr: right -= 1
     if (top, bot, left, right) != (0, h, 0, w) and (bot-top) > h*0.4 and (right-left) > w*0.4:
         return im.crop((left, top, right, bot))
     return im
@@ -49,7 +51,7 @@ for c in cands:
     try:
         r = requests.get(c["url"], headers=UA, timeout=120)
         r.raise_for_status()
-        im = trim(load(r.content))
+        im = trim_borders(load(r.content))
         render(im).save(f"_tmp/prev6/{c['file']}", "JPEG", quality=82, optimize=True)
         out.append(c)
         print("ok", c["file"], im.size, flush=True)

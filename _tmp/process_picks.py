@@ -5,24 +5,25 @@ import io, json, hashlib, os, sys, time
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import requests
-import numpy as np
 from PIL import Image, ImageFilter, ImageOps
 
 UA = {"User-Agent": "AniPixBot/1.0 (wallpaper curation)"}
 RAW = "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main"
 
-def trim_borders(im, thr=24, maxfrac=0.32):
-    a = np.asarray(im.convert("L"), dtype=float)
-    h, w = a.shape
+def trim_borders(im, thr=24, maxfrac=0.35):
+    g = im.convert("L")
+    w, h = g.size
+    rows = list(g.resize((1, h)).getdata())
+    cols = list(g.resize((w, 1)).getdata())
     top = 0
-    while top < h*maxfrac and a[top].mean() < thr: top += 1
+    while top < h*maxfrac and rows[top] < thr: top += 1
     bot = h
-    while bot > h*(1-maxfrac) and a[bot-1].mean() < thr: bot -= 1
+    while bot > h*(1-maxfrac) and rows[bot-1] < thr: bot -= 1
     left = 0
-    while left < w*maxfrac and a[:, left].mean() < thr: left += 1
+    while left < w*maxfrac and cols[left] < thr: left += 1
     right = w
-    while right > w*(1-maxfrac) and a[:, right-1].mean() < thr: right -= 1
-    if (top, bot, left, right) != (0, h, 0, w) and (bot-top) > h*0.45 and (right-left) > w*0.45:
+    while right > w*(1-maxfrac) and cols[right-1] < thr: right -= 1
+    if (top, bot, left, right) != (0, h, 0, w) and (bot-top) > h*0.4 and (right-left) > w*0.4:
         return im.crop((left, top, right, bot))
     return im
 
