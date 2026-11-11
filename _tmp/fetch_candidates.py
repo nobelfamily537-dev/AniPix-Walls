@@ -50,8 +50,9 @@ def wallhaven(q):
         try: js = r.json()
         except Exception: break
         for d in js.get("data", []):
-            out.append(dict(src="wallhaven", id=d["id"], score=d.get("favorites", 0),
+            out.append(dict(src="wallhaven", id=d["id"], score=d.get("favorites") or 0,
                             w=d["dimension_x"], h=d["dimension_y"], url=d["path"],
+                            prev=(d.get("thumbs") or {}).get("large") or d["path"],
                             md5=d["id"], tags=" ".join(t["name"] for t in d.get("tags", [])),
                             rating="s"))
         if not js.get("meta", {}).get("current_page", 1) < js.get("meta", {}).get("last_page", 1):
@@ -65,9 +66,10 @@ def yande(tag):
     try: arr = r.json()
     except Exception: return []
     for p in arr:
-        out.append(dict(src="yande", id=p.get("id"), score=p.get("score", 0),
+        out.append(dict(src="yande", id=p.get("id"), score=p.get("score") or 0,
                         w=p.get("width"), h=p.get("height"),
                         url=p.get("file_url") or p.get("jpeg_url"),
+                        prev=p.get("sample_url") or p.get("jpeg_url") or p.get("file_url"),
                         md5=p.get("md5"), tags=p.get("tags", "").replace("_", " "), rating=p.get("rating")))
     return out
 
@@ -84,9 +86,10 @@ def safebooru_org(tag):
         for p in arr:
             d = p.get("directory"); im = p.get("image")
             if not im: continue
-            out.append(dict(src="safebooruorg", id=p.get("id"), score=p.get("score", 0),
+            out.append(dict(src="safebooruorg", id=p.get("id"), score=p.get("score") or 0,
                             w=p.get("width"), h=p.get("height"),
                             url=f"https://safebooru.org/images/{d}/{im}",
+                            prev=f"https://safebooru.org/images/{d}/{im}",
                             md5=p.get("hash") or f"{d}/{im}", tags=p.get("tags", "").replace("_", " "),
                             rating="s"))
     return out
@@ -110,19 +113,19 @@ for name, wq, ytags in SERIES:
             pool += safebooru_org(t)
         print(f"   + safebooru.org total={len(pool)}", flush=True)
     seen, kept = set(), []
-    pool.sort(key=lambda p: -p["score"])
+    pool.sort(key=lambda p: -(p["score"] or 0))
     for p in pool:
         key = p["md5"] or p["url"]
         if key in seen: continue
         seen.add(key)
         ms = 3 if p["src"] == "wallhaven" else (12 if p["src"] == "yande" else 6)
         if ok(p, ms): kept.append(p)
-    kept = kept[:36]
+    kept = kept[:26]
     print(f"   kept {len(kept)}", flush=True)
     slug = re.sub(r"[^a-z0-9]+", "-", name)
     for i, p in enumerate(kept):
         try:
-            r = requests.get(p["url"], headers=UA, timeout=120)
+            r = requests.get(p.get("prev") or p["url"], headers=UA, timeout=120)
             r.raise_for_status()
             im = Image.open(io.BytesIO(r.content)).convert("RGB")
             w, h = im.size; t = 9/16
