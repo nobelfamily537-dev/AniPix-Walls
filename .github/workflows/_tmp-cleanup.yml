@@ -1,0 +1,22 @@
+name: _tmp cleanup rejects
+on:
+  push:
+    paths: ["_tmp/reject.json"]
+  workflow_dispatch:
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python _tmp/cleanup.py
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A
+          git diff --cached --quiet && echo nothing || (git commit -m "Remove rejected wallpapers" && git push)
