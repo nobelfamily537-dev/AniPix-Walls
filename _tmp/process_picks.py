@@ -5,7 +5,7 @@ import io, json, hashlib, os, sys, time
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import requests
-from PIL import Image, ImageOps
+from PIL import Image, ImageFilter, ImageOps
 
 UA = {"User-Agent": "AniPixBot/1.0 (wallpaper curation)"}
 RAW = "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main"
@@ -36,12 +36,22 @@ for p in picks:
         r.raise_for_status()
         im = Image.open(io.BytesIO(r.content)).convert("RGB")
         w, h = im.size
+        r = h / w
         t = 9/16
-        if w/h > t:
-            nw = int(h*t); x = (w-nw)//2; im = im.crop((x, 0, x+nw, h))
+        if r > 2.05:
+            bg = ImageOps.fit(im, (1080, 1920), method=Image.LANCZOS).filter(ImageFilter.GaussianBlur(30))
+            fg = im.copy(); fg.thumbnail((1080, 1920), Image.LANCZOS)
+            bg.paste(fg, ((1080-fg.width)//2, (1920-fg.height)//2))
+            full = bg
         else:
-            nh = int(w/t); y = int((h-nh)*float(p.get("focus", 0.22))); im = im.crop((0, y, w, y+nh))
-        full = ImageOps.fit(im, (1080, 1920), method=Image.LANCZOS)
+            if r > t:
+                if r >= 1.55:
+                    nh = int(w/t); y = int((h-nh)*float(p.get("focus", 0.04))); im = im.crop((0, y, w, y+nh))
+                else:
+                    nh = int(w/t); y = int((h-nh)*0.18); im = im.crop((0, y, w, y+nh))
+            else:
+                nw = int(h*t); x = (w-nw)//2; im = im.crop((x, 0, x+nw, h))
+            full = ImageOps.fit(im, (1080, 1920), method=Image.LANCZOS)
         os.makedirs(cat, exist_ok=True)
         full.save(f"{cat}/{wid}.jpg", "JPEG", quality=95, optimize=True, progressive=True)
         full.resize((360, 640), Image.LANCZOS).save(f"{cat}/{wid}_thumb.jpg", "JPEG", quality=80, optimize=True, progressive=True)
