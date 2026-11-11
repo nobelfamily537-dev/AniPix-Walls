@@ -1,0 +1,23 @@
+name: _tmp fetch candidates
+on:
+  push:
+    paths: ["_tmp/trigger.txt"]
+  workflow_dispatch:
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - run: python _tmp/fetch_candidates.py
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A _tmp
+          git diff --cached --quiet && echo nothing || (git commit -m "tmp: fetch candidates" && git push)
