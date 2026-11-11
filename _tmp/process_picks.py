@@ -29,12 +29,22 @@ for p in picks:
     if url in existing_urls:
         print("SKIP dup url", url); continue
     wid = "wpx" + hashlib.sha1(url.encode()).hexdigest()[:10]
-    if wid in existing_ids:
+    force = bool(p.get("force"))
+    if wid in existing_ids and not force:
         print("SKIP dup id", wid); continue
     try:
         r = requests.get(url, headers=UA, timeout=120)
         r.raise_for_status()
-        im = Image.open(io.BytesIO(r.content)).convert("RGB")
+        src = Image.open(io.BytesIO(r.content))
+        if src.mode in ("RGBA", "LA", "P"):
+            src = src.convert("RGBA")
+            bbox = src.getbbox()
+            if bbox: src = src.crop(bbox)
+            flat = Image.new("RGB", src.size, (255, 255, 255))
+            flat.paste(src, mask=src.split()[-1])
+            im = flat
+        else:
+            im = src.convert("RGB")
         w, h = im.size
         r = h / w
         t = 9/16
@@ -58,6 +68,15 @@ for p in picks:
     except Exception as e:
         print("ERR", url, e); continue
 
+    if wid in existing_ids:
+        # refresh files of an existing entry, keep its position
+        for cat2, items in data["categories"].items():
+            for e in items:
+                if e["id"] == wid:
+                    e["date"] = TODAY
+        added.append((p["series"], wid, cat, "refreshed"))
+        print("REFRESHED", wid)
+        continue
     tags = [t.strip().lower() for t in p["tags"].split(",") if t.strip()]
     # keep only sane tags, dedupe preserving order
     seen = set(); tags = [x for x in tags if not (x in seen or seen.add(x))]
