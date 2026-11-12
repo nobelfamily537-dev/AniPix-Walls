@@ -1,22 +1,135 @@
 [
- {"slug":"akame","series":"akame ga kill","alias":"akame ga kiru","cat":"anime","kind":"anime",
-  "wh":["akame ga kill"],"kc":["akame_ga_kill"],"db":["akame_ga_kill!"]},
- {"slug":"ditf","series":"darling in the franxx","alias":"darling in the franxx","cat":"anime2","kind":"anime",
-  "wh":["darling in the franxx"],"kc":["darling_in_the_franxx"],"db":["darling_in_the_franxx"]},
- {"slug":"fgo","series":"fate grand order","alias":"fate/grand order","cat":"game","kind":"game",
-  "wh":["fate grand order","fate/grand order"],"kc":["fate/grand_order"],"db":["fate/grand_order"]},
- {"slug":"fsn","series":"fate stay night","alias":"fate/stay night","cat":"anime","kind":"anime",
-  "wh":["fate stay night","fate/stay night"],"kc":["fate/stay_night"],"db":["fate/stay_night"]},
- {"slug":"gfl","series":"girls frontline","alias":"girls' frontline","cat":"game","kind":"game",
-  "wh":["girls frontline","girls' frontline"],"kc":["girls_frontline"],"db":["girls'_frontline"]},
- {"slug":"godeater","series":"god eater","alias":"god eater","cat":"game","kind":"game",
-  "wh":["god eater"],"kc":["god_eater"],"db":["god_eater"]},
- {"slug":"initiald","series":"initial d","alias":"initial d","cat":"anime2","kind":"anime",
-  "wh":["initial d"],"kc":["initial_d"],"db":["initial_d"]},
- {"slug":"kakegurui","series":"kakegurui","alias":"kakegurui xx","cat":"anime","kind":"anime",
-  "wh":["kakegurui"],"kc":["kakegurui"],"db":["kakegurui"]},
- {"slug":"sds","series":"seven deadly sins","alias":"nanatsu no taizai","cat":"anime2","kind":"anime",
-  "wh":["seven deadly sins","nanatsu no taizai"],"kc":["nanatsu_no_taizai"],"db":["nanatsu_no_taizai"]},
- {"slug":"tanya","series":"saga of tanya the evil","alias":"youjo senki","cat":"anime","kind":"anime",
-  "wh":["youjo senki","saga of tanya the evil"],"kc":["youjo_senki"],"db":["youjo_senki"]}
+  {
+    "slug": "akame",
+    "series": "akame ga kill",
+    "alias": "akame ga kiru",
+    "cat": "anime",
+    "queries": [
+      "akame ga kill",
+      "akame (akame ga kill)",
+      "esdeath",
+      "kurome (akame ga kill)",
+      "tatsumi (akame ga kill)"
+    ]
+  },
+  {
+    "slug": "ditf",
+    "series": "darling in the franxx",
+    "alias": "darling in the franxx",
+    "cat": "anime2",
+    "queries": [
+      "darling in the franxx",
+      "zero two",
+      "zero two (darling in the franxx)",
+      "ichigo (darling in the franxx)"
+    ]
+  },
+  {
+    "slug": "fgo",
+    "series": "fate grand order",
+    "alias": "fate/grand order",
+    "cat": "game",
+    "queries": [
+      "fate grand order",
+      "fate/grand order",
+      "mash kyrielight",
+      "artoria pendragon",
+      "jeanne d'arc (fate)",
+      "scathach (fate)",
+      "ishtar (fate)"
+    ]
+  },
+  {
+    "slug": "fsn",
+    "series": "fate stay night",
+    "alias": "fate/stay night",
+    "cat": "anime",
+    "queries": [
+      "fate stay night",
+      "fate/stay night",
+      "saber (fate)",
+      "rin tohsaka",
+      "sakura matou",
+      "illyasviel von einzbern"
+    ]
+  },
+  {
+    "slug": "gfl",
+    "series": "girls frontline",
+    "alias": "girls' frontline",
+    "cat": "game",
+    "queries": [
+      "girls frontline",
+      "girls' frontline",
+      "m4a1 (girls frontline)",
+      "hk416 (girls frontline)",
+      "ump45 (girls frontline)",
+      "springfield (girls frontline)",
+      "ak-12 (girls frontline)"
+    ]
+  },
+  {
+    "slug": "godeater",
+    "series": "god eater",
+    "alias": "god eater",
+    "cat": "game",
+    "queries": [
+      "god eater",
+      "god eater 2",
+      "alisa ilinichna amiella",
+      "shio (god eater)"
+    ]
+  },
+  {
+    "slug": "initiald",
+    "series": "initial d",
+    "alias": "initial d",
+    "cat": "anime2",
+    "queries": [
+      "initial d",
+      "toyota ae86",
+      "takumi fujiwara",
+      "mazda rx-7 (initial d)"
+    ]
+  },
+  {
+    "slug": "kakegurui",
+    "series": "kakegurui",
+    "alias": "kakegurui xx",
+    "cat": "anime",
+    "queries": [
+      "kakegurui",
+      "yumeko jabami",
+      "mary saotome",
+      "kirari momobami",
+      "runa yomozuki"
+    ]
+  },
+  {
+    "slug": "sds",
+    "series": "seven deadly sins",
+    "alias": "nanatsu no taizai",
+    "cat": "anime2",
+    "queries": [
+      "seven deadly sins",
+      "nanatsu no taizai",
+      "meliodas",
+      "escanor",
+      "elizabeth liones",
+      "diane (nanatsu no taizai)",
+      "king (nanatsu no taizai)"
+    ]
+  },
+  {
+    "slug": "tanya",
+    "series": "saga of tanya the evil",
+    "alias": "youjo senki",
+    "cat": "anime",
+    "queries": [
+      "youjo senki",
+      "saga of tanya the evil",
+      "tanya degurechaff",
+      "viktoriya ivanovna serebryakov"
+    ]
+  }
 ]
