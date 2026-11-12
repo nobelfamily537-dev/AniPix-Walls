@@ -1,0 +1,10 @@
+[
+ {"slug":"dungeonmeshi","series":"delicious in dungeon","alias":"dungeon meshi","cat":"anime",
+  "queries":["dungeon meshi","delicious in dungeon","marcille donato","falin touden","izutsumi"]},
+ {"slug":"lycoris","series":"lycoris recoil","alias":"リコリス・リコイル","cat":"anime2",
+  "queries":["lycoris recoil","chisato nishikigi","takina inoue","kurumi (lycoris recoil)"]},
+ {"slug":"blackclover","series":"black clover","alias":"ブラッククローバー","cat":"anime",
+  "queries":["black clover","asta (black clover)","noelle silva","yuno (black clover)","nero (black clover)"]},
+ {"slug":"souleater","series":"soul eater","alias":"ソウルイーター","cat":"anime2",
+  "queries":["soul eater","maka albarn","soul evans","black star (soul eater)","death the kid"]}
+]
