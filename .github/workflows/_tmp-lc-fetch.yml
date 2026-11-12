@@ -1,5 +1,8 @@
 name: _tmp lc fetch
 on:
+  push:
+    paths:
+      - "_tmp/lc/trigger-fetch.txt"
   workflow_dispatch:
 
 permissions:
