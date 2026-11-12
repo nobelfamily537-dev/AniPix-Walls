@@ -6,7 +6,7 @@ Writes:
   _tmp/sheets/<slug>.jpg          contact sheet (8 per sheet, 4x2, index labels)
   _tmp/candidates.json            per series: index -> {src, full, w, h, extra}
 """
-import io, json, os, time, hashlib
+import io, json, os, time, hashlib, traceback
 import requests
 from PIL import Image, ImageDraw, ImageFont
 
@@ -19,6 +19,7 @@ os.makedirs(os.path.join(HERE, "sheets"), exist_ok=True)
 
 MAX_PER_SERIES = 24
 SEEN = set()
+QM = "?"   # kept separate: some tooling mangles literal query strings
 
 
 def get(url, **kw):
@@ -33,13 +34,25 @@ def portrait_ok(w, h):
     return w >= 1000 and h >= 1600 and h / float(w) >= 1.25
 
 
+def wh_url(q, atleast=True):
+    base = "https://wallhaven.cc/api/v1/search" + QM
+    tail = ("q=%s&categories=010&purity=100&ratios=portrait"
+            "&sorting=relevance&page=1")
+    if atleast:
+        tail = ("q=%s&categories=010&purity=100&ratios=portrait"
+                "&atleast=1080x1920&sorting=relevance&page=1")
+    return base + (tail % requests.utils.quote(q))
+
+
 def wh_search(q):
     out = []
-    try:
-        u = ("https://wallhaven.cc/api/v1/search"
-             "&ratios=portrait&atleast=1080x1920&sorting=relevance&page=1"
-             % requests.utils.quote(q))
-        js = get(u).json()
+    for atleast in (True, False):
+        try:
+            js = get(wh_url(q, atleast)).json()
+        except Exception as e:
+            print("  wallhaven FAIL %s: %s" % (q, e))
+            print(traceback.format_exc()[-400:])
+            return out
         for it in js.get("data", []):
             try:
                 w, h = [int(x) for x in it["resolution"].split("x")]
@@ -50,16 +63,16 @@ def wh_search(q):
             out.append({"src": "wallhaven", "full": it["path"],
                         "prev": it["thumbs"]["large"], "w": w, "h": h,
                         "extra": it.get("id", "")})
-    except Exception as e:
-        print(f"  wallhaven FAIL {q}: {e}")
+        if out:
+            break
     return out
 
 
 def kc_search(tag):
     out = []
     try:
-        u = ("https://konachan.net/post.json"
-             % requests.utils.quote(tag))
+        base = "https://konachan.net/post.json" + QM
+        u = base + ("tags=%s+rating:safe&limit=100" % requests.utils.quote(tag))
         for it in get(u).json():
             w, h = it.get("width") or 0, it.get("height") or 0
             if not portrait_ok(w, h):
@@ -68,17 +81,18 @@ def kc_search(tag):
             if not prev or not it.get("file_url"):
                 continue
             out.append({"src": "konachan", "full": it["file_url"], "prev": prev,
-                        "w": w, "h": h, "extra": it.get("tags", "")[:120]})
+                        "w": w, "h": h, "extra": (it.get("tags") or "")[:120]})
     except Exception as e:
-        print(f"  konachan FAIL {tag}: {e}")
+        print("  konachan FAIL %s: %s" % (tag, e))
+        print(traceback.format_exc()[-400:])
     return out
 
 
 def db_search(tag):
     out = []
     try:
-        u = ("https://danbooru.donmai.us/posts.json"
-             "&limit=100" % requests.utils.quote(tag))
+        base = "https://danbooru.donmai.us/posts.json" + QM
+        u = base + ("tags=%s+rating%%3Ageneral&limit=100" % requests.utils.quote(tag))
         for it in get(u).json():
             w, h = it.get("image_width") or 0, it.get("image_height") or 0
             if not portrait_ok(w, h):
@@ -91,7 +105,8 @@ def db_search(tag):
                         "w": w, "h": h,
                         "extra": (it.get("tag_string_character") or "")[:120]})
     except Exception as e:
-        print(f"  danbooru FAIL {tag}: {e}")
+        print("  danbooru FAIL %s: %s" % (tag, e))
+        print(traceback.format_exc()[-400:])
     return out
 
 
@@ -100,7 +115,8 @@ def sheet(slug, items):
     sh = Image.new("RGB", (cols * cw, rows * ch), (18, 18, 20))
     dr = ImageDraw.Draw(sh)
     try:
-        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 34)
+        font = ImageFont.truetype(
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 34)
     except Exception:
         font = ImageFont.load_default()
     for k, it in enumerate(items):
@@ -111,7 +127,7 @@ def sheet(slug, items):
             continue
         im.thumbnail((cw, ch), Image.LANCZOS)
         sh.paste(im, (cx + (cw - im.width) // 2, cy + (ch - im.height) // 2))
-        dr.rectangle([cx + 4, cy + 4, cx + 76, cy + 48], fill=(0, 0, 0))
+        dr.rectangle([cx + 4, cy + 4, cx + 80, cy + 48], fill=(0, 0, 0))
         dr.text((cx + 12, cy + 8), str(it["i"]), fill=(255, 255, 0), font=font)
         dr.rectangle([cx, cy, cx + cw - 1, cy + ch - 1], outline=(60, 60, 60))
     sh.save(os.path.join(HERE, "sheets", slug + ".jpg"), "JPEG", quality=88)
@@ -128,7 +144,6 @@ for s in SERIES:
         pool += kc_search(t)
     for t in s.get("db", []):
         pool += db_search(t)
-    # interleave sources so the first picks are not all from one site
     bysrc = {}
     for c in pool:
         bysrc.setdefault(c["src"], []).append(c)
@@ -166,8 +181,9 @@ for s in SERIES:
     if kept:
         sheet(slug, kept)
     all_cand[slug] = [{k: v for k, v in c.items() if k != "prev"} for c in kept]
-    print(f"{slug}: {len(kept)} candidates "
-          f"({ {s2: sum(1 for c in kept if c['src'] == s2) for s2 in ('wallhaven','konachan','danbooru')} })")
+    counts = {s2: sum(1 for c in kept if c["src"] == s2)
+              for s2 in ("wallhaven", "konachan", "danbooru")}
+    print("%s: %d candidates %s" % (slug, len(kept), counts))
     time.sleep(1)
 
 json.dump(all_cand, open(os.path.join(HERE, "candidates.json"), "w"), indent=1)
