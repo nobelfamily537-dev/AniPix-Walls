@@ -25,7 +25,7 @@ jobs:
           git add -A
           if git diff --cached --quiet; then echo nothing; else
             if [ -f _tmp/night_approved.json ]; then
-              MSG="Nightly wallpaper add - 2026-11-12 (20 new)"
+              MSG="Nightly wallpaper add - 2026-11-12 (15 new)"
             else
               MSG="tmp: night render stage"
             fi
