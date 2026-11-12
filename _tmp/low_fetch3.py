@@ -71,10 +71,10 @@ def get(url, params=None, tries=1, sleep=0.6):
 
 def wallhaven(q):
     out = []
-    for page in (1, 2):
+    for page in (1, 2, 3):
         r = get("https://wallhaven.cc/api/v1/search",
-                {"q": q, "categories": "010", "purity": "100", "ratios": "9x16",
-                 "atleast": "1080x1920", "sorting": "favorites", "page": page}, sleep=1.2)
+                {"q": q, "categories": "010", "purity": "100",
+                 "atleast": "1000x1400", "sorting": "favorites", "page": page}, sleep=1.2)
         if not r: break
         try: js = r.json()
         except Exception: break
@@ -143,11 +143,19 @@ def ok(p, ms):
     if p["url"] in existing_urls or p.get("prev") in existing_urls: return False
     return True
 
+QUERIES = {
+    "one punch man": ["saitama", "tatsumaki one punch", "genos"],
+    "initial d": ["takumi fujiwara", "toyota ae86", "initial d anime"],
+    "detective conan": ["conan edogawa", "ran mouri"],
+    "cyberpunk edgerunners": ["lucy cyberpunk", "cyberpunk 2077 anime", "david martinez"],
+}
 PER = int(os.environ.get("PER", "26"))
 IDX = int(os.environ.get("SERIES_IDX", "-1"))
 SEL = SERIES if IDX < 0 else [SERIES[IDX]]
 for name, wq, ytags, stags in SEL:
     pool = wallhaven(wq)
+    for q2 in QUERIES.get(name, []):
+        pool += wallhaven(q2)
     print(f"== {name}: wallhaven={len(pool)}", flush=True)
     for t in ytags[:3]:
         pool += yande(t)
@@ -170,7 +178,7 @@ for name, wq, ytags, stags in SEL:
     slug = re.sub(r"[^a-z0-9]+", "-", name)
     for i, p in enumerate(kept):
         try:
-            r = requests.get(p.get("prev") or p["url"], headers=UA, timeout=120)
+            r = requests.get(p["url"], headers=UA, timeout=60)
             r.raise_for_status()
             im = Image.open(io.BytesIO(r.content)).convert("RGB")
             fn = f"{slug}_{i:02d}.jpg"
