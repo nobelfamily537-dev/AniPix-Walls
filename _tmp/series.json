@@ -1,0 +1,22 @@
+[
+ {"slug":"akame","series":"akame ga kill","alias":"akame ga kiru","cat":"anime","kind":"anime",
+  "wh":["akame ga kill"],"kc":["akame_ga_kill"],"db":["akame_ga_kill!"]},
+ {"slug":"ditf","series":"darling in the franxx","alias":"darling in the franxx","cat":"anime2","kind":"anime",
+  "wh":["darling in the franxx"],"kc":["darling_in_the_franxx"],"db":["darling_in_the_franxx"]},
+ {"slug":"fgo","series":"fate grand order","alias":"fate/grand order","cat":"game","kind":"game",
+  "wh":["fate grand order","fate/grand order"],"kc":["fate/grand_order"],"db":["fate/grand_order"]},
+ {"slug":"fsn","series":"fate stay night","alias":"fate/stay night","cat":"anime","kind":"anime",
+  "wh":["fate stay night","fate/stay night"],"kc":["fate/stay_night"],"db":["fate/stay_night"]},
+ {"slug":"gfl","series":"girls frontline","alias":"girls' frontline","cat":"game","kind":"game",
+  "wh":["girls frontline","girls' frontline"],"kc":["girls_frontline"],"db":["girls'_frontline"]},
+ {"slug":"godeater","series":"god eater","alias":"god eater","cat":"game","kind":"game",
+  "wh":["god eater"],"kc":["god_eater"],"db":["god_eater"]},
+ {"slug":"initiald","series":"initial d","alias":"initial d","cat":"anime2","kind":"anime",
+  "wh":["initial d"],"kc":["initial_d"],"db":["initial_d"]},
+ {"slug":"kakegurui","series":"kakegurui","alias":"kakegurui xx","cat":"anime","kind":"anime",
+  "wh":["kakegurui"],"kc":["kakegurui"],"db":["kakegurui"]},
+ {"slug":"sds","series":"seven deadly sins","alias":"nanatsu no taizai","cat":"anime2","kind":"anime",
+  "wh":["seven deadly sins","nanatsu no taizai"],"kc":["nanatsu_no_taizai"],"db":["nanatsu_no_taizai"]},
+ {"slug":"tanya","series":"saga of tanya the evil","alias":"youjo senki","cat":"anime","kind":"anime",
+  "wh":["youjo senki","saga of tanya the evil"],"kc":["youjo_senki"],"db":["youjo_senki"]}
+]
