@@ -1,32 +1,31 @@
 #!/usr/bin/env python3
-"""Nightly gap-fill: wallhaven + safebooru candidates for anime with ZERO app coverage."""
+"""Nightly gap-fill: composed wallhaven/safebooru art -> smart 9:16 crop previews."""
 import os, io, json, time, re, html
-import requests
+import requests, numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageOps
 
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
 
 SERIES = [
-    ("steins-gate", "steins gate", ["steins_gate", "makise_kurisu", "okabe_rintarou", "shiina_mayuri", "steins;gate"]),
-    ("code-geass", "code geass", ["code_geass", "lelouch_vi_britannia", "c.c.", "kouzuki_kallen", "lelouch_lamperouge"]),
-    ("cowboy-bebop", "cowboy bebop", ["cowboy_bebop", "spike_spiegel", "faye_valentine", "edward_wong"]),
-    ("monogatari", "monogatari", ["monogatari_series", "senjougahara_hitagi", "oshino_shinobu", "hachikuji_mayoi", "bakemonogatari"]),
-    ("vinland-saga", "vinland saga", ["vinland_saga", "thorfinn_(vinland_saga)", "askeladd", "canute_(vinland_saga)"]),
-    ("mob-psycho", "mob psycho 100", ["mob_psycho_100", "kageyama_shigeo", "reigen_arataka", "mob_psycho"]),
-    ("kill-la-kill", "kill la kill", ["kill_la_kill", "matoi_ryuuko", "kiryuuin_satsuki", "mankanshoku_mako"]),
-    ("overlord", "overlord", ["overlord_(anime)", "ainz_ooal_gown", "albedo_(overlord)", "shalltear_bloodfallen"]),
+    ("steins-gate", "steins gate", ["steins_gate", "makise_kurisu"]),
+    ("code-geass", "code geass", ["code_geass", "lelouch_vi_britannia", "c.c."]),
+    ("cowboy-bebop", "cowboy bebop", ["cowboy_bebop", "spike_spiegel", "faye_valentine"]),
+    ("monogatari", "monogatari", ["monogatari_series", "senjougahara_hitagi", "oshino_shinobu"]),
+    ("vinland-saga", "vinland saga", ["vinland_saga", "thorfinn_(vinland_saga)"]),
+    ("mob-psycho", "mob psycho 100", ["mob_psycho_100", "kageyama_shigeo"]),
+    ("kill-la-kill", "kill la kill", ["kill_la_kill", "matoi_ryuuko"]),
+    ("overlord", "overlord", ["overlord_(anime)", "ainz_ooal_gown"]),
 ]
 
 BAD = {"text","english_text","watermark","signature","artist_name","speech_bubble","comic","4koma",
        "multiple_views","character_sheet","translated","logo","border","frame","letterboxed",
        "twitter_username","web_address","dated","artist_logo","english_commentary","bad_id",
        "bad_pixiv_id","bad_twitter_id","official_art","sketch","monochrome","greyscale",
-       "partially_colored","gun","mecha","vehicle","blood","gore","censored","manga","scan","sample",
+       "partially_colored","gun","vehicle","blood","gore","censored","manga","scan","sample",
        "no_humans","food","chibi","comic_panel","bikini","swimsuit","underwear","lingerie","panties",
        "bra","cleavage","no_bra","see_through","cameltoe","spread_legs","large_breasts","huge_breasts",
        "ass","nude","naked","topless","wet","bed","bottomless","sideboob","underboob","loli",
-       "close-up","closeup","cropped","faceless","solo_focus","lower_body","upper_body","legs","thighs",
-       "midriff","navel","stomach","skirt_lift","pantyshot","upskirt","weapon","sword","armor","armour"}
+       "cropped","faceless","pantyshot","upskirt","skirt_lift"}
 
 OUT = "_tmp/night_prev"; SHEETS = "_tmp/night_sheets"
 os.makedirs(OUT, exist_ok=True); os.makedirs(SHEETS, exist_ok=True)
@@ -38,12 +37,11 @@ for cat, ents in wp["categories"].items():
         for f in (e.get("full"), e.get("thumb")):
             m = re.search(r"wallhaven-([a-z0-9]+)\.(?:jpg|png|jpeg|webp)", f or "")
             if m: used.add(m.group(1))
-print("used ids:", len(used), flush=True)
 
 def get(url, params=None, tries=3, sleep=1.0):
     for i in range(tries):
         try:
-            r = requests.get(url, params=params, headers=UA, timeout=60)
+            r = requests.get(url, params=params, headers=UA, timeout=90)
             if r.status_code == 200:
                 time.sleep(sleep); return r
             print("  HTTP", r.status_code, url, flush=True)
@@ -52,22 +50,41 @@ def get(url, params=None, tries=3, sleep=1.0):
         time.sleep(4)
     return None
 
-def okratio(w, h):
-    if not w or not h: return False
+TARGET = 9/16
+
+def smart_crop(im):
+    """Crop to 9:16 keeping the most detailed (usually the subject) band."""
+    w, h = im.size
     r = h / w
-    return 1.40 <= r <= 1.95 and h >= 1500 and w >= 800
+    if r > TARGET * 1.02:                      # too tall: trim height, keep the top
+        nh = int(w / TARGET); y = int((h - nh) * 0.05)
+        return im.crop((0, y, w, y + nh))
+    if r >= TARGET:                            # already close
+        return im
+    nw = int(h * TARGET)                       # too wide: pick best column window
+    gw = 160
+    g = im.convert("L").resize((gw, max(20, int(gw * h / w))), Image.LANCZOS)
+    a = np.asarray(g.filter(ImageFilter.FIND_EDGES), dtype=np.float32)
+    col = a.mean(axis=0)
+    col = np.convolve(col, np.ones(7)/7, "same")
+    win = max(2, int(round(nw * gw / w)))
+    xs = np.arange(len(col) - win + 1)
+    if len(xs) <= 0:
+        x = (w - nw) // 2
+    else:
+        centre = (len(col) - win) / 2
+        bias = np.exp(-((xs - centre) ** 2) / (2 * (len(col) * 0.28) ** 2))
+        scores = np.array([col[x:x+win].sum() for x in xs]) * bias
+        x = int(xs[int(np.argmax(scores))] * w / gw)
+    x = max(0, min(w - nw, x))
+    return im.crop((x, 0, x + nw, h))
 
-def render(im, size=(450, 800)):
-    tw, th = size
-    return ImageOps.fit(im, (tw, th), method=Image.LANCZOS)
-
-# ---------- wallhaven ----------
-def wallhaven(q):
+def wallhaven(q, ratios, atleast):
     out = []
     for page in (1, 2):
         r = get("https://wallhaven.cc/api/v1/search",
-                {"q": q, "categories": "010", "purity": "100", "ratios": "portrait",
-                 "atleast": "1000x1500", "sorting": "favorites", "page": page})
+                {"q": q, "categories": "010", "purity": "100", "ratios": ratios,
+                 "atleast": atleast, "sorting": "favorites", "page": page})
         if not r: break
         try: js = r.json()
         except Exception: break
@@ -79,10 +96,9 @@ def wallhaven(q):
         if js.get("meta", {}).get("current_page", 1) >= js.get("meta", {}).get("last_page", 1): break
     return out
 
-# ---------- safebooru ----------
 def safebooru(tag):
     out = []
-    for pid in (0, 1, 2):
+    for pid in (0, 1):
         r = get("https://safebooru.org/index.php",
                 {"page": "dapi", "s": "post", "q": "index", "tags": tag + " sort:score:desc",
                  "limit": 100, "pid": pid}, sleep=1.2)
@@ -93,19 +109,24 @@ def safebooru(tag):
                 w, h, sc = int(a.get("width", 0)), int(a.get("height", 0)), int(a.get("score", 0))
             except Exception:
                 continue
-            if sc < 8: continue
+            if sc < 40 or w < 1000: continue
             prev = a.get("sample_url") or ""
-            if not prev or prev.endswith("sample.jpg") is False and "sample" not in prev:
+            if "sample" not in prev:
                 prev = f"https://safebooru.org/images/{a.get('directory')}/{a.get('image')}"
             out.append(dict(src="sb", id="sb" + a.get("id", ""), score=sc, w=w, h=h,
                             url=f"https://safebooru.org/images/{a.get('directory')}/{a.get('image')}",
                             prev=prev, tags=html.unescape(a.get("tags", ""))))
     return out
 
+def plausible(p):
+    w, h = p["w"], p["h"]
+    if not w or not h: return False
+    r = h / w
+    return 0.55 <= r <= 2.2 and h >= 900
+
 allc = []
 for slug, whq, sbtags in SERIES:
-    pool = []
-    pool += wallhaven(whq)
+    pool = wallhaven(whq, "landscape", "2560x1440") + wallhaven(whq, "portrait", "1000x1500")
     for t in sbtags:
         pool += safebooru(t)
     seen, kept = set(), []
@@ -114,7 +135,7 @@ for slug, whq, sbtags in SERIES:
         if p["id"] in seen: continue
         seen.add(p["id"])
         if p["src"] == "wh" and p["id"] in used: continue
-        if not okratio(p["w"], p["h"]): continue
+        if not plausible(p): continue
         if set(p["tags"].split()) & BAD: continue
         kept.append(p)
     kept = kept[:16]
@@ -125,8 +146,9 @@ for slug, whq, sbtags in SERIES:
         try:
             r = requests.get(p["prev"], headers=UA, timeout=90); r.raise_for_status()
             im = Image.open(io.BytesIO(r.content)).convert("RGB")
-            if im.width < 300: raise ValueError("tiny")
-            render(im).save(os.path.join(OUT, fn), "JPEG", quality=82, optimize=True)
+            if im.width < 400: raise ValueError("tiny")
+            ImageOps.fit(smart_crop(im), (450, 800), method=Image.LANCZOS).save(
+                os.path.join(OUT, fn), "JPEG", quality=82, optimize=True)
             rec = dict(slug=slug, file=fn, **p); allc.append(rec); mine.append(rec)
         except Exception as e:
             print("  err", fn, e, flush=True)
