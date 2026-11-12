@@ -102,7 +102,8 @@ for it in appr["items"]:
     if it.get("tags"):
         tagstr = it["tags"]
     else:
-        tagstr = build_tags(it, series_tag, it.get("src_tags", []), it.get("colors", []))
+        src = ([it["alt_series"]] if it.get("alt_series") else []) + it.get("src_tags", [])
+        tagstr = build_tags(it, series_tag, src, it.get("colors", []))
     url = f"{RAW}/{cat}/{wid}.jpg"
     entry = {
         "id": wid,
