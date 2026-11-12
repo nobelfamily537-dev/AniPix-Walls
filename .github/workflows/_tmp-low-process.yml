@@ -1,0 +1,25 @@
+name: _tmp lowcount process
+on:
+  push:
+    paths: ["_tmp/picks.json", "_tmp/trigger_process.txt"]
+  workflow_dispatch:
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - run: python _tmp/process_low.py
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A
+          if git diff --cached --quiet; then echo nothing; else
+            git commit -m "Wallpaper top-up - 2026-11-12 (low-count series)" && git push
+          fi
