@@ -1,0 +1,21 @@
+name: _tmp night fetch (gap anime)
+on:
+  workflow_dispatch:
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - run: python _tmp/night_fetch.py
+      - name: Commit previews
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A _tmp
+          git diff --cached --quiet && echo nothing || (git commit -m "tmp: night fetch previews" && git push)
