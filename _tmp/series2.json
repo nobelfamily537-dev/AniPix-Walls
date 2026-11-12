@@ -1,12 +1,12 @@
 [
- {"slug":"akame","series":"akame ga kill","alias":"akame ga kiru","cat":"anime",
-  "queries":["akame","akame ga kill!","tatsumi (akame ga kill)","mine (akame ga kill)","leone (akame ga kill)","esdeath (akame ga kill)","kurome"]},
- {"slug":"ditf","series":"darling in the franxx","alias":"darling in the franxx","cat":"anime2",
-  "queries":["zero two (darling in the franxx)","strelizia","hiro (darling in the franxx)","kokoro (darling in the franxx)","darling in the franxx anime"]},
- {"slug":"tanya","series":"saga of tanya the evil","alias":"youjo senki","cat":"anime",
-  "queries":["tanya (youjo senki)","youjo senki anime","visha (youjo senki)","tanya degurechaff (youjo senki)","saga of tanya the evil anime"]},
- {"slug":"sds","series":"seven deadly sins","alias":"nanatsu no taizai","cat":"anime2",
-  "queries":["meliodas (nanatsu no taizai)","escanor (nanatsu no taizai)","ban (nanatsu no taizai)","diane (seven deadly sins)","gowther","nanatsu no taizai anime"]},
- {"slug":"dungeonmeshi","series":"delicious in dungeon","alias":"dungeon meshi","cat":"anime",
-  "queries":["marcille (dungeon meshi)","falin (dungeon meshi)","laios (dungeon meshi)","izutsumi (dungeon meshi)","dungeon meshi anime"]}
+ {"slug":"bocchi","series":"bocchi the rock","alias":"bocchi the rock!","cat":"anime",
+  "queries":["bocchi the rock","hitori gotoh","nijika ijichi","ryo yamada","ikuyo kita"]},
+ {"slug":"hxh","series":"hunter x hunter","alias":"hunter x hunter","cat":"anime2",
+  "queries":["hunter x hunter","killua zoldyck","gon freecss","kurapika","hisoka morow"]},
+ {"slug":"eva","series":"neon genesis evangelion","alias":"evangelion","cat":"anime",
+  "queries":["neon genesis evangelion","rei ayanami","asuka langley soryu","misato katsuragi","evangelion unit 01"]},
+ {"slug":"apothecary","series":"apothecary diaries","alias":"kusuriya no hitorigoto","cat":"anime2",
+  "queries":["the apothecary diaries","maomao (apothecary diaries)","jinshi (apothecary diaries)","kusuriya no hitorigoto"]},
+ {"slug":"zzz","series":"zenless zone zero","alias":"zenless zone zero","cat":"game",
+  "queries":["zenless zone zero","ellen joe (zenless zone zero)","miyabi (zenless zone zero)","nicole demara"]}
 ]
