@@ -18,6 +18,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet pillow requests
+      - name: Enrich tags
+        run: python _tmp/lc/enrich.py
       - name: Publish
         run: python _tmp/lc/publish.py
       - name: Commit
