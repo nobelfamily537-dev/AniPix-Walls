@@ -1,0 +1,28 @@
+name: _tmp low-count fetch3
+on:
+  workflow_dispatch:
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        idx: [0,1,2,3,4,5,6,7,8,9]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - run: python _tmp/low_fetch3.py
+        env:
+          SERIES_IDX: ${{ matrix.idx }}
+          PER: "26"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c3-${{ matrix.idx }}
+          path: |
+            _tmp/cand_*.json
+            _tmp/prev_low/
+          retention-days: 3
