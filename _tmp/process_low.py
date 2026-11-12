@@ -36,8 +36,9 @@ for lst in cats.values():
 
 added, per_series = [], {}
 for p in picks:
-    slug, idx, cat = p["slug"], int(p["i"]), p["cat"]
+    slug, idx = p["slug"], int(p["i"])
     meta = SERIES[slug]
+    cat = p.get("cat") or meta["cat"]
     entry_meta = None
     for c in cand.get(slug, []):
         if c["i"] == idx:
