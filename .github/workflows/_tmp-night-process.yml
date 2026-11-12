@@ -1,0 +1,33 @@
+name: _tmp night process (render + publish)
+on:
+  workflow_dispatch:
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests numpy
+      - name: Stage render
+        if: ${{ hashFiles('_tmp/night_approved.json') == '' }}
+        run: MODE=stage python _tmp/night_process.py
+      - name: Publish
+        if: ${{ hashFiles('_tmp/night_approved.json') != '' }}
+        run: MODE=publish python _tmp/night_process.py
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A
+          if git diff --cached --quiet; then echo nothing; else
+            if [ -f _tmp/night_approved.json ]; then
+              MSG="Nightly wallpaper add - 2026-11-12 (20 new)"
+            else
+              MSG="tmp: night render stage"
+            fi
+            git commit -m "$MSG" && git push
+          fi
