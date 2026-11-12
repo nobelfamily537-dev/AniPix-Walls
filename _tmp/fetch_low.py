@@ -16,8 +16,12 @@ from PIL import Image, ImageDraw, ImageFont
 UA = {"User-Agent": ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
                      "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")}
 HERE = os.path.dirname(os.path.abspath(__file__))
-SERIES = json.load(open(os.path.join(HERE, "series.json"), encoding="utf-8"))
-for d in ("cand", "sheets"):
+CONFIG = os.environ.get("CONFIG", "series.json")
+OUTJSON = os.environ.get("OUTJSON", "candidates.json")
+CAND = os.environ.get("CAND", "cand")
+SHEETS = os.environ.get("SHEETS", "sheets")
+SERIES = json.load(open(os.path.join(HERE, CONFIG), encoding="utf-8"))
+for d in (CAND, SHEETS):
     os.makedirs(os.path.join(HERE, d), exist_ok=True)
 
 MAX_PER_SERIES = 24
@@ -98,7 +102,7 @@ def make_sheets(slug, items):
         for k, it in enumerate(chunk):
             cx, cy = (k % cols) * cw, (k // cols) * ch
             try:
-                im = Image.open(os.path.join(HERE, "cand", slug, "%d.jpg" % it["i"]))
+                im = Image.open(os.path.join(HERE, CAND, slug, "%d.jpg" % it["i"]))
                 im = im.convert("RGB")
             except Exception:
                 continue
@@ -107,14 +111,14 @@ def make_sheets(slug, items):
             dr.rectangle([cx + 4, cy + 4, cx + 78, cy + 46], fill=(0, 0, 0))
             dr.text((cx + 12, cy + 6), str(it["i"]), fill=(255, 255, 0), font=font)
             dr.rectangle([cx, cy, cx + cw - 1, cy + ch - 1], outline=(60, 60, 60))
-        sh.save(os.path.join(HERE, "sheets", "%s_%d.jpg" % (slug, n)),
+        sh.save(os.path.join(HERE, SHEETS, "%s_%d.jpg" % (slug, n)),
                 "JPEG", quality=86)
 
 
 all_cand = {}
 for s in SERIES:
     slug = s["slug"]
-    os.makedirs(os.path.join(HERE, "cand", slug), exist_ok=True)
+    os.makedirs(os.path.join(HERE, CAND, slug), exist_ok=True)
     pool = []
     for q in s["queries"]:
         found = wh_search(q, pages=2)
@@ -137,7 +141,7 @@ for s in SERIES:
             continue
         SEEN.add(hsh)
         SEEN.add(c["full"])
-        open(os.path.join(HERE, "cand", slug, "%d.jpg" % i), "wb").write(data)
+        open(os.path.join(HERE, CAND, slug, "%d.jpg" % i), "wb").write(data)
         c["i"] = i
         c["pw"], c["ph"] = size
         kept.append(c)
@@ -148,5 +152,5 @@ for s in SERIES:
     print("%s: %d candidates" % (slug, len(kept)))
     time.sleep(1)
 
-json.dump(all_cand, open(os.path.join(HERE, "candidates.json"), "w"), indent=1)
+json.dump(all_cand, open(os.path.join(HERE, OUTJSON), "w"), indent=1)
 print("TOTAL candidates:", sum(len(v) for v in all_cand.values()))
