@@ -10,26 +10,41 @@ UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
 # (display name, tag exactly as in tag index, alt common name, category, queries)
 SERIES = [
     ("soul eater", "soul eater", "soul eater", "anime",
-     ["soul eater", "maka albarn", "soul evans", "black blood"]),
+     ["soul eater", "maka albarn", "soul evans", "death the kid", "soul eater evans", "black blood"]),
     ("princess mononoke", "princess mononoke", "mononoke hime", "anime",
-     ["princess mononoke", "mononoke hime", "san mononoke", "ghibli"]),
+     ["princess mononoke", "mononoke hime", "san mononoke", "studio ghibli", "ghibli forest", "kodama"]),
     ("dungeon meshi", "dungeon meshi", "delicious in dungeon", "anime",
-     ["dungeon meshi", "marcille donato", "delicious in dungeon", "falin touden"]),
+     ["dungeon meshi", "marcille donato", "delicious in dungeon", "falin touden", "izutsumi", "laios touden"]),
     ("zenless zone zero", "zenless zone zero", "zzz", "game",
-     ["zenless zone zero", "ellen joe", "miyabi", "zzz"]),
+     ["zenless zone zero", "ellen joe", "miyabi", "zzz", "hoshimi miyabi", "qingyi"]),
     ("blue lock", "blue lock", "blue lock", "anime",
-     ["blue lock", "isagi yoichi", "bachira meguru", "nagi seishiro"]),
+     ["blue lock", "isagi yoichi", "bachira meguru", "nagi seishiro", "chigiri hyoma", "michael kaiser"]),
     ("spice and wolf", "ookami to koushinryou", "spice and wolf", "anime",
-     ["spice and wolf", "holo spice and wolf", "ookami to koushinryou"]),
+     ["spice and wolf", "holo spice and wolf", "ookami to koushinryou", "holo wolf", "lawrence spice and wolf"]),
     ("sailor moon", "sailor moon", "bishoujo senshi sailor moon", "anime",
-     ["sailor moon", "sailor moon crystal", "tsukino usagi"]),
+     ["sailor moon", "sailor moon crystal", "tsukino usagi", "sailor mars", "sailor venus", "super sailor moon"]),
     ("black clover", "black clover", "black clover", "anime",
-     ["black clover", "asta black clover", "noelle silva", "yuno black clover"]),
+     ["black clover", "asta black clover", "noelle silva", "yuno black clover", "nero black clover", "black bulls"]),
     ("one punch man", "one punch man", "one-punch man", "anime",
-     ["one punch man", "saitama", "genos", "tatsumaki"]),
+     ["one punch man", "saitama", "genos", "tatsumaki", "speed-o-sound sonic", "fubuki one punch man"]),
     ("violet evergarden", "violet evergarden", "violet evergarden", "anime",
-     ["violet evergarden", "violet evergarden anime"]),
+     ["violet evergarden", "violet evergarden anime", "gilbert bougainvillea"]),
+    # ---- backups, in case a primary series has no clean art ----
+    ("kaiju no. 8", "kaiju no. 8", "kaijuu 8-gou", "anime",
+     ["kaiju no 8", "kaiju no. 8", "kafka hibino", "kikoru shinomiya", "kaijuu 8-gou"]),
+    ("haikyuu", "haikyuu", "haikyuu!!", "anime",
+     ["haikyuu", "hinata shouyou", "kageyama tobio", "haikyuu!!"]),
+    ("dan da dan", "dan da dan", "dandadan", "anime",
+     ["dan da dan", "dandadan", "momo ayase", "okarun"]),
+    ("berserk", "berserk", "berserk", "anime",
+     ["berserk", "guts berserk", "griffith berserk", "kentaro miura"]),
+    ("fullmetal alchemist", "fullmetal alchemist", "fma", "anime",
+     ["fullmetal alchemist", "edward elric", "alphonse elric", "roy mustang"]),
+    ("wind breaker", "wind breaker", "wind breaker", "anime",
+     ["wind breaker", "sakura haruka", "bofurin", "suo hayato"]),
 ]
+
+BACKUP_NAMES = {"kaiju no. 8", "haikyuu", "dan da dan", "berserk", "fullmetal alchemist", "wind breaker"}
 
 BAD = {"text", "english_text", "watermark", "signature", "artist_name", "speech_bubble",
        "comic", "4koma", "multiple_views", "character_sheet", "translated", "logo", "border",
@@ -49,7 +64,7 @@ PRIOR = set()
 if os.path.exists("_tmp/prior_ids.txt"):
     PRIOR = {l.strip() for l in open("_tmp/prior_ids.txt") if l.strip()}
 
-PER_SERIES = 18
+PER_SERIES = 20
 
 
 def render(im, size=(360, 640)):
@@ -91,7 +106,7 @@ def wallhaven(q):
     for page in (1, 2):
         r = get("https://wallhaven.cc/api/v1/search",
                 {"q": q, "categories": "010", "purity": "100",
-                 "ratios": "9x16,10x16,2x3", "atleast": "1080x1800",
+                 "atleast": "1080x1500",
                  "sorting": "favorites", "page": page})
         if not r:
             break
@@ -102,7 +117,7 @@ def wallhaven(q):
         for d in js.get("data", []):
             out.append(dict(id=d["id"], score=(d.get("favorites") or 0),
                             w=d["dimension_x"], h=d["dimension_y"], url=d["path"],
-                            prev=(d.get("thumbs") or {}).get("original") or d["path"],
+                            prev=(d.get("thumbs") or {}).get("large") or d["path"],
                             tags=[t["name"] for t in d.get("tags", [])],
                             colors=[c for c in (d.get("colors") or [])][:3]))
         if js.get("meta", {}).get("current_page", 1) >= js.get("meta", {}).get("last_page", 1):
@@ -127,21 +142,24 @@ for name, tag, alt, cat, queries in SERIES:
         if tg & BAD:
             continue
         r = p["h"] / p["w"]
-        if not (1.3 <= r <= 2.3):
+        if not (1.25 <= r <= 2.4) and not (r <= 0.8 and p["w"] >= 1900):
             continue
         kept.append(p)
+    kept.sort(key=lambda p: (0 if p["h"] / p["w"] >= 1.25 else 1, -(p["score"] or 0)))
     print("   valid=%d" % len(kept), flush=True)
 
     slug = re.sub(r"[^a-z0-9]+", "-", name).strip("-")
+    lim = 10 if name in BACKUP_NAMES else PER_SERIES
     n = 0
     for p in kept:
-        if n >= PER_SERIES:
+        if n >= lim:
             break
         try:
             r = requests.get(p["prev"], headers=UA, timeout=25)
             r.raise_for_status()
             im = Image.open(io.BytesIO(r.content)).convert("RGB")
-            if im.width < 300:
+            print("   got", p["id"], im.size, len(r.content), flush=True)
+            if im.width < 250:
                 continue
             fn = "%s_%02d.jpg" % (slug, n)
             render(im).save(os.path.join(OUT, fn), "JPEG", quality=82, optimize=True)
