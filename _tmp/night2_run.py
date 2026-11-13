@@ -1,94 +1,87 @@
 #!/usr/bin/env python3
-"""AniPix night gap-fill runner (fetch previews / publish approved picks)."""
+"""AniPix night gap-fill runner v2 (fetch previews / publish approved picks)."""
 import os, io, json, time, re, html, hashlib
 import requests, numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageOps
 
-UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
+UA = {"User-Agent": "AniPixBot/1.0 (wallpaper curator)"}
 MODE = open("_tmp/night2_mode.txt").read().strip() if os.path.exists("_tmp/night2_mode.txt") else "fetch"
 DATE = "2026-11-13"
 BASE = "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main"
 TARGET = 9 / 16
 
 SERIES = [
-    ("mashle", "mashle", ["mashle", "mash_burnedead"]),
-    ("ranma", "ranma 1/2", ["ranma_1/2", "saotome_ranma"]),
-    ("drstone", "dr stone", ["dr._stone", "ishigami_senkuu"]),
-    ("fireforce", "fire force", ["enen_no_shouboutai", "shinra_kusakabe"]),
-    ("abyss", "made in abyss", ["made_in_abyss", "reg_(made_in_abyss)"]),
+    ("mashle", "mashle", ["mashle", "mash_burnedead", "dot_barrett", "lance_crown", "finn_ames"]),
+    ("drstone", "dr stone", ["dr._stone", "ishigami_senkuu", "kohaku_(dr._stone)", "chrome_(dr._stone)"]),
+    ("fireforce", "fire force", ["enen_no_shouboutai", "kusakabe_shinra", "tamaki_kotatsu", "arthur_boyle"]),
+    ("ranma", "ranma 1/2", ["ranma_1/2", "saotome_ranma", "tendou_akane", "shampoo_(ranma_1/2)"]),
+    ("abyss", "made in abyss", ["made_in_abyss", "reg_(made_in_abyss)", "nanachi", "riko_(made_in_abyss)", "ouzen"]),
 ]
 
 BAD = {"text","english_text","watermark","signature","artist_name","speech_bubble","comic","4koma",
        "multiple_views","character_sheet","translated","logo","border","frame","letterboxed",
        "twitter_username","web_address","dated","artist_logo","english_commentary","bad_id",
-       "bad_pixiv_id","bad_twitter_id","official_art","sketch","monochrome","greyscale",
-       "partially_colored","gun","vehicle","blood","gore","censored","manga","scan","sample",
-       "no_humans","food","chibi","comic_panel","bikini","swimsuit","underwear","lingerie","panties",
-       "bra","cleavage","no_bra","see_through","cameltoe","spread_legs","large_breasts","huge_breasts",
-       "ass","nude","naked","topless","wet","bed","bottomless","sideboob","underboob","loli",
-       "cropped","faceless","pantyshot","upskirt","skirt_lift","screencap","anime_screencap",
-       "multiple_boys","multiple_girls","huge_filesize","absurdres","highres","wide_image"}
+       "bad_pixiv_id","bad_twitter_id","sketch","monochrome","greyscale","partially_colored",
+       "gun","vehicle","blood","gore","censored","manga","scan","sample","no_humans","food","chibi",
+       "comic_panel","bikini","swimsuit","underwear","lingerie","panties","bra","cleavage","no_bra",
+       "see_through","cameltoe","spread_legs","large_breasts","huge_breasts","ass","nude","naked",
+       "topless","wet","bed","bottomless","sideboob","underboob","loli","cropped","faceless",
+       "pantyshot","upskirt","skirt_lift","screencap","anime_screencap","multiple_boys",
+       "multiple_girls","huge_filesize","absurdres","wide_image","official_art","spoilers",
+       "crossover","parody","real_world_location","photo_(medium)","3d","cosplay"}
 
 
-def get(url, params=None, tries=3, sleep=1.0):
+def get(url, params=None, tries=3, sleep=1.0, as_json=False):
     for _ in range(tries):
         try:
             r = requests.get(url, params=params, headers=UA, timeout=60)
             if r.status_code == 200:
                 time.sleep(sleep)
-                return r
+                return r.json() if as_json else r
             print("  HTTP", r.status_code, url, flush=True)
+            if r.status_code in (403, 404):
+                return None
         except Exception as e:
             print("  ERR", e, flush=True)
         time.sleep(3)
     return None
 
 
-def wallhaven(q):
+def danbooru(tag):
     out = []
-    for ratios, atleast in (("portrait", "1200x1600"), ("landscape", "2560x1440")):
-        for page in (1, 2):
-            r = get("https://wallhaven.cc/api/v1/search",
-                    {"q": q, "categories": "010", "purity": "100", "ratios": ratios,
-                     "atleast": atleast, "sorting": "favorites", "page": page})
-            if not r:
-                break
-            try:
-                js = r.json()
-            except Exception:
-                break
-            for d in js.get("data", []):
-                out.append(dict(src="wh", cid=d["id"], score=(d.get("favorites") or 0),
-                                w=d["dimension_x"], h=d["dimension_y"], url=d["path"],
-                                prev=(d.get("thumbs") or {}).get("large") or d["path"],
-                                tags=" ".join(t["name"] for t in d.get("tags", []))))
-            if js.get("meta", {}).get("current_page", 1) >= js.get("meta", {}).get("last_page", 1):
-                break
+    for page in (1, 2):
+        js = get("https://danbooru.donmai.us/posts.json",
+                 {"tags": tag + " rating:g order:score", "limit": 100, "page": page},
+                 sleep=1.5, as_json=True)
+        if not js:
+            break
+        for d in js:
+            fu = d.get("file_url")
+            if not fu:
+                continue
+            prev = d.get("large_file_url") or d.get("sample_url") or fu
+            out.append(dict(src="db", cid="db" + str(d.get("id")),
+                            score=d.get("score") or 0, w=d.get("image_width") or 0,
+                            h=d.get("image_height") or 0, url=fu, prev=prev,
+                            tags=(d.get("tag_string") or "")))
+        if len(js) < 100:
+            break
     return out
 
 
-def safebooru(tag):
+def wallhaven(q):
     out = []
-    for pid in (0, 1):
-        r = get("https://safebooru.org/index.php",
-                {"page": "dapi", "s": "post", "q": "index", "tags": tag + " sort:score:desc",
-                 "limit": 100, "pid": pid}, sleep=1.2)
-        if not r:
-            break
-        for m in re.finditer(r"<post\b([^>]*)/?>", r.text):
-            a = dict(re.findall(r'(\w+)="([^"]*)"', m.group(1)))
-            try:
-                w, h, sc = int(a.get("width", 0)), int(a.get("height", 0)), int(a.get("score", 0))
-            except Exception:
-                continue
-            if sc < 30 or w < 900:
-                continue
-            prev = a.get("sample_url") or ""
-            if "sample" not in prev:
-                prev = f"https://safebooru.org/images/{a.get('directory')}/{a.get('image')}"
-            out.append(dict(src="sb", cid="sb" + a.get("id", ""), score=sc, w=w, h=h,
-                            url=f"https://safebooru.org/images/{a.get('directory')}/{a.get('image')}",
-                            prev=prev, tags=html.unescape(a.get("tags", ""))))
+    for ratios, atleast in (("portrait", "1200x1600"), ("landscape", "2560x1440")):
+        js = get("https://wallhaven.cc/api/v1/search",
+                 {"q": q, "categories": "010", "purity": "100", "ratios": ratios,
+                  "atleast": atleast, "sorting": "favorites"}, sleep=1.0, as_json=True)
+        if not js:
+            continue
+        for d in js.get("data", []):
+            out.append(dict(src="wh", cid=d["id"], score=(d.get("favorites") or 0),
+                            w=d["dimension_x"], h=d["dimension_y"], url=d["path"],
+                            prev=(d.get("thumbs") or {}).get("large") or d["path"],
+                            tags=" ".join(t["name"] for t in d.get("tags", []))))
     return out
 
 
@@ -97,7 +90,7 @@ def plausible(p):
     if not w or not h:
         return False
     r = h / w
-    return 0.5 <= r <= 2.2 and h >= 900
+    return 0.5 <= r <= 2.2 and h >= 1200 and w >= 700
 
 
 def smart_crop(im):
@@ -141,6 +134,15 @@ def do_fetch():
     SHEETS = "_tmp/n2/sheets"
     os.makedirs(OUT, exist_ok=True)
     os.makedirs(SHEETS, exist_ok=True)
+    old = []
+    if os.path.exists("_tmp/n2/cands.json"):
+        try:
+            old = json.load(open("_tmp/n2/cands.json"))
+            old = [c for c in old if c.get("slug") in {s[0] for s in SERIES}]
+        except Exception:
+            old = []
+    allc = list(old)
+    seen = {c["cid"] for c in old}
     used = set()
     wp = json.load(open("wallpapers.json"))
     for _cat, ents in wp["categories"].items():
@@ -149,17 +151,17 @@ def do_fetch():
                 m = re.search(r"wallhaven-([a-z0-9]+)\.(?:jpg|png|jpeg|webp)", f or "")
                 if m:
                     used.add(m.group(1))
-    allc = []
-    for slug, name, sbtags in SERIES:
+
+    for slug, name, tags_list in SERIES:
         pool = wallhaven(slug.replace("-", " "))
-        for t in sbtags:
-            pool += safebooru(t)
-        seen, kept = set(), []
+        for t in tags_list:
+            pool += danbooru(t)
+        seen_l, kept = set(), []
         pool.sort(key=lambda p: -(p["score"] or 0))
         for p in pool:
-            if p["cid"] in seen:
+            if p["cid"] in seen_l or p["cid"] in seen:
                 continue
-            seen.add(p["cid"])
+            seen_l.add(p["cid"])
             if p["src"] == "wh" and p["cid"] in used:
                 continue
             if not plausible(p):
@@ -167,11 +169,11 @@ def do_fetch():
             if set(p["tags"].split()) & BAD:
                 continue
             kept.append(p)
-        kept = kept[:12]
+        kept = kept[:14]
         print(f"== {slug}: pool={len(pool)} kept={len(kept)}", flush=True)
         mine = []
         for i, p in enumerate(kept):
-            fn = f"{slug}_{i:02d}.jpg"
+            fn = f"{slug}_b{i:02d}.jpg"
             try:
                 r = requests.get(p["prev"], headers=UA, timeout=60)
                 r.raise_for_status()
@@ -182,6 +184,7 @@ def do_fetch():
                     os.path.join(OUT, fn), "JPEG", quality=82, optimize=True)
                 rec = dict(slug=slug, name=name, idx=len(allc), file=fn, **p)
                 allc.append(rec)
+                seen.add(rec["cid"])
                 mine.append(rec)
             except Exception as e:
                 print("  err", fn, e, flush=True)
@@ -196,9 +199,9 @@ def do_fetch():
                 im = Image.open(os.path.join(OUT, rec["file"])).resize((cw, ch), Image.LANCZOS)
                 x, y = (i % cols) * cw, (i // cols) * ch
                 sheet.paste(im, (x, y))
-                d.rectangle([x, y, x + 52, y + 26], fill=(0, 0, 0))
+                d.rectangle([x, y, x + 56, y + 26], fill=(0, 0, 0))
                 d.text((x + 6, y + 7), str(rec["idx"]), fill=(255, 255, 0))
-            sheet.save(os.path.join(SHEETS, f"{slug}_{s // 6}.jpg"), "JPEG", quality=85, optimize=True)
+            sheet.save(os.path.join(SHEETS, f"{slug}_b{s // 6}.jpg"), "JPEG", quality=85, optimize=True)
     json.dump(allc, open("_tmp/n2/cands.json", "w"), indent=1)
     print("TOTAL", len(allc), flush=True)
 
