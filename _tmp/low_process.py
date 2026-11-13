@@ -9,6 +9,8 @@ from PIL import Image, ImageFilter, ImageOps
 
 UA = {"User-Agent": "AniPixBot/1.0 (wallpaper curation)"}
 RAW = "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main"
+NAME = "AniPix Bot"
+MAIL = "nobelfamily537@gmail.com"
 
 TODAY = datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%Y-%m-%d")
 
@@ -133,7 +135,8 @@ if added:
     json.dump(added, open("_tmp/last_added_low.json", "w"))
     subprocess.run(["git", "add", "-A"], check=True)
     msg = "Wallpaper top-up - %s (%d new across %d series)" % (TODAY, len(added), len(counts))
-    subprocess.run(["git", "commit", "-m", msg], check=True)
+    subprocess.run(["git", "-c", "user.name=" + NAME, "-c", "user.email=" + MAIL,
+                    "commit", "-m", msg], check=True)
     subprocess.run(["git", "push"], check=True)
     print("PUSHED:", msg)
 else:
