@@ -1,0 +1,25 @@
+name: _tmp lc drop
+on:
+  push:
+    paths:
+      - "_tmp/lcB/trigger.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  drop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python _tmp/lcB/drop.py
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A
+          if git diff --cached --quiet; then echo "nothing"; else git commit -m "Low-count batch: drop captioned and empty-frame picks" && git push; fi
