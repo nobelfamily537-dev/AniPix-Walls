@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Final pass: drop the one image with an artist signature, clean up temp files."""
-import os, json, shutil
+"""Final pass: drop the one image with an artist signature, tidy temp scripts."""
+import os, json
 
 DATE = "2026-11-13"
 REMOVE = ["wpxf9f34d9f44"]
@@ -29,12 +29,8 @@ with open("wallpapers.json", "w", encoding="utf-8") as f:
     json.dump(wp, f, ensure_ascii=False, separators=(",", ":"))
 print("FINAL", len(final), "version", wp["version"], flush=True)
 
-for p in ["_tmp/night2_run.py", "_tmp/night2_fix.py",
-          "_tmp/night2_picks.json", "_tmp/night2_series.txt",
-          "_tmp/night2_fetch.py", ".tmp-write-test.txt"]:
+for p in ["_tmp/night2_run.py", "_tmp/night2_picks.json",
+          "_tmp/night2_series.txt", "_tmp/night2_fetch.py", ".tmp-write-test.txt"]:
     if os.path.exists(p):
         os.remove(p)
         print("cleaned", p, flush=True)
-if os.path.isdir("_tmp/n2"):
-    shutil.rmtree("_tmp/n2")
-    print("cleaned _tmp/n2", flush=True)
