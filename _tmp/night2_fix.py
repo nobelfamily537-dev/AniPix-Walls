@@ -29,11 +29,9 @@ with open("wallpapers.json", "w", encoding="utf-8") as f:
     json.dump(wp, f, ensure_ascii=False, separators=(",", ":"))
 print("FINAL", len(final), "version", wp["version"], flush=True)
 
-# cleanup temp artefacts from this run
 for p in ["_tmp/night2_run.py", "_tmp/night2_fix.py", "_tmp/night2_mode.txt",
-          "_tmp/night2_trigger.txt", "_tmp/night2_picks.json", "_tmp/night2_series.txt",
-          "_tmp/night2_fetch.py", ".tmp-write-test.txt",
-          ".github/workflows/_tmp-night2.yml", ".github/workflows/_tmp-night2-fetch.yml"]:
+          "_tmp/night2_picks.json", "_tmp/night2_series.txt",
+          "_tmp/night2_fetch.py", ".tmp-write-test.txt"]:
     if os.path.exists(p):
         os.remove(p)
         print("cleaned", p, flush=True)
