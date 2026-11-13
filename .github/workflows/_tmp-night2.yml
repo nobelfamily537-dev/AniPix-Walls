@@ -1,0 +1,31 @@
+name: _tmp night2 gapfill
+on:
+  push:
+    paths:
+      - _tmp/night2_trigger.txt
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests numpy
+      - run: python _tmp/night2_run.py
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A
+          if git diff --cached --quiet; then echo nothing; exit 0; fi
+          MODE=$(cat _tmp/night2_mode.txt)
+          if [ "$MODE" = "publish" ]; then
+            N=$(python -c "import json;print(len(json.load(open('_tmp/n2/added.json'))))")
+            MSG="Nightly wallpaper add - 2026-11-13 ($N new)"
+          else
+            MSG="tmp: night2 $MODE run"
+          fi
+          git commit -m "$MSG" && git push
