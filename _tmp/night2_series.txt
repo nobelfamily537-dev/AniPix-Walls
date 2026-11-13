@@ -1,1 +1,0 @@
-[("fireforce", "fire force", ["tamaki_kotatsu", "maki_ohteru", "shinmon_benimaru", "iris_(enen_no_shouboutai)", "joker_(enen_no_shouboutai)", "arthur_boyle", "kusakabe_shinra"]), ("ranma", "ranma 1/2", ["tendou_kasumi", "tendou_nabiki", "kuonji_ukyou", "hibiki_ryouga"])]
