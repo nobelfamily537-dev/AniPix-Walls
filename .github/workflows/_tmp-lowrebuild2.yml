@@ -1,0 +1,17 @@
+name: _tmp low rebuild2
+on:
+  workflow_dispatch:
+  push:
+    paths: ["_tmp/lowrebuild2.txt"]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests numpy
+      - run: python _tmp/low_rebuild2.py
