@@ -10,7 +10,7 @@ DATE = "2026-11-13"
 BASE = "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main"
 TARGET = 9 / 16
 
-SERIES = [("fireforce", "fire force", ["tamaki_kotatsu", "maki_ohteru", "shinmon_benimaru", "iris_(enen_no_shouboutai)", "joker_(enen_no_shouboutai)", "arthur_boyle", "kusakabe_shinra"]), ("ranma", "ranma 1/2", ["tendou_kasumi", "tendou_nabiki", "kuonji_ukyou", "hibiki_ryouga"])] + [
+SERIES = [("fireforce", "fire force", ["tamaki_kotatsu", "maki_ohteru", "shinmon_benimaru", "iris_(enen_no_shouboutai)", "joker_(enen_no_shouboutai)", "arthur_boyle", "kusakabe_shinra"]), ("ranma", "ranma 1/2", ["tendou_kasumi", "tendou_nabiki", "kuonji_ukyou", "hibiki_ryouga"])] + [("fireforce", "fire force", ["tamaki_kotatsu", "maki_ohteru", "shinmon_benimaru", "iris_(enen_no_shouboutai)", "joker_(enen_no_shouboutai)", "arthur_boyle", "kusakabe_shinra"]), ("ranma", "ranma 1/2", ["tendou_kasumi", "tendou_nabiki", "kuonji_ukyou", "hibiki_ryouga"])] + [
     ("mashle", "mashle", ["mashle", "mash_burnedead", "dot_barrett", "lance_crown", "finn_ames"]),
     ("drstone", "dr stone", ["dr._stone", "ishigami_senkuu", "kohaku_(dr._stone)", "chrome_(dr._stone)"]),
     ("fireforce", "fire force", ["enen_no_shouboutai", "kusakabe_shinra", "tamaki_kotatsu", "arthur_boyle"]),
