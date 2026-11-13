@@ -14,6 +14,11 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet pillow requests numpy
+      - name: Extra series patch
+        run: |
+          if [ -f _tmp/night2_series.txt ]; then
+            python -c "s=open('_tmp/night2_run.py').read();e=open('_tmp/night2_series.txt').read().strip();s=s.replace('SERIES = [','SERIES = '+e+' + [',1);open('_tmp/night2_run.py','w').write(s)"
+          fi
       - run: python _tmp/night2_run.py
       - name: Commit
         run: |
