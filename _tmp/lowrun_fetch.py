@@ -51,7 +51,7 @@ BAD = {"text", "english_text", "watermark", "signature", "artist_name", "speech_
        "frame", "letterboxed", "twitter_username", "web_address", "dated", "artist_logo",
        "english_commentary", "bad_id", "sketch", "monochrome", "greyscale", "partially_colored",
        "gun", "mecha", "vehicle", "blood", "gore", "censored", "manga", "scan", "sample",
-       "food", "chibi", "comic_panel", "bikini", "swimsuit", "underwear", "lingerie",
+       "chibi", "comic_panel", "bikini", "swimsuit", "underwear", "lingerie",
        "panties", "bra", "cleavage", "no_bra", "see_through", "spread_legs", "large_breasts",
        "huge_breasts", "ass", "nude", "naked", "topless", "wet", "bed", "bottomless",
        "sideboob", "underboob", "photo", "photograph", "cosplay", "screencap", "screenshot",
@@ -117,7 +117,7 @@ def wallhaven(q):
         for d in js.get("data", []):
             out.append(dict(id=d["id"], score=(d.get("favorites") or 0),
                             w=d["dimension_x"], h=d["dimension_y"], url=d["path"],
-                            prev=(d.get("thumbs") or {}).get("large") or d["path"],
+                            prev=d["path"],
                             tags=[t["name"] for t in d.get("tags", [])],
                             colors=[c for c in (d.get("colors") or [])][:3]))
         if js.get("meta", {}).get("current_page", 1) >= js.get("meta", {}).get("last_page", 1):
@@ -155,7 +155,7 @@ for name, tag, alt, cat, queries in SERIES:
         if n >= lim:
             break
         try:
-            r = requests.get(p["prev"], headers=UA, timeout=25)
+            r = requests.get(p["prev"], headers=UA, timeout=45)
             r.raise_for_status()
             im = Image.open(io.BytesIO(r.content)).convert("RGB")
             print("   got", p["id"], im.size, len(r.content), flush=True)
