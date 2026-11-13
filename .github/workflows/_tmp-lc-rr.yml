@@ -1,0 +1,27 @@
+name: _tmp lc rerender
+on:
+  push:
+    paths:
+      - "_tmp/lc3/trigger-rr.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - run: python _tmp/lc3/rerender.py
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A
+          if git diff --cached --quiet; then echo "nothing"; else git commit -m "Low-count batch: re-render transparent art, drop meme crop" && git push; fi
