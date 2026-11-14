@@ -8,13 +8,17 @@ UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
 
 SERIES = [
     ("horimiya", ["horimiya", "hori kyouko", "miyamura izumi"]),
-    ("k-on", ["k-on!", "k-on", "yui hirasawa", "mio akiyama"]),
+    ("k-on", ["k-on!", "k-on", "yui hirasawa", "mio akiyama", "azusa nakano"]),
     ("your-lie-in-april", ["your lie in april", "shigatsu wa kimi no uso", "kaori miyazono"]),
-    ("beastars", ["beastars", "legoshi", "haru beastars"]),
     ("noragami", ["noragami", "yato", "hiyori ikiyo"]),
     ("toradora", ["toradora", "toradora!", "taiga aisaka"]),
     ("erased", ["erased", "boku dake ga inai machi", "satoru fujinuma"]),
     ("tower-of-god", ["tower of god", "kami no tou", "twenty fifth baam"]),
+    ("kill-la-kill", ["kill la kill", "ryuuko matoi", "satsuki kiryuin"]),
+    ("no-game-no-life", ["no game no life", "sora shiro", "shiro no game"]),
+    ("parasyte", ["parasyte", "kiseijuu", "migi parasyte"]),
+    ("samurai-champloo", ["samurai champloo", "mugen jin fuu"]),
+    ("monogatari", ["monogatari", "senjougahara", "shinobu oshino"]),
 ]
 
 BAD = {"text","english_text","watermark","signature","artist_name","speech_bubble","comic","4koma",
@@ -88,7 +92,7 @@ def wallhaven(q, ratios):
     for page in (1, 2, 3):
         r = get("https://wallhaven.cc/api/v1/search",
                 {"q": q, "categories": "010", "purity": "100", "ratios": ratios,
-                 "sorting": "favorites", "page": page}, sleep=1.2)
+                 "atleast": "1080x1920", "sorting": "favorites", "page": page}, sleep=1.2)
         if not r: break
         try:
             js = r.json()
@@ -135,9 +139,8 @@ for slug, queries in SERIES:
     pool = []
     for q in queries:
         a = wallhaven(q, "portrait")
-        b = wallhaven(q, "landscape")
-        print(f"   wh[{q}] port={len(a)} land={len(b)}", flush=True)
-        pool += a + b
+        print(f"   wh[{q}] port={len(a)}", flush=True)
+        pool += a
         pool += safebooru(q.replace(" ", "_"))
     seen, kept = set(), []
     pool.sort(key=lambda p: -(p["score"] or 0))
@@ -147,11 +150,10 @@ for slug, queries in SERIES:
         if p["src"] == "wh" and p["id"] in used: continue
         w, h = p["w"], p["h"]
         r = h / w
-        if not (0.62 <= r <= 2.3 and h >= 1200 and w >= 900): continue
+        if not (1.0 <= r <= 2.4 and w >= 900 and h >= 1400): continue
         if set(p["tags"].split()) & BAD: continue
         kept.append(p)
-    kept.sort(key=lambda p: (0 if p["h"] / p["w"] >= 1.05 else 1, -(p["score"] or 0)))
-    kept = kept[:14]
+    kept = kept[:16]
     print(f"== {slug}: pool={len(pool)} kept={len(kept)}", flush=True)
     mine = []
     for i, p in enumerate(kept):
