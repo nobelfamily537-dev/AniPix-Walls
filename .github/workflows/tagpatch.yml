@@ -1,0 +1,13 @@
+name: tagpatch
+on:
+  push:
+    paths: ["_tmp/tagpatch_trigger.txt"]
+  workflow_dispatch:
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: python _tmp/tagpatch.py
