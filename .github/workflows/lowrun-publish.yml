@@ -16,7 +16,7 @@ jobs:
           python-version: "3.12"
       - run: pip install --quiet pillow requests
       - run: |
-          if [ -f _tmp/lowrun_fix.py ]; then python _tmp/lowrun_fix.py; else python _tmp/lowrun_publish.py; fi
+          if [ -f _tmp/lowrun_cleanup.py ]; then python _tmp/lowrun_cleanup.py; elif [ -f _tmp/lowrun_fix.py ]; then python _tmp/lowrun_fix.py; else python _tmp/lowrun_publish.py; fi
       - name: Report
         run: |
           git config user.email "nobelfamily537@gmail.com"
