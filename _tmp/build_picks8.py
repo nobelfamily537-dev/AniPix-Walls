@@ -127,3 +127,34 @@ print("batch", batch, "picks", len(picks), "missing", missing)
 from collections import Counter
 print(Counter(p["series"] for p in picks))
 print(Counter(p["cat"] for p in picks))
+
+# ---------------- batch 3 ----------------
+P3 = {
+    "my-neighbor-totoro_01": ("anime", "my neighbor totoro", "my neighbor totoro,totoro,tonari no totoro,studio ghibli,girl,doorway,meadow,green hills,summer,blue sky,peaceful"),
+    "my-neighbor-totoro_03": ("anime", "my neighbor totoro", "my neighbor totoro,totoro,tonari no totoro,studio ghibli,full moon,night,grass,whimsical,cute,magical"),
+    "my-neighbor-totoro_04": ("anime", "my neighbor totoro", "my neighbor totoro,totoro,tonari no totoro,studio ghibli,house,red roof,blue sky,countryside,summer,scenery"),
+    "my-neighbor-totoro_05": ("anime", "my neighbor totoro", "my neighbor totoro,totoro,tonari no totoro,studio ghibli,rain,umbrella,night,forest,cute,moody"),
+    "my-neighbor-totoro_08": ("anime", "my neighbor totoro", "my neighbor totoro,totoro,tonari no totoro,studio ghibli,watercolour,rain,umbrella,girl,soft,muted"),
+    "madoka-magica_00": ("anime2", "madoka magica", "madoka magica,puella magi madoka magica,homura akemi,madoka kaname,cliff,magic circle,pink,dramatic,epic"),
+    "madoka-magica_01": ("anime2", "madoka magica", "madoka magica,puella magi madoka magica,kyoko sakura,homura akemi,madoka kaname,magical girls,action,checkered floor,vibrant"),
+    "madoka-magica_03": ("anime2", "madoka magica", "madoka magica,puella magi madoka magica,madoka kaname,cherry blossoms,pink,spring,magical girl,soft light"),
+    "madoka-magica_04": ("anime2", "madoka magica", "madoka magica,puella magi madoka magica,madoka kaname,homura akemi,pink,white,contrast,tender,dramatic"),
+    "madoka-magica_05": ("anime2", "madoka magica", "madoka magica,puella magi madoka magica,madoka kaname,space,cosmic,stars,pink,planets,ethereal"),
+    "madoka-magica_07": ("anime2", "madoka magica", "madoka magica,puella magi madoka magica,madoka kaname,ultimate madoka,wings,pink,divine,dramatic"),
+    "madoka-magica_08": ("anime2", "madoka magica", "madoka magica,puella magi madoka magica,madoka kaname,homura akemi,dark,warm light,elegant,gothic"),
+    "madoka-magica_10": ("anime2", "madoka magica", "madoka magica,puella magi madoka magica,madoka kaname,white dress,flowers,garden,angel,serene,soft"),
+}
+if batch == "3":
+    C12 = json.load(open("_tmp/candlow12.json"))
+    U12 = {c["file"]: c["url"] for c in C12}
+    picks = []
+    miss = []
+    for f, (cat, series, tags) in P3.items():
+        fn = f if f.endswith(".jpg") else f + ".jpg"
+        if fn not in U12:
+            miss.append(fn)
+            continue
+        picks.append({"file": fn, "url": U12[fn], "cat": cat, "series": series, "tags": tags})
+    json.dump(picks, open("_tmp/pickslow8.json", "w"), indent=1)
+    print("batch 3 picks", len(picks), "missing", miss)
+    print(Counter(p["series"] for p in picks), Counter(p["cat"] for p in picks))
