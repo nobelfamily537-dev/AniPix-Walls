@@ -62,6 +62,9 @@ def git(*args):
     subprocess.run(["git"] + list(args), check=True)
 
 
+git("config", "user.email", "nobelfamily537@gmail.com")
+git("config", "user.name", "AniPix Bot")
+
 picks = json.load(open("_tmp/lowrun/picks.json"))
 data = json.load(open("wallpapers.json", encoding="utf-8"))
 existing = set()
