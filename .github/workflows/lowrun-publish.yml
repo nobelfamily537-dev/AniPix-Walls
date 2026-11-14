@@ -1,0 +1,24 @@
+name: lowrun publish
+on:
+  workflow_dispatch:
+  push:
+    paths: ["_tmp/lowrun_pub_trigger.txt"]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - run: python _tmp/lowrun_publish.py
+      - name: Report
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A _tmp
+          git diff --cached --quiet && echo nothing || (git commit -m "tmp: lowrun report" && git push)

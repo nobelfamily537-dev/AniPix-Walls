@@ -59,6 +59,37 @@ if os.path.exists("_tmp/prior_ids.txt"):
     PRIOR = {l.strip() for l in open("_tmp/prior_ids.txt") if l.strip()}
 
 
+def ahash(im, size=8):
+    g = im.convert("L").resize((size, size), Image.LANCZOS)
+    px = list(g.getdata())
+    avg = sum(px) / len(px)
+    return "".join("1" if v > avg else "0" for v in px)
+
+
+def has_borders(im):
+    """Reject images with uniform letterbox bars / caption strips."""
+    import numpy as np
+    a = np.asarray(im.convert("L").resize((160, 284)), dtype=float)
+    rows = a.std(axis=1)
+    cols = a.std(axis=0)
+    top = 0
+    while top < 40 and rows[top] < 8:
+        top += 1
+    bot = 0
+    while bot < 40 and rows[-1 - bot] < 8:
+        bot += 1
+    left = 0
+    while left < 30 and cols[left] < 8:
+        left += 1
+    right = 0
+    while right < 30 and cols[-1 - right] < 8:
+        right += 1
+    h, w = a.shape
+    if (top + bot) / h > 0.05 or (left + right) / w > 0.05:
+        return True
+    return False
+
+
 def render(im, size=(360, 640)):
     tw, th = size
     t = tw / th
@@ -91,10 +122,10 @@ def get(url, params=None, timeout=30):
 
 def wh_search(q):
     out = []
-    for page in (1, 2):
+    for page in (1, 2, 3):
         r = get("https://wallhaven.cc/api/v1/search",
                 {"q": q, "categories": "010", "purity": "100", "atleast": "1080x1500",
-                 "sorting": "favorites", "page": page})
+                 "sorting": "date_added", "ratios": "9x16,10x16,2x3", "page": page})
         if not r:
             break
         try:
@@ -169,16 +200,12 @@ def safebooru(btags):
 
 def aspect_ok(p):
     r = p["h"] / p["w"]
-    if 1.3 <= r <= 2.3:
-        return True
-    if r <= 0.85 and p["w"] >= 2000:   # big landscape, centre-crop is fine
-        return True
-    return False
+    return 1.5 <= r <= 2.25
 
 
 cands = []
 for name, tag, alt, cat, wqs, req, btags in SERIES:
-    lim = 10 if name in BACKUP else 20
+    lim = 12 if name in BACKUP else 22
     seen, picked = set(), []
 
     # ---- wallhaven with tag verification ----
@@ -190,7 +217,7 @@ for name, tag, alt, cat, wqs, req, btags in SERIES:
     print("== %s wallhaven pool=%d" % (name, len(pool)), flush=True)
     checked = 0
     for p in pool:
-        if len(picked) >= lim or checked >= 45:
+        if len(picked) >= lim or checked >= 70:
             break
         checked += 1
         tg = wh_tags(p["pid"])
@@ -230,12 +257,21 @@ for name, tag, alt, cat, wqs, req, btags in SERIES:
 
     slug = re.sub(r"[^a-z0-9]+", "-", name).strip("-")
     n = 0
+    seen_ah = set()
     for p in picked:
         try:
             r = requests.get(p.get("prev") or p["url"], headers=UA, timeout=60)
             r.raise_for_status()
             im = Image.open(io.BytesIO(r.content)).convert("RGB")
-            if im.width < 400:
+            if im.width < 500:
+                continue
+            ah = ahash(im)
+            if ah in seen_ah:
+                print("   dup content", p.get("pid"), flush=True)
+                continue
+            seen_ah.add(ah)
+            if has_borders(im):
+                print("   border/banner", p.get("pid"), flush=True)
                 continue
             fn = "%s_%02d.jpg" % (slug, n)
             render(im).save(os.path.join(OUT, fn), "JPEG", quality=84, optimize=True)
