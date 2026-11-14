@@ -1,0 +1,22 @@
+name: _tmp night3 publish (gap anime)
+on:
+  workflow_dispatch:
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests numpy
+      - run: python _tmp/night3_publish.py
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A
+          N=$(cat _tmp/n3_count.txt)
+          git diff --cached --quiet && echo nothing || (git commit -m "Nightly wallpaper add - 2026-11-14 ($N new)" && git push)
