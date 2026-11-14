@@ -1,0 +1,33 @@
+name: _tmp night3 render
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "stage or publish"
+        default: "stage"
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests numpy
+      - run: MODE=${{ github.event.inputs.mode }} python _tmp/night3_render.py
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A
+          if git diff --cached --quiet; then echo nothing; else
+            if [ -f _tmp/n3_count.txt ]; then
+              N=$(cat _tmp/n3_count.txt)
+              MSG="Nightly wallpaper add - 2026-11-14 ($N new)"
+            else
+              MSG="tmp: night3 render stage"
+            fi
+            git commit -m "$MSG" && git push
+          fi
