@@ -1,0 +1,26 @@
+name: _tmp night3 cleanup
+on:
+  workflow_dispatch:
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove temp artifacts
+        run: |
+          rm -rf _tmp/n3_prev _tmp/n3_sheets _tmp/n3_final _tmp/n3_final_sheets \
+                 _tmp/n3b_prev _tmp/n3b_sheets _tmp/n3c_prev _tmp/n3c_sheets
+          rm -f _tmp/n3_cands.json _tmp/n3_count.txt _tmp/n3_made.json _tmp/n3_picks.json \
+                _tmp/n3_ping.txt _tmp/n3_stage.json _tmp/n3b_cands.json _tmp/n3c_cands.json \
+                _tmp/night3_fetch.py _tmp/night3_fetch2.py _tmp/night3_fetch3.py \
+                _tmp/night3_publish.py _tmp/night3_render.py _tmp/probe.py _tmp/probe2.py
+          rm -f .github/workflows/_tmp-night3-fetch.yml .github/workflows/_tmp-night3-fetch2.yml \
+                .github/workflows/_tmp-night3-fetch3.yml .github/workflows/_tmp-night3-probe.yml \
+                .github/workflows/_tmp-night3-probe2.yml .github/workflows/_tmp-night3-publish.yml \
+                .github/workflows/_tmp-night3-render.yml
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A
+          if git diff --cached --quiet; then echo nothing; else git commit -m "tmp: night3 cleanup" && git push; fi
