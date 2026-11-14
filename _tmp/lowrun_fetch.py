@@ -10,33 +10,33 @@ UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
 # (display, AniPix tag, alt, category, wallhaven queries, required wallhaven tag substrings, booru tags)
 SERIES = [
     ("soul eater", "soul eater", "soul eater", "anime",
-     ["soul eater", "maka albarn", "soul evans"], ["soul eater"], ["soul_eater"]),
+     ["soul eater", "maka albarn", "soul evans", "death the kid", "blair soul eater", "crona"], ["soul eater"], ["soul_eater"]),
     ("princess mononoke", "princess mononoke", "mononoke hime", "anime",
-     ["mononoke hime", "princess mononoke", "san mononoke"], ["mononoke"], ["mononoke_hime"]),
+     ["mononoke hime", "princess mononoke", "san mononoke", "yakul", "moros wolf"], ["mononoke"], ["mononoke_hime"]),
     ("dungeon meshi", "dungeon meshi", "delicious in dungeon", "anime",
-     ["dungeon meshi", "marcille donato", "delicious in dungeon"], ["dungeon meshi", "delicious in dungeon"], ["dungeon_meshi"]),
+     ["dungeon meshi", "marcille donato", "delicious in dungeon", "falin touden", "izutsumi"], ["dungeon meshi", "delicious in dungeon"], ["dungeon_meshi"]),
     ("zenless zone zero", "zenless zone zero", "zzz", "game",
-     ["zenless zone zero", "ellen joe", "hoshimi miyabi"], ["zenless zone zero"], ["zenless_zone_zero"]),
+     ["zenless zone zero", "ellen joe", "hoshimi miyabi", "qingyi", "nicole demara"], ["zenless zone zero"], ["zenless_zone_zero"]),
     ("blue lock", "blue lock", "blue lock", "anime",
-     ["blue lock", "isagi yoichi", "bachira meguru"], ["blue lock"], ["blue_lock"]),
+     ["blue lock", "isagi yoichi", "bachira meguru", "nagi seishiro", "chigiri hyoma"], ["blue lock"], ["blue_lock"]),
     ("spice and wolf", "ookami to koushinryou", "spice and wolf", "anime",
-     ["spice and wolf", "holo spice and wolf", "ookami to koushinryou"], ["spice and wolf", "ookami to koushinryou"], ["ookami_to_koushinryou"]),
+     ["spice and wolf", "holo spice and wolf", "ookami to koushinryou", "holo wolf", "holo harvest"], ["spice and wolf", "ookami to koushinryou"], ["ookami_to_koushinryou"]),
     ("sailor moon", "sailor moon", "bishoujo senshi sailor moon", "anime",
-     ["sailor moon", "sailor moon crystal"], ["sailor moon"], ["sailor_moon"]),
+     ["sailor moon", "sailor moon crystal", "tsukino usagi", "sailor mars"], ["sailor moon"], ["sailor_moon"]),
     ("black clover", "black clover", "black clover", "anime",
-     ["black clover", "asta black clover", "noelle silva"], ["black clover"], ["black_clover"]),
+     ["black clover", "asta black clover", "noelle silva", "yuno black clover", "nero black clover"], ["black clover"], ["black_clover"]),
     ("one punch man", "one punch man", "one-punch man", "anime",
-     ["one punch man", "saitama", "genos"], ["one punch man", "one-punch man"], ["one-punch_man"]),
+     ["one punch man", "saitama", "genos", "tatsumaki", "fubuki one punch man"], ["one punch man", "one-punch man"], ["one-punch_man"]),
     ("violet evergarden", "violet evergarden", "violet evergarden", "anime",
-     ["violet evergarden"], ["violet evergarden"], ["violet_evergarden"]),
+     ["violet evergarden", "violet evergarden anime"], ["violet evergarden"], ["violet_evergarden"]),
     ("kaiju no. 8", "kaiju no. 8", "kaijuu 8-gou", "anime",
-     ["kaiju no 8", "kaiju no. 8", "kafka hibino"], ["kaiju no. 8", "kaiju no 8", "kaijuu"], ["kaijuu_8-gou"]),
+     ["kaiju no 8", "kaiju no. 8", "kafka hibino", "kikoru shinomiya"], ["kaiju no. 8", "kaiju no 8", "kaijuu"], ["kaijuu_8-gou"]),
     ("haikyuu", "haikyuu", "haikyuu!!", "anime",
-     ["haikyuu", "hinata shouyou"], ["haikyuu"], ["haikyuu!!"]),
+     ["haikyuu", "hinata shouyou", "kageyama tobio"], ["haikyuu"], ["haikyuu!!"]),
     ("dan da dan", "dan da dan", "dandadan", "anime",
-     ["dan da dan", "dandadan", "momo ayase"], ["dan da dan", "dandadan"], ["dandadan"]),
+     ["dan da dan", "dandadan", "momo ayase", "okarun"], ["dan da dan", "dandadan"], ["dandadan"]),
     ("fullmetal alchemist", "fullmetal alchemist", "fma", "anime",
-     ["fullmetal alchemist", "edward elric"], ["fullmetal alchemist"], ["fullmetal_alchemist"]),
+     ["fullmetal alchemist", "edward elric", "roy mustang"], ["fullmetal alchemist"], ["fullmetal_alchemist"]),
 ]
 BACKUP = {"kaiju no. 8", "haikyuu", "dan da dan", "fullmetal alchemist"}
 
@@ -122,10 +122,10 @@ def get(url, params=None, timeout=30):
 
 def wh_search(q):
     out = []
-    for page in (1, 2, 3):
+    for page in (1, 2, 3, 4):
         r = get("https://wallhaven.cc/api/v1/search",
                 {"q": q, "categories": "010", "purity": "100", "atleast": "1080x1500",
-                 "sorting": "date_added", "ratios": "9x16,10x16,2x3", "page": page})
+                 "sorting": "favorites", "ratios": "9x16,10x16,2x3,3x4", "page": page})
         if not r:
             break
         try:
@@ -205,7 +205,7 @@ def aspect_ok(p):
 
 cands = []
 for name, tag, alt, cat, wqs, req, btags in SERIES:
-    lim = 12 if name in BACKUP else 22
+    lim = 14 if name in BACKUP else 24
     seen, picked = set(), []
 
     # ---- wallhaven with tag verification ----
@@ -217,7 +217,7 @@ for name, tag, alt, cat, wqs, req, btags in SERIES:
     print("== %s wallhaven pool=%d" % (name, len(pool)), flush=True)
     checked = 0
     for p in pool:
-        if len(picked) >= lim or checked >= 70:
+        if len(picked) >= lim or checked >= 90:
             break
         checked += 1
         tg = wh_tags(p["pid"])
