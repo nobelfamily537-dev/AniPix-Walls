@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """Stage 2 (low-count run v13): download approved picks, render 1080x1920 q95 +
 360x640 thumb, insert entries with rich tags, bump version, commit and push."""
-import io, json, hashlib, os, subprocess, time, sys
+import io, json, hashlib, os, re, subprocess, time, sys
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import requests
 from PIL import Image, ImageFilter, ImageOps
 
-UA = {"User-Agent": "AniPixBot/1.0 (wallpaper curation)"}
+UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+      "Referer": "https://yande.re/",
+      "Accept": "image/avif,image/webp,image/*,*/*;q=0.8"}
 RAW = "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main"
 NAME = "AniPix Bot"
 MAIL = "nobelfamily537@gmail.com"
@@ -78,10 +80,30 @@ for p in picks:
     if wid in existing_ids:
         print("SKIP dup id", wid, flush=True)
         continue
+    urls = []
+    m = re.search(r"/(?:image|sample|jpeg)/([0-9a-f]{32})/", url)
+    if m and "yande.re" in url:
+        urls.append("https://files.yande.re/sample/%s/yande.re%%20%s%%20sample.jpg" % (m.group(1), p.get("pid")))
+    urls.append(url)
+    content = None
+    for u in urls:
+        for attempt in (1, 2):
+            try:
+                r = requests.get(u, headers=UA, timeout=45)
+                if r.status_code == 200 and len(r.content) > 30000:
+                    content = r.content
+                    break
+                print("  http", r.status_code, len(r.content), u[:90], flush=True)
+            except Exception as e:
+                print("  dl fail", type(e).__name__, u[:90], flush=True)
+            time.sleep(1)
+        if content:
+            break
+    if not content:
+        print("SKIP download failed", url, flush=True)
+        continue
     try:
-        r = requests.get(url, headers=UA, timeout=180)
-        r.raise_for_status()
-        src = Image.open(io.BytesIO(r.content))
+        src = Image.open(io.BytesIO(content))
         if src.mode in ("RGBA", "LA", "P"):
             src = src.convert("RGBA")
             bbox = src.getbbox()
