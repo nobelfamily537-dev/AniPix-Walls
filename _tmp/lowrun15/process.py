@@ -70,6 +70,11 @@ def trim_uniform(im, thr=26, stdmax=9.0, maxfrac=0.45, step=0.01):
     return im
 
 
+def trim_black_hard(im, thr=30, stdmax=20.0, maxfrac=0.5, step=0.01):
+    """Aggressive uniform-black trim for images with baked-in padding."""
+    return trim_uniform(im, thr=thr, stdmax=stdmax, maxfrac=maxfrac, step=step)
+
+
 def edge_is_black(im, frac=0.06, thr=15, stdmax=4.0):
     g = im.convert("L")
     w, h = g.size
@@ -122,28 +127,33 @@ for p in picks:
             im = flat
         else:
             im = src.convert("RGB")
-        im = trim_uniform(im)
-        w, h = im.size
-        ratio = h / w
-        t = 9 / 16
-        if ratio > 2.05:
-            bg = ImageOps.fit(im, (1080, 1920), method=Image.LANCZOS).filter(ImageFilter.GaussianBlur(30))
-            fg = im.copy()
-            fg.thumbnail((1080, 1920), Image.LANCZOS)
-            bg.paste(fg, ((1080 - fg.width) // 2, (1920 - fg.height) // 2))
-            full = bg
-        else:
-            if ratio > t:
-                nh = int(w / t)
-                y = int((h - nh) * float(p.get("focus", 0.04 if ratio >= 1.55 else 0.18)))
-                im = im.crop((0, y, w, y + nh))
+        src0 = im.copy()
+        full = None
+        for trimmer in (trim_uniform, trim_black_hard):
+            im = trimmer(src0.copy())
+            w, h = im.size
+            ratio = h / w
+            t = 9 / 16
+            if ratio > 2.05:
+                bg = ImageOps.fit(im, (1080, 1920), method=Image.LANCZOS).filter(ImageFilter.GaussianBlur(30))
+                fg = im.copy()
+                fg.thumbnail((1080, 1920), Image.LANCZOS)
+                bg.paste(fg, ((1080 - fg.width) // 2, (1920 - fg.height) // 2))
+                full = bg
             else:
-                nw = int(h * t)
-                x = (w - nw) // 2
-                im = im.crop((x, 0, x + nw, h))
-            im = trim_uniform(im)
-            full = ImageOps.fit(im, (1080, 1920), method=Image.LANCZOS)
-        if edge_is_black(full):
+                if ratio > t:
+                    nh = int(w / t)
+                    y = int((h - nh) * float(p.get("focus", 0.04 if ratio >= 1.55 else 0.18)))
+                    im = im.crop((0, y, w, y + nh))
+                else:
+                    nw = int(h * t)
+                    x = (w - nw) // 2
+                    im = im.crop((x, 0, x + nw, h))
+                im = trimmer(im)
+                full = ImageOps.fit(im, (1080, 1920), method=Image.LANCZOS)
+            if not edge_is_black(full):
+                break
+        if full is None or edge_is_black(full):
             print("SKIP black band", url, flush=True)
             continue
         os.makedirs(cat, exist_ok=True)
