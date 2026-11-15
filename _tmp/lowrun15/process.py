@@ -70,7 +70,7 @@ def trim_uniform(im, thr=26, stdmax=9.0, maxfrac=0.45, step=0.01):
     return im
 
 
-def edge_is_black(im, frac=0.07, thr=20, stdmax=7.0):
+def edge_is_black(im, frac=0.06, thr=15, stdmax=4.0):
     g = im.convert("L")
     w, h = g.size
     for rect in ((0, 0, w, int(h * frac)), (0, h - int(h * frac), w, h)):
