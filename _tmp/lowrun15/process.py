@@ -23,26 +23,64 @@ DROP = {"highres", "absurdres", "huge_filesize", "incredibly_absurdres", "commen
         "official_art", "promotional_art", "key_visual", "poster", "banner", "album", "cover", "logo"}
 
 
-def trim_borders(im, thr=24, maxfrac=0.35):
+def trim_uniform(im, thr=26, stdmax=9.0, maxfrac=0.45, step=0.01):
+    """Crop uniform near-black padding from the edges (safe for dark art: needs low variance)."""
     g = im.convert("L")
     w, h = g.size
-    rows = list(g.resize((1, h)).getdata())
-    cols = list(g.resize((w, 1)).getdata())
-    top = 0
-    while top < h * maxfrac and rows[top] < thr:
-        top += 1
-    bot = h
-    while bot > h * (1 - maxfrac) and rows[bot - 1] < thr:
-        bot -= 1
-    left = 0
-    while left < w * maxfrac and cols[left] < thr:
-        left += 1
-    right = w
-    while right > w * (1 - maxfrac) and cols[right - 1] < thr:
-        right -= 1
-    if (top, bot, left, right) != (0, h, 0, w) and (bot - top) > h * 0.4 and (right - left) > w * 0.4:
-        return im.crop((left, top, right, bot))
+    box = [0, 0, w, h]
+
+    def band_stats(rect, axis):
+        x0, y0, x1, y1 = rect
+        band = g.crop((x0, y0, x1, y1))
+        b = band.resize((1, band.size[1]) if axis == "y" else (band.size[0], 1))
+        vals = list(b.getdata())
+        m = sum(vals) / len(vals)
+        var = sum((v - m) ** 2 for v in vals) / len(vals)
+        return m, var ** 0.5
+
+    for _ in range(int(maxfrac / step) * 2):
+        changed = False
+        for side in ("top", "bottom", "left", "right"):
+            x0, y0, x1, y1 = box
+            if side == "top":
+                rect = (x0, y0, x1, y0 + max(2, int(h * step)))
+            elif side == "bottom":
+                rect = (x0, y1 - max(2, int(h * step)), x1, y1)
+            elif side == "left":
+                rect = (x0, y0, x0 + max(2, int(w * step)), y1)
+            else:
+                rect = (x1 - max(2, int(w * step)), y0, x1, y1)
+            m, sd = band_stats(rect, "y" if side in ("top", "bottom") else "x")
+            if m < thr and sd < stdmax:
+                if side == "top" and (y1 - rect[3]) > h * 0.4:
+                    continue
+                if side == "bottom" and (rect[1] - y0) > h * 0.4:
+                    continue
+                if side == "left" and (x1 - rect[2]) > w * 0.4:
+                    continue
+                if side == "right" and (rect[0] - x0) > w * 0.4:
+                    continue
+                box = list(rect) if side in ("top", "left") else (
+                    [x0, y0, x1, rect[1]] if side == "bottom" else [x0, y0, rect[0], y1])
+                changed = True
+        if not changed:
+            break
+    if box != [0, 0, w, h]:
+        return im.crop(tuple(box))
     return im
+
+
+def edge_is_black(im, frac=0.07, thr=20, stdmax=7.0):
+    g = im.convert("L")
+    w, h = g.size
+    for rect in ((0, 0, w, int(h * frac)), (0, h - int(h * frac), w, h)):
+        band = g.crop(rect).resize((1, max(2, int(h * frac))))
+        vals = list(band.getdata())
+        m = sum(vals) / len(vals)
+        sd = (sum((v - m) ** 2 for v in vals) / len(vals)) ** 0.5
+        if m < thr and sd < stdmax:
+            return True
+    return False
 
 
 picks = json.load(open(PICKS))
@@ -84,6 +122,7 @@ for p in picks:
             im = flat
         else:
             im = src.convert("RGB")
+        im = trim_uniform(im)
         w, h = im.size
         ratio = h / w
         t = 9 / 16
@@ -102,8 +141,11 @@ for p in picks:
                 nw = int(h * t)
                 x = (w - nw) // 2
                 im = im.crop((x, 0, x + nw, h))
-            im = trim_borders(im)
+            im = trim_uniform(im)
             full = ImageOps.fit(im, (1080, 1920), method=Image.LANCZOS)
+        if edge_is_black(full):
+            print("SKIP black band", url, flush=True)
+            continue
         os.makedirs(cat, exist_ok=True)
         full.save("%s/%s.jpg" % (cat, wid), "JPEG", quality=95, optimize=True, progressive=True)
         full.resize((360, 640), Image.LANCZOS).save("%s/%s_thumb.jpg" % (cat, wid), "JPEG",
