@@ -8,7 +8,7 @@ import requests
 from PIL import Image, ImageFilter, ImageOps
 
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-      "Referer": "https://yande.re/",
+      "Referer": "https://konachan.net/",
       "Accept": "image/avif,image/webp,image/*,*/*;q=0.8"}
 RAW = "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main"
 NAME = "AniPix Bot"
@@ -81,24 +81,36 @@ for p in picks:
         print("SKIP dup id", wid, flush=True)
         continue
     urls = []
-    m = re.search(r"/(?:image|sample|jpeg)/([0-9a-f]{32})/", url)
-    if m and "yande.re" in url:
-        urls.append("https://files.yande.re/sample/%s/yande.re%%20%s%%20sample.jpg" % (m.group(1), p.get("pid")))
+    # ask the booru API for the sample url (small, fast) - avoids big file downloads
+    for attempt in (1, 2):
+        try:
+            rr = requests.get("https://konachan.net/post.json", params={"tags": "id:%s" % p.get("pid")},
+                              headers=UA, timeout=20)
+            if rr.status_code == 200 and rr.json():
+                js = rr.json()[0]
+                for k in ("sample_url", "jpeg_url", "preview_url"):
+                    if js.get(k):
+                        urls.append(js[k])
+                break
+        except Exception as e:
+            print("  api fail", type(e).__name__, flush=True)
+        time.sleep(2)
+    m2 = re.search(r"/([0-9a-f]{32})/", url)
+    if m2 and "konachan" in url:
+        urls.append("https://konachan.net/sample/%s/Konachan.com%%20-%%20%s%%20sample.jpg" % (m2.group(1), p.get("pid")))
     urls.append(url)
     content = None
     for u in urls:
-        for attempt in (1, 2):
-            try:
-                r = requests.get(u, headers=UA, timeout=45)
-                if r.status_code == 200 and len(r.content) > 30000:
-                    content = r.content
-                    break
-                print("  http", r.status_code, len(r.content), u[:90], flush=True)
-            except Exception as e:
-                print("  dl fail", type(e).__name__, u[:90], flush=True)
-            time.sleep(1)
-        if content:
-            break
+        try:
+            r = requests.get(u, headers=UA, timeout=40)
+            if r.status_code == 200 and len(r.content) > 20000:
+                content = r.content
+                print("  got %dKB %s" % (len(content) // 1024, u[-40:]), flush=True)
+                break
+            print("  http", r.status_code, len(r.content), flush=True)
+        except Exception as e:
+            print("  dl fail", type(e).__name__, flush=True)
+        time.sleep(1)
     if not content:
         print("SKIP download failed", url, flush=True)
         continue
