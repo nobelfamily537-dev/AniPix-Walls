@@ -1,4 +1,4 @@
-name: _tmp low13c
+name: _tmp low13b
 on:
   workflow_dispatch:
   push:
@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet pillow requests
-      - run: python _tmp/low13_fetch3.py
+      - run: python _tmp/low13_fetch2.py
       - name: Commit previews
         run: |
           git config user.email "nobelfamily537@gmail.com"
