@@ -1,4 +1,4 @@
-name: _tmp low13b
+name: _tmp low13e
 on:
   workflow_dispatch:
   push:
@@ -20,10 +20,10 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet pillow requests
-      - run: python _tmp/low13_fetch2.py
+      - run: python _tmp/low13_fetch5.py
       - name: Commit previews
         run: |
           git config user.email "nobelfamily537@gmail.com"
           git config user.name "AniPix Bot"
           git add -A _tmp
-          git diff --cached --quiet && echo nothing || (git commit -m "tmp: low13 previews" && git push)
+          git diff --cached --quiet && echo nothing || (git commit -m "tmp: low13e previews" && git push)
