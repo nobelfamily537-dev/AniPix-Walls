@@ -1,19 +1,24 @@
-import json, time, requests
+import time, requests
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-      "Referer": "https://yande.re/", "Accept": "image/avif,image/webp,image/*,*/*;q=0.8"}
-picks = json.load(open("_tmp/pickslow13.json"))[:3]
-for p in picks:
+      "Accept": "application/json,image/*,*/*;q=0.8"}
+TESTS = [("https://safebooru.donmai.us/posts.json", {"tags": "inuyasha", "limit": 3}),
+         ("https://konachan.net/post.json", {"tags": "inuyasha", "limit": 3}),
+         ("https://danbooru.donmai.us/posts.json", {"tags": "inuyasha rating:general", "limit": 3})]
+for url, params in TESTS:
     t0 = time.time()
     try:
-        rr = requests.get("https://yande.re/post.json", params={"tags": "id:%s" % p["pid"]}, headers=UA, timeout=20)
-        print("api", rr.status_code, len(rr.content), "%.1fs" % (time.time() - t0), flush=True)
-        js = rr.json()
+        r = requests.get(url, params=params, headers=UA, timeout=20)
+        print("API", url, r.status_code, len(r.content), "%.1fs" % (time.time() - t0), flush=True)
+        js = r.json()
         if js:
-            for k in ("sample_url", "jpeg_url", "preview_url", "file_url"):
-                print("  ", k, js[0].get(k), flush=True)
-            u = js[0].get("sample_url") or js[0].get("file_url")
-            t1 = time.time()
-            r = requests.get(u, headers=UA, timeout=40)
-            print("img", r.status_code, len(r.content) // 1024, "KB", "%.1fs" % (time.time() - t1), flush=True)
+            for k in ("sample_url", "large_file_url", "file_url", "preview_file_url", "jpeg_url"):
+                if js[0].get(k):
+                    t1 = time.time()
+                    try:
+                        ri = requests.get(js[0][k], headers=UA, timeout=25)
+                        print("  IMG", k, ri.status_code, len(ri.content) // 1024, "KB", "%.1fs" % (time.time() - t1), flush=True)
+                    except Exception as e:
+                        print("  IMG FAIL", k, type(e).__name__, flush=True)
+                    break
     except Exception as e:
-        print("ERR", type(e).__name__, str(e)[:120], flush=True)
+        print("API FAIL", url, type(e).__name__, str(e)[:80], flush=True)
