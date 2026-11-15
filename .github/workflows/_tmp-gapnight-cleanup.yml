@@ -1,0 +1,32 @@
+name: _tmp gapnight cleanup
+on:
+  workflow_dispatch:
+  push:
+    paths: ["_tmp/gapnight/cleanup_trigger.txt"]
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            _tmp
+            anime
+            anime2
+            wallpapers.json
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - run: python _tmp/gapnight/cleanup.py
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A anime anime2 wallpapers.json
+          git diff --cached --quiet && echo nothing || (git commit -m "Nightly wallpaper add - 2026-11-15 (cleanup)" && git push)
