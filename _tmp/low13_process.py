@@ -169,7 +169,8 @@ if added:
     json.dump(added, open("_tmp/last_added_low13.json", "w"))
     print("\nDONE added %d across %d series" % (len(added), len(counts)))
     print(json.dumps(counts, indent=1))
-    subprocess.run(["git", "add", "wallpapers.json", "anime", "anime2", "game", "nature",
+    subprocess.run(["git", "config", "sparse.expectFilesOutsideOfPatterns", "true"], check=False)
+    subprocess.run(["git", "add", "--sparse", "wallpapers.json", "anime", "anime2",
                     "_tmp/pickslow13.json", "_tmp/last_added_low13.json"], check=True)
     msg = "Wallpaper top-up - %s (%d new across %d series)" % (TODAY, len(added), len(counts))
     subprocess.run(["git", "-c", "user.name=" + NAME, "-c", "user.email=" + MAIL,
