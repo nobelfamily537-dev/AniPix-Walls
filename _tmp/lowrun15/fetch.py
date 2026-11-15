@@ -101,7 +101,7 @@ def fetch_site(base, tag):
 
 # pids already used by earlier runs
 used = set()
-for fn in os.listdir("_tmp"):
+for fn in os.listdir("_tmp") if os.path.isdir("_tmp") else []:
     if fn.endswith(".json"):
         try:
             js = json.load(open(os.path.join("_tmp", fn)))
