@@ -73,17 +73,22 @@ def trim_black_hard(im, thr=30, stdmax=20.0, maxfrac=0.5, step=0.01):
     return trim_uniform(im, thr=thr, stdmax=stdmax, maxfrac=maxfrac, step=step)
 
 
-def edge_is_black(im, frac=0.06, thr=15, stdmax=4.0):
+def bands_black(im, frac=0.05, thr=12.0, stdmax=3.5):
+    """True only when BOTH the top and bottom edge bands are flat black (letterboxing)."""
     g = im.convert("L")
     w, h = g.size
-    for rect in ((0, 0, w, int(h * frac)), (0, h - int(h * frac), w, h)):
+    res = []
+    for rect in ((0, 0, w, max(2, int(h * frac))), (0, h - max(2, int(h * frac)), w, h)):
         band = g.crop(rect).resize((1, max(2, int(h * frac))))
         vals = list(band.getdata())
         m = sum(vals) / len(vals)
         sd = (sum((v - m) ** 2 for v in vals) / len(vals)) ** 0.5
-        if m < thr and sd < stdmax:
-            return True
-    return False
+        res.append(m < thr and sd < stdmax)
+    return res
+
+
+def trim_strong(im):
+    return trim_uniform(im, thr=45, stdmax=30.0, maxfrac=0.25, step=0.01)
 
 
 def push(msg):
@@ -145,7 +150,7 @@ for i, p in enumerate(picks):
             im = src.convert("RGB")
         src0 = im.copy()
         full = None
-        for trimmer in (trim_uniform, trim_black_hard):
+        for trimmer in (trim_uniform, trim_black_hard, trim_strong):
             im = trimmer(src0.copy())
             w, h = im.size
             ratio = h / w
@@ -167,9 +172,9 @@ for i, p in enumerate(picks):
                     im = im.crop((x, 0, x + nw, h))
                 im = trimmer(im)
                 full = ImageOps.fit(im, (1080, 1920), method=Image.LANCZOS)
-            if not edge_is_black(full):
+            if not all(bands_black(full)):
                 break
-        if full is None or edge_is_black(full):
+        if full is None or all(bands_black(full)):
             print("SKIP black band", url, flush=True)
             continue
         os.makedirs(cat, exist_ok=True)
