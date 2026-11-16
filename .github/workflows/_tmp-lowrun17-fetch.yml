@@ -1,0 +1,23 @@
+name: _tmp lowrun17 fetch
+on:
+  workflow_dispatch:
+  push:
+    paths: ["_tmp/lowrun17/trigger_fetch.txt"]
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - run: python _tmp/lowrun17/fetch.py
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A _tmp/lowrun17
+          git diff --cached --quiet && echo nothing || (git commit -m "tmp: lowrun17 fetch previews" && git push)
