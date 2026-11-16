@@ -79,11 +79,91 @@
    }
   ]
  },
+ "bakemono": {
+  "name": "Bakemonogatari",
+  "tag": "bakemonogatari",
+  "total": 6,
+  "usable": 6,
+  "items": [
+   {
+    "n": 0,
+    "id": "lqkox2",
+    "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/bakemono/lqkox2.jpg",
+    "w": 1242,
+    "h": 2208,
+    "score": 23,
+    "tags": "",
+    "url": "https://w.wallhaven.cc/full/lq/wallhaven-lqkox2.jpg",
+    "show": "bakemono",
+    "name": "Bakemonogatari"
+   },
+   {
+    "n": 1,
+    "id": "83lz3j",
+    "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/bakemono/83lz3j.jpg",
+    "w": 1440,
+    "h": 2560,
+    "score": 17,
+    "tags": "",
+    "url": "https://w.wallhaven.cc/full/83/wallhaven-83lz3j.png",
+    "show": "bakemono",
+    "name": "Bakemonogatari"
+   },
+   {
+    "n": 2,
+    "id": "5d5887",
+    "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/bakemono/5d5887.jpg",
+    "w": 1440,
+    "h": 2560,
+    "score": 16,
+    "tags": "",
+    "url": "https://w.wallhaven.cc/full/5d/wallhaven-5d5887.jpg",
+    "show": "bakemono",
+    "name": "Bakemonogatari"
+   },
+   {
+    "n": 3,
+    "id": "6q5z67",
+    "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/bakemono/6q5z67.jpg",
+    "w": 1440,
+    "h": 2560,
+    "score": 15,
+    "tags": "",
+    "url": "https://w.wallhaven.cc/full/6q/wallhaven-6q5z67.jpg",
+    "show": "bakemono",
+    "name": "Bakemonogatari"
+   },
+   {
+    "n": 4,
+    "id": "lqr1ry",
+    "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/bakemono/lqr1ry.jpg",
+    "w": 1080,
+    "h": 1920,
+    "score": 6,
+    "tags": "",
+    "url": "https://w.wallhaven.cc/full/lq/wallhaven-lqr1ry.png",
+    "show": "bakemono",
+    "name": "Bakemonogatari"
+   },
+   {
+    "n": 5,
+    "id": "r26337",
+    "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/bakemono/r26337.jpg",
+    "w": 2160,
+    "h": 3840,
+    "score": 5,
+    "tags": "",
+    "url": "https://w.wallhaven.cc/full/r2/wallhaven-r26337.png",
+    "show": "bakemono",
+    "name": "Bakemonogatari"
+   }
+  ]
+ },
  "gundam": {
   "name": "Gundam",
   "tag": "gundam",
-  "total": 15,
-  "usable": 12,
+  "total": 16,
+  "usable": 13,
   "items": [
    {
     "n": 0,
@@ -123,6 +203,18 @@
    },
    {
     "n": 3,
+    "id": "lyqrol",
+    "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/gundam/lyqrol.jpg",
+    "w": 1920,
+    "h": 3072,
+    "score": 24,
+    "tags": "",
+    "url": "https://w.wallhaven.cc/full/ly/wallhaven-lyqrol.jpg",
+    "show": "gundam",
+    "name": "Gundam"
+   },
+   {
+    "n": 4,
     "id": "jx3j9y",
     "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/gundam/jx3j9y.jpg",
     "w": 1080,
@@ -134,7 +226,7 @@
     "name": "Gundam"
    },
    {
-    "n": 4,
+    "n": 5,
     "id": "weok1q",
     "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/gundam/weok1q.jpg",
     "w": 2160,
@@ -146,7 +238,7 @@
     "name": "Gundam"
    },
    {
-    "n": 5,
+    "n": 6,
     "id": "y86lok",
     "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/gundam/y86lok.jpg",
     "w": 1563,
@@ -158,7 +250,7 @@
     "name": "Gundam"
    },
    {
-    "n": 6,
+    "n": 7,
     "id": "k7v6x6",
     "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/gundam/k7v6x6.jpg",
     "w": 1563,
@@ -170,7 +262,7 @@
     "name": "Gundam"
    },
    {
-    "n": 7,
+    "n": 8,
     "id": "d6xqe3",
     "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/gundam/d6xqe3.jpg",
     "w": 5400,
@@ -182,7 +274,7 @@
     "name": "Gundam"
    },
    {
-    "n": 8,
+    "n": 9,
     "id": "725ld9",
     "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/gundam/725ld9.jpg",
     "w": 1026,
@@ -194,7 +286,7 @@
     "name": "Gundam"
    },
    {
-    "n": 9,
+    "n": 10,
     "id": "m9em6k",
     "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/gundam/m9em6k.jpg",
     "w": 1080,
@@ -206,7 +298,7 @@
     "name": "Gundam"
    },
    {
-    "n": 10,
+    "n": 11,
     "id": "y868yg",
     "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/gundam/y868yg.jpg",
     "w": 1080,
@@ -214,18 +306,6 @@
     "score": 3,
     "tags": "",
     "url": "https://w.wallhaven.cc/full/y8/wallhaven-y868yg.jpg",
-    "show": "gundam",
-    "name": "Gundam"
-   },
-   {
-    "n": 11,
-    "id": "rdlvvq",
-    "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/gundam/rdlvvq.jpg",
-    "w": 1181,
-    "h": 2126,
-    "score": 1,
-    "tags": "",
-    "url": "https://w.wallhaven.cc/full/rd/wallhaven-rdlvvq.jpg",
     "show": "gundam",
     "name": "Gundam"
    }
@@ -253,10 +333,23 @@
  },
  "kuroko": {
   "name": "Kuroko no Basket",
-  "tag": "kuroko no basket",
-  "total": 0,
-  "usable": 0,
-  "items": []
+  "tag": "kuroko",
+  "total": 1,
+  "usable": 1,
+  "items": [
+   {
+    "n": 0,
+    "id": "1k9ze3",
+    "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/kuroko/1k9ze3.jpg",
+    "w": 1080,
+    "h": 1920,
+    "score": 56,
+    "tags": "",
+    "url": "https://w.wallhaven.cc/full/1k/wallhaven-1k9ze3.jpg",
+    "show": "kuroko",
+    "name": "Kuroko no Basket"
+   }
+  ]
  },
  "digimon": {
   "name": "Digimon",
@@ -280,12 +373,24 @@
  },
  "eightsix": {
   "name": "86 Eighty Six",
-  "tag": "86 eighty six",
-  "total": 3,
-  "usable": 3,
+  "tag": "86",
+  "total": 5,
+  "usable": 5,
   "items": [
    {
     "n": 0,
+    "id": "x8okeo",
+    "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/eightsix/x8okeo.jpg",
+    "w": 1250,
+    "h": 2000,
+    "score": 39,
+    "tags": "",
+    "url": "https://w.wallhaven.cc/full/x8/wallhaven-x8okeo.jpg",
+    "show": "eightsix",
+    "name": "86 Eighty Six"
+   },
+   {
+    "n": 1,
     "id": "vqxmem",
     "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/eightsix/vqxmem.jpg",
     "w": 1440,
@@ -297,7 +402,7 @@
     "name": "86 Eighty Six"
    },
    {
-    "n": 1,
+    "n": 2,
     "id": "m3qpj8",
     "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/eightsix/m3qpj8.jpg",
     "w": 1080,
@@ -309,7 +414,7 @@
     "name": "86 Eighty Six"
    },
    {
-    "n": 2,
+    "n": 3,
     "id": "rdzq81",
     "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/eightsix/rdzq81.jpg",
     "w": 2000,
@@ -319,15 +424,40 @@
     "url": "https://w.wallhaven.cc/full/rd/wallhaven-rdzq81.jpg",
     "show": "eightsix",
     "name": "86 Eighty Six"
+   },
+   {
+    "n": 4,
+    "id": "v98kep",
+    "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/eightsix/v98kep.jpg",
+    "w": 2160,
+    "h": 3840,
+    "score": 11,
+    "tags": "",
+    "url": "https://w.wallhaven.cc/full/v9/wallhaven-v98kep.jpg",
+    "show": "eightsix",
+    "name": "86 Eighty Six"
    }
   ]
  },
  "dorohedoro": {
   "name": "Dorohedoro",
   "tag": "dorohedoro",
-  "total": 0,
-  "usable": 0,
-  "items": []
+  "total": 1,
+  "usable": 1,
+  "items": [
+   {
+    "n": 0,
+    "id": "r2xzym",
+    "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/dorohedoro/r2xzym.jpg",
+    "w": 1633,
+    "h": 2587,
+    "score": 23,
+    "tags": "",
+    "url": "https://w.wallhaven.cc/full/r2/wallhaven-r2xzym.jpg",
+    "show": "dorohedoro",
+    "name": "Dorohedoro"
+   }
+  ]
  },
  "champloo": {
   "name": "Samurai Champloo",
@@ -355,5 +485,100 @@
     "name": "Yuri on Ice"
    }
   ]
+ },
+ "higurashi": {
+  "name": "Higurashi",
+  "tag": "higurashi",
+  "total": 0,
+  "usable": 0,
+  "items": []
+ },
+ "elfenlied": {
+  "name": "Elfen Lied",
+  "tag": "elfen lied",
+  "total": 0,
+  "usable": 0,
+  "items": []
+ },
+ "gantz": {
+  "name": "Gantz",
+  "tag": "gantz",
+  "total": 0,
+  "usable": 0,
+  "items": []
+ },
+ "dororo": {
+  "name": "Dororo",
+  "tag": "dororo",
+  "total": 2,
+  "usable": 2,
+  "items": [
+   {
+    "n": 0,
+    "id": "5wre39",
+    "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/dororo/5wre39.jpg",
+    "w": 2160,
+    "h": 3840,
+    "score": 20,
+    "tags": "",
+    "url": "https://w.wallhaven.cc/full/5w/wallhaven-5wre39.png",
+    "show": "dororo",
+    "name": "Dororo"
+   },
+   {
+    "n": 1,
+    "id": "dg3x5l",
+    "file": "/home/runner/work/AniPix-Walls/AniPix-Walls/_tmp/nightgap/cand/dororo/dg3x5l.jpg",
+    "w": 1080,
+    "h": 1920,
+    "score": 17,
+    "tags": "",
+    "url": "https://w.wallhaven.cc/full/dg/wallhaven-dg3x5l.jpg",
+    "show": "dororo",
+    "name": "Dororo"
+   }
+  ]
+ },
+ "flcl": {
+  "name": "FLCL",
+  "tag": "flcl",
+  "total": 0,
+  "usable": 0,
+  "items": []
+ },
+ "slamdunk": {
+  "name": "Slam Dunk",
+  "tag": "slam dunk",
+  "total": 0,
+  "usable": 0,
+  "items": []
+ },
+ "skip": {
+  "name": "Skip and Loafer",
+  "tag": "skip and loafer",
+  "total": 0,
+  "usable": 0,
+  "items": []
+ },
+ "medalist": {
+  "name": "Medalist",
+  "tag": "medalist",
+  "total": 0,
+  "usable": 0,
+  "items": []
+ },
+ "towerofgod": {
+  "name": "Tower of God",
+  "tag": "tower of god",
+  "total": 0,
+  "usable": 0,
+  "items": []
+ },
+ "undead": {
+  "name": "Undead Unluck",
+  "tag": "undead unluck",
+  "total": 0,
+  "usable": 0,
+  "items": []
  }
 }
