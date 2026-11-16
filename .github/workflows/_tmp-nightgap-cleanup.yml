@@ -1,0 +1,23 @@
+name: _tmp nightgap cleanup
+on:
+  workflow_dispatch:
+  push:
+    paths: ["_tmp/nightgap/cleanup.txt"]
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Remove temp files
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git rm -r -f -q _tmp/nightgap || true
+          git rm -f -q .github/workflows/_tmp-nightgap-fetch.yml .github/workflows/_tmp-nightgap-process.yml .github/workflows/_tmp-nightgap-cleanup.yml || true
+          git commit -m "chore: remove nightgap temp files" || echo nothing
+          git pull --rebase origin main
+          git push
