@@ -162,7 +162,7 @@ for i, p in enumerate(picks):
                 bg.paste(fg, ((1080 - fg.width) // 2, (1920 - fg.height) // 2))
                 full = bg
             else:
-                if ratio > t:
+                if ratio > 1.0 / t:
                     nh = int(w / t)
                     y = int((h - nh) * float(p.get("focus", 0.04 if ratio >= 1.55 else 0.18)))
                     im = im.crop((0, y, w, y + nh))
