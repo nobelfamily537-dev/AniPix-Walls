@@ -10,14 +10,25 @@ WH = "https://wallhaven.cc/api/v1/search"
 
 SHOWS = [
     ("monogatari", "monogatari", "Monogatari"),
+    ("bakemono", "bakemonogatari", "Bakemonogatari"),
     ("gundam", "gundam", "Gundam"),
     ("gintama", "gintama", "Gintama"),
-    ("kuroko", "kuroko no basket", "Kuroko no Basket"),
+    ("kuroko", "kuroko", "Kuroko no Basket"),
     ("digimon", "digimon", "Digimon"),
-    ("eightsix", "86 eighty six", "86 Eighty Six"),
+    ("eightsix", "86", "86 Eighty Six"),
     ("dorohedoro", "dorohedoro", "Dorohedoro"),
     ("champloo", "samurai champloo", "Samurai Champloo"),
     ("yurionice", "yuri on ice", "Yuri on Ice"),
+    ("higurashi", "higurashi", "Higurashi"),
+    ("elfenlied", "elfen lied", "Elfen Lied"),
+    ("gantz", "gantz", "Gantz"),
+    ("dororo", "dororo", "Dororo"),
+    ("flcl", "flcl", "FLCL"),
+    ("slamdunk", "slam dunk", "Slam Dunk"),
+    ("skip", "skip and loafer", "Skip and Loafer"),
+    ("medalist", "medalist", "Medalist"),
+    ("towerofgod", "tower of god", "Tower of God"),
+    ("undead", "undead unluck", "Undead Unluck"),
 ]
 
 BAD = set("""text english_text watermark signature logo comic multiple_views
@@ -30,7 +41,7 @@ censored mosaic_censoring bar_censor""".split())
 
 
 def wh_search(q, page):
-    params = {"q": q, "categories": "010", "purity": "100", "ratios": "9x16",
+    params = {"q": q, "categories": "010", "purity": "100", "ratios": "9x16,10x16",
               "sorting": "favorites", "order": "desc", "page": page}
     for _ in range(3):
         try:
@@ -38,7 +49,7 @@ def wh_search(q, page):
             if r.status_code == 200:
                 return r.json().get("data", [])
             if r.status_code == 429:
-                time.sleep(5)
+                time.sleep(6)
                 continue
         except Exception as e:
             print("api error", e, flush=True)
@@ -54,7 +65,7 @@ def usable(p):
     if w < 1000 or h < 1700:
         return False
     ratio = w / h
-    if not (0.53 <= ratio <= 0.60):
+    if not (0.54 <= ratio <= 0.66):
         return False
     names = set(t["name"].lower().replace(" ", "_") for t in p.get("tags", []))
     if names & BAD:
@@ -94,10 +105,13 @@ def sheet(items, path, cols=5, tw=300, th=533):
 def main():
     if os.path.isdir(CAND):
         shutil.rmtree(CAND)
+    for f in os.listdir(OUT):
+        if f.startswith("sheet_"):
+            os.remove(os.path.join(OUT, f))
     manifest = {}
     for key, query, name in SHOWS:
         posts = []
-        for page in (1, 2, 3):
+        for page in (1, 2):
             batch = wh_search(query, page)
             posts.extend(batch)
             if len(batch) < 24:
