@@ -57,16 +57,19 @@ def render(im, size=(360, 640)):
 
 
 def get(url, params, timeout=30):
-    for _ in range(2):
+    for attempt in range(5):
         try:
             r = requests.get(url, params=params, headers=UA, timeout=timeout)
             if r.status_code == 200:
                 time.sleep(0.8)
                 return r
-            print("  HTTP", r.status_code, url, flush=True)
+            print("  HTTP", r.status_code, url, "attempt", attempt, flush=True)
+            if r.status_code in (403, 429, 503):
+                time.sleep(25 + 10 * attempt)
+                continue
         except Exception as e:
             print("  ERR", type(e).__name__, flush=True)
-        time.sleep(2)
+        time.sleep(3)
     return None
 
 
