@@ -10,13 +10,11 @@ UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, 
 
 # name, extra tag queries, konachan/yande primary tag
 SERIES = [
-    ("kuroko no basket", ["kuroko_no_basket", "kagami_taiga", "aomine_daiki", "kise_ryouta",
-                          "akashi_seijuurou", "midorima_shintarou", "murasakibara_atsushi"]),
-    ("blue exorcist", ["ao_no_exorcist", "okumura_rin", "okumura_yukio"]),
-    ("fruits basket", ["fruits_basket", "honda_tohru", "sohma_kyo", "sohma_yuki"]),
-    ("samurai champloo", ["samurai_champloo", "mugen_(samurai_champloo)", "jin_(samurai_champloo)",
-                          "fuu_(samurai_champloo)"]),
-    ("no game no life", ["no_game_no_life", "shiro_(no_game_no_life)", "sora_(no_game_no_life)", "jibril"]),
+    ("kuroko no basket", ["kuroko_no_basket"]),
+    ("blue exorcist", ["ao_no_exorcist"]),
+    ("no game no life", ["no_game_no_life"]),
+    ("bunny girl senpai", ["seishun_buta_yarou"]),
+    ("rent a girlfriend", ["kanojo_okarishimasu"]),
 ]
 
 BADTAGS = {"text", "english_text", "watermark", "signature", "artist_name", "speech_bubble", "comic",
@@ -119,20 +117,12 @@ cands = []
 for name, queries in SERIES:
     pool, seen = [], set()
     for t in queries:
-        got = board_search("https://yande.re/post.json", t, "yande")
-        print("  %s yande %r -> %d" % (name, t, len(got)), flush=True)
+        got = board_search("https://konachan.net/post.json", t, "konachan")
+        print("  %s konachan %r -> %d" % (name, t, len(got)), flush=True)
         for p in got:
             if p["id"] not in seen:
                 seen.add(p["id"])
                 pool.append(p)
-    if len(pool) < 40:
-        for t in queries:
-            got = board_search("https://konachan.net/post.json", t, "konachan")
-            print("  %s konachan %r -> %d" % (name, t, len(got)), flush=True)
-            for p in got:
-                if p["id"] not in seen:
-                    seen.add(p["id"])
-                    pool.append(p)
     print("== %s: pool=%d" % (name, len(pool)), flush=True)
 
     kept = []
