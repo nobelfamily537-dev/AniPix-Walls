@@ -9,11 +9,11 @@ UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, 
       "Accept": "application/json,text/plain,*/*"}
 
 SERIES = [
-    ("kuroko no basket", ["kuroko no basket", "kuroko"]),
-    ("blue exorcist", ["ao no exorcist", "blue exorcist"]),
-    ("fruits basket", ["fruits basket"]),
-    ("samurai champloo", ["samurai champloo"]),
-    ("no game no life", ["no game no life"]),
+    ("kuroko no basket", ["kuroko_no_basket"]),
+    ("blue exorcist", ["ao_no_exorcist"]),
+    ("fruits basket", ["fruits_basket"]),
+    ("samurai champloo", ["samurai_champloo"]),
+    ("no game no life", ["no_game_no_life"]),
 ]
 
 BAD = {"text", "english_text", "watermark", "signature", "artist_name", "speech_bubble", "comic", "4koma",
@@ -136,19 +136,12 @@ print("already-used pids:", len(used), flush=True)
 cands = []
 for name, queries in SERIES:
     pool = []
-    for q in queries:
-        got = fetch_wallhaven(q)
-        print("  %s wallhaven %r -> %d" % (name, q, len(got)), flush=True)
+    for t in queries:
+        got = fetch_konachan(t)
+        print("  %s konachan %r -> %d" % (name, t, len(got)), flush=True)
         pool += got
-        if len(pool) >= 60:
+        if len(pool) >= 150:
             break
-    if len(pool) < 30:
-        for q in queries:
-            got = fetch_konachan(re.sub(r"[^a-z0-9]+", "_", q.lower()).strip("_"))
-            print("  %s konachan %r -> %d" % (name, q, len(got)), flush=True)
-            pool += got
-            if len(pool) >= 60:
-                break
     print("== %s: pool=%d" % (name, len(pool)), flush=True)
 
     seen, kept = set(), []
@@ -162,13 +155,20 @@ for name, queries in SERIES:
         if not w or not h or not p.get("url"):
             continue
         r = h / w
-        if r < 1.3 or h < 1500:
+        if r >= 1.2:
+            if h < 1300 or w < 700:
+                continue
+        elif r <= 0.8:
+            if w < 1900:
+                continue
+        else:
             continue
         if set(p["tags"].split()) & BAD:
             continue
         if p.get("rating") not in ("s", None):
             continue
         kept.append(p)
+    kept.sort(key=lambda p: (0 if (p["h"] / p["w"]) >= 1.2 else 1, -(p["score"] or 0)))
     print("   valid=%d" % len(kept), flush=True)
 
     slug = re.sub(r"[^a-z0-9]+", "-", name).strip("-")
