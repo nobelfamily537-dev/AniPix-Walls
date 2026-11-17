@@ -1,0 +1,20 @@
+name: _tmp lowrun19 cleanup
+on:
+  workflow_dispatch:
+  push:
+    paths: ["_tmp/lowrun19/trigger_cleanup.txt"]
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove temp files
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git rm -r -q --ignore-unmatch _tmp/lowrun19 || true
+          git rm -q --ignore-unmatch .github/workflows/_tmp-lowrun19-fetch.yml .github/workflows/_tmp-lowrun19-fetch2.yml .github/workflows/_tmp-lowrun19-fetch3.yml .github/workflows/_tmp-lowrun19-fetch4.yml .github/workflows/_tmp-lowrun19-fetch5.yml .github/workflows/_tmp-lowrun19-fetch6.yml .github/workflows/_tmp-lowrun19-fetch7.yml .github/workflows/_tmp-lowrun19-fetch8.yml .github/workflows/_tmp-lowrun19-process.yml .github/workflows/_tmp-lowrun19-cleanup.yml || true
+          git commit -m "tmp: lowrun19 cleanup" || echo nothing
+          git push
