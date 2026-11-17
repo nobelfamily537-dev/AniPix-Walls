@@ -11,11 +11,21 @@ UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, 
 
 # name, wallhaven search queries, accepted tag names (lowercase) for verification, konachan tag
 SERIES = [
-    ("kuroko no basket", ["kuroko no basket", "kuroko"], ["kuroko no basket", "kuroko no basuke"], "kuroko_no_basket"),
-    ("blue exorcist", ["blue exorcist", "ao no exorcist"], ["blue exorcist", "ao no exorcist"], "ao_no_exorcist"),
-    ("fruits basket", ["fruits basket"], ["fruits basket", "fruits basket (2019)"], "fruits_basket"),
-    ("samurai champloo", ["samurai champloo", "champloo"], ["samurai champloo"], "samurai_champloo"),
-    ("no game no life", ["no game no life"], ["no game no life"], "no_game_no_life"),
+    ("kuroko no basket",
+     ["kuroko no basket", "kuroko", "kagami taiga", "aomine daiki", "kise ryouta", "akashi seijuurou"],
+     ["kuroko no basket", "kuroko no basuke"], "kuroko_no_basket"),
+    ("blue exorcist",
+     ["blue exorcist", "ao no exorcist", "okumura rin", "okumura yukio"],
+     ["blue exorcist", "ao no exorcist"], "ao_no_exorcist"),
+    ("fruits basket",
+     ["fruits basket", "honda tohru", "sohma kyo", "sohma yuki"],
+     ["fruits basket"], "fruits_basket"),
+    ("samurai champloo",
+     ["samurai champloo", "champloo", "mugen (samurai champloo)", "jin (samurai champloo)"],
+     ["samurai champloo"], "samurai_champloo"),
+    ("no game no life",
+     ["no game no life", "shiro (no game no life)", "sora (no game no life)", "jibril"],
+     ["no game no life"], "no_game_no_life"),
 ]
 
 OUT = "_tmp/night19"
@@ -65,9 +75,9 @@ def get(url, params=None, timeout=30, tries=3):
 
 def wh_search(q):
     out = []
-    for page in (1, 2):
+    for page in (1, 2, 3):
         r = get("https://wallhaven.cc/api/v1/search",
-                {"q": q, "atleast": "1080x1920", "purity": "100", "categories": "010",
+                {"q": q, "ratios": "9x16", "purity": "100", "categories": "010",
                  "sorting": "favorites", "order": "desc", "page": page})
         if not r:
             break
@@ -153,9 +163,9 @@ for name, queries, accepted, kctag in SERIES:
         w, h = p["w"], p["h"]
         if not w or not h or not p.get("url"):
             continue
-        if h / w < 1.35 or h < 1600:
+        if h / w < 1.3 or h < 1200:
             continue
-        if checked >= 70:
+        if checked >= 90:
             break
         checked += 1
         tg = wh_tags(p["id"])
