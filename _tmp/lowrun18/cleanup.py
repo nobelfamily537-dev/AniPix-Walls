@@ -10,7 +10,7 @@ NAME, MAIL = "AniPix Bot", "nobelfamily537@gmail.com"
 # indices into the audit sheet order (cands order = wallpapers.json insert order reversed)
 DROP_IDX = [0, 1, 2, 5, 7, 10, 13, 15, 24, 27, 30, 33, 36, 37, 38, 39, 42, 48, 50, 52, 55, 62, 64, 67, 73]
 
-ids = json.load(open("newids.json"))
+ids = json.load(open("_tmp/lowrun18/newids.json"))
 drop_ids = {ids[i] for i in DROP_IDX}
 
 data = json.load(open("wallpapers.json", encoding="utf-8"))
