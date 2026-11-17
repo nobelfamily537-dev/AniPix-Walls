@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Night gap-fill run (2026-11-17 21:00 IST): fetch portrait candidates for series with ZERO coverage.
-Sources: wallhaven.cc (primary, 9x16 portrait, SFW), konachan.net (fallback)."""
+"""Night gap-fill run (2026-11-17 21:00 IST): portrait candidates for series with ZERO coverage.
+Primary source: wallhaven.cc API (9:16 phone wallpapers, SFW) with per-image TAG VERIFICATION
+so every image really belongs to the series. Fallback: konachan.net (portrait posts only)."""
 import io, json, os, re, time
 import requests
 from PIL import Image, ImageDraw, ImageFilter, ImageOps
@@ -8,25 +9,14 @@ from PIL import Image, ImageDraw, ImageFilter, ImageOps
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
       "Accept": "application/json,text/plain,*/*"}
 
+# name, wallhaven search queries, accepted tag names (lowercase) for verification, konachan tag
 SERIES = [
-    ("kuroko no basket", ["kuroko_no_basket"]),
-    ("blue exorcist", ["ao_no_exorcist"]),
-    ("fruits basket", ["fruits_basket"]),
-    ("samurai champloo", ["samurai_champloo"]),
-    ("no game no life", ["no_game_no_life"]),
+    ("kuroko no basket", ["kuroko no basket", "kuroko"], ["kuroko no basket", "kuroko no basuke"], "kuroko_no_basket"),
+    ("blue exorcist", ["blue exorcist", "ao no exorcist"], ["blue exorcist", "ao no exorcist"], "ao_no_exorcist"),
+    ("fruits basket", ["fruits basket"], ["fruits basket", "fruits basket (2019)"], "fruits_basket"),
+    ("samurai champloo", ["samurai champloo", "champloo"], ["samurai champloo"], "samurai_champloo"),
+    ("no game no life", ["no game no life"], ["no game no life"], "no_game_no_life"),
 ]
-
-BAD = {"text", "english_text", "watermark", "signature", "artist_name", "speech_bubble", "comic", "4koma",
-       "multiple_views", "character_sheet", "translated", "logo", "border", "frame", "letterboxed",
-       "twitter_username", "web_address", "dated", "artist_logo", "english_commentary", "bad_id",
-       "sketch", "monochrome", "greyscale", "partially_colored", "censored", "manga", "scan", "sample",
-       "food", "chibi", "comic_panel", "bikini", "swimsuit", "underwear", "lingerie", "panties", "bra",
-       "cleavage", "no_bra", "see_through", "spread_legs", "large_breasts", "huge_breasts", "ass",
-       "nude", "naked", "topless", "wet", "bed", "bottomless", "sideboob", "underboob", "photo",
-       "photograph", "cosplay", "screencap", "screenshot", "reference_sheet", "upscaled",
-       "jpeg_artifacts", "lowres", "real_world_location", "photo_background", "collage", "crossover",
-       "vector", "lineart", "line_art", "blood", "gore", "guro", "game_cg", "cgi",
-       "anime_screencap", "screen_capture", "redraw", "pantyhose", "loli", "child", "close-up"}
 
 OUT = "_tmp/night19"
 PREV = os.path.join(OUT, "prev")
@@ -61,11 +51,11 @@ def get(url, params=None, timeout=30, tries=3):
         try:
             r = requests.get(url, params=params, headers=UA, timeout=timeout)
             if r.status_code == 200:
-                time.sleep(0.4)
+                time.sleep(0.35)
                 return r
             print("  HTTP", r.status_code, url, flush=True)
             if r.status_code in (403, 429, 503):
-                time.sleep(12 + 6 * attempt)
+                time.sleep(10 + 5 * attempt)
                 continue
         except Exception as e:
             print("  ERR", type(e).__name__, flush=True)
@@ -73,11 +63,11 @@ def get(url, params=None, timeout=30, tries=3):
     return None
 
 
-def fetch_wallhaven(q):
+def wh_search(q):
     out = []
     for page in (1, 2):
         r = get("https://wallhaven.cc/api/v1/search",
-                {"q": q, "ratios": "9x16", "purity": "100", "categories": "010",
+                {"q": q, "atleast": "1080x1920", "purity": "100", "categories": "010",
                  "sorting": "favorites", "order": "desc", "page": page})
         if not r:
             break
@@ -87,17 +77,27 @@ def fetch_wallhaven(q):
             break
         items = js.get("data") or []
         for p in items:
-            w = int(p.get("dimension_x") or 0)
-            h = int(p.get("dimension_y") or 0)
-            out.append(dict(site="wallhaven", id="wh" + str(p.get("id")), score=0, w=w, h=h,
-                            url=p.get("path"), prev=(p.get("thumbs") or {}).get("original") or p.get("path"),
+            out.append(dict(site="wallhaven", id="wh" + str(p.get("id")), score=p.get("favorites") or 0,
+                            w=int(p.get("dimension_x") or 0), h=int(p.get("dimension_y") or 0),
+                            url=p.get("path"), prev=(p.get("thumbs") or {}).get("large") or p.get("path"),
                             tags="", rating="s"))
         if len(items) < 24:
             break
     return out
 
 
-def fetch_konachan(tag):
+def wh_tags(wid):
+    r = get("https://wallhaven.cc/api/v1/w/" + wid.replace("wh", "", 1))
+    if not r:
+        return []
+    try:
+        js = r.json().get("data") or {}
+    except Exception:
+        return []
+    return [str(t.get("name", "")).lower() for t in (js.get("tags") or [])]
+
+
+def kc_search(tag):
     out = []
     for page in (1, 2):
         r = get("https://konachan.net/post.json", {"tags": tag + " rating:s", "limit": 100, "page": page})
@@ -134,42 +134,50 @@ for root, _, files in os.walk("_tmp"):
 print("already-used pids:", len(used), flush=True)
 
 cands = []
-for name, queries in SERIES:
-    pool = []
-    for t in queries:
-        got = fetch_konachan(t)
-        print("  %s konachan %r -> %d" % (name, t, len(got)), flush=True)
-        pool += got
-        if len(pool) >= 150:
-            break
-    print("== %s: pool=%d" % (name, len(pool)), flush=True)
+for name, queries, accepted, kctag in SERIES:
+    pool, seen = [], set()
+    for q in queries:
+        got = wh_search(q)
+        print("  %s wallhaven %r -> %d" % (name, q, len(got)), flush=True)
+        for p in got:
+            if p["id"] not in seen:
+                seen.add(p["id"])
+                pool.append(p)
+    print("== %s: wallhaven pool=%d" % (name, len(pool)), flush=True)
 
-    seen, kept = set(), []
+    kept = []
+    checked = 0
     for p in pool:
-        key = (p["id"], p["url"])
-        if p["id"] in seen or p["id"] in used or key in seen:
+        if p["id"] in used:
             continue
-        seen.add(p["id"])
-        seen.add(key)
         w, h = p["w"], p["h"]
         if not w or not h or not p.get("url"):
             continue
-        r = h / w
-        if r >= 1.2:
-            if h < 1300 or w < 700:
-                continue
-        elif r <= 0.8:
-            if w < 1900:
-                continue
-        else:
+        if h / w < 1.35 or h < 1600:
             continue
-        if set(p["tags"].split()) & BAD:
+        if checked >= 70:
+            break
+        checked += 1
+        tg = wh_tags(p["id"])
+        if not any(a in tg for a in accepted):
             continue
-        if p.get("rating") not in ("s", None):
-            continue
+        p["wh_tags"] = tg[:12]
         kept.append(p)
-    kept.sort(key=lambda p: (0 if (p["h"] / p["w"]) >= 1.2 else 1, -(p["score"] or 0)))
-    print("   valid=%d" % len(kept), flush=True)
+    print("   verified=%d (checked %d)" % (len(kept), checked), flush=True)
+
+    if len(kept) < 6:
+        extra = kc_search(kctag)
+        print("   konachan %s -> %d" % (kctag, len(extra)), flush=True)
+        for p in extra:
+            w, h = p["w"], p["h"]
+            if not w or not h or not p.get("url"):
+                continue
+            if h / w < 1.35 or h < 1500:
+                continue
+            if set(p["tags"].split()) & {"text", "watermark", "signature", "artist_name", "logo",
+                                         "english_text", "speech_bubble", "manga", "comic", "chibi"}:
+                continue
+            kept.append(p)
 
     slug = re.sub(r"[^a-z0-9]+", "-", name).strip("-")
     n = 0
@@ -177,6 +185,7 @@ for name, queries in SERIES:
         if n >= PER_SERIES:
             break
         ok = False
+        im = None
         for attempt in range(2):
             try:
                 r = requests.get(p["prev"], headers=UA, timeout=40)
@@ -192,7 +201,8 @@ for name, queries in SERIES:
         fn = "%s_%02d.jpg" % (slug, n)
         render(im).save(os.path.join(PREV, fn), "JPEG", quality=82, optimize=True)
         cands.append(dict(series=name, slug=slug, idx=n, file=fn, pid=p["id"], site=p["site"],
-                          score=p["score"], w=p["w"], h=p["h"], url=p["url"], tags=p["tags"][:400]))
+                          score=p["score"], w=p["w"], h=p["h"], url=p["url"],
+                          tags=p["tags"][:400], wh_tags=p.get("wh_tags", [])))
         n += 1
         time.sleep(0.2)
     print("   previews=%d" % n, flush=True)
