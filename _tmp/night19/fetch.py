@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
-"""Night gap-fill run (2026-11-17 21:00 IST): fetch candidates for series with ZERO coverage."""
+"""Night gap-fill run (2026-11-17 21:00 IST): fetch portrait candidates for series with ZERO coverage.
+Sources: wallhaven.cc (primary, 9x16 portrait, SFW), konachan.net (fallback)."""
 import io, json, os, re, time
 import requests
 from PIL import Image, ImageDraw, ImageFilter, ImageOps
 
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-      "Accept": "application/json,text/plain,*/*",
-      "Referer": "https://konachan.net/"}
+      "Accept": "application/json,text/plain,*/*"}
 
 SERIES = [
-    ("kuroko no basket", ["kuroko_no_basket"]),
-    ("blue exorcist", ["ao_no_exorcist"]),
-    ("fruits basket", ["fruits_basket"]),
-    ("samurai champloo", ["samurai_champloo"]),
-    ("no game no life", ["no_game_no_life"]),
+    ("kuroko no basket", ["kuroko no basket", "kuroko"]),
+    ("blue exorcist", ["ao no exorcist", "blue exorcist"]),
+    ("fruits basket", ["fruits basket"]),
+    ("samurai champloo", ["samurai champloo"]),
+    ("no game no life", ["no game no life"]),
 ]
 
 BAD = {"text", "english_text", "watermark", "signature", "artist_name", "speech_bubble", "comic", "4koma",
@@ -26,7 +26,7 @@ BAD = {"text", "english_text", "watermark", "signature", "artist_name", "speech_
        "photograph", "cosplay", "screencap", "screenshot", "reference_sheet", "upscaled",
        "jpeg_artifacts", "lowres", "real_world_location", "photo_background", "collage", "crossover",
        "vector", "lineart", "line_art", "blood", "gore", "guro", "game_cg", "cgi",
-       "anime_screencap", "screen_capture", "redraw", "pantyhose", "loli", "child", "eyes", "close-up"}
+       "anime_screencap", "screen_capture", "redraw", "pantyhose", "loli", "child", "close-up"}
 
 OUT = "_tmp/night19"
 PREV = os.path.join(OUT, "prev")
@@ -56,27 +56,51 @@ def render(im, size=(360, 640)):
     return im.crop((x, 0, x + nw, h))
 
 
-def get(url, params, timeout=30):
-    for attempt in range(5):
+def get(url, params=None, timeout=30, tries=3):
+    for attempt in range(tries):
         try:
             r = requests.get(url, params=params, headers=UA, timeout=timeout)
             if r.status_code == 200:
-                time.sleep(0.8)
+                time.sleep(0.4)
                 return r
-            print("  HTTP", r.status_code, url, "attempt", attempt, flush=True)
+            print("  HTTP", r.status_code, url, flush=True)
             if r.status_code in (403, 429, 503):
-                time.sleep(25 + 10 * attempt)
+                time.sleep(12 + 6 * attempt)
                 continue
         except Exception as e:
             print("  ERR", type(e).__name__, flush=True)
-        time.sleep(3)
+        time.sleep(2)
     return None
 
 
-def fetch_site(base, tag):
+def fetch_wallhaven(q):
     out = []
     for page in (1, 2):
-        r = get(base, {"tags": tag + " rating:s", "limit": 100, "page": page})
+        r = get("https://wallhaven.cc/api/v1/search",
+                {"q": q, "ratios": "9x16", "purity": "100", "categories": "010",
+                 "sorting": "favorites", "order": "desc", "page": page})
+        if not r:
+            break
+        try:
+            js = r.json()
+        except Exception:
+            break
+        items = js.get("data") or []
+        for p in items:
+            w = int(p.get("dimension_x") or 0)
+            h = int(p.get("dimension_y") or 0)
+            out.append(dict(site="wallhaven", id="wh" + str(p.get("id")), score=0, w=w, h=h,
+                            url=p.get("path"), prev=(p.get("thumbs") or {}).get("original") or p.get("path"),
+                            tags="", rating="s"))
+        if len(items) < 24:
+            break
+    return out
+
+
+def fetch_konachan(tag):
+    out = []
+    for page in (1, 2):
+        r = get("https://konachan.net/post.json", {"tags": tag + " rating:s", "limit": 100, "page": page})
         if not r:
             break
         try:
@@ -86,9 +110,9 @@ def fetch_site(base, tag):
         if not isinstance(js, list) or not js:
             break
         for p in js:
-            out.append(dict(site=base, id=p.get("id"), score=p.get("score") or 0,
-                            w=p.get("width") or 0, h=p.get("height") or 0,
-                            url=p.get("file_url"), prev=p.get("sample_url") or p.get("jpeg_url") or p.get("file_url"),
+            out.append(dict(site="konachan", id="kc" + str(p.get("id")), score=p.get("score") or 0,
+                            w=p.get("width") or 0, h=p.get("height") or 0, url=p.get("file_url"),
+                            prev=p.get("sample_url") or p.get("jpeg_url") or p.get("file_url"),
                             tags=p.get("tags") or "", rating=p.get("rating")))
         if len(js) < 100:
             break
@@ -104,43 +128,41 @@ for root, _, files in os.walk("_tmp"):
             js = json.load(open(os.path.join(root, fn)))
         except Exception:
             continue
-        items = js if isinstance(js, list) else []
-        for e in items:
+        for e in (js if isinstance(js, list) else []):
             if isinstance(e, dict) and "pid" in e:
                 used.add(e["pid"])
 print("already-used pids:", len(used), flush=True)
 
 cands = []
-for name, tags in SERIES:
+for name, queries in SERIES:
     pool = []
-    for t in tags:
-        got = fetch_site("https://konachan.net/post.json", t)
-        print("  %s tag %s -> %d" % (name, t, len(got)), flush=True)
+    for q in queries:
+        got = fetch_wallhaven(q)
+        print("  %s wallhaven %r -> %d" % (name, q, len(got)), flush=True)
         pool += got
-        if len(pool) >= 120:
+        if len(pool) >= 60:
             break
-    if len(pool) < 40:
-        for t in tags:
-            pool += fetch_site("https://yande.re/post.json", t)
+    if len(pool) < 30:
+        for q in queries:
+            got = fetch_konachan(re.sub(r"[^a-z0-9]+", "_", q.lower()).strip("_"))
+            print("  %s konachan %r -> %d" % (name, q, len(got)), flush=True)
+            pool += got
+            if len(pool) >= 60:
+                break
     print("== %s: pool=%d" % (name, len(pool)), flush=True)
 
     seen, kept = set(), []
-    pool.sort(key=lambda p: -(p["score"] or 0))
     for p in pool:
-        if p["id"] in seen or p["id"] in used:
+        key = (p["id"], p["url"])
+        if p["id"] in seen or p["id"] in used or key in seen:
             continue
         seen.add(p["id"])
+        seen.add(key)
         w, h = p["w"], p["h"]
         if not w or not h or not p.get("url"):
             continue
         r = h / w
-        if r >= 1.2:
-            if h < 1300 or w < 700:
-                continue
-        elif r <= 0.8:
-            if w < 1800:
-                continue
-        else:
+        if r < 1.3 or h < 1500:
             continue
         if set(p["tags"].split()) & BAD:
             continue
@@ -154,17 +176,24 @@ for name, tags in SERIES:
     for p in kept:
         if n >= PER_SERIES:
             break
-        try:
-            r = requests.get(p["prev"], headers=UA, timeout=40)
-            r.raise_for_status()
-            im = Image.open(io.BytesIO(r.content)).convert("RGB")
-            fn = "%s_%02d.jpg" % (slug, n)
-            render(im).save(os.path.join(PREV, fn), "JPEG", quality=82, optimize=True)
-            cands.append(dict(series=name, slug=slug, idx=n, file=fn, pid=p["id"], site=p["site"],
-                              score=p["score"], w=p["w"], h=p["h"], url=p["url"], tags=p["tags"][:400]))
-            n += 1
-        except Exception as e:
-            print("   dl err", p.get("id"), type(e).__name__, flush=True)
+        ok = False
+        for attempt in range(2):
+            try:
+                r = requests.get(p["prev"], headers=UA, timeout=40)
+                r.raise_for_status()
+                im = Image.open(io.BytesIO(r.content)).convert("RGB")
+                ok = True
+                break
+            except Exception as e:
+                print("   dl err", p.get("id"), type(e).__name__, flush=True)
+                time.sleep(2)
+        if not ok:
+            continue
+        fn = "%s_%02d.jpg" % (slug, n)
+        render(im).save(os.path.join(PREV, fn), "JPEG", quality=82, optimize=True)
+        cands.append(dict(series=name, slug=slug, idx=n, file=fn, pid=p["id"], site=p["site"],
+                          score=p["score"], w=p["w"], h=p["h"], url=p["url"], tags=p["tags"][:400]))
+        n += 1
         time.sleep(0.2)
     print("   previews=%d" % n, flush=True)
 
