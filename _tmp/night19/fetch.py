@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-"""Night gap-fill run (2026-11-17 21:00 IST): portrait candidates for series with ZERO coverage.
-Primary source: wallhaven.cc API (9:16 phone wallpapers, SFW) with per-image TAG VERIFICATION
-so every image really belongs to the series. Fallback: konachan.net (portrait posts only)."""
+"""Night gap-fill run (2026-11-17 21:00 IST): candidates for series with ZERO coverage.
+Sources: yande.re (Pixiv art, portrait-rich) + konachan.net. Portrait posts preferred."""
 import io, json, os, re, time
 import requests
 from PIL import Image, ImageDraw, ImageFilter, ImageOps
@@ -9,21 +8,16 @@ from PIL import Image, ImageDraw, ImageFilter, ImageOps
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
       "Accept": "application/json,text/plain,*/*"}
 
-# name, wallhaven search queries, accepted tag names (lowercase) for verification, konachan tag
+# name, extra tag queries, konachan/yande primary tag
 SERIES = [
-    ("kuroko no basket", ["kuroko_no_basket"], ["kuroko no basket"], "kuroko_no_basket"),
-    ("blue exorcist", ["ao_no_exorcist"], ["ao no exorcist"], "ao_no_exorcist"),
-    ("fruits basket", ["fruits_basket"], ["fruits basket"], "fruits_basket"),
-    ("samurai champloo", ["samurai_champloo"], ["samurai champloo"], "samurai_champloo"),
-    ("no game no life", ["no_game_no_life"], ["no game no life"], "no_game_no_life"),
+    ("kuroko no basket", ["kuroko_no_basket", "kagami_taiga", "aomine_daiki", "kise_ryouta",
+                          "akashi_seijuurou", "midorima_shintarou", "murasakibara_atsushi"]),
+    ("blue exorcist", ["ao_no_exorcist", "okumura_rin", "okumura_yukio"]),
+    ("fruits basket", ["fruits_basket", "honda_tohru", "sohma_kyo", "sohma_yuki"]),
+    ("samurai champloo", ["samurai_champloo", "mugen_(samurai_champloo)", "jin_(samurai_champloo)",
+                          "fuu_(samurai_champloo)"]),
+    ("no game no life", ["no_game_no_life", "shiro_(no_game_no_life)", "sora_(no_game_no_life)", "jibril"]),
 ]
-
-OUT = "_tmp/night19"
-PREV = os.path.join(OUT, "prev")
-SHEETS = os.path.join(OUT, "sheets")
-os.makedirs(PREV, exist_ok=True)
-os.makedirs(SHEETS, exist_ok=True)
-PER_SERIES = 16
 
 BADTAGS = {"text", "english_text", "watermark", "signature", "artist_name", "speech_bubble", "comic",
            "4koma", "multiple_views", "character_sheet", "translated", "logo", "border", "frame",
@@ -34,7 +28,15 @@ BADTAGS = {"text", "english_text", "watermark", "signature", "artist_name", "spe
            "photo", "photograph", "cosplay", "screencap", "screenshot", "reference_sheet", "upscaled",
            "jpeg_artifacts", "lowres", "real_world_location", "photo_background", "collage", "crossover",
            "vector", "lineart", "line_art", "blood", "gore", "guro", "game_cg", "cgi", "redraw",
-           "loli", "child", "close-up", "eyes"}
+           "loli", "child", "close-up", "eyes", "pantyhose", "spread_legs", "ass", "large_breasts",
+           "huge_breasts", "sideboob", "underboob", "wet"}
+
+OUT = "_tmp/night19"
+PREV = os.path.join(OUT, "prev")
+SHEETS = os.path.join(OUT, "sheets")
+os.makedirs(PREV, exist_ok=True)
+os.makedirs(SHEETS, exist_ok=True)
+PER_SERIES = 18
 
 
 def render(im, size=(360, 640)):
@@ -57,12 +59,14 @@ def render(im, size=(360, 640)):
     return im.crop((x, 0, x + nw, h))
 
 
-def get(url, params=None, timeout=30, tries=3):
+def get(url, params=None, timeout=30, tries=3, referer="https://yande.re/"):
+    hdr = dict(UA)
+    hdr["Referer"] = referer
     for attempt in range(tries):
         try:
-            r = requests.get(url, params=params, headers=UA, timeout=timeout)
+            r = requests.get(url, params=params, headers=hdr, timeout=timeout)
             if r.status_code == 200:
-                time.sleep(0.35)
+                time.sleep(0.6)
                 return r
             print("  HTTP", r.status_code, url, flush=True)
             if r.status_code in (403, 429, 503):
@@ -74,44 +78,11 @@ def get(url, params=None, timeout=30, tries=3):
     return None
 
 
-def wh_search(q):
-    out = []
-    for page in (1, 2, 3):
-        r = get("https://wallhaven.cc/api/v1/search",
-                {"q": q, "ratios": "9x16", "purity": "100", "categories": "010",
-                 "sorting": "favorites", "order": "desc", "page": page})
-        if not r:
-            break
-        try:
-            js = r.json()
-        except Exception:
-            break
-        items = js.get("data") or []
-        for p in items:
-            out.append(dict(site="wallhaven", id="wh" + str(p.get("id")), score=p.get("favorites") or 0,
-                            w=int(p.get("dimension_x") or 0), h=int(p.get("dimension_y") or 0),
-                            url=p.get("path"), prev=(p.get("thumbs") or {}).get("large") or p.get("path"),
-                            tags="", rating="s"))
-        if len(items) < 24:
-            break
-    return out
-
-
-def wh_tags(wid):
-    r = get("https://wallhaven.cc/api/v1/w/" + wid.replace("wh", "", 1))
-    if not r:
-        return []
-    try:
-        js = r.json().get("data") or {}
-    except Exception:
-        return []
-    return [str(t.get("name", "")).lower() for t in (js.get("tags") or [])]
-
-
-def kc_search(tag):
+def board_search(base, tag, site):
+    ref = base.split("/post.json")[0] + "/"
     out = []
     for page in (1, 2):
-        r = get("https://konachan.net/post.json", {"tags": tag + " rating:s", "limit": 100, "page": page})
+        r = get(base, {"tags": tag + " rating:s", "limit": 100, "page": page}, referer=ref)
         if not r:
             break
         try:
@@ -121,42 +92,10 @@ def kc_search(tag):
         if not isinstance(js, list) or not js:
             break
         for p in js:
-            out.append(dict(site="konachan", id="kc" + str(p.get("id")), score=p.get("score") or 0,
+            out.append(dict(site=site, id=site[:2] + str(p.get("id")), score=p.get("score") or 0,
                             w=p.get("width") or 0, h=p.get("height") or 0, url=p.get("file_url"),
                             prev=p.get("sample_url") or p.get("jpeg_url") or p.get("file_url"),
                             tags=p.get("tags") or "", rating=p.get("rating")))
-        if len(js) < 100:
-            break
-    return out
-
-
-DAN_BAD = ("-text -watermark -signature -artist_name -english_text -translated -monochrome "
-           "-greyscale -sketch -comic -manga -4koma -logo -chibi -lineart -sketch_page "
-           "-official_art_request -character_sheet -multiple_views -border -letterboxed")
-
-
-def dan_search(tag, pages=2):
-    out = []
-    q = "%s rating:g width:>=1000 height:>=1500 %s" % (tag, DAN_BAD)
-    for page in range(1, pages + 1):
-        r = get("https://danbooru.donmai.us/posts.json",
-                {"tags": q, "limit": 100, "page": page, "order": "favcount"})
-        if not r:
-            break
-        try:
-            js = r.json()
-        except Exception:
-            break
-        if not isinstance(js, list) or not js:
-            break
-        for p in js:
-            url = p.get("file_url") or p.get("large_file_url")
-            prev = p.get("large_file_url") or p.get("preview_file_url") or url
-            if not url:
-                continue
-            out.append(dict(site="danbooru", id="db" + str(p.get("id")), score=p.get("fav_count") or 0,
-                            w=p.get("image_width") or 0, h=p.get("image_height") or 0,
-                            url=url, prev=prev, tags=p.get("tag_string") or "", rating="s"))
         if len(js) < 100:
             break
     return out
@@ -177,51 +116,61 @@ for root, _, files in os.walk("_tmp"):
 print("already-used pids:", len(used), flush=True)
 
 cands = []
-for name, queries, accepted, kctag in SERIES:
+for name, queries in SERIES:
     pool, seen = [], set()
     for t in queries:
-        got = dan_search(t)
-        print("  %s danbooru %r -> %d" % (name, t, len(got)), flush=True)
+        got = board_search("https://yande.re/post.json", t, "yande")
+        print("  %s yande %r -> %d" % (name, t, len(got)), flush=True)
         for p in got:
             if p["id"] not in seen:
                 seen.add(p["id"])
                 pool.append(p)
-    print("== %s: danbooru pool=%d" % (name, len(pool)), flush=True)
-
-    if len(pool) < 12:
-        for t in [kctag]:
-            got = kc_search(t)
+    if len(pool) < 40:
+        for t in queries:
+            got = board_search("https://konachan.net/post.json", t, "konachan")
             print("  %s konachan %r -> %d" % (name, t, len(got)), flush=True)
             for p in got:
                 if p["id"] not in seen:
                     seen.add(p["id"])
                     pool.append(p)
+    print("== %s: pool=%d" % (name, len(pool)), flush=True)
 
     kept = []
     for p in pool:
         if p["id"] in used:
             continue
         w, h = p["w"], p["h"]
-        if not w or not h or not p.get("url"):
+        if not w or not h or not p.get("url") or not p.get("prev"):
             continue
-        if h / w < 1.35 or h < 1500 or w < 700:
+        r = h / w
+        if r >= 1.2:
+            if h < 1300 or w < 650:
+                continue
+        elif r <= 0.8:
+            if w < 1900:
+                continue
+        else:
             continue
         if set(p["tags"].split()) & BADTAGS:
             continue
+        if p.get("rating") not in ("s", None):
+            continue
         kept.append(p)
-    kept.sort(key=lambda p: -(p["score"] or 0))
-    print("   valid=%d" % len(kept), flush=True)
+    kept.sort(key=lambda p: (0 if (p["h"] / p["w"]) >= 1.2 else 1, -(p["score"] or 0)))
+    print("   valid=%d (portrait=%d)" % (len(kept), sum(1 for p in kept if p["h"] / p["w"] >= 1.2)), flush=True)
 
     slug = re.sub(r"[^a-z0-9]+", "-", name).strip("-")
     n = 0
     for p in kept:
         if n >= PER_SERIES:
             break
-        ok = False
-        im = None
+        ok, im = False, None
+        ref = "https://yande.re/" if p["site"] == "yande" else "https://konachan.net/"
         for attempt in range(2):
             try:
-                r = requests.get(p["prev"], headers=UA, timeout=40)
+                hdr = dict(UA)
+                hdr["Referer"] = ref
+                r = requests.get(p["prev"], headers=hdr, timeout=40)
                 r.raise_for_status()
                 im = Image.open(io.BytesIO(r.content)).convert("RGB")
                 ok = True
@@ -234,8 +183,7 @@ for name, queries, accepted, kctag in SERIES:
         fn = "%s_%02d.jpg" % (slug, n)
         render(im).save(os.path.join(PREV, fn), "JPEG", quality=82, optimize=True)
         cands.append(dict(series=name, slug=slug, idx=n, file=fn, pid=p["id"], site=p["site"],
-                          score=p["score"], w=p["w"], h=p["h"], url=p["url"],
-                          tags=p["tags"][:400], wh_tags=p.get("wh_tags", [])))
+                          score=p["score"], w=p["w"], h=p["h"], url=p["url"], tags=p["tags"][:400]))
         n += 1
         time.sleep(0.2)
     print("   previews=%d" % n, flush=True)
