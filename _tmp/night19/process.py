@@ -13,10 +13,16 @@ BASE = "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main"
 picks = json.load(open(os.path.join(OUT, "picks.json")))
 cands = {}
 for fn in ("cands.json", "cands2.json", "cands3.json"):
-    p = os.path.join(OUT, fn)
-    if os.path.exists(p):
-        for c in json.load(open(p)):
-            cands[c["pid"]] = c
+    fp = os.path.join(OUT, fn)
+    if os.path.exists(fp):
+        try:
+            for c in json.load(open(fp)):
+                cands[c["pid"]] = c
+        except Exception:
+            pass
+# picks are self-contained (url + tags); merge over candidates
+for p in picks:
+    cands[p["pid"]] = p
 data = json.load(open("wallpapers.json"))
 
 existing = set()
@@ -32,17 +38,20 @@ def make_id(pid):
     return "wpx" + h[:10]
 
 
-def fit916(im):
+def fit916(im, crop="c"):
+    """Centre-crop to 9:16. crop hint picks the horizontal focus for landscape art."""
     w, h = im.size
     target = 16 / 9
     r = h / w
+    fx = {"l": 0.12, "c": 0.5, "r": 0.88}.get(crop, 0.5)
     if r > target:
         nh = int(w * target)
-        y = int((h - nh) * 0.35)
+        y = int((h - nh) * 0.30)
         im = im.crop((0, y, w, y + nh))
     else:
         nw = int(h / target)
-        x = (w - nw) // 2
+        x = int((w - nw) * fx)
+        x = max(0, min(x, w - nw))
         im = im.crop((x, 0, x + nw, h))
     return im.resize((1080, 1920), Image.LANCZOS)
 
@@ -70,7 +79,7 @@ for p in picks:
     except Exception as e:
         print("SKIP dl err", pid, type(e).__name__)
         continue
-    final = fit916(im)
+    final = fit916(im, p.get("crop", "c"))
     os.makedirs(cat, exist_ok=True)
     final.save(os.path.join(cat, wid + ".jpg"), "JPEG", quality=95, optimize=True, subsampling=1)
     final.resize((360, 640), Image.LANCZOS).save(os.path.join(cat, wid + "_thumb.jpg"), "JPEG", quality=80, optimize=True)
