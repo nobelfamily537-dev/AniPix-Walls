@@ -6,15 +6,15 @@ from PIL import Image, ImageDraw, ImageFilter, ImageOps
 
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124.0 Safari/537.36"}
 SERIES = [
-    ("initial d", ["initial_d"]),
+    ("initial d", ["initial_d", "initial_d_(anime)"]),
     ("ponyo", ["gake_no_ue_no_ponyo"]),
-    ("apothecary diaries", ["kusuriya_no_hitorigoto"]),
+    ("apothecary diaries", ["kusuriya_no_hitorigoto", "maomao_(kusuriya_no_hitorigoto)"]),
     ("nausicaa", ["kaze_no_tani_no_nausicaa"]),
     ("howls moving castle", ["howl_no_ugoku_shiro"]),
     ("seven deadly sins", ["nanatsu_no_taizai"]),
-    ("girls band cry", ["girls_band_cry"]),
+    ("girls band cry", ["girls_band_cry", "girls_band_cry_(anime)"]),
     ("detective conan", ["detective_conan"]),
-    ("eminence in shadow", ["kage_no_jitsuryokusha_ni_naritakute"]),
+    ("eminence in shadow", ["kage_no_jitsuryokusha_ni_naritakute!", "eminence_in_shadow"]),
     ("haikyuu", ["haikyuu!!", "haikyuu"]),
 ]
 BAD = set("""text english_text watermark signature artist_name speech_bubble comic 4koma multiple_views
@@ -28,14 +28,14 @@ screen_capture redraw official_art promotional_art key_visual poster banner albu
 bad_pixiv_id commentary commentary_request translation_request character_request artist_request
 wide_image phone_wallpaper variant_set resolution_mismatch partially_translated chinese_text korean_text
 japanese_text loli child aged_down muscular abs sweat tongue pov faceless_male male_focus greeting_card
-calendar sticker meme logo_parody parody fake_screenshot photo_manipulation real_photo highres absurdres
-incredibly_absurdres huge_filesize note english_text watermark_text""".split())
+calendar sticker meme logo_parody parody fake_screenshot photo_manipulation real_photo
+english_text watermark_text""".split())
 
 OUT = "_tmp/lowrun18"
 PREV, SHEETS = OUT + "/prev", OUT + "/sheets"
 os.makedirs(PREV, exist_ok=True)
 os.makedirs(SHEETS, exist_ok=True)
-PER_SERIES = 20
+PER_SERIES = 22
 S = requests.Session()
 S.headers.update(UA)
 
@@ -117,7 +117,7 @@ cands = []
 for name, tags in SERIES:
     pool = []
     for t in tags:
-        for pid in (0, 1):
+        for pid in (0, 1, 2):
             got = sb_fetch(t, pid)
             print("  %s sb %s p%d -> %d" % (name, t, pid, len(got)), flush=True)
             pool += got
@@ -126,7 +126,7 @@ for name, tags in SERIES:
         if len(pool) >= 240:
             break
     for q in [name] + tags:
-        for page in (1, 2):
+        for page in (1, 2, 3):
             got = wh_fetch(q, page)
             print("  %s wh %s p%d -> %d" % (name, q, page, len(got)), flush=True)
             pool += got
