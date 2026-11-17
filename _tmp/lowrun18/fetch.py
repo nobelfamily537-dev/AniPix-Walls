@@ -1,21 +1,22 @@
 #!/usr/bin/env python3
-"""Lowrun18 stage 1 (v3): fetch candidates from safebooru.org + wallhaven + contact sheets."""
+"""Lowrun18 stage 1 (v5): wallhaven (portrait-first) + safebooru candidates + contact sheets."""
 import io, json, os, re, time
 import requests
 from PIL import Image, ImageDraw, ImageFilter, ImageOps
 
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124.0 Safari/537.36"}
 SERIES = [
-    ("initial d", ["initial_d", "initial_d_(anime)"]),
-    ("ponyo", ["gake_no_ue_no_ponyo"]),
-    ("apothecary diaries", ["kusuriya_no_hitorigoto", "maomao_(kusuriya_no_hitorigoto)"]),
-    ("nausicaa", ["kaze_no_tani_no_nausicaa"]),
-    ("howls moving castle", ["howl_no_ugoku_shiro"]),
-    ("seven deadly sins", ["nanatsu_no_taizai"]),
-    ("girls band cry", ["girls_band_cry", "girls_band_cry_(anime)"]),
-    ("detective conan", ["detective_conan"]),
-    ("eminence in shadow", ["kage_no_jitsuryokusha_ni_naritakute!", "eminence_in_shadow"]),
-    ("haikyuu", ["haikyuu!!", "haikyuu"]),
+    ("initial d", ["initial_d"], ["initial d"]),
+    ("ponyo", ["gake_no_ue_no_ponyo"], ["ponyo", "gake no ue no ponyo"]),
+    ("apothecary diaries", ["kusuriya_no_hitorigoto"], ["apothecary diaries", "kusuriya no hitorigoto"]),
+    ("nausicaa", ["kaze_no_tani_no_nausicaa"], ["nausicaa", "nausicaa of the valley of the wind"]),
+    ("howls moving castle", ["howl_no_ugoku_shiro"], ["howls moving castle", "howl's moving castle"]),
+    ("seven deadly sins", ["nanatsu_no_taizai"], ["seven deadly sins", "nanatsu no taizai"]),
+    ("girls band cry", ["girls_band_cry"], ["girls band cry"]),
+    ("detective conan", ["detective_conan"], ["detective conan", "conan"]),
+    ("eminence in shadow", ["kage_no_jitsuryokusha_ni_naritakute!", "eminence_in_shadow"],
+     ["eminence in shadow", "kage no jitsuryokusha"]),
+    ("haikyuu", ["haikyuu!!", "haikyuu"], ["haikyuu"]),
 ]
 BAD = set("""text english_text watermark signature artist_name speech_bubble comic 4koma multiple_views
 character_sheet translated logo border frame letterboxed twitter_username web_address dated artist_logo
@@ -28,14 +29,14 @@ screen_capture redraw official_art promotional_art key_visual poster banner albu
 bad_pixiv_id commentary commentary_request translation_request character_request artist_request
 wide_image phone_wallpaper variant_set resolution_mismatch partially_translated chinese_text korean_text
 japanese_text loli child aged_down muscular abs sweat tongue pov faceless_male male_focus greeting_card
-calendar sticker meme logo_parody parody fake_screenshot photo_manipulation real_photo
-english_text watermark_text""".split())
+calendar sticker meme logo_parody parody fake_screenshot photo_manipulation real_photo watermark_text""".split())
 
 OUT = "_tmp/lowrun18"
 PREV, SHEETS = OUT + "/prev", OUT + "/sheets"
-os.makedirs(PREV, exist_ok=True)
-os.makedirs(SHEETS, exist_ok=True)
-PER_SERIES = 22
+for d in (PREV, SHEETS):
+    os.makedirs(d, exist_ok=True)
+PER_SERIES = 24
+PORTRAIT = "9x16,10x16,9x18,10x18,10x21"
 S = requests.Session()
 S.headers.update(UA)
 
@@ -49,7 +50,7 @@ def get(url, params=None, tries=3, timeout=45):
             print("  HTTP", r.status_code, url.split("?")[0], flush=True)
         except Exception as e:
             print("  ERR", type(e).__name__, url.split("?")[0], flush=True)
-        time.sleep(3 + 3 * k)
+        time.sleep(2 + 3 * k)
     return None
 
 
@@ -78,10 +79,12 @@ def sb_fetch(tag, pid):
     return out
 
 
-def wh_fetch(q, page=1):
-    r = get("https://wallhaven.cc/api/v1/search",
-            {"q": q, "purity": "100", "categories": "010", "sorting": "relevance",
-             "order": "desc", "page": page, "atleast": "1000x1400"})
+def wh_fetch(q, page, ratios=None):
+    params = {"q": q, "purity": "100", "categories": "010", "sorting": "favorites",
+              "order": "desc", "page": page, "atleast": "1000x1400"}
+    if ratios:
+        params["ratios"] = ratios
+    r = get("https://wallhaven.cc/api/v1/search", params)
     if not r:
         return []
     try:
@@ -94,11 +97,9 @@ def wh_fetch(q, page=1):
             w, h = int(p["dimension_x"]), int(p["dimension_y"])
         except Exception:
             continue
-        if h <= w:
-            continue
         out.append(dict(site="wh", id=str(p.get("id")), score=int(p.get("favorites") or 0), w=w, h=h,
                         url=p.get("path"), prev=(p.get("thumbs") or {}).get("large") or p.get("path"),
-                        tags=" ".join([p.get("category") or ""] + (p.get("tags") or [])).strip(),
+                        tags=" ".join([str(p.get("category") or "")] + [str(t) for t in (p.get("tags") or [])]),
                         rating="s"))
     return out
 
@@ -114,26 +115,33 @@ for f in ("_tmp/lowrun15/used_pids.json", "_tmp/lowrun16/used_pids.json",
 print("used pids:", len(used), flush=True)
 
 cands = []
-for name, tags in SERIES:
+for name, tags, queries in SERIES:
     pool = []
+    for q in queries:
+        for page in (1, 2, 3):
+            got = wh_fetch(q, page, PORTRAIT)
+            print("  %s whP %s p%d -> %d" % (name, q, page, len(got)), flush=True)
+            pool += got
+            if len(got) < 24:
+                break
+        if len(pool) >= 40:
+            break
+    nport = len([p for p in pool if p["h"] > p["w"] * 1.2])
+    if nport < 18:
+        for q in queries[:1]:
+            for page in (1, 2):
+                got = wh_fetch(q, page)
+                print("  %s whA %s p%d -> %d" % (name, q, page, len(got)), flush=True)
+                pool += got
+                if len(got) < 24:
+                    break
     for t in tags:
-        for pid in (0, 1, 2):
+        for pid in (0, 1):
             got = sb_fetch(t, pid)
             print("  %s sb %s p%d -> %d" % (name, t, pid, len(got)), flush=True)
             pool += got
             if len(got) < 100:
                 break
-        if len(pool) >= 240:
-            break
-    for q in [name] + tags:
-        for page in (1, 2, 3):
-            got = wh_fetch(q, page)
-            print("  %s wh %s p%d -> %d" % (name, q, page, len(got)), flush=True)
-            pool += got
-            if len(got) < 24:
-                break
-        if len(pool) >= 240:
-            break
     print("== %s pool=%d" % (name, len(pool)), flush=True)
 
     seen, kept = set(), []
@@ -146,16 +154,15 @@ for name, tags in SERIES:
         w, h = p["w"], p["h"]
         if not p.get("url") or not p.get("prev"):
             continue
-        r = h / w
-        if r >= 1.2:
-            if h < 1300 or w < 700:
+        r = h / float(w)
+        if r >= 1.25:
+            if h < 1400 or w < 700:
                 continue
         elif r >= 0.85:
             if h < 1700:
                 continue
         else:
-            if h < 1700 or w < 2000:
-                continue
+            continue
         if set(p["tags"].replace("(", " ").replace(")", " ").split()) & BAD:
             continue
         kept.append(p)
@@ -170,38 +177,37 @@ for name, tags in SERIES:
             r = S.get(p["prev"], timeout=60)
             r.raise_for_status()
             im = Image.open(io.BytesIO(r.content)).convert("RGB")
-            if im.size[0] < 300:
-                continue
             w, h = im.size
-            tw, th = 360, 640
-            t = 16 / 9
+            if w < 300 or h < 400:
+                continue
+            tw, th, t = 360, 640, 16 / 9
             if h / w > 2.2:
                 bg = ImageOps.fit(im, (tw, th), Image.LANCZOS).filter(ImageFilter.GaussianBlur(22))
                 fg = im.copy()
                 fg.thumbnail((tw, th), Image.LANCZOS)
                 bg.paste(fg, ((tw - fg.width) // 2, (th - fg.height) // 2))
-                prev_im = bg
+                pim = bg
             elif h / w > t:
                 nh = int(w * t)
                 y = int((h - nh) * 0.04)
-                prev_im = im.crop((0, y, w, y + nh))
+                pim = im.crop((0, y, w, y + nh))
             else:
                 nw = int(h * t)
                 x = (w - nw) // 2
-                prev_im = im.crop((x, 0, x + nw, h))
+                pim = im.crop((x, 0, x + nw, h))
             fn = "%s_%02d.jpg" % (slug, n)
-            prev_im.save(os.path.join(PREV, fn), "JPEG", quality=84, optimize=True)
+            pim.save(os.path.join(PREV, fn), "JPEG", quality=84, optimize=True)
             cands.append(dict(series=name, slug=slug, idx=n, file=fn, pid=p["id"], site=p["site"],
-                              score=p["score"], w=p["w"], h=p["h"], url=p["url"], tags=p["tags"][:400]))
+                              score=p["score"], w=p["w"], h=p["h"], url=p["url"], tags=p["tags"][:300]))
             n += 1
         except Exception as e:
             print("   dl err", p.get("site"), p.get("id"), type(e).__name__, flush=True)
-        time.sleep(0.3)
+        time.sleep(0.2)
     print("   previews=%d" % n, flush=True)
 
 json.dump(cands, open(OUT + "/cands.json", "w"), indent=1)
 
-COLS, ROWS, CW, CH = 5, 5, 300, 533
+COLS, ROWS, CW, CH = 6, 4, 250, 444
 per = COLS * ROWS
 bys = {}
 for c in cands:
@@ -215,8 +221,8 @@ for slug, items in bys.items():
             im = Image.open(os.path.join(PREV, c["file"])).convert("RGB").resize((CW, CH), Image.LANCZOS)
             x, y = (k % COLS) * CW, (k // COLS) * CH
             sheet.paste(im, (x, y))
-            dr.rectangle([x, y, x + 34, y + 20], fill=(0, 0, 0))
-            dr.text((x + 5, y + 5), str(c["idx"]), fill=(255, 255, 0))
+            dr.rectangle([x, y, x + 30, y + 18], fill=(0, 0, 0))
+            dr.text((x + 4, y + 4), str(c["idx"]), fill=(255, 255, 0))
         sheet.save("%s/%s_%d.jpg" % (SHEETS, slug, si // per), "JPEG", quality=86, optimize=True)
 
 print("TOTAL", len(cands), flush=True)
