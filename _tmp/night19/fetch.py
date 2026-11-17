@@ -11,21 +11,11 @@ UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, 
 
 # name, wallhaven search queries, accepted tag names (lowercase) for verification, konachan tag
 SERIES = [
-    ("kuroko no basket",
-     ["kuroko no basket", "kuroko", "kagami taiga", "aomine daiki", "kise ryouta", "akashi seijuurou"],
-     ["kuroko no basket", "kuroko no basuke"], "kuroko_no_basket"),
-    ("blue exorcist",
-     ["blue exorcist", "ao no exorcist", "okumura rin", "okumura yukio"],
-     ["blue exorcist", "ao no exorcist"], "ao_no_exorcist"),
-    ("fruits basket",
-     ["fruits basket", "honda tohru", "sohma kyo", "sohma yuki"],
-     ["fruits basket"], "fruits_basket"),
-    ("samurai champloo",
-     ["samurai champloo", "champloo", "mugen (samurai champloo)", "jin (samurai champloo)"],
-     ["samurai champloo"], "samurai_champloo"),
-    ("no game no life",
-     ["no game no life", "shiro (no game no life)", "sora (no game no life)", "jibril"],
-     ["no game no life"], "no_game_no_life"),
+    ("kuroko no basket", ["kuroko_no_basket"], ["kuroko no basket"], "kuroko_no_basket"),
+    ("blue exorcist", ["ao_no_exorcist"], ["ao no exorcist"], "ao_no_exorcist"),
+    ("fruits basket", ["fruits_basket"], ["fruits basket"], "fruits_basket"),
+    ("samurai champloo", ["samurai_champloo"], ["samurai champloo"], "samurai_champloo"),
+    ("no game no life", ["no_game_no_life"], ["no game no life"], "no_game_no_life"),
 ]
 
 OUT = "_tmp/night19"
@@ -34,6 +24,17 @@ SHEETS = os.path.join(OUT, "sheets")
 os.makedirs(PREV, exist_ok=True)
 os.makedirs(SHEETS, exist_ok=True)
 PER_SERIES = 16
+
+BADTAGS = {"text", "english_text", "watermark", "signature", "artist_name", "speech_bubble", "comic",
+           "4koma", "multiple_views", "character_sheet", "translated", "logo", "border", "frame",
+           "letterboxed", "twitter_username", "web_address", "dated", "artist_logo", "bad_id",
+           "sketch", "monochrome", "greyscale", "partially_colored", "censored", "manga", "scan",
+           "sample", "chibi", "comic_panel", "bikini", "swimsuit", "underwear", "lingerie", "panties",
+           "bra", "cleavage", "no_bra", "see_through", "nude", "naked", "topless", "bed", "bottomless",
+           "photo", "photograph", "cosplay", "screencap", "screenshot", "reference_sheet", "upscaled",
+           "jpeg_artifacts", "lowres", "real_world_location", "photo_background", "collage", "crossover",
+           "vector", "lineart", "line_art", "blood", "gore", "guro", "game_cg", "cgi", "redraw",
+           "loli", "child", "close-up", "eyes"}
 
 
 def render(im, size=(360, 640)):
@@ -129,6 +130,38 @@ def kc_search(tag):
     return out
 
 
+DAN_BAD = ("-text -watermark -signature -artist_name -english_text -translated -monochrome "
+           "-greyscale -sketch -comic -manga -4koma -logo -chibi -lineart -sketch_page "
+           "-official_art_request -character_sheet -multiple_views -border -letterboxed")
+
+
+def dan_search(tag, pages=2):
+    out = []
+    q = "%s rating:g width:>=1000 height:>=1500 %s" % (tag, DAN_BAD)
+    for page in range(1, pages + 1):
+        r = get("https://danbooru.donmai.us/posts.json",
+                {"tags": q, "limit": 100, "page": page, "order": "favcount"})
+        if not r:
+            break
+        try:
+            js = r.json()
+        except Exception:
+            break
+        if not isinstance(js, list) or not js:
+            break
+        for p in js:
+            url = p.get("file_url") or p.get("large_file_url")
+            prev = p.get("large_file_url") or p.get("preview_file_url") or url
+            if not url:
+                continue
+            out.append(dict(site="danbooru", id="db" + str(p.get("id")), score=p.get("fav_count") or 0,
+                            w=p.get("image_width") or 0, h=p.get("image_height") or 0,
+                            url=url, prev=prev, tags=p.get("tag_string") or "", rating="s"))
+        if len(js) < 100:
+            break
+    return out
+
+
 used = set()
 for root, _, files in os.walk("_tmp"):
     for fn in files:
@@ -146,48 +179,38 @@ print("already-used pids:", len(used), flush=True)
 cands = []
 for name, queries, accepted, kctag in SERIES:
     pool, seen = [], set()
-    for q in queries:
-        got = wh_search(q)
-        print("  %s wallhaven %r -> %d" % (name, q, len(got)), flush=True)
+    for t in queries:
+        got = dan_search(t)
+        print("  %s danbooru %r -> %d" % (name, t, len(got)), flush=True)
         for p in got:
             if p["id"] not in seen:
                 seen.add(p["id"])
                 pool.append(p)
-    print("== %s: wallhaven pool=%d" % (name, len(pool)), flush=True)
+    print("== %s: danbooru pool=%d" % (name, len(pool)), flush=True)
+
+    if len(pool) < 12:
+        for t in [kctag]:
+            got = kc_search(t)
+            print("  %s konachan %r -> %d" % (name, t, len(got)), flush=True)
+            for p in got:
+                if p["id"] not in seen:
+                    seen.add(p["id"])
+                    pool.append(p)
 
     kept = []
-    checked = 0
     for p in pool:
         if p["id"] in used:
             continue
         w, h = p["w"], p["h"]
         if not w or not h or not p.get("url"):
             continue
-        if h / w < 1.3 or h < 1200:
+        if h / w < 1.35 or h < 1500 or w < 700:
             continue
-        if checked >= 90:
-            break
-        checked += 1
-        tg = wh_tags(p["id"])
-        if not any(a in tg for a in accepted):
+        if set(p["tags"].split()) & BADTAGS:
             continue
-        p["wh_tags"] = tg[:12]
         kept.append(p)
-    print("   verified=%d (checked %d)" % (len(kept), checked), flush=True)
-
-    if len(kept) < 6:
-        extra = kc_search(kctag)
-        print("   konachan %s -> %d" % (kctag, len(extra)), flush=True)
-        for p in extra:
-            w, h = p["w"], p["h"]
-            if not w or not h or not p.get("url"):
-                continue
-            if h / w < 1.35 or h < 1500:
-                continue
-            if set(p["tags"].split()) & {"text", "watermark", "signature", "artist_name", "logo",
-                                         "english_text", "speech_bubble", "manga", "comic", "chibi"}:
-                continue
-            kept.append(p)
+    kept.sort(key=lambda p: -(p["score"] or 0))
+    print("   valid=%d" % len(kept), flush=True)
 
     slug = re.sub(r"[^a-z0-9]+", "-", name).strip("-")
     n = 0
