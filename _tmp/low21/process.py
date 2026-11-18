@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """Low-count run stage 2: process picked candidates into <cat>/<id>.jpg + thumb, update wallpapers.json.
 Usage: python _tmp/low21/process.py picks_batch1.json [--bump]"""
-import io, json, os, sys, hashlib
+import io, json, os, sys, hashlib, time
 import requests
 from PIL import Image, ImageOps, ImageDraw
 
-UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-      "Referer": "https://konachan.net/"}
+UA_BASE = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
+REFERERS = {"k": "https://konachan.net/", "d": "https://danbooru.donmai.us/", "s": "https://safebooru.donmai.us/"}
+def hdrs(pid):
+    h = dict(UA_BASE)
+    h["Referer"] = REFERERS.get(str(pid)[:1], "https://danbooru.donmai.us/")
+    h["Accept"] = "image/avif,image/webp,image/jpeg,image/*,*/*"
+    return h
 OUT = "_tmp/low21"
 TODAY = "2026-11-18"
 BASE = "https://raw.githubusercontent.com/nobelfamily537-dev/AniPix-Walls/main"
@@ -72,12 +77,18 @@ for p in picks:
     if full_url in existing or thumb_url in existing:
         print("SKIP dup url", wid)
         continue
-    try:
-        r = requests.get(url, headers=UA, timeout=90)
-        r.raise_for_status()
-        im = Image.open(io.BytesIO(r.content)).convert("RGB")
-    except Exception as e:
-        print("SKIP dl err", pid, type(e).__name__)
+    im = None
+    for attempt in range(3):
+        try:
+            r = requests.get(url, headers=hdrs(pid), timeout=90)
+            r.raise_for_status()
+            im = Image.open(io.BytesIO(r.content)).convert("RGB")
+            break
+        except Exception as e:
+            print("  dl retry", pid, type(e).__name__, getattr(getattr(e, "response", None), "status_code", ""), flush=True)
+            time.sleep(3)
+    if im is None:
+        print("SKIP dl err", pid)
         continue
     if im.width < 600 or im.height < 700:
         print("SKIP small", pid, im.size)
