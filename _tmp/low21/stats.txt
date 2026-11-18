@@ -1,0 +1,4 @@
+17 3
+digimon=3
+kuroko no basket=7
+no game no life=7
