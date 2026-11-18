@@ -1,0 +1,22 @@
+name: _tmp low20 cleanup
+on:
+  workflow_dispatch:
+  push:
+    paths: [".github/workflows/_tmp-low20-cleanup.yml"]
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove temp assets and workflows
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          rm -rf _tmp/low20
+          rm -f .github/workflows/_tmp-low20-fetch.yml .github/workflows/_tmp-low20-fill.yml .github/workflows/_tmp-low20-process.yml .github/workflows/_tmp-low20-probe.yml .github/workflows/_tmp-low20-fix.yml .github/workflows/_tmp-low20-cleanup.yml
+          git add -A
+          git commit -m "cleanup: remove low20 temp assets and workflows"
+          git pull --rebase --autostash
+          git push
