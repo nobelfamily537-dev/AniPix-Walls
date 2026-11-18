@@ -78,17 +78,33 @@ for p in picks:
         print("SKIP dup url", wid)
         continue
     im = None
-    for attempt in range(3):
-        try:
-            r = requests.get(url, headers=hdrs(pid), timeout=90)
-            r.raise_for_status()
-            im = Image.open(io.BytesIO(r.content)).convert("RGB")
+    tried = 0
+    for cand_url in [u for u in (url, p.get("prev")) if u]:
+        for attempt in range(2):
+            try:
+                r = requests.get(cand_url, headers=hdrs(pid), timeout=90)
+                r.raise_for_status()
+                im = Image.open(io.BytesIO(r.content)).convert("RGB")
+                break
+            except Exception as e:
+                tried += 1
+                code = getattr(getattr(e, "response", None), "status_code", "")
+                body = ""
+                if tried <= 3:
+                    try:
+                        body = str(e.response.text)[:160].replace("\n", " ")
+                    except Exception:
+                        pass
+                print("  dl retry", pid, type(e).__name__, code, body, flush=True)
+                time.sleep(2)
+        if im is not None:
             break
-        except Exception as e:
-            print("  dl retry", pid, type(e).__name__, getattr(getattr(e, "response", None), "status_code", ""), flush=True)
-            time.sleep(3)
     if im is None:
         print("SKIP dl err", pid)
+        continue
+    crop_w = min(im.width, int(im.height * 9 / 16))
+    if crop_w < 700:
+        print("SKIP soft", pid, im.size, "cropw", crop_w)
         continue
     if im.width < 600 or im.height < 700:
         print("SKIP small", pid, im.size)
