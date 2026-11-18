@@ -1,7 +1,1 @@
-39 6
-digimon=6
-dr stone=9
-kuroko no basket=1
-made in abyss=9
-mob psycho 100=8
-no game no life=6
+0 0
