@@ -1,28 +1,30 @@
 #!/usr/bin/env python3
-"""Low-count run (2026-11-18): stage 1 - fetch candidates + contact sheets."""
+"""Low-count run (2026-11-18): stage 1 - fetch candidates (safebooru/danbooru) + contact sheets."""
 import io, json, os, re, time, hashlib
 import requests
 from PIL import Image, ImageDraw, ImageFilter, ImageOps
 
-UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-      "Accept": "application/json,text/plain,*/*",
-      "Referer": "https://konachan.net/"}
+UA = {"User-Agent": "AniPixBot/1.0 (wallpaper curation)"}
 
 SERIES = [
-    ("trigun",              ["trigun"],                      "trigun stampede"),
-    ("gintama",             ["gintama"],                     "gintama'"),
-    ("Hajime no Ippo",      ["hajime_no_ippo"],              "fighting spirit"),
-    ("the cat returns",     ["neko_no_onggaeshi"],           "baron hatori"),
-    ("spirited away",       ["sen_to_chihiro_no_kamikakushi"],"sen to chihiro"),
-    ("cardcaptor sakura",   ["cardcaptor_sakura"],           "ccs"),
-    ("cowboy bebop",        ["cowboy_bebop"],                "bebop"),
-    ("code geass",          ["code_geass"],                  "code geass lelouch of the rebellion"),
-    ("horimiya",            ["horimiya"],                    None),
-    ("tales from earthsea", ["gedo_senki"],                  "earthsea"),
-    ("natsume yuujinchou",  ["natsume_yuujinchou"],          "natsume's book of friends"),
-    ("k-on",                ["k-on!"],                       "k-on!"),
-    ("vinland saga",        ["vinland_saga"],                None),
-    ("mob psycho 100",      ["mob_psycho_100"],              "mob psycho"),
+    ("trigun",              ["trigun", "trigun_stampede"],                       "trigun stampede"),
+    ("gintama",             ["gintama"],                                         "gintama'"),
+    ("Hajime no Ippo",      ["hajime_no_ippo"],                                  "fighting spirit"),
+    ("the cat returns",     ["neko_no_onggaeshi"],                               "baron hatori"),
+    ("spirited away",       ["sen_to_chihiro_no_kamikakushi"],                   "sen to chihiro"),
+    ("cardcaptor sakura",   ["cardcaptor_sakura"],                               "ccs"),
+    ("cowboy bebop",        ["cowboy_bebop"],                                    "bebop"),
+    ("code geass",          ["code_geass", "code_geass_hangyaku_no_lelouch"],    "code geass lelouch of the rebellion"),
+    ("horimiya",            ["horimiya"],                                        None),
+    ("tales from earthsea", ["gedo_senki"],                                      "earthsea"),
+    ("natsume yuujinchou",  ["natsume_yuujinchou"],                              "natsume's book of friends"),
+    ("k-on",                ["k-on!"],                                           "k-on!"),
+    ("vinland saga",        ["vinland_saga"],                                    None),
+    ("mob psycho 100",      ["mob_psycho_100"],                                  "mob psycho"),
+    ("ponyo",               ["gake_no_ue_no_ponyo"],                             "ponyo on the cliff by the sea"),
+    ("laputa",              ["tenkuu_no_shiro_laputa"],                          "castle in the sky"),
+    ("sakamoto days",       ["sakamoto_days"],                                   None),
+    ("dandadan",            ["dandadan"],                                        None),
 ]
 
 BAD = {"text", "english_text", "watermark", "signature", "artist_name", "speech_bubble", "comic", "4koma",
@@ -40,7 +42,9 @@ BAD = {"text", "english_text", "watermark", "signature", "artist_name", "speech_
        "wide_image", "variant_set", "resolution_mismatch", "partially_translated", "chinese_text",
        "korean_text", "japanese_text", "loli", "child", "aged_down", "muscular", "abs", "sweat",
        "tongue", "pov", "faceless_male", "male_focus", "greeting_card", "calendar", "sticker", "meme",
-       "logo_parody", "fake_screenshot", "real_photo", "3d", "photo_manipulation", "quote", "quotes"}
+       "logo_parody", "fake_screenshot", "real_photo", "photo_manipulation", "quote", "quotes",
+       "censor_bar", "bar_censor", "mosaic_censoring", "artist_selfie",
+       "bad_twitter_id", "bad_link", "md5_mismatch", "check_translation"}
 
 OUT = "_tmp/low20"
 PREV = os.path.join(OUT, "prev")
@@ -85,19 +89,20 @@ def get(url, params, timeout=40):
         try:
             r = requests.get(url, params=params, headers=UA, timeout=timeout)
             if r.status_code == 200:
-                time.sleep(0.7)
+                time.sleep(0.4)
                 return r
             print("  HTTP", r.status_code, url, flush=True)
         except Exception as e:
             print("  ERR", type(e).__name__, flush=True)
-        time.sleep(4)
+        time.sleep(3)
     return None
 
 
-def fetch_site(base, tag):
+def fetch_danbooru(tag):
     out = []
-    for page in (1, 2, 3):
-        r = get(base, {"tags": tag + " rating:s", "limit": 100, "page": page})
+    for page in ("", "b2", "b3"):
+        r = get("https://safebooru.donmai.us/posts.json",
+                {"tags": tag + " rating:g", "limit": 200, "page": page})
         if not r:
             break
         try:
@@ -107,12 +112,36 @@ def fetch_site(base, tag):
         if not isinstance(js, list) or not js:
             break
         for p in js:
-            out.append(dict(site=base, id=p.get("id"), score=p.get("score") or 0,
-                            w=p.get("width") or 0, h=p.get("height") or 0,
-                            url=p.get("file_url"), prev=p.get("sample_url") or p.get("jpeg_url") or p.get("file_url"),
-                            tags=p.get("tags") or "", rating=p.get("rating")))
-        if len(js) < 100:
+            u = p.get("file_url")
+            if not u:
+                continue
+            if u.startswith("/"):
+                u = "https://safebooru.donmai.us" + u
+            pr = p.get("sample_url") or p.get("preview_file_url") or u
+            if pr.startswith("/"):
+                pr = "https://safebooru.donmai.us" + pr
+            out.append(dict(site="safebooru", id=p.get("id"), score=p.get("score") or 0,
+                            w=p.get("image_width") or 0, h=p.get("image_height") or 0,
+                            url=u, prev=pr, tags=p.get("tag_string") or "", rating=p.get("rating")))
+        if len(js) < 200:
             break
+    return out
+
+
+def fetch_konachan(tag):
+    out = []
+    r = get("https://konachan.net/post.json", {"tags": tag + " rating:s", "limit": 100})
+    if not r:
+        return out
+    try:
+        js = r.json()
+    except Exception:
+        return out
+    for p in js:
+        out.append(dict(site="konachan", id=p.get("id"), score=p.get("score") or 0,
+                        w=p.get("width") or 0, h=p.get("height") or 0,
+                        url=p.get("file_url"), prev=p.get("sample_url") or p.get("jpeg_url") or p.get("file_url"),
+                        tags=p.get("tags") or "", rating=p.get("rating")))
     return out
 
 
@@ -120,14 +149,14 @@ cands = []
 for name, tags, alt in SERIES:
     pool = []
     for t in tags:
-        got = fetch_site("https://konachan.net/post.json", t)
-        print("  %s tag %s -> %d" % (name, t, len(got)), flush=True)
+        got = fetch_danbooru(t)
+        print("  %s db tag %s -> %d" % (name, t, len(got)), flush=True)
         pool += got
-        if len(pool) >= 240:
+        if len(pool) >= 300:
             break
-    if len(pool) < 50:
+    if len(pool) < 40:
         for t in tags:
-            pool += fetch_site("https://yande.re/post.json", t)
+            pool += fetch_konachan(t)
     print("== %s: pool=%d" % (name, len(pool)), flush=True)
 
     seen, kept = set(), []
@@ -153,7 +182,7 @@ for name, tags, alt in SERIES:
                 continue
         if set(p["tags"].split()) & BAD:
             continue
-        if p.get("rating") not in ("s", None):
+        if p.get("rating") not in ("g", "s", None):
             continue
         kept.append(p)
     print("   valid=%d" % len(kept), flush=True)
@@ -169,12 +198,13 @@ for name, tags, alt in SERIES:
             im = Image.open(io.BytesIO(r.content)).convert("RGB")
             fn = "%s_%02d.jpg" % (slug, n)
             render(im).save(os.path.join(PREV, fn), "JPEG", quality=84, optimize=True)
-            cands.append(dict(series=name, alt=alt, slug=slug, idx=n, file=fn, pid=p["id"], site=p["site"],
-                              score=p["score"], w=p["w"], h=p["h"], url=p["url"], tags=p["tags"][:500]))
+            cands.append(dict(series=name, alt=alt, slug=slug, idx=n, file=fn, pid=str(p["id"]),
+                              site=p["site"], score=p["score"], w=p["w"], h=p["h"], url=p["url"],
+                              tags=p["tags"][:600]))
             n += 1
         except Exception as e:
             print("   dl err", p.get("id"), type(e).__name__, flush=True)
-        time.sleep(0.2)
+        time.sleep(0.15)
     print("   previews=%d" % n, flush=True)
 
 json.dump(cands, open(os.path.join(OUT, "cands.json"), "w"), indent=1)
