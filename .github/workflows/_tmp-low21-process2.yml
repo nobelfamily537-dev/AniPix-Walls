@@ -32,5 +32,5 @@ jobs:
           git config user.email "nobelfamily537@gmail.com"
           git config user.name "AniPix Bot"
           git add -A wallpapers.json _tmp/low21
-          git add --sparse anime anime2 game nature
+          for d in anime anime2 game nature; do if [ -d "$d" ]; then git add --sparse "$d"; fi; done
           git diff --cached --quiet && echo nothing || (git commit -m "Wallpaper top-up - 2026-11-18 (${N} new across ${M} series)" && git pull --rebase origin main && git push)
