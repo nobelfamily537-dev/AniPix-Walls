@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Low-count run (17:00 IST, 2026-11-19) stage 1: fetch candidates + contact sheets."""
 import io, json, os, re, time
+import xml.etree.ElementTree as ET
 import requests
 from PIL import Image, ImageDraw, ImageFilter, ImageOps
 
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-      "Accept": "application/json,text/plain,*/*",
-      "Referer": "https://konachan.net/"}
+      "Accept": "application/json,text/plain,*/*"}
 
 OUT = "_tmp/low20"
 PREV = os.path.join(OUT, "prev")
@@ -33,9 +33,10 @@ BAD = {"text", "english_text", "watermark", "signature", "artist_name", "speech_
        "wide_image", "phone_wallpaper", "variant_set", "resolution_mismatch", "partially_translated",
        "chinese_text", "korean_text", "japanese_text", "loli", "child", "aged_down", "muscular", "abs",
        "sweat", "tongue", "pov", "faceless_male", "male_focus", "greeting_card", "calendar", "sticker",
-       "meme", "logo_parody", "parody", "fake_screenshot", "what", "how", "3d", "ai-generated",
-       "ai_assisted", "korean", "chinese", "sign", "english", "title", "subtitle", "logo", "emblem",
-       "mosaic_censoring", "bar_censor", "torn_clothes", "blood_on_face", "scar", "injury"}
+       "meme", "logo_parody", "parody", "fake_screenshot", "3d", "ai-generated", "ai_assisted",
+       "korean", "chinese", "sign", "english", "title", "subtitle", "emblem", "mosaic_censoring",
+       "bar_censor", "torn_clothes", "blood_on_face", "scar", "injury", "nipples", "areolae",
+       "pussy", "penis", "sex", "cum", "fellatio", "bondage", "gag", "collar_and_chain"}
 
 
 def render(im, size=(180, 320)):
@@ -57,24 +58,28 @@ def render(im, size=(180, 320)):
     return im.crop((x, 0, x + nw, h)).resize(size, Image.LANCZOS)
 
 
-def get(url, params, timeout=45):
-    for _ in range(3):
+def get(url, params, timeout=45, referer=None):
+    hdr = dict(UA)
+    if referer:
+        hdr["Referer"] = referer
+    for attempt in range(3):
         try:
-            r = requests.get(url, params=params, headers=UA, timeout=timeout)
+            r = requests.get(url, params=params, headers=hdr, timeout=timeout)
             if r.status_code == 200:
-                time.sleep(0.6)
+                time.sleep(1.2)
                 return r
             print("  HTTP", r.status_code, url, flush=True)
+            time.sleep(5 + attempt * 5)
         except Exception as e:
-            print("  ERR", type(e).__name__, flush=True)
-        time.sleep(3)
+            print("  ERR", type(e).__name__, str(e)[:60], flush=True)
+            time.sleep(5)
     return None
 
 
-def fetch_site(base, tag):
+def fetch_booru_json(base, tag):
     out = []
-    for page in (1, 2, 3):
-        r = get(base, {"tags": tag + " rating:s", "limit": 100, "page": page})
+    for page in (1, 2):
+        r = get(base, {"tags": tag + " rating:s", "limit": 100, "page": page}, referer="https://konachan.net/")
         if not r:
             break
         try:
@@ -84,11 +89,10 @@ def fetch_site(base, tag):
         if not isinstance(js, list) or not js:
             break
         for p in js:
-            out.append(dict(site=base, id=p.get("id"), score=p.get("score") or 0,
+            out.append(dict(site=base.split("/")[2], id=p.get("id"), score=p.get("score") or 0,
                             w=p.get("width") or 0, h=p.get("height") or 0,
                             url=p.get("file_url"), prev=p.get("sample_url") or p.get("jpeg_url") or p.get("file_url"),
-                            tags=p.get("tags") or "", rating=p.get("rating"),
-                            md5=p.get("md5")))
+                            tags=p.get("tags") or "", md5=p.get("md5")))
         if len(js) < 100:
             break
     return out
@@ -96,26 +100,30 @@ def fetch_site(base, tag):
 
 def fetch_safebooru(tag):
     out = []
-    for page in (1, 2):
-        r = get("https://safebooru.donmai.us/posts.json",
-                {"tags": tag + " rating:g", "limit": 100, "page": page})
+    for pid in (0, 1):
+        r = get("https://safebooru.org/index.php",
+                {"page": "dapi", "s": "post", "q": "index", "tags": tag, "limit": 100, "pid": pid},
+                referer="https://safebooru.org/")
         if not r:
             break
         try:
-            js = r.json()
+            root = ET.fromstring(r.content)
         except Exception:
             break
-        if not isinstance(js, list) or not js:
+        posts = root.findall("post")
+        if not posts:
             break
-        for p in js:
-            url = p.get("file_url")
-            if not url:
-                continue
-            out.append(dict(site="https://safebooru.donmai.us", id=p.get("id"), score=p.get("score") or 0,
-                            w=p.get("image_width") or 0, h=p.get("image_height") or 0,
-                            url=url, prev=p.get("preview_file_url") or url,
-                            tags=p.get("tag_string") or "", rating="g", md5=p.get("md5")))
-        if len(js) < 100:
+        for p in posts:
+            a = p.attrib
+            try:
+                w, h = int(a.get("width") or 0), int(a.get("height") or 0)
+            except Exception:
+                w = h = 0
+            out.append(dict(site="safebooru.org", id=a.get("id"), score=int(a.get("score") or 0),
+                            w=w, h=h, url=a.get("file_url"),
+                            prev=a.get("sample_url") or a.get("preview_url") or a.get("file_url"),
+                            tags=a.get("tags") or "", md5=a.get("md5")))
+        if len(posts) < 100:
             break
     return out
 
@@ -131,23 +139,17 @@ for s in META:
     name = s["name"]
     pool, seen = [], set()
     for t in s["cats"]:
-        for base in ("https://konachan.net/post.json", "https://yande.re/post.json"):
-            got = fetch_site(base, t)
-            print(" ", name, base.split("/")[2], t, len(got), flush=True)
+        batches = [("konachan.net", fetch_booru_json("https://konachan.net/post.json", t)),
+                   ("konachan.com", fetch_booru_json("https://konachan.com/post.json", t)),
+                   ("safebooru.org", fetch_safebooru(t))]
+        for site, got in batches:
+            print(" ", name, site, t, len(got), flush=True)
             for g in got:
                 k = g.get("md5") or "%s:%s" % (g["site"], g["id"])
                 if k in seen:
                     continue
                 seen.add(k)
                 pool.append(g)
-        got = fetch_safebooru(t)
-        print(" ", name, "safebooru", t, len(got), flush=True)
-        for g in got:
-            k = g.get("md5") or "%s:%s" % (g["site"], g["id"])
-            if k in seen:
-                continue
-            seen.add(k)
-            pool.append(g)
 
     cands = []
     for p in pool:
@@ -164,18 +166,15 @@ for s in META:
         pid = "%s:%s" % (p["site"], p["id"])
         if pid in used:
             continue
-        # quality score: resolution, portrait-ness, booru score
         sc = (p["score"] or 0) * 3 + min(p["h"], 4000) / 60 + (60 if r > 1.5 else 0) - (0 if portrait else 45)
         cands.append(dict(p, pid=pid, sc=sc))
 
     cands.sort(key=lambda x: -x["sc"])
-    # diversify: max 3 per site-id nothing needed, but avoid near-dupes by md5 already done
     cands = cands[:PER_SERIES]
-    print("PICKS", name, len(cands), flush=True)
+    print("CANDIDATES", name, len(cands), flush=True)
 
-    chosen = []
-    tiles = []
-    for i, c in enumerate(cands):
+    chosen, tiles = [], []
+    for c in cands:
         try:
             rr = requests.get(c["prev"], headers=UA, timeout=45)
             rr.raise_for_status()
@@ -183,16 +182,20 @@ for s in META:
         except Exception as e:
             print("  prev fail", c["url"], type(e).__name__, flush=True)
             continue
-        t = render(im)
-        tiles.append((len(chosen), t))
+        tiles.append((len(chosen), render(im)))
         c["idx"] = len(chosen)
         chosen.append(c)
+        time.sleep(0.3)
 
-    # contact sheet 6 cols
+    if not tiles:
+        print("NO TILES", name, flush=True)
+        result[name] = []
+        continue
+
     cols = 6
     rows = (len(tiles) + cols - 1) // cols
     cw, ch = 180, 320
-    sheet = Image.new("RGB", (cols * cw, rows * (ch + 22)), (18, 18, 22))
+    sheet = Image.new("RGB", (cols * cw, max(rows, 1) * (ch + 22)), (18, 18, 22))
     dr = ImageDraw.Draw(sheet)
     for idx, t in tiles:
         cx = (idx % cols) * cw
@@ -210,4 +213,4 @@ for s in META:
     time.sleep(1)
 
 json.dump(result, open(os.path.join(OUT, "cands_all.json"), "w"), indent=1)
-print("\nSUMMARY", {k: len(v) for k, v in result.items()}, flush=True)
+print("\nSUMMARY", json.dumps({k: len(v) for k, v in result.items()}), flush=True)
