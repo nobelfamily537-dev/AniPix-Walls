@@ -1,0 +1,25 @@
+name: _tmp low20 process
+on:
+  workflow_dispatch:
+  push:
+    paths: ["_tmp/low20/trigger_process.txt"]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - name: Run processor
+        run: PICKS="_tmp/low20/picks.json" python _tmp/low20/process.py
+      - name: Cleanup previews
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          rm -rf _tmp/low20/prev _tmp/low20/sheets
+          git add -A _tmp/low20
+          git diff --cached --quiet && echo nothing || (git commit -m "tmp: low20 cleanup" && git push)
