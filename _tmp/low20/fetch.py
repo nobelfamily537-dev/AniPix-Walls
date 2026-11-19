@@ -14,7 +14,7 @@ SHEETS = os.path.join(OUT, "sheets")
 os.makedirs(PREV, exist_ok=True)
 os.makedirs(SHEETS, exist_ok=True)
 
-META = json.load(open(os.path.join(OUT, "meta.json")))["series"]
+META = json.load(open(os.environ.get("META_FILE", os.path.join(OUT, "meta.json"))))["series"]
 PER_SERIES = 24
 
 BAD = {"text", "english_text", "watermark", "signature", "artist_name", "speech_bubble", "comic", "4koma",
