@@ -1,0 +1,35 @@
+name: _tmp low19 fetch4
+on:
+  workflow_dispatch:
+  push:
+    paths: ["_tmp/lowrun19/trigger_fetch4.txt"]
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        batch: [0, 1, 2]
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            _tmp
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - name: Fetch batch
+        env:
+          BATCH: ${{ matrix.batch }}
+        run: python _tmp/lowrun19/fetch4.py
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A _tmp/lowrun19
+          git diff --cached --quiet && echo nothing || (git commit -m "tmp: low19 fetch4 previews batch ${{ matrix.batch }}" && for i in 1 2 3 4 5; do git pull --rebase --autostash origin main && git push && break; sleep 8; done)
