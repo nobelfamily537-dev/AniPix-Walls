@@ -16,6 +16,8 @@ jobs:
           python-version: "3.12"
       - run: pip install --quiet pillow requests
       - run: python _tmp/low20/fetch.py
+      - run: META_FILE=_tmp/low20/meta2.json python _tmp/low20/fetch.py
+        if: always()
       - name: Commit
         if: always()
         run: |
