@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet pillow requests
-      - run: python _tmp/gap20/probe5.py
+      - run: python _tmp/gap20/fetchreal.py
       - name: Commit
         run: |
           git config user.email "nobelfamily537@gmail.com"

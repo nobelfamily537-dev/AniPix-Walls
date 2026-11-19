@@ -82,7 +82,7 @@ def harvest():
                         ts = set(re.split(r"\s+", (p.get("tags") or "").lower()))
                         if ts & BAD:
                             continue
-                        if (p.get("rating") or "s") != "s":
+                        if str(p.get("rating") or "s").lower() not in ("s", "safe"):
                             continue
                         url = p.get("file_url")
                         if not url:
