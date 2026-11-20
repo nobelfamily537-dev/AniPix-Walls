@@ -51,7 +51,7 @@ for slug in want:
             im = Image.open(io.BytesIO(r.content)).convert("RGB")
             fn = "%s_%02d.jpg" % (slug, n)
             render(im).save(os.path.join(PREV, fn), "JPEG", quality=84, optimize=True)
-            cands.append(dict(series=m["name"], slug=slug, idx=n, pid=p["id"], site=p["site"],
+            cands.append(dict(series=m["name"], slug=slug, idx=n, file=fn, pid=p["id"], site=p["site"],
                               score=p["score"], w=p["w"], h=p["h"], url=p["url"], cat=m["cat"],
                               itag=m["itag"], alt=m["alt"], chars=m["chars"], tags=p["tags"]))
             n += 1
@@ -74,7 +74,10 @@ for slug, items in byseries.items():
         sheet = Image.new("RGB", (COLS * CW, ROWS * CH), (18, 18, 18))
         dr = ImageDraw.Draw(sheet)
         for k, c in enumerate(chunk):
-            im = Image.open(os.path.join(PREV, c["file"])).convert("RGB").resize((CW, CH), Image.LANCZOS)
+            try:
+                im = Image.open(os.path.join(PREV, c["file"])).convert("RGB").resize((CW, CH), Image.LANCZOS)
+            except Exception:
+                im = Image.new("RGB", (CW, CH), (40, 40, 40))
             x, y = (k % COLS) * CW, (k // COLS) * CH
             sheet.paste(im, (x, y))
             dr.rectangle([x, y, x + 34, y + 20], fill=(0, 0, 0))
