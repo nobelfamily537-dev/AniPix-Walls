@@ -1,0 +1,25 @@
+name: _tmp night20 fetch3b
+on:
+  workflow_dispatch:
+  push:
+    paths: ["_tmp/night20/trigger_fetch3b.txt"]
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - run: python _tmp/night20/fetch3.py
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A _tmp/night20
+          git diff --cached --quiet && echo nothing || (git commit -m "tmp: night20 fetch previews" && git push)
