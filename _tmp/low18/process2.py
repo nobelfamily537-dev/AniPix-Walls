@@ -78,13 +78,27 @@ for sname in order:
         if p["url"] in existing:
             print("  dup url skip", p["url"], flush=True)
             continue
-        try:
-            r = requests.get(p["url"], headers=UA, timeout=120)
-            r.raise_for_status()
-            im = Image.open(io.BytesIO(r.content)).convert("RGB")
-            im = to_9x16(im)
-        except Exception as e:
-            print("  FAIL", p["slug"], p["idx"], type(e).__name__, flush=True)
+        im = None
+        for attempt, cand_url in enumerate([p.get("fileurl") or p.get("url"), p.get("sample"), p.get("url")]):
+            if not cand_url:
+                continue
+            for retry in range(2):
+                try:
+                    r = requests.get(cand_url, headers=UA, timeout=180)
+                    if r.status_code != 200:
+                        print("  HTTP", r.status_code, p["slug"], p["idx"], attempt, retry, flush=True)
+                        time.sleep(3)
+                        continue
+                    im = Image.open(io.BytesIO(r.content)).convert("RGB")
+                    im = to_9x16(im)
+                    break
+                except Exception as e:
+                    print("  ERR", type(e).__name__, p["slug"], p["idx"], attempt, retry, flush=True)
+                    time.sleep(3)
+            if im is not None:
+                break
+        if im is None:
+            print("  FAIL", p["slug"], p["idx"], flush=True)
             continue
         wid = new_id()
         cat = p["cat"]
