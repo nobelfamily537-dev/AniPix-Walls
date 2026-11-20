@@ -1,6 +1,8 @@
 name: _tmp night20 fetch
 on:
   workflow_dispatch:
+  push:
+    paths: ["_tmp/night20/trigger_fetch.txt"]
 jobs:
   fetch:
     runs-on: ubuntu-latest
