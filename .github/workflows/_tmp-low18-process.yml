@@ -11,16 +11,18 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install --quiet pillow requests
       - name: Process
-        run: python _tmp/low18/process.py
+        run: python _tmp/low18/process2.py
       - name: Cleanup previews
         run: |
           git config user.email "nobelfamily537@gmail.com"
           git config user.name "AniPix Bot"
-          rm -rf _tmp/low18/prev _tmp/low18/sheets
-          git add -A _tmp/low18
+          rm -rf _tmp/low18/prev _tmp/low18/sheets _tmp/low18c/prev _tmp/low18c/sheets _tmp/low18e/prev _tmp/low18e/sheets _tmp/low18d/prev _tmp/low18d/sheets
+          git add -A _tmp
           git diff --cached --quiet && echo nothing || (git commit -m "tmp: low18 cleanup" && git push)
