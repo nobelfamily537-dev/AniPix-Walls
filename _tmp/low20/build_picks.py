@@ -103,7 +103,7 @@ def build(c):
         for t in bucket:
             if t in cand_tags and t.replace("_", " ") not in desc:
                 desc.append(t.replace("_", " "))
-    colour = colour_theme(os.path.join(OUT, "prev", c["file"]))
+    colour = colour_theme(os.path.join(OUT, "prev2", c["file"]))
     order = [itag]
     if alt and alt != itag:
         order.append(alt)
@@ -123,7 +123,9 @@ def build(c):
     return out[:15]
 
 
-cands = json.load(open(os.path.join(OUT, "cands.json")))
+import sys
+CANDS = sys.argv[1] if len(sys.argv) > 1 else "cands2.json"
+cands = json.load(open(os.path.join(OUT, CANDS)))
 by_slug = {}
 for c in cands:
     by_slug.setdefault(c["slug"], {})[c["idx"]] = c
