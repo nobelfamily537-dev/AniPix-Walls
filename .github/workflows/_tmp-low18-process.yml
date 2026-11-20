@@ -1,6 +1,8 @@
 name: _tmp low18 process
 on:
   workflow_dispatch:
+  push:
+    paths: ["_tmp/low18/trigger_process.txt"]
 jobs:
   run:
     runs-on: ubuntu-latest
