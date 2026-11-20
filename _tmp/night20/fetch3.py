@@ -202,7 +202,7 @@ for name, pool in chosen:
             im = Image.open(io.BytesIO(r.content)).convert("RGB")
             fn = "%s_%02d.jpg" % (slug, n)
             render(im).save(os.path.join(PREV, fn), "JPEG", quality=82, optimize=True)
-            cands.append(dict(series=name, slug=slug, idx=n, pid="%s-%s" % (p["site"], p["id"]),
+            cands.append(dict(series=name, slug=slug, idx=n, file=fn, pid="%s-%s" % (p["site"], p["id"]),
                               site=p["site"], score=p["score"], w=p["w"], h=p["h"], url=p["url"],
                               tags=p["tags"][:500]))
             n += 1
