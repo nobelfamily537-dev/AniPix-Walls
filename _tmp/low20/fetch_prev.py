@@ -43,7 +43,7 @@ for slug in want:
         continue
     n = 0
     for p in m["cands"]:
-        if n >= 24:
+        if n >= 20:
             break
         try:
             r = requests.get(p["prev"], headers=UA, timeout=90)
