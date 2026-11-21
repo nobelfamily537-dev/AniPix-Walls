@@ -1,0 +1,314 @@
+{
+ "added": {
+  "natsume yuujinchou": 8,
+  "seraph of the end": 8,
+  "k-on": 6,
+  "nisekoi": 4,
+  "blue exorcist": 1,
+  "a silent voice": 3,
+  "yona of the dawn": 1
+ },
+ "skipped": [
+  [
+   "seraph of the end",
+   "s00",
+   "duplicate in batch"
+  ],
+  [
+   "seraph of the end",
+   "s02",
+   "duplicate in batch"
+  ],
+  [
+   "seraph of the end",
+   "s04",
+   "duplicate in batch"
+  ],
+  [
+   "seraph of the end",
+   "s06",
+   "duplicate in batch"
+  ],
+  [
+   "seraph of the end",
+   "s14",
+   "duplicate in batch"
+  ],
+  [
+   "k-on",
+   "g09",
+   "small 480x853"
+  ],
+  [
+   "k-on",
+   "g16",
+   "download HTTPError"
+  ],
+  [
+   "k-on",
+   "g20",
+   "download HTTPError"
+  ],
+  [
+   "k-on",
+   "g24",
+   "download HTTPError"
+  ],
+  [
+   "k-on",
+   "g25",
+   "download ConnectionError"
+  ],
+  [
+   "nisekoi",
+   "s00",
+   "duplicate in batch"
+  ],
+  [
+   "nisekoi",
+   "s01",
+   "duplicate in batch"
+  ],
+  [
+   "nisekoi",
+   "s02",
+   "duplicate in batch"
+  ],
+  [
+   "nisekoi",
+   "s03",
+   "duplicate in batch"
+  ],
+  [
+   "nisekoi",
+   "s05",
+   "duplicate in batch"
+  ],
+  [
+   "nisekoi",
+   "s08",
+   "duplicate in batch"
+  ],
+  [
+   "nisekoi",
+   "s09",
+   "duplicate in batch"
+  ],
+  [
+   "nisekoi",
+   "s10",
+   "duplicate in batch"
+  ],
+  [
+   "nisekoi",
+   "s11",
+   "duplicate in batch"
+  ],
+  [
+   "nisekoi",
+   "s12",
+   "duplicate in batch"
+  ],
+  [
+   "nisekoi",
+   "s16",
+   "duplicate in batch"
+  ],
+  [
+   "nisekoi",
+   "s17",
+   "duplicate in batch"
+  ],
+  [
+   "blue exorcist",
+   "s01",
+   "duplicate in batch"
+  ],
+  [
+   "blue exorcist",
+   "s02",
+   "duplicate in batch"
+  ],
+  [
+   "blue exorcist",
+   "s03",
+   "duplicate in batch"
+  ],
+  [
+   "blue exorcist",
+   "s04",
+   "duplicate in batch"
+  ],
+  [
+   "blue exorcist",
+   "s05",
+   "duplicate in batch"
+  ],
+  [
+   "blue exorcist",
+   "s06",
+   "duplicate in batch"
+  ],
+  [
+   "blue exorcist",
+   "s08",
+   "duplicate in batch"
+  ],
+  [
+   "blue exorcist",
+   "s09",
+   "duplicate in batch"
+  ],
+  [
+   "blue exorcist",
+   "s10",
+   "duplicate in batch"
+  ],
+  [
+   "blue exorcist",
+   "s11",
+   "duplicate in batch"
+  ],
+  [
+   "blue exorcist",
+   "s12",
+   "duplicate in batch"
+  ],
+  [
+   "blue exorcist",
+   "s14",
+   "duplicate in batch"
+  ],
+  [
+   "blue exorcist",
+   "s16",
+   "duplicate in batch"
+  ],
+  [
+   "blue exorcist",
+   "s17",
+   "duplicate in batch"
+  ],
+  [
+   "blue exorcist",
+   "s18",
+   "duplicate in batch"
+  ],
+  [
+   "a silent voice",
+   "s00",
+   "duplicate in batch"
+  ],
+  [
+   "a silent voice",
+   "s04",
+   "duplicate in batch"
+  ],
+  [
+   "a silent voice",
+   "s14",
+   "duplicate in batch"
+  ],
+  [
+   "a silent voice",
+   "s16",
+   "duplicate in batch"
+  ],
+  [
+   "a silent voice",
+   "s20",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s00",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s01",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s02",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s03",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s06",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s07",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s08",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s09",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s10",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s11",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s12",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s13",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s16",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s17",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s18",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s19",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s20",
+   "duplicate in batch"
+  ],
+  [
+   "yona of the dawn",
+   "s21",
+   "duplicate in batch"
+  ]
+ ],
+ "total": 31
+}
