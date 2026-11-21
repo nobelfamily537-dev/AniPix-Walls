@@ -78,8 +78,8 @@ def get(url, params=None, timeout=35):
 def wallhaven(q, page=1):
     out = []
     r = get("https://wallhaven.cc/api/v1/search",
-            {"q": q, "categories": "010", "purity": "100", "ratios": "9x16",
-             "atleast": "1080x1920", "sorting": "favorites", "order": "desc", "page": page})
+            {"q": q, "categories": "111", "purity": "100",
+             "atleast": "900x1300", "sorting": "favorites", "order": "desc", "page": page})
     if not r:
         return out
     try:
@@ -96,6 +96,40 @@ def wallhaven(q, page=1):
                         url=p.get("path"), prev=p.get("thumbs", {}).get("large") or p.get("path"),
                         tags=" ".join(p.get("tags", []) and [t.get("name", "") for t in p["tags"]] or []),
                         rating="s"))
+    return out
+
+
+def konachan(tag):
+    out = []
+    r = get("https://konachan.net/post.json", {"tags": tag.replace(" ", "_"), "limit": 100})
+    if not r:
+        return out
+    try:
+        js = r.json()
+    except Exception:
+        return out
+    for p in js:
+        out.append(dict(site="konachan", id=p.get("id"), score=p.get("score") or 0,
+                        w=p.get("width") or 0, h=p.get("height") or 0,
+                        url=p.get("file_url"), prev=p.get("sample_url") or p.get("file_url"),
+                        tags=(p.get("tags") or ""), rating=p.get("rating")))
+    return out
+
+
+def yandere(tag):
+    out = []
+    r = get("https://yande.re/post.json", {"tags": tag.replace(" ", "_"), "limit": 100})
+    if not r:
+        return out
+    try:
+        js = r.json()
+    except Exception:
+        return out
+    for p in js:
+        out.append(dict(site="yande.re", id=p.get("id"), score=p.get("score") or 0,
+                        w=p.get("width") or 0, h=p.get("height") or 0,
+                        url=p.get("file_url"), prev=p.get("sample_url") or p.get("file_url"),
+                        tags=(p.get("tags") or ""), rating=p.get("rating")))
     return out
 
 
@@ -127,13 +161,13 @@ summary = {}
 for name, tags in SERIES:
     pool = []
     for t in tags:
-        got = wallhaven(t)
+        got = wallhaven(t, 1) + wallhaven(t, 2)
         print("  wallhaven %s -> %d" % (t, len(got)), flush=True)
         pool += got
-    if len(pool) < 12:
+    if len(pool) < 25:
         for t in tags:
-            got = animepictures(t.replace(" ", "_"))
-            print("  anime-pictures %s -> %d" % (t, len(got)), flush=True)
+            got = konachan(t) + yandere(t)
+            print("  booru %s -> %d" % (t, len(got)), flush=True)
             pool += got
     reasons = {"landscape": 0, "small": 0, "bad": 0, "nodata": 0}
     seen, kept = set(), []
