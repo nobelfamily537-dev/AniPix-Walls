@@ -3,59 +3,163 @@
  "summary": {
   "beastars": {
    "pool": 0,
-   "valid": 0
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
   },
   "dorohedoro": {
-   "pool": 2,
-   "valid": 0
+   "pool": 0,
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
   },
   "samurai champloo": {
-   "pool": 83,
-   "valid": 0
+   "pool": 0,
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
   },
   "tower of god": {
    "pool": 0,
-   "valid": 0
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
   },
   "hellsing": {
-   "pool": 204,
-   "valid": 0
+   "pool": 0,
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
   },
   "yu yu hakusho": {
-   "pool": 11,
-   "valid": 0
+   "pool": 0,
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
   },
   "gachiakuta": {
    "pool": 0,
-   "valid": 0
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
   },
   "mushishi": {
-   "pool": 75,
-   "valid": 0
+   "pool": 0,
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
   },
   "nichijou": {
-   "pool": 185,
-   "valid": 0
+   "pool": 0,
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
   },
   "shangri-la frontier": {
    "pool": 0,
-   "valid": 0
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
   },
   "undead unluck": {
-   "pool": 1,
-   "valid": 0
+   "pool": 0,
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
   },
   "death parade": {
-   "pool": 2,
-   "valid": 0
+   "pool": 0,
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
   },
   "slam dunk": {
-   "pool": 4,
-   "valid": 0
+   "pool": 0,
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
   },
   "akira": {
-   "pool": 7,
-   "valid": 0
+   "pool": 0,
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
+  },
+  "world trigger": {
+   "pool": 0,
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
+  },
+  "baki": {
+   "pool": 0,
+   "valid": 0,
+   "reasons": {
+    "landscape": 0,
+    "small": 0,
+    "bad": 0,
+    "nodata": 0
+   }
   }
  }
 }
