@@ -1,0 +1,25 @@
+name: _tmp lowrun21f fetch
+on:
+  workflow_dispatch:
+  push:
+    paths: ["_tmp/lowrun21f/trigger.txt"]
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        group: ["A", "B"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - name: Fetch group
+        env:
+          GROUP: ${{ matrix.group }}
+        run: python _tmp/lowrun21f/fetch7.py
