@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Night run: preview fetch (danbooru -> safebooru fallback) for uncovered anime."""
+"""Night run: preview fetch. wallhaven -> anime-pictures fallback."""
 import os, io, json, time, re
 import requests
 from PIL import Image, ImageFilter, ImageOps
@@ -8,22 +8,22 @@ UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, 
       "Accept": "application/json,text/plain,*/*"}
 
 SERIES = [
-    ("beastars",        ["beastars", "legoshi", "haru_(beastars)", "louis_(beastars)"]),
-    ("dorohedoro",      ["dorohedoro", "caiman_(dorohedoro)", "nikaido_(dorohedoro)", "noi_(dorohedoro)"]),
-    ("samurai champloo",["samurai_champloo", "mugen_(samurai_champloo)", "jin_(samurai_champloo)", "fuu_(samurai_champloo)"]),
-    ("tower of god",    ["tower_of_god", "bam_(tower_of_god)", "khun_aguero_agnis", "rachel_(tower_of_god)"]),
-    ("hellsing",        ["hellsing", "alucard_(hellsing)", "seras_victoria"]),
-    ("yu yu hakusho",   ["yu_yu_hakusho", "urameshi_yusuke", "kurama_(yu_yu_hakusho)", "hiei_(yu_yu_hakusho)"]),
-    ("gachiakuta",      ["gachiakuta", "rudo_(gachiakuta)", "enjin_(gachiakuta)"]),
-    ("mushishi",        ["mushishi", "ginko_(mushishi)"]),
-    ("nichijou",        ["nichijou", "aioi_yuuko", "naganohara_mio"]),
-    ("shangri-la frontier", ["shangri-la_frontier", "sunraku"]),
-    ("undead unluck",   ["undead_unluck", "fuuko_izumo", "andy_(undead_unluck)"]),
-    ("death parade",    ["death_parade", "decim_(death_parade)"]),
-    ("slam dunk",       ["slam_dunk", "sakuragi_hanamichi", "rukawa_kaede"]),
-    ("akira",           ["akira_(manga)", "kaneda_shotaro", "shikishima_tetsuo"]),
-    ("world trigger",   ["world_trigger", "kuga_yuuma", "jin_yuichi"]),
-    ("baki",            ["baki_(series)", "hanma_baki", "yujiro_hanma"]),
+    ("beastars",        ["beastars", "legoshi", "haru beastars"]),
+    ("dorohedoro",      ["dorohedoro", "caiman", "nikaido"]),
+    ("samurai champloo",["samurai champloo", "mugen", "jin samurai champloo"]),
+    ("tower of god",    ["tower of god", "bam tower of god", "khun"]),
+    ("hellsing",        ["hellsing", "alucard", "seras victoria"]),
+    ("yu yu hakusho",   ["yu yu hakusho", "hiei", "kurama"]),
+    ("gachiakuta",      ["gachiakuta", "rudo", "enjin"]),
+    ("mushishi",        ["mushishi", "ginko"]),
+    ("nichijou",        ["nichijou", "aioi yuuko", "naganohara mio"]),
+    ("shangri-la frontier", ["shangri la frontier", "sunraku"]),
+    ("undead unluck",   ["undead unluck", "fuuko izumo", "andy undead unluck"]),
+    ("death parade",    ["death parade", "decim"]),
+    ("slam dunk",       ["slam dunk", "sakuragi", "rukawa"]),
+    ("akira",           ["akira anime", "kaneda", "shotaro kaneda"]),
+    ("world trigger",   ["world trigger", "yuma kuga", "jin yuichi"]),
+    ("baki",            ["baki", "hanma baki", "yujiro"]),
 ]
 
 BAD = {"text", "english_text", "watermark", "signature", "artist_name", "speech_bubble", "comic", "4koma",
@@ -39,6 +39,7 @@ BAD = {"text", "english_text", "watermark", "signature", "artist_name", "speech_
 
 OUT = "_tmp/nightrun/pv"
 os.makedirs(OUT, exist_ok=True)
+diag = {}
 
 
 def render(im, size=(540, 960)):
@@ -60,59 +61,64 @@ def render(im, size=(540, 960)):
     return im.crop((x, 0, x + nw, h))
 
 
-def get(url, params, timeout=30):
+def get(url, params=None, timeout=35):
     for _ in range(2):
         try:
             r = requests.get(url, params=params, headers=UA, timeout=timeout)
             if r.status_code == 200:
-                time.sleep(1.1)
+                time.sleep(0.7)
                 return r
             print("  HTTP", r.status_code, url, flush=True)
         except Exception as e:
-            print("  ERR", type(e).__name__, str(e)[:80], flush=True)
-        time.sleep(3)
+            print("  ERR", type(e).__name__, str(e)[:90], flush=True)
+        time.sleep(2)
     return None
 
 
-def fetch_danbooru(tag, limit=100):
+def wallhaven(q, page=1):
     out = []
-    r = get("https://danbooru.donmai.us/posts.json",
-            {"tags": tag + " rating:g order:score", "limit": limit})
+    r = get("https://wallhaven.cc/api/v1/search",
+            {"q": q, "categories": "010", "purity": "100", "ratios": "9x16",
+             "atleast": "1080x1920", "sorting": "favorites", "order": "desc", "page": page})
     if not r:
         return out
     try:
         js = r.json()
-    except Exception:
+    except Exception as e:
+        diag.setdefault("wh_parse", str(e)[:120])
         return out
-    for p in js:
-        if p.get("file_ext") not in ("jpg", "jpeg", "png"):
-            continue
-        out.append(dict(site="danbooru", id=p.get("id"), score=p.get("score") or 0,
-                        w=p.get("image_width") or 0, h=p.get("image_height") or 0,
-                        url=p.get("file_url") or p.get("large_file_url"),
-                        prev=p.get("large_file_url") or p.get("file_url"),
-                        tags=(p.get("tag_string") or ""), rating=p.get("rating")))
+    if "data" not in js:
+        diag.setdefault("wh_keys", list(js)[:8])
+        return out
+    for p in js["data"]:
+        out.append(dict(site="wallhaven", id=p.get("id"), score=0,
+                        w=p.get("dimension_x") or 0, h=p.get("dimension_y") or 0,
+                        url=p.get("path"), prev=p.get("thumbs", {}).get("large") or p.get("path"),
+                        tags=" ".join(p.get("tags", []) and [t.get("name", "") for t in p["tags"]] or []),
+                        rating="s"))
     return out
 
 
-def fetch_safebooru(tag, limit=100):
+def animepictures(tag):
     out = []
-    r = get("https://safebooru.donmai.us/posts.json",
-            {"tags": tag + " sort:score", "limit": limit})
+    r = get("https://anime-pictures.net/posts",
+            {"api": "1", "search_tag": tag, "page": 0, "lang": "en"})
     if not r:
         return out
     try:
         js = r.json()
-    except Exception:
+    except Exception as e:
+        diag.setdefault("ap_parse", str(e)[:120])
         return out
-    for p in js:
-        if p.get("file_ext") not in ("jpg", "jpeg", "png"):
-            continue
-        out.append(dict(site="safebooru", id=p.get("id"), score=p.get("score") or 0,
-                        w=p.get("image_width") or 0, h=p.get("image_height") or 0,
-                        url=p.get("file_url") or p.get("large_file_url"),
-                        prev=p.get("large_file_url") or p.get("file_url"),
-                        tags=(p.get("tag_string") or ""), rating=p.get("rating")))
+    posts = js.get("posts") or []
+    if posts:
+        diag.setdefault("ap_sample", list(posts[0])[:15])
+    for p in posts:
+        out.append(dict(site="anime-pictures", id=p.get("id"), score=p.get("rating") or 0,
+                        w=p.get("width") or 0, h=p.get("height") or 0,
+                        url=p.get("file_url"), prev=p.get("big_preview_url") or p.get("preview_url") or p.get("file_url"),
+                        tags=" ".join([t for t in (p.get("tags") or []) if isinstance(t, str)]),
+                        rating="s"))
     return out
 
 
@@ -121,11 +127,14 @@ summary = {}
 for name, tags in SERIES:
     pool = []
     for t in tags:
-        got = fetch_danbooru(t)
-        if len(got) < 8:
-            got += fetch_safebooru(t)
-        print("  tag %s -> %d" % (t, len(got)), flush=True)
+        got = wallhaven(t)
+        print("  wallhaven %s -> %d" % (t, len(got)), flush=True)
         pool += got
+    if len(pool) < 12:
+        for t in tags:
+            got = animepictures(t.replace(" ", "_"))
+            print("  anime-pictures %s -> %d" % (t, len(got)), flush=True)
+            pool += got
     reasons = {"landscape": 0, "small": 0, "bad": 0, "nodata": 0}
     seen, kept = set(), []
     pool.sort(key=lambda p: -(p["score"] or 0))
@@ -167,9 +176,9 @@ for name, tags in SERIES:
                               tags=p["tags"][:600]))
             n += 1
         except Exception as e:
-            print("   dl err", p.get("id"), type(e).__name__, flush=True)
-        time.sleep(0.25)
+            print("   dl err", p.get("id"), type(e).__name__, str(e)[:60], flush=True)
+        time.sleep(0.2)
     print("   previews=%d" % n, flush=True)
 
-json.dump(dict(cands=cands, summary=summary), open("_tmp/nightrun/candidates.json", "w"), indent=1)
-print("TOTAL previews", len(cands), flush=True)
+json.dump(dict(cands=cands, summary=summary, diag=diag), open("_tmp/nightrun/candidates.json", "w"), indent=1)
+print("TOTAL previews", len(cands), "DIAG", diag, flush=True)
