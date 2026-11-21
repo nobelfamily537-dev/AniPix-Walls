@@ -1,0 +1,24 @@
+name: _tmp lowrun21g fetch
+on:
+  workflow_dispatch:
+  push:
+    paths: ["_tmp/lowrun21g/trigger.txt"]
+concurrency:
+  group: lowrun21g
+  cancel-in-progress: false
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - name: Fetch all
+        env:
+          GROUP: A
+        run: python _tmp/lowrun21g/fetch8.py
