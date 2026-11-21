@@ -126,201 +126,129 @@
   "category": "anime"
  },
  {
-  "series": "k-on",
-  "tag": "k-on",
-  "label": "g02",
-  "category": "anime2"
- },
- {
-  "series": "k-on",
-  "tag": "k-on",
-  "label": "g04",
-  "category": "anime"
- },
- {
-  "series": "k-on",
-  "tag": "k-on",
-  "label": "g07",
-  "category": "anime2"
- },
- {
-  "series": "k-on",
-  "tag": "k-on",
-  "label": "g09",
-  "category": "anime"
- },
- {
-  "series": "k-on",
-  "tag": "k-on",
-  "label": "g10",
-  "category": "anime2"
- },
- {
-  "series": "k-on",
-  "tag": "k-on",
-  "label": "g16",
-  "category": "anime"
- },
- {
-  "series": "k-on",
-  "tag": "k-on",
-  "label": "g18",
-  "category": "anime2"
- },
- {
-  "series": "k-on",
-  "tag": "k-on",
-  "label": "g20",
-  "category": "anime"
- },
- {
-  "series": "k-on",
-  "tag": "k-on",
-  "label": "g22",
-  "category": "anime2"
- },
- {
-  "series": "k-on",
-  "tag": "k-on",
-  "label": "g24",
-  "category": "anime"
- },
- {
-  "series": "k-on",
-  "tag": "k-on",
-  "label": "g25",
-  "category": "anime2"
- },
- {
   "series": "nisekoi",
   "tag": "nisekoi",
   "label": "s00",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "nisekoi",
   "tag": "nisekoi",
   "label": "s01",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "nisekoi",
   "tag": "nisekoi",
   "label": "s02",
-  "category": "anime"
- },
- {
-  "series": "nisekoi",
-  "tag": "nisekoi",
-  "label": "s03",
   "category": "anime2"
  },
  {
   "series": "nisekoi",
   "tag": "nisekoi",
-  "label": "s05",
+  "label": "s03",
   "category": "anime"
+ },
+ {
+  "series": "nisekoi",
+  "tag": "nisekoi",
+  "label": "s05",
+  "category": "anime2"
  },
  {
   "series": "nisekoi",
   "tag": "nisekoi",
   "label": "s07",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "nisekoi",
   "tag": "nisekoi",
   "label": "s08",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "nisekoi",
   "tag": "nisekoi",
   "label": "s09",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "nisekoi",
   "tag": "nisekoi",
   "label": "s10",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "nisekoi",
   "tag": "nisekoi",
   "label": "s11",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "nisekoi",
   "tag": "nisekoi",
   "label": "s12",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "nisekoi",
   "tag": "nisekoi",
   "label": "s13",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "nisekoi",
   "tag": "nisekoi",
   "label": "s16",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "nisekoi",
   "tag": "nisekoi",
   "label": "s17",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "nisekoi",
   "tag": "nisekoi",
   "label": "s19",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "nisekoi",
   "tag": "nisekoi",
   "label": "s20",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "blue exorcist",
   "tag": "blue exorcist",
   "label": "s01",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "blue exorcist",
   "tag": "blue exorcist",
   "label": "s02",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "blue exorcist",
   "tag": "blue exorcist",
   "label": "s03",
-  "category": "anime"
- },
- {
-  "series": "blue exorcist",
-  "tag": "blue exorcist",
-  "label": "s04",
   "category": "anime2"
  },
  {
   "series": "blue exorcist",
   "tag": "blue exorcist",
-  "label": "s05",
+  "label": "s04",
   "category": "anime"
  },
  {
   "series": "blue exorcist",
   "tag": "blue exorcist",
-  "label": "s06",
+  "label": "s05",
   "category": "anime2"
  },
  {
@@ -362,187 +290,169 @@
  {
   "series": "blue exorcist",
   "tag": "blue exorcist",
-  "label": "s16",
-  "category": "anime"
- },
- {
-  "series": "blue exorcist",
-  "tag": "blue exorcist",
-  "label": "s17",
-  "category": "anime2"
- },
- {
-  "series": "blue exorcist",
-  "tag": "blue exorcist",
   "label": "s18",
   "category": "anime"
- },
- {
-  "series": "blue exorcist",
-  "tag": "blue exorcist",
-  "label": "s21",
-  "category": "anime2"
  },
  {
   "series": "a silent voice",
   "tag": "a silent voice",
   "label": "w00",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "a silent voice",
   "tag": "a silent voice",
   "label": "w01",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "a silent voice",
   "tag": "a silent voice",
   "label": "w02",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "a silent voice",
   "tag": "a silent voice",
   "label": "s00",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "a silent voice",
   "tag": "a silent voice",
   "label": "s04",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "a silent voice",
   "tag": "a silent voice",
   "label": "s14",
-  "category": "anime2"
- },
- {
-  "series": "a silent voice",
-  "tag": "a silent voice",
-  "label": "s16",
   "category": "anime"
  },
  {
   "series": "a silent voice",
   "tag": "a silent voice",
-  "label": "s20",
+  "label": "s16",
   "category": "anime2"
+ },
+ {
+  "series": "a silent voice",
+  "tag": "a silent voice",
+  "label": "s20",
+  "category": "anime"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s00",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s01",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s02",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s03",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s06",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s07",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s08",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s09",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s10",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s11",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s12",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s13",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s16",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s17",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s18",
-  "category": "anime"
+  "category": "anime2"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s19",
-  "category": "anime2"
+  "category": "anime"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
   "label": "s20",
-  "category": "anime"
- },
- {
-  "series": "yona of the dawn",
-  "tag": "yona of the dawn",
-  "label": "s21",
   "category": "anime2"
  },
  {
   "series": "yona of the dawn",
   "tag": "yona of the dawn",
-  "label": "s22",
+  "label": "s21",
   "category": "anime"
+ },
+ {
+  "series": "yona of the dawn",
+  "tag": "yona of the dawn",
+  "label": "s22",
+  "category": "anime2"
  }
 ]
