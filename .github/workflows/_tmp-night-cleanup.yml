@@ -1,0 +1,16 @@
+name: _tmp night cleanup
+on:
+  workflow_dispatch:
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove night staging artefacts
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git rm -r -q --ignore-unmatch _tmp/night_prev _tmp/night_sheets _tmp/night_final _tmp/probe.txt _tmp/night_cands.json _tmp/night_picks.json _tmp/night_approved.json || true
+          git diff --cached --quiet && echo nothing || (git commit -m "Clean night staging files" && git push)

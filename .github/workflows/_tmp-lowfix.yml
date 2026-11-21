@@ -1,0 +1,17 @@
+name: _tmp low fix
+on:
+  workflow_dispatch:
+  push:
+    paths: ["_tmp/lowfix.txt"]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests numpy
+      - run: python _tmp/low_fix.py

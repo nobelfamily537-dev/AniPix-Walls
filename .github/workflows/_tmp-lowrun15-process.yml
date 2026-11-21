@@ -1,0 +1,20 @@
+name: _tmp lowrun15 process
+on:
+  push:
+    paths: ["_tmp/lowrun15/trigger_process*.txt"]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - name: Run processor
+        run: |
+          N=$(ls _tmp/lowrun15/trigger_process*.txt | tail -1 | sed 's/.*trigger_process//; s/\.txt$//')
+          echo "batch $N"
+          PICKS="_tmp/lowrun15/picks$N.json" LABEL="$N" python _tmp/lowrun15/process.py

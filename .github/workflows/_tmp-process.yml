@@ -1,0 +1,23 @@
+name: _tmp process picks
+on:
+  push:
+    paths: ["_tmp/picks.json"]
+  workflow_dispatch:
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - run: python _tmp/process_picks.py
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A
+          git diff --cached --quiet && echo nothing || (git commit -m "Wallpaper top-up - 2026-11-11 (batch)" && git push)

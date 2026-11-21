@@ -1,0 +1,25 @@
+name: _tmp night19 process
+on:
+  workflow_dispatch:
+  push:
+    paths: ["_tmp/night19/trigger_process.txt"]
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - run: python _tmp/night19/process.py
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A anime anime2 wallpapers.json _tmp/night19
+          git diff --cached --quiet && echo nothing || (git commit -m "Nightly wallpaper add - 2026-11-17 (N new)" && git pull --rebase origin main && git push)
