@@ -5,10 +5,14 @@ import requests
 from PIL import Image, ImageFilter, ImageOps
 
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
-QUERIES = [("dorohedoro","caiman"),("dorohedoro","nikaido"),("dorohedoro","noi dorohedoro"),("hellsing","alucard"),("hellsing","seras victoria"),("hellsing","integrity hellsing"),("tower of god","bam tower of god"),("tower of god","khun aguero"),("samurai champloo","mugen samurai champloo"),("samurai champloo","jin samurai champloo"),("samurai champloo","fuu samurai champloo"),("mushishi","ginko mushishi"),("nichijou","nano shinonome"),("nichijou","aioi yuuko"),("gachiakuta","gachiakuta"),("akira","kaneda shotaro"),("slam dunk","hanamichi sakuragi"),("yu yu hakusho","hiei yu yu hakusho")]
-          "yu yu hakusho", "gachiakuta", "mushishi", "nichijou", "slam dunk",
-          "akira anime", "death parade", "shangri la frontier", "undead unluck",
-          "world trigger", "baki"]
+QUERIES = [("dorohedoro","caiman"),("dorohedoro","nikaido"),("dorohedoro","noi dorohedoro"),
+           ("hellsing","alucard"),("hellsing","seras victoria"),("hellsing","integrity hellsing"),
+           ("tower of god","bam tower of god"),("tower of god","khun aguero"),
+           ("samurai champloo","mugen samurai champloo"),("samurai champloo","jin samurai champloo"),
+           ("samurai champloo","fuu samurai champloo"),("mushishi","ginko mushishi"),
+           ("nichijou","nano shinonome"),("nichijou","aioi yuuko"),
+           ("gachiakuta","gachiakuta"),("akira","kaneda shotaro"),
+           ("slam dunk","hanamichi sakuragi"),("yu yu hakusho","hiei yu yu hakusho")]
 BAD = {"text", "english_text", "watermark", "signature", "artist_name", "speech_bubble", "comic",
        "logo", "border", "frame", "monochrome", "greyscale", "sketch", "chibi", "photo", "cosplay",
        "screencap", "screenshot", "collage", "crossover", "vector", "lineart", "meme", "sign",
