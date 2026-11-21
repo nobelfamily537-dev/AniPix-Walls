@@ -1,4 +1,4 @@
-name: _tmp lowrun22 fetch4
+name: _tmp lowrun22 fetch5
 on:
   workflow_dispatch:
   push:
@@ -19,7 +19,7 @@ jobs:
           python-version: "3.12"
       - run: pip install --quiet pillow requests
       - name: Fetch
-        run: python _tmp/lowrun22/fetch4.py
+        run: python _tmp/lowrun22/fetch5.py
       - name: Commit
         run: |
           git config user.email "nobelfamily537@gmail.com"
