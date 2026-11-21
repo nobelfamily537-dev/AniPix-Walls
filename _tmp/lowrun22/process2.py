@@ -61,14 +61,23 @@ for cat, arr in data["categories"].items():
         if any(t.strip() in series_tags for t in e["tags"].split(",")):
             ref.setdefault(cat, []).append(e)
 ref_hashes = []
+run_hashes = []
 for cat, arr in ref.items():
     for e in arr:
-        try:
-            r = requests.get(e["thumb"], headers=UA, timeout=30)
-            if r.status_code == 200:
-                ref_hashes.append(dhash(Image.open(io.BytesIO(r.content))))
-        except Exception:
-            pass
+        ok = False
+        for u in (e["thumb"], e.get("full")):
+            if not u:
+                continue
+            try:
+                r = requests.get(u, headers=UA, timeout=30)
+                if r.status_code == 200:
+                    ref_hashes.append(dhash(Image.open(io.BytesIO(r.content))))
+                    ok = True
+                    break
+            except Exception:
+                continue
+        if not ok:
+            print("  ref miss", e["id"], flush=True)
 print("existing refs hashed:", len(ref_hashes), flush=True)
 
 
@@ -128,10 +137,13 @@ for p in picks:
         skipped.append((p["series"], p["label"], "small %dx%d" % im.size))
         continue
     h = dhash(im)
-    if any(ham(h, r2) <= 6 for r2 in ref_hashes):
+    if any(ham(h, r2) <= 4 for r2 in ref_hashes):
         skipped.append((p["series"], p["label"], "duplicate of existing"))
         continue
-    ref_hashes.append(h)
+    if any(ham(h, r2) <= 1 for r2 in run_hashes):
+        skipped.append((p["series"], p["label"], "duplicate in batch"))
+        continue
+    run_hashes.append(h)
     im2 = crop_916(im).resize((1080, 1920), Image.LANCZOS)
     cat = p["category"]
     os.makedirs(cat, exist_ok=True)
