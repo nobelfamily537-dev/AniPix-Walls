@@ -28,10 +28,10 @@ DROP = {"1girl", "1boy", "2girls", "2boys", "solo", "male_focus", "multiple_girl
 data = json.load(open("wallpapers.json", encoding="utf-8"))
 known = set(data["tags"].keys())
 cands = {}
-for cf in ("cand3", "cand7", "cand9"):
+for cf in ("cand3", "cand7"):
     for c in json.load(open(os.path.join(OUT, cf + ".json"))):
-        pre = {"cand3": "w", "cand7": "s", "cand9": "g"}[cf]
-        cands["%s%02d" % (pre, c["idx"])] = c
+        pre = {"cand3": "w", "cand7": "s"}[cf]
+        cands[(c["series"], "%s%02d" % (pre, c["idx"]))] = c
 picks = json.load(open(os.path.join(OUT, "picks.json")))
 
 existing_ids = {e["id"] for arr in data["categories"].values() for e in arr}
@@ -76,7 +76,7 @@ def build_tags(c, tag):
 added, skipped = {}, []
 n = 0
 for p in picks:
-    c = cands.get(p["label"])
+    c = cands.get((p["series"], p["label"]))
     if not c:
         skipped.append((p["series"], p["label"], "no candidate"))
         continue
