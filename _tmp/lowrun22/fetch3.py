@@ -8,7 +8,7 @@ UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, 
       "Accept": "application/json,text/plain,*/*"}
 OUT = "_tmp/lowrun22/preview"
 os.makedirs(OUT, exist_ok=True)
-picks = json.load(open("_tmp/lowrun22/picks.json"))
+picks = json.load(open(os.environ.get("PICKS", "_tmp/lowrun22/picks.json")))
 excl = set(json.load(open("_tmp/lowrun22/exclude.json")))
 cands = json.load(open("_tmp/lowrun22/cands.json")) if os.path.exists("_tmp/lowrun22/cands.json") else []
 have = {(c["site"], str(c["pid"])) for c in cands}
