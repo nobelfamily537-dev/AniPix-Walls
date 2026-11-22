@@ -1,0 +1,32 @@
+name: Nightly stage
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: nightly-stage
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install deps
+        run: pip install --quiet pillow requests
+      - name: Stage images
+        run: python scripts/nightly_stage.py
+      - name: Commit to staging branch
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add -A stage
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "nightly stage batch"
+            git push origin HEAD:nightly-stage
+          fi
