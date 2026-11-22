@@ -1,0 +1,25 @@
+name: _tmp lowrun22h process
+on:
+  workflow_dispatch:
+  push:
+    paths: ["_tmp/lowrun22/trigger_h.txt"]
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install --quiet pillow requests
+      - run: python _tmp/lowrun22/process.py
+      - name: Commit
+        run: |
+          git config user.name "anipix-agent"
+          git config user.email "agent@anipix.local"
+          git add -A
+          git commit -m "Wallpaper top-up - 2026-11-22 (46 new across 4 series)" || true
+          git pull --rebase --autostash || true
+          git push || true
