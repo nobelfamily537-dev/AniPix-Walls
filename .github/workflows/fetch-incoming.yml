@@ -47,17 +47,21 @@ jobs:
                       print("glerr",e)
                   time.sleep(1)
               return out
+          BAD=("reddit.com","redd.it","imgchest","etsy","deviantart","wixmp","iheartcraftythings","coloring","pinterest.com/ads","amazon.","ebay.","redbubble","teepublic","society6","zazzle","aliexpress","tumblr.com","pin.it")
+          BADKW=("coloring","colouring","tattoo","sticker","poster","t-shirt","tshirt","mug","wallpaper-gallery","manga-panel")
           spec=json.load(open("_night/spec.json"))
           seen=set()
           for item in spec:
               label=item["label"]; q=item["query"]; want=item.get("count",8); got=0
-              cands=bing_urls(q) + google_urls(q)
+              cands=bing_urls(q,pages=3) + google_urls(q,pages=2)
               print("LABEL",label,"cands",len(cands))
               for u in cands:
                   if got>=want: break
                   if u in seen: continue
                   seen.add(u)
                   if not re.search(r'\.(jpg|jpeg|png)(\?|$)', u, re.I): continue
+                  lu=u.lower()
+                  if any(b in lu for b in BAD) or any(b in lu for b in BADKW): continue
                   try:
                       d=requests.get(u,headers={**UA,"Referer":"https://www.pinterest.com/"},timeout=30)
                       if d.status_code!=200 or len(d.content)<40000: continue
