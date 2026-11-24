@@ -1,8 +1,12 @@
 [
- {"label":"nagisa","query":"nagisa shiota assassination classroom anime wallpaper iphone","count":8},
- {"label":"haruhi","query":"haruhi suzumiya anime wallpaper iphone aesthetic","count":8},
- {"label":"kanade","query":"kanade tachibana angel beats anime wallpaper iphone","count":8},
- {"label":"sawako","query":"sawako kimi ni todoke anime wallpaper iphone","count":8},
- {"label":"bojji","query":"bojji ousama ranking anime wallpaper iphone","count":8},
- {"label":"revy","query":"revy black lagoon anime wallpaper iphone","count":8}
+ {"label":"komi","page":"Komi Shouko","count":8},
+ {"label":"nagisa","page":"Shiota Nagisa","count":8},
+ {"label":"korosensei","page":"Koro-sensei","count":6},
+ {"label":"haruhi","page":"Suzumiya Haruhi","count":8},
+ {"label":"kanade","page":"Tachibana Kanade","count":8},
+ {"label":"sawako","page":"Kuronuma Sawako","count":6},
+ {"label":"bojji","page":"Bojji","count":6},
+ {"label":"revy","page":"Revy","count":6},
+ {"label":"tamaki","page":"Suou Tamaki","count":6},
+ {"label":"ushio","page":"Kofune Ushio","count":6}
 ]
