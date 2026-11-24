@@ -12,29 +12,50 @@ jobs:
       - uses: actions/checkout@v4
       - name: Fetch
         run: |
-          pip install --quiet requests
+          pip install --quiet requests pillow
           python3 - <<'PY'
-          import os, requests, time
-          UA={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36","Referer":"https://www.pinterest.com/"}
+          import json, os, io, time, requests
+          from PIL import Image
+          UA={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+              "Accept":"application/json,text/html,*/*","Accept-Language":"en-US,en;q=0.9",
+              "Referer":"https://www.zerochan.net/"}
           os.makedirs("_night/out", exist_ok=True)
           man=[]
-          urls=[u.strip() for u in open("_night/urls.txt") if u.strip() and not u.startswith("#")]
-          for i,u in enumerate(urls,1):
-              for attempt in range(3):
+          spec=json.load(open("_night/spec.json"))
+          for item in spec:
+              label=item["label"]; page=item["page"]; want=item.get("count",8); got=0
+              items=[]
+              for p in (1,2):
                   try:
-                      d=requests.get(u,headers=UA,timeout=60)
-                      if d.status_code==200 and len(d.content)>20000:
-                          fn=f"_night/out/v{i:02d}.jpg"
-                          open(fn,"wb").write(d.content)
-                          man.append(f"{fn} OK {u}"); print("OK",fn,len(d.content)); break
-                      else:
-                          print("BAD",d.status_code,u)
+                      r=requests.get("https://www.zerochan.net/"+requests.utils.quote(page), params={"json":1,"p":p}, headers=UA, timeout=45)
+                      print("ZC",label,p,r.status_code,len(r.text))
+                      if r.status_code!=200: break
+                      j=r.json(); items += j.get("items",[]) or []
                   except Exception as e:
-                      print("ERR",e)
-                  time.sleep(3)
-          open("_night/out/manifest2.txt","w").write("\n".join(man))
+                      print("ZCERR",label,e); break
+                  time.sleep(2)
+              print("LABEL",label,"items",len(items))
+              for it in items:
+                  if got>=want: break
+                  try:
+                      w=it.get("width") or 0; h=it.get("height") or 0
+                      if h<1200 or w<800: continue
+                      ar=w/h
+                      if ar<0.5 or ar>0.72: continue
+                      u=it.get("full") or it.get("large") or ""
+                      if not u: continue
+                      d=requests.get(u,headers=UA,timeout=45)
+                      if d.status_code!=200 or len(d.content)<40000: continue
+                      fn=f"_night/out/{label}_{got+1:02d}.jpg"
+                      open(fn,"wb").write(d.content); got+=1
+                      man.append(f"{fn} {w}x{h} {u}")
+                      print("OK",fn,w,h)
+                  except Exception: continue
+              print("GOT",label,got)
+              time.sleep(2)
+          open("_night/out/manifest3.txt","w").write("\n".join(man))
           PY
-          ls -l _night/out | tail -20
+          ls -l _night/out | tail -30
       - name: Commit
         run: |
           git config user.email "nobelfamily537@gmail.com"
