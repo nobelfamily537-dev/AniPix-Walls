@@ -1,12 +1,10 @@
 [
- {"label":"komi","query":"komi shouko komi cant communicate iphone wallpaper aesthetic","count":10},
- {"label":"nagisa","query":"nagisa shiota assassination classroom iphone wallpaper","count":10},
- {"label":"karma","query":"karma akabane assassination classroom iphone wallpaper","count":8},
- {"label":"haruhi","query":"haruhi suzumiya melancholy iphone wallpaper aesthetic","count":10},
- {"label":"kanade","query":"kanade tachibana angel beats iphone wallpaper","count":10},
- {"label":"sawako","query":"sawako kuronuma kimi ni todoke anime wallpaper iphone","count":10},
- {"label":"bojji","query":"bojji ousama ranking anime wallpaper iphone","count":10},
- {"label":"revy","query":"revy black lagoon anime wallpaper iphone","count":8},
- {"label":"tamaki","query":"tamaki suou ouran high school host club anime wallpaper","count":8},
- {"label":"ushio","query":"ushio kofune summertime render anime wallpaper","count":8}
+ {"label":"komi","gallery":"https://wallpapercave.com/komi-cant-communicate-wallpapers","count":14},
+ {"label":"ac","gallery":"https://wallpapercave.com/assassination-classroom-wallpapers","count":14},
+ {"label":"haruhi","gallery":"https://wallpapercave.com/haruhi-suzumiya-wallpapers","count":12},
+ {"label":"kanade","gallery":"https://wallpapercave.com/angel-beats-wallpapers","count":12},
+ {"label":"sawako","gallery":"https://wallpapercave.com/kimi-ni-todoke-wallpapers","count":10},
+ {"label":"revy","gallery":"https://wallpapercave.com/black-lagoon-wallpapers","count":10},
+ {"label":"bojji","gallery":"https://wallpapercave.com/ousama-ranking-wallpapers","count":10},
+ {"label":"ouran","gallery":"https://wallpapercave.com/ouran-high-school-host-club-wallpapers","count":10}
 ]
