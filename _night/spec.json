@@ -1,12 +1,10 @@
 [
- {"label":"komi","tags":"komi_shouko rating:general solo -text -watermark -signature","count":6},
- {"label":"nagisa","tags":"shiota_nagisa rating:general solo -text -watermark -signature","count":6},
- {"label":"koro","tags":"korosensei rating:general solo -text -watermark -signature","count":5},
- {"label":"haruhi","tags":"suzumiya_haruhi rating:general solo -text -watermark -signature","count":6},
- {"label":"kanade","tags":"tachibana_kanade rating:general solo -text -watermark -signature","count":6},
- {"label":"sawako","tags":"kuronuma_sawako rating:general solo -text -watermark -signature","count":5},
- {"label":"tamaki","tags":"suou_tamaki rating:general solo -text -watermark -signature","count":5},
- {"label":"ushio","tags":"kofune_ushio rating:general solo -text -watermark -signature","count":5},
- {"label":"bojji","tags":"bojji rating:general solo -text -watermark -signature","count":5},
- {"label":"revy","tags":"revy_(black_lagoon) rating:general solo -text -watermark -signature","count":5}
+ {"label":"komi","query":"komi shouko wallpaper phone 4k anime","count":8},
+ {"label":"ac","query":"assassination classroom nagisa karma wallpaper phone anime","count":8},
+ {"label":"koro","query":"koro sensei assassination classroom wallpaper phone","count":5},
+ {"label":"haruhi","query":"haruhi suzumiya wallpaper phone aesthetic anime","count":8},
+ {"label":"kanade","query":"kanade tachibana angel beats wallpaper phone","count":8},
+ {"label":"sawako","query":"kimi ni todoke sawako wallpaper phone anime","count":6},
+ {"label":"bojji","query":"ranking of kings bojji wallpaper phone anime","count":6},
+ {"label":"revy","query":"black lagoon revy wallpaper phone anime","count":6}
 ]
