@@ -14,48 +14,45 @@ jobs:
         run: |
           pip install --quiet requests pillow
           python3 - <<'PY'
-          import json, os, io, time, requests
+          import json, os, re, io, time, requests
           from PIL import Image
-          UA={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-              "Accept":"application/json,text/html,*/*","Accept-Language":"en-US,en;q=0.9",
-              "Referer":"https://www.zerochan.net/"}
+          UA={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36","Accept-Language":"en-US,en;q=0.9"}
           os.makedirs("_night/out", exist_ok=True)
           man=[]
-          spec=json.load(open("_night/spec.json"))
-          for item in spec:
-              label=item["label"]; page=item["page"]; want=item.get("count",8); got=0
-              items=[]
-              for p in (1,2):
+          for item in json.load(open("_night/spec.json")):
+              label=item["label"]; want=item.get("count",12); got=0; urls=[]
+              for g in item["galleries"]:
                   try:
-                      r=requests.get("https://www.zerochan.net/"+requests.utils.quote(page), params={"json":1,"p":p}, headers=UA, timeout=45)
-                      print("ZC",label,p,r.status_code,len(r.text))
-                      if r.status_code!=200: break
-                      j=r.json(); items += j.get("items",[]) or []
+                      r=requests.get(g,headers={**UA,"Referer":"https://www.google.com/"},timeout=45)
+                      print("GAL",label,g[:60],r.status_code,len(r.text))
+                      if r.status_code!=200: continue
+                      for pat in (r'https://wallpaperaccess\.com/full-images/[^"\'\s]+?\.jpg',
+                                  r'https://c4\.wallpaperflare\.com/[^"\'\s]+?\.jpg',
+                                  r'https://wallpapers\.com/images/[^"\'\s]+?\.jpg',
+                                  r'https://wallpapercave\.com/wp/wp\d+\.jpg'):
+                          urls += re.findall(pat, r.text)
                   except Exception as e:
-                      print("ZCERR",label,e); break
+                      print("GALERR",e)
                   time.sleep(2)
-              print("LABEL",label,"items",len(items))
-              for it in items:
+              urls=list(dict.fromkeys(urls))
+              print("LABEL",label,"urls",len(urls))
+              for u in urls:
                   if got>=want: break
                   try:
-                      w=it.get("width") or 0; h=it.get("height") or 0
-                      if h<1200 or w<800: continue
-                      ar=w/h
-                      if ar<0.5 or ar>0.72: continue
-                      u=it.get("full") or it.get("large") or ""
-                      if not u: continue
-                      d=requests.get(u,headers=UA,timeout=45)
+                      d=requests.get(u,headers={**UA,"Referer":"https://wallpaperaccess.com/"},timeout=45)
                       if d.status_code!=200 or len(d.content)<40000: continue
+                      im=Image.open(io.BytesIO(d.content)); w,h=im.size
+                      ar=w/h
+                      if w<700 or h<1100 or ar<0.47 or ar>0.70: continue
                       fn=f"_night/out/{label}_{got+1:02d}.jpg"
                       open(fn,"wb").write(d.content); got+=1
                       man.append(f"{fn} {w}x{h} {u}")
                       print("OK",fn,w,h)
                   except Exception: continue
               print("GOT",label,got)
-              time.sleep(2)
-          open("_night/out/manifest3.txt","w").write("\n".join(man))
+          open("_night/out/manifest4.txt","w").write("\n".join(man))
           PY
-          ls -l _night/out | tail -30
+          ls -l _night/out | tail -40
       - name: Commit
         run: |
           git config user.email "nobelfamily537@gmail.com"
