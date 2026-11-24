@@ -42,7 +42,7 @@ jobs:
               for u in urls:
                   if got>=want: break
                   try:
-                      d=requests.get(u,headers=UA,timeout=45)
+                      d=requests.get(u,headers={**UA,"Referer":g or "https://wallpapercave.com/"},timeout=45)
                       if d.status_code!=200 or len(d.content)<30000: continue
                       im=Image.open(io.BytesIO(d.content)); w,h=im.size
                       ar=w/h
