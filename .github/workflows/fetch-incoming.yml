@@ -14,52 +14,55 @@ jobs:
         run: |
           pip install --quiet requests pillow
           python3 - <<'PY'
-          import json, os, re, time, io, random, requests
+          import json, os, re, html, time, io, random, requests
           from PIL import Image
-          UA={"User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0 Safari/537.36",
-              "Accept":"application/json, text/javascript, */*, q=0.01","Accept-Language":"en-US,en;q=0.9",
-              "X-Requested-With":"XMLHttpRequest","Referer":"https://www.pinterest.com/"}
-          S=requests.Session(); S.headers.update(UA)
+          UAS=["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+               "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15",
+               "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0 Safari/537.36"]
           os.makedirs("_night/out", exist_ok=True)
           man=[]
-          def pin_search(q, n=25):
-              data={"options":{"article":"","appliedProductFilters":"---","price_max":None,"price_min":None,
-                    "query":q,"scope":"pins","page_size":n,"auto_correction_disabled":True},"context":{}}
-              url="https://www.pinterest.com/resource/BaseSearchResource/get/"
-              try:
-                  r=S.get(url, params={"source_url":"/search/pins/?q="+q.replace(" ","%20"),
-                        "data":json.dumps(data,separators=(',',':'))}, timeout=45)
-                  print("PIN",q,r.status_code,len(r.text))
-                  j=r.json()
-                  res=j.get("resource_response",{}).get("data",{}).get("results",[]) or []
-                  out=[]
-                  for it in res:
-                      im=it.get("images") or {}
-                      u=(im.get("orig") or {}).get("url") or (im.get("736x") or {}).get("url")
-                      if u: out.append((u, (it.get("title") or "")+" "+(it.get("description") or "")))
-                  return out
-              except Exception as e:
-                  print("PINERR",q,e); return []
+          BAD=("reddit.com","redd.it","imgchest","etsy","deviantart","wixmp","iheartcraftythings","coloring","amazon.","ebay.","redbubble","teepublic","society6","zazzle","aliexpress","tumblr.com","pin.it","cat","karma-quotes","thecut")
+          def bing(q, pages=2):
+              out=[]
+              for p in range(pages):
+                  try:
+                      s=requests.Session()
+                      s.headers.update({"User-Agent":random.choice(UAS),"Accept-Language":"en-US,en;q=0.9"})
+                      r=s.get("https://www.bing.com/images/search",
+                          params={"q":q,"first":1+p*35,"count":35,"form":"IRFLTR","qft":"+filterui:aspect-tall"},
+                          timeout=45)
+                      n0=len(out)
+                      for m in re.finditer(r'murl&quot;:&quot;(.*?)&quot;', r.text):
+                          out.append(html.unescape(m.group(1)))
+                      print("bing",q,p,r.status_code,len(out)-n0)
+                  except Exception as e:
+                      print("bingerr",e)
+                  time.sleep(8)
+              return out
           spec=json.load(open("_night/spec.json"))
           for item in spec:
-              label=item["label"]; q=item["query"]; want=item.get("count",10); got=0
-              cands=pin_search(q)
+              label=item["label"]; q=item["query"]; want=item.get("count",8); got=0
+              cands=bing(q, pages=item.get("pages",2))
               print("LABEL",label,"cands",len(cands))
-              for u,title in cands:
+              for u in cands:
                   if got>=want: break
+                  lu=u.lower()
+                  if any(b in lu for b in BAD): continue
+                  if not re.search(r'\.(jpg|jpeg|png)(\?|$)', lu): continue
                   try:
-                      d=S.get(u, timeout=45)
-                      if d.status_code!=200 or len(d.content)<30000: continue
+                      d=requests.get(u,headers={"User-Agent":random.choice(UAS),"Referer":"https://www.pinterest.com/"},timeout=40)
+                      if d.status_code!=200 or len(d.content)<40000: continue
                       im=Image.open(io.BytesIO(d.content)); w,h=im.size
                       ar=w/h
-                      if w<700 or h<1100 or ar<0.46 or ar>0.72: continue
+                      if w<800 or h<1200 or ar<0.46 or ar>0.72: continue
                       fn=f"_night/out/{label}_{got+1:02d}.jpg"
                       open(fn,"wb").write(d.content); got+=1
-                      man.append(f"{fn} {w}x{h} title={title[:60]} {u}")
+                      man.append(f"{fn} {w}x{h} {u}")
+                      print("OK",fn,w,h)
                   except Exception:
                       continue
               print("GOT",label,got)
-              time.sleep(3)
+              time.sleep(12)
           open("_night/out/manifest.txt","w").write("\n".join(man))
           PY
           ls -l _night/out | head -100
