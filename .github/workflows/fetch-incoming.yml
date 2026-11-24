@@ -2,7 +2,7 @@ name: fetch-incoming
 on:
   push:
     paths:
-      - '_night/urls.txt'
+      - '_night/spec.json'
 permissions:
   contents: write
 jobs:
@@ -10,45 +10,54 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download
+      - name: Fetch from danbooru
         run: |
-          pip install --quiet requests pillow
+          pip install --quiet requests
           python3 - <<'PY'
-          import os, re, io, html, requests
-          UA={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-              "Accept-Language":"en-US,en;q=0.9"}
-          def meta(t,p):
-              for pat in (rf'property=["\']{p}["\'][^>]*content=["\']([^"\']+)', rf'content=["\']([^"\']+)["\'][^>]*property=["\']{p}["\']'):
-                  m=re.search(pat,t)
-                  if m: return html.unescape(m.group(1)).replace("\\/","/")
-              return ""
-          urls=[u.strip() for u in open("_night/urls.txt") if u.strip() and not u.startswith("#")]
+          import json, os, time, requests
+          UA={"User-Agent":"AniPixNightly/1.0 (wallpaper sourcing)"}
+          spec=json.load(open("_night/spec.json"))
           os.makedirs("_night/out", exist_ok=True)
           man=[]
-          for i,u in enumerate(urls,1):
-              try:
-                  if "pinimg.com" in u:
-                      img=u
-                  else:
-                      r=requests.get(u,headers=UA,timeout=60)
-                      img=meta(r.text,"og:image")
-                  if not img:
-                      print("NOIMG",u); man.append(f"{i:03d} NOIMG {u}"); continue
-                  d=requests.get(img,headers={**UA,"Referer":"https://www.pinterest.com/"},timeout=90)
-                  d.raise_for_status()
-                  fn=f"_night/out/{i:03d}.jpg"
-                  open(fn,"wb").write(d.content)
-                  print("OK",fn,len(d.content),img)
-                  man.append(f"{i:03d} OK {img}")
-              except Exception as e:
-                  print("ERR",u,e); man.append(f"{i:03d} ERR {u} {e}")
+          for item in spec:
+              label=item["label"]; tags=item["tags"]; want=item.get("count",8)
+              got=0
+              for page in (1,2,3):
+                  url="https://danbooru.donmai.us/posts.json"
+                  params={"tags":tags,"limit":100,"page":page,"order":"score"}
+                  try:
+                      r=requests.get(url,params=params,headers=UA,timeout=60)
+                      posts=r.json()
+                  except Exception as e:
+                      man.append(f"{label} APIFAIL {e}"); break
+                  if not isinstance(posts,list) or not posts: break
+                  for p in posts:
+                      if got>=want: break
+                      w=p.get("image_width") or 0; h=p.get("image_height") or 0
+                      fu=p.get("file_url") or ""
+                      if not fu or w<900 or h<1200: continue
+                      ar=w/h
+                      if ar<0.48 or ar>0.72: continue
+                      ext=p.get("file_ext","jpg")
+                      fn=f"_night/out/{label}_{got+1:02d}.{ext}"
+                      try:
+                          d=requests.get(fu,headers=UA,timeout=90); d.raise_for_status()
+                          open(fn,"wb").write(d.content)
+                          got+=1
+                          man.append(f"{fn} {w}x{h} {p.get('tag_string_character','')} | src={p.get('id')}")
+                      except Exception as e:
+                          man.append(f"{fn} ERR {e}")
+                      time.sleep(0.4)
+                  if got>=want: break
+                  time.sleep(1)
+              print(label,"got",got)
           open("_night/out/manifest.txt","w").write("\n".join(man))
           PY
-          ls -l _night/out
+          ls -l _night/out | head -60
       - name: Commit
         run: |
           git config user.email "nobelfamily537@gmail.com"
           git config user.name "AniPix Bot"
           git add _night/out
-          git commit -m "temp: fetch $(date -u +%FT%TZ)" || echo "nothing to commit"
+          git commit -m "temp: fetch $(date -u +%FT%TZ)" || echo "nothing"
           git push
