@@ -1,0 +1,30 @@
+name: fetch-incoming
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: space separated image urls
+        required: true
+        type: string
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download
+        env:
+          URLS: ${{ inputs.urls }}
+        run: |
+          mkdir -p out
+          n=0
+          for u in $URLS; do
+            n=$((n+1))
+            f=$(printf "%03d" $n)
+            curl -sSL --max-time 60 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" -e "https://www.pinterest.com/" -o "out/$f.bin" "$u" && echo "OK $f $u" || echo "FAIL $f $u"
+          done
+          ls -l out
+          file out/* | head -40
+      - uses: actions/upload-artifact@v4
+        with:
+          name: incoming
+          path: out
+          retention-days: 1
