@@ -2,7 +2,7 @@ name: fetch-incoming
 on:
   push:
     paths:
-      - '_night/spec.json'
+      - '_night/run.txt'
 permissions:
   contents: write
 jobs:
@@ -10,54 +10,76 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch from danbooru
+      - name: Fetch
         run: |
           pip install --quiet requests
           python3 - <<'PY'
           import json, os, time, requests
-          UA={"User-Agent":"AniPixNightly/1.0 (wallpaper sourcing)"}
-          spec=json.load(open("_night/spec.json"))
+          UA={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
           os.makedirs("_night/out", exist_ok=True)
           man=[]
-          for item in spec:
-              label=item["label"]; tags=item["tags"]; want=item.get("count",8)
-              got=0
-              for page in (1,2,3):
-                  url="https://danbooru.donmai.us/posts.json"
-                  params={"tags":tags,"limit":100,"page":page,"order":"score"}
-                  try:
-                      r=requests.get(url,params=params,headers=UA,timeout=60)
-                      posts=r.json()
-                  except Exception as e:
-                      man.append(f"{label} APIFAIL {e}"); break
-                  if not isinstance(posts,list) or not posts: break
-                  for p in posts:
+          def get(url, params=None):
+              try:
+                  r=requests.get(url, params=params, headers=UA, timeout=60)
+                  return r.status_code, r
+              except Exception as e:
+                  return "EXC", e
+          # 1) direct urls
+          if os.path.exists("_night/urls.txt"):
+              urls=[u.strip() for u in open("_night/urls.txt") if u.strip() and not u.startswith("#")]
+              for i,u in enumerate(urls,1):
+                  sc,r=get(u)
+                  if sc==200:
+                      fn=f"_night/out/u{i:02d}.jpg"; open(fn,"wb").write(r.content)
+                      man.append(f"{fn} url {u}"); print("OK",fn,len(r.content))
+                  else:
+                      man.append(f"u{i:02d} FAIL {sc} {u}"); print("FAIL",sc,u)
+          # 2) booru spec
+          srcs=[("danbooru","https://danbooru.donmai.us/posts.json","file_url"),
+                ("konachan","https://konachan.net/post.json","jpeg_url"),
+                ("yandere","https://yande.re/post.json","jpeg_url")]
+          if os.path.exists("_night/spec.json"):
+              spec=json.load(open("_night/spec.json"))
+              for item in spec:
+                  label=item["label"]; tags=item["tags"]; want=item.get("count",6); got=0
+                  for sname,surl,fkey in srcs:
                       if got>=want: break
-                      w=p.get("image_width") or 0; h=p.get("image_height") or 0
-                      fu=p.get("file_url") or ""
-                      if not fu or w<900 or h<1200: continue
-                      ar=w/h
-                      if ar<0.48 or ar>0.72: continue
-                      ext=p.get("file_ext","jpg")
-                      fn=f"_night/out/{label}_{got+1:02d}.{ext}"
+                      sc,r=get(surl,{"tags":tags,"limit":100,"page":1})
+                      if sc!=200:
+                          man.append(f"{label} {sname} HTTP {sc}"); print("HTTP",sname,sc,str(r)[:200]); continue
                       try:
-                          d=requests.get(fu,headers=UA,timeout=90); d.raise_for_status()
-                          open(fn,"wb").write(d.content)
-                          got+=1
-                          man.append(f"{fn} {w}x{h} {p.get('tag_string_character','')} | src={p.get('id')}")
+                          posts=r.json()
                       except Exception as e:
-                          man.append(f"{fn} ERR {e}")
-                      time.sleep(0.4)
-                  if got>=want: break
-                  time.sleep(1)
-              print(label,"got",got)
+                          man.append(f"{label} {sname} BADJSON {str(r.text)[:120]}"); print("BADJSON",sname,r.text[:200]); continue
+                      if not isinstance(posts,list):
+                          man.append(f"{label} {sname} NOTLIST"); continue
+                      print(label,sname,"posts",len(posts))
+                      for p in posts:
+                          if got>=want: break
+                          w=p.get("image_width") or p.get("width") or 0
+                          h=p.get("image_height") or p.get("height") or 0
+                          fu=p.get(fkey) or p.get("sample_url") or ""
+                          if not fu or w<900 or h<1200: continue
+                          ar=w/h
+                          if ar<0.46 or ar>0.72: continue
+                          sc2,r2=get(fu)
+                          if sc2!=200: continue
+                          ext="jpg"
+                          fn=f"_night/out/{label}_{got+1:02d}.{ext}"
+                          open(fn,"wb").write(r2.content); got+=1
+                          man.append(f"{fn} {w}x{h} src={sname}:{p.get('id')} chars={p.get('tag_string_character','')} | {fu}")
+                          time.sleep(0.3)
+                      time.sleep(1)
+                  print("LABEL",label,"got",got)
           open("_night/out/manifest.txt","w").write("\n".join(man))
+          print("MANIFEST LINES", len(man))
           PY
-          ls -l _night/out | head -60
+          ls -l _night/out | head -70
       - name: Commit
         run: |
           git config user.email "nobelfamily537@gmail.com"
           git config user.name "AniPix Bot"
-          git add _night/out
+          git add -f _night/out
           git commit -m "temp: fetch $(date -u +%FT%TZ)" || echo "nothing"
+          git pull --rebase origin main || true
           git push
