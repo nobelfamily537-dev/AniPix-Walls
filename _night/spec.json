@@ -1,12 +1,7 @@
 [
- {"label":"komi","page":"Komi Shouko","count":8},
- {"label":"nagisa","page":"Shiota Nagisa","count":8},
- {"label":"korosensei","page":"Koro-sensei","count":6},
- {"label":"haruhi","page":"Suzumiya Haruhi","count":8},
- {"label":"kanade","page":"Tachibana Kanade","count":8},
- {"label":"sawako","page":"Kuronuma Sawako","count":6},
- {"label":"bojji","page":"Bojji","count":6},
- {"label":"revy","page":"Revy","count":6},
- {"label":"tamaki","page":"Suou Tamaki","count":6},
- {"label":"ushio","page":"Kofune Ushio","count":6}
+ {"label":"komi","galleries":["https://wallpaperaccess.com/komi-cant-communicate","https://www.wallpaperflare.com/search?wallpaper=komi+cant+communicate"],"count":12},
+ {"label":"ac","galleries":["https://wallpaperaccess.com/assassination-classroom","https://www.wallpaperflare.com/search?wallpaper=assassination+classroom"],"count":12},
+ {"label":"haruhi","galleries":["https://wallpaperaccess.com/haruhi-suzumiya","https://www.wallpaperflare.com/search?wallpaper=haruhi+suzumiya"],"count":12},
+ {"label":"kanade","galleries":["https://wallpaperaccess.com/angel-beats","https://www.wallpaperflare.com/search?wallpaper=angel+beats"],"count":12},
+ {"label":"sawako","galleries":["https://wallpaperaccess.com/kimi-ni-todoke","https://www.wallpaperflare.com/search?wallpaper=kimi+ni+todoke"],"count":12}
 ]
