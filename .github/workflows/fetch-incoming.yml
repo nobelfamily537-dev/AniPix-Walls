@@ -12,60 +12,29 @@ jobs:
       - uses: actions/checkout@v4
       - name: Fetch
         run: |
-          pip install --quiet requests pillow
+          pip install --quiet requests
           python3 - <<'PY'
-          import json, os, re, html, time, io, random, requests
-          from PIL import Image
-          UAS=["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-               "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15",
-               "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0 Safari/537.36"]
+          import os, requests, time
+          UA={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36","Referer":"https://www.pinterest.com/"}
           os.makedirs("_night/out", exist_ok=True)
           man=[]
-          BAD=("reddit.com","redd.it","imgchest","etsy","deviantart","wixmp","iheartcraftythings","coloring","amazon.","ebay.","redbubble","teepublic","society6","zazzle","aliexpress","tumblr.com","pin.it","cat","karma-quotes","thecut")
-          def bing(q, pages=2):
-              out=[]
-              for p in range(pages):
+          urls=[u.strip() for u in open("_night/urls.txt") if u.strip() and not u.startswith("#")]
+          for i,u in enumerate(urls,1):
+              for attempt in range(3):
                   try:
-                      s=requests.Session()
-                      s.headers.update({"User-Agent":random.choice(UAS),"Accept-Language":"en-US,en;q=0.9"})
-                      r=s.get("https://www.bing.com/images/search",
-                          params={"q":q,"first":1+p*35,"count":35,"form":"IRFLTR","qft":"+filterui:aspect-tall"},
-                          timeout=45)
-                      n0=len(out)
-                      for m in re.finditer(r'murl&quot;:&quot;(.*?)&quot;', r.text):
-                          out.append(html.unescape(m.group(1)))
-                      print("bing",q,p,r.status_code,len(out)-n0)
+                      d=requests.get(u,headers=UA,timeout=60)
+                      if d.status_code==200 and len(d.content)>20000:
+                          fn=f"_night/out/v{i:02d}.jpg"
+                          open(fn,"wb").write(d.content)
+                          man.append(f"{fn} OK {u}"); print("OK",fn,len(d.content)); break
+                      else:
+                          print("BAD",d.status_code,u)
                   except Exception as e:
-                      print("bingerr",e)
-                  time.sleep(8)
-              return out
-          spec=json.load(open("_night/spec.json"))
-          for item in spec:
-              label=item["label"]; q=item["query"]; want=item.get("count",8); got=0
-              cands=bing(q, pages=item.get("pages",2))
-              print("LABEL",label,"cands",len(cands))
-              for u in cands:
-                  if got>=want: break
-                  lu=u.lower()
-                  if any(b in lu for b in BAD): continue
-                  if not re.search(r'\.(jpg|jpeg|png)(\?|$)', lu): continue
-                  try:
-                      d=requests.get(u,headers={"User-Agent":random.choice(UAS),"Referer":"https://www.pinterest.com/"},timeout=40)
-                      if d.status_code!=200 or len(d.content)<40000: continue
-                      im=Image.open(io.BytesIO(d.content)); w,h=im.size
-                      ar=w/h
-                      if w<800 or h<1200 or ar<0.46 or ar>0.72: continue
-                      fn=f"_night/out/{label}_{got+1:02d}.jpg"
-                      open(fn,"wb").write(d.content); got+=1
-                      man.append(f"{fn} {w}x{h} {u}")
-                      print("OK",fn,w,h)
-                  except Exception:
-                      continue
-              print("GOT",label,got)
-              time.sleep(12)
-          open("_night/out/manifest.txt","w").write("\n".join(man))
+                      print("ERR",e)
+                  time.sleep(3)
+          open("_night/out/manifest2.txt","w").write("\n".join(man))
           PY
-          ls -l _night/out | head -100
+          ls -l _night/out | tail -20
       - name: Commit
         run: |
           git config user.email "nobelfamily537@gmail.com"
