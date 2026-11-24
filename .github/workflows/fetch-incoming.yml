@@ -12,69 +12,68 @@ jobs:
       - uses: actions/checkout@v4
       - name: Fetch
         run: |
-          pip install --quiet requests
+          pip install --quiet requests pillow
           python3 - <<'PY'
-          import json, os, time, requests
-          UA={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
+          import json, os, re, html, time, io, requests
+          from PIL import Image
+          UA={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+              "Accept-Language":"en-US,en;q=0.9"}
           os.makedirs("_night/out", exist_ok=True)
           man=[]
-          def get(url, params=None):
-              try:
-                  r=requests.get(url, params=params, headers=UA, timeout=60)
-                  return r.status_code, r
-              except Exception as e:
-                  return "EXC", e
-          # 1) direct urls
-          if os.path.exists("_night/urls.txt"):
-              urls=[u.strip() for u in open("_night/urls.txt") if u.strip() and not u.startswith("#")]
-              for i,u in enumerate(urls,1):
-                  sc,r=get(u)
-                  if sc==200:
-                      fn=f"_night/out/u{i:02d}.jpg"; open(fn,"wb").write(r.content)
-                      man.append(f"{fn} url {u}"); print("OK",fn,len(r.content))
-                  else:
-                      man.append(f"u{i:02d} FAIL {sc} {u}"); print("FAIL",sc,u)
-          # 2) booru spec
-          srcs=[("danbooru","https://danbooru.donmai.us/posts.json","file_url"),
-                ("konachan","https://konachan.net/post.json","jpeg_url"),
-                ("yandere","https://yande.re/post.json","jpeg_url")]
-          if os.path.exists("_night/spec.json"):
-              spec=json.load(open("_night/spec.json"))
-              for item in spec:
-                  label=item["label"]; tags=item["tags"]; want=item.get("count",6); got=0
-                  for sname,surl,fkey in srcs:
-                      if got>=want: break
-                      sc,r=get(surl,{"tags":tags,"limit":100,"page":1})
-                      if sc!=200:
-                          man.append(f"{label} {sname} HTTP {sc}"); print("HTTP",sname,sc,str(r)[:200]); continue
-                      try:
-                          posts=r.json()
-                      except Exception as e:
-                          man.append(f"{label} {sname} BADJSON {str(r.text)[:120]}"); print("BADJSON",sname,r.text[:200]); continue
-                      if not isinstance(posts,list):
-                          man.append(f"{label} {sname} NOTLIST"); continue
-                      print(label,sname,"posts",len(posts))
-                      for p in posts:
-                          if got>=want: break
-                          w=p.get("image_width") or p.get("width") or 0
-                          h=p.get("image_height") or p.get("height") or 0
-                          fu=p.get(fkey) or p.get("sample_url") or ""
-                          if not fu or w<900 or h<1200: continue
-                          ar=w/h
-                          if ar<0.46 or ar>0.72: continue
-                          sc2,r2=get(fu)
-                          if sc2!=200: continue
-                          ext="jpg"
-                          fn=f"_night/out/{label}_{got+1:02d}.{ext}"
-                          open(fn,"wb").write(r2.content); got+=1
-                          man.append(f"{fn} {w}x{h} src={sname}:{p.get('id')} chars={p.get('tag_string_character','')} | {fu}")
-                          time.sleep(0.3)
-                      time.sleep(1)
-                  print("LABEL",label,"got",got)
+          def bing_urls(q, pages=2):
+              out=[]
+              for p in range(pages):
+                  first=1+p*35
+                  try:
+                      r=requests.get("https://www.bing.com/images/search",
+                          params={"q":q,"first":first,"count":35,"form":"HDRSC3","qft":"+filterui:aspect-tall"},
+                          headers=UA,timeout=45)
+                      for m in re.finditer(r'murl&quot;:&quot;(.*?)&quot;', r.text):
+                          out.append(html.unescape(m.group(1)))
+                  except Exception as e:
+                      print("bingerr",e)
+                  time.sleep(1)
+              return out
+          def google_urls(q, pages=2):
+              out=[]
+              for p in range(pages):
+                  try:
+                      r=requests.get("https://www.google.com/search",
+                          params={"q":q,"tbm":"isch","hl":"en","start":p*20},
+                          headers=UA,timeout=45)
+                      for m in re.finditer(r'\["(https?://[^"]+?\.(?:jpg|jpeg|png))",\d+,\d+\]', r.text):
+                          out.append(m.group(1))
+                  except Exception as e:
+                      print("glerr",e)
+                  time.sleep(1)
+              return out
+          spec=json.load(open("_night/spec.json"))
+          seen=set()
+          for item in spec:
+              label=item["label"]; q=item["query"]; want=item.get("count",8); got=0
+              cands=bing_urls(q) + google_urls(q)
+              print("LABEL",label,"cands",len(cands))
+              for u in cands:
+                  if got>=want: break
+                  if u in seen: continue
+                  seen.add(u)
+                  if not re.search(r'\.(jpg|jpeg|png)(\?|$)', u, re.I): continue
+                  try:
+                      d=requests.get(u,headers={**UA,"Referer":"https://www.pinterest.com/"},timeout=30)
+                      if d.status_code!=200 or len(d.content)<40000: continue
+                      im=Image.open(io.BytesIO(d.content)); w,h=im.size
+                      ar=w/h
+                      if w<800 or h<1200 or ar<0.46 or ar>0.72: continue
+                      fn=f"_night/out/{label}_{got+1:02d}.jpg"
+                      open(fn,"wb").write(d.content); got+=1
+                      man.append(f"{fn} {w}x{h} {u}")
+                      print("OK",fn,w,h)
+                  except Exception as e:
+                      continue
+              print("GOT",label,got)
           open("_night/out/manifest.txt","w").write("\n".join(man))
-          print("MANIFEST LINES", len(man))
           PY
-          ls -l _night/out | head -70
+          ls -l _night/out | head -80
       - name: Commit
         run: |
           git config user.email "nobelfamily537@gmail.com"
