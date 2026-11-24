@@ -1,30 +1,54 @@
 name: fetch-incoming
 on:
-  workflow_dispatch:
-    inputs:
-      urls:
-        description: space separated image urls
-        required: true
-        type: string
+  push:
+    paths:
+      - '_night/urls.txt'
+permissions:
+  contents: write
 jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Download
-        env:
-          URLS: ${{ inputs.urls }}
         run: |
-          mkdir -p out
-          n=0
-          for u in $URLS; do
-            n=$((n+1))
-            f=$(printf "%03d" $n)
-            curl -sSL --max-time 60 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" -e "https://www.pinterest.com/" -o "out/$f.bin" "$u" && echo "OK $f $u" || echo "FAIL $f $u"
-          done
-          ls -l out
-          file out/* | head -40
-      - uses: actions/upload-artifact@v4
-        with:
-          name: incoming
-          path: out
-          retention-days: 1
+          pip install --quiet requests pillow
+          python3 - <<'PY'
+          import os, re, io, html, requests
+          UA={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+              "Accept-Language":"en-US,en;q=0.9"}
+          def meta(t,p):
+              for pat in (rf'property=["\']{p}["\'][^>]*content=["\']([^"\']+)', rf'content=["\']([^"\']+)["\'][^>]*property=["\']{p}["\']'):
+                  m=re.search(pat,t)
+                  if m: return html.unescape(m.group(1)).replace("\\/","/")
+              return ""
+          urls=[u.strip() for u in open("_night/urls.txt") if u.strip() and not u.startswith("#")]
+          os.makedirs("_night/out", exist_ok=True)
+          man=[]
+          for i,u in enumerate(urls,1):
+              try:
+                  if "pinimg.com" in u:
+                      img=u
+                  else:
+                      r=requests.get(u,headers=UA,timeout=60)
+                      img=meta(r.text,"og:image")
+                  if not img:
+                      print("NOIMG",u); man.append(f"{i:03d} NOIMG {u}"); continue
+                  d=requests.get(img,headers={**UA,"Referer":"https://www.pinterest.com/"},timeout=90)
+                  d.raise_for_status()
+                  fn=f"_night/out/{i:03d}.jpg"
+                  open(fn,"wb").write(d.content)
+                  print("OK",fn,len(d.content),img)
+                  man.append(f"{i:03d} OK {img}")
+              except Exception as e:
+                  print("ERR",u,e); man.append(f"{i:03d} ERR {u} {e}")
+          open("_night/out/manifest.txt","w").write("\n".join(man))
+          PY
+          ls -l _night/out
+      - name: Commit
+        run: |
+          git config user.email "nobelfamily537@gmail.com"
+          git config user.name "AniPix Bot"
+          git add _night/out
+          git commit -m "temp: fetch $(date -u +%FT%TZ)" || echo "nothing to commit"
+          git push
